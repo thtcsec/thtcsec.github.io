@@ -3,1204 +3,433 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Trinh Hoang Tu - Cybersecurity enthusiast and developer, Google Developer Group member">
+    <meta name="keywords" content="Trinh Hoang Tu, Cybersecurity, Web Developer, GDG, Google Developer Group">
+    <meta name="author" content="Trinh Hoang Tu">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Trinh Hoang Tu - Portfolio">
+    <meta property="og:description" content="Cybersecurity enthusiast and developer, Google Developer Group member">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="images/avatar.jpg">
+    
     <title data-i18n="page_title">Trinh Hoang Tu Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        /* MŨI TÊN CUỘN XUỐNG               */
-        .scroll-down-arrow {
-            /* --- Định vị --- */
-            position: -ms-page-fixed;
-            /*
-    bottom: 2rem; /* Khoảng cách từ đáy màn hình */
-            left: 50%;
-            transform: translateX(-50%);
-            /* Căn giữa theo chiều ngang */
-
-            /* --- Giao diện --- */
-            font-size: 2rem;
-            /* Kích thước icon */
-            color: var(--text-color);
-            text-decoration: none;
-            padding: 1rem;
-            opacity: 0.7;
-            transition: opacity 0.3s ease;
-            z-index: 5;
-            /* Đảm bảo nó nằm trên các lớp nền */
-        }
-
-        .scroll-down-arrow:hover {
-            opacity: 1;
-            /* Rõ hơn khi di chuột vào */
-        }
-
-        /* --- Hiệu ứng nhún nhảy (Bounce) --- */
-        .scroll-down-arrow {
-            animation: bounce-down 2s infinite;
-        }
-
-        @keyframes bounce-down {
-
-            0%,
-            20%,
-            50%,
-            80%,
-            100% {
-                /* Giữ nguyên transform căn giữa và vị trí Y ban đầu */
-                transform: translateX(-50%) translateY(0);
-            }
-
-            40% {
-                /* Nhảy lên */
-                transform: translateX(-50%) translateY(-20px);
-            }
-
-            60% {
-                /* Đáp xuống một chút */
-                transform: translateX(-50%) translateY(-10px);
-            }
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --primary-blue: #2563eb;
-            --secondary-blue: #1d4ed8;
-            --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --gradient-hover: linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%);
-            --text-light: #1f2937;
-            --text-dark: #f9fafb;
-            --bg-light: #ffffff;
-            --bg-dark: #111827;
-            --card-light: #f8fafc;
-            --card-dark: #1f2937;
-            --shadow-light: rgba(0, 0, 0, 0.1);
-            --shadow-dark: rgba(0, 0, 0, 0.3);
-        }
-
-        [data-theme="dark"] {
-            --text-color: var(--text-dark);
-            --bg-color: var(--bg-dark);
-            --card-color: var(--card-dark);
-            --shadow: var(--shadow-dark);
-        }
-
-        [data-theme="light"] {
-            --text-color: var(--text-light);
-            --bg-color: var(--bg-light);
-            --card-color: var(--card-light);
-            --shadow: var(--shadow-light);
-        }
-
-        [data-i18n] {
-            transition: opacity 0.3s ease-in-out;
-        }
-
-        .fade-out {
-            opacity: 0;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background: var(--bg-color);
-            transition: all 0.3s ease;
-        }
-
-        /* Splash Screen */
-        .splash-screen {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--gradient);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-            opacity: 1;
-            transition: opacity 0.5s ease;
-            /* display: none; by default, controlled by JS */
-        }
-
-        .splash-screen.fade-out {
-            opacity: 0;
-        }
-
-        .splash-text {
-            font-size: 3rem;
-            font-weight: 700;
-            color: white;
-            animation: pulse 2s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-
-            0%,
-            100% {
-                transform: scale(1);
-            }
-
-            50% {
-                transform: scale(1.05);
-            }
-        }
-
-        /* Home Section */
-        .home {
-            position: relative;
-            min-height: 100vh;
-            overflow: hidden;
-            width: 100%;
-            display: flex;
-            /* Added for centering content */
-            align-items: center;
-            /* Added for centering content */
-            justify-content: center;
-            /* Added for centering content */
-            text-align: center;
-            /* Added for centering content */
-        }
-
-        /* Ảnh nền tràn full màn hình */
-        .home-bg {
-            position: absolute;
-            top: 0;
-            left: 50%;
-            width: 100vw;
-            height: 100%;
-            transform: translateX(-50%);
-            background-image: url('background.png');
-            /* Ensure this path is correct */
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            z-index: 0;
-            opacity: 0.5;
-        }
-
-        /* Container nội dung */
-        .home-content {
-            position: relative;
-            z-index: 1;
-            max-width: 1200px;
-            width: 90%;
-            margin: 0 auto;
-            padding: 2rem;
-            text-align: center;
-        }
-
-        /* Dark/Light mode */
-        [data-theme="dark"] .home-bg {
-            opacity: 0.3;
-        }
-
-        [data-theme="light"] .home-bg {
-            opacity: 0.2;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .home-bg {
-                background-attachment: scroll;
-            }
-        }
-
-        /* Header */
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: var(--card-color);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 2px 20px var(--shadow);
-            z-index: 1000;
-            transition: all 0.3s ease;
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 5%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .logo {
-            font-size: 2rem;
-            font-weight: bold;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            opacity: 0;
-            transform: translateY(-20px);
-            transition: opacity 0.4s ease, transform 0.4s ease;
-        }
-
-        .logo.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-            align-items: center;
-            /* Center vertically with language switcher */
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-color);
-            font-weight: 500;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary-blue);
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--gradient);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .theme-toggle {
-            background: var(--gradient);
-            border: none;
-            padding: 0.5rem;
-            border-radius: 50%;
-            color: white;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .theme-toggle:hover {
-            transform: scale(1.1);
-        }
-
-        .theme-toggle:active {
-            transform: scale(0.95);
-        }
-
-        /* Language Switcher */
-        .language-switcher {
-            display: flex;
-            gap: 0.5rem;
-            margin-left: 1rem;
-            /* Space from theme toggle */
-        }
-
-        .lang-btn {
-            background: var(--card-color);
-            border: 1px solid rgba(102, 126, 234, 0.2);
-            color: var(--text-color);
-            padding: 0.4rem 0.8rem;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            font-size: 0.9rem;
-        }
-
-        .lang-btn.active,
-        .lang-btn:hover {
-            background: var(--gradient);
-            color: white;
-            border-color: transparent;
-        }
-
-        /* Main Content */
-        main {
-            margin-top: 80px;
-        }
-
-        section {
-            padding: 5rem 5%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            text-align: center;
-            margin-bottom: 3rem;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        /* Home Section specific */
-        .home-content h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            /* animation handled by JS, so remove static CSS animation here */
-        }
-
-        .home-content p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            color: var(--primary-blue);
-            /* animation handled by JS */
-        }
-
-        .progress-container {
-            max-width: 500px;
-            margin: 2rem auto;
-            position: relative;
-            /* animation handled by JS */
-        }
-
-        .progress-tooltip {
-            position: absolute;
-            background-color: var(--card-dark);
-            color: var(--text-dark);
-            padding: 0.75rem 1rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px var(--shadow-dark);
-            font-size: 0.9rem;
-
-            /* Ẩn tooltip ban đầu */
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.2s ease, visibility 0.2s ease;
-            pointer-events: none;
-            /* Quan trọng: để không bị che mất sự kiện hover của thanh progress */
-            white-space: nowrap;
-            /* Ngăn text xuống dòng */
-            z-index: 10;
-        }
-
-        /* Hiển thị tooltip khi hover vào thanh progress */
-        .progress-bar:hover~.progress-tooltip {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .progress-label {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-        }
-
-        .progress-bar {
-            width: 100%;
-            height: 10px;
-            background: var(--card-color);
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: inset 0 2px 4px var(--shadow);
-        }
-
-        .progress-fill {
-            height: 100%;
-            background: var(--gradient);
-            border-radius: 10px;
-            transition: width 2s ease;
-            /* animation handled by JS */
-        }
-
-        @keyframes slideInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes progressFill {
-            from {
-                width: 0;
-            }
-
-            to {
-                width: var(--progress-width);
-            }
-        }
-
-        /* Technology Section (Combined Languages & Skills) */
-        #technology {
-            padding-top: 5rem;
-            padding-bottom: 5rem;
-            position: relative;
-            /* For scroll buttons positioning */
-        }
-
-        .tech-carousel-wrapper {
-            position: relative;
-            margin: 0 40px;
-            /* Space for buttons */
-        }
-
-        .tech-carousel-container {
-            overflow-x: hidden;
-            /* Hide scrollbar for smooth auto-scroll */
-            position: relative;
-            padding: 1rem 0;
-            /* Add padding for items that might be slightly outside */
-            max-width: 100%;
-            /* Ensure it doesn't overflow parent */
-            scroll-behavior: smooth;
-            /* Smooth scroll for manual buttons */
-        }
-
-        .tech-carousel {
-            display: flex;
-            gap: 2rem;
-            white-space: nowrap;
-            will-change: transform;
-            padding-bottom: 10px;
-        }
-
-        .tech-item {
-            display: inline-flex;
-            /* Use inline-flex for items within flex container */
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 1rem;
-            background: var(--card-color);
-            border-radius: 15px;
-            box-shadow: 0 5px 15px var(--shadow);
-            transition: all 0.3s ease;
-            min-width: 120px;
-            /* Minimum width for each item */
-            flex-shrink: 0;
-            /* Prevent items from shrinking */
-        }
-
-        .tech-item:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 10px 20px var(--shadow);
-        }
-
-        .tech-item i {
-            font-size: 3rem;
-            color: var(--primary-blue);
-            margin-bottom: 0.5rem;
-        }
-
-        .tech-item img {
-            /* For images like Linux, Git */
-            width: 3rem;
-            height: 3rem;
-            margin-bottom: 0.5rem;
-            object-fit: contain;
-        }
-
-        .tech-item span {
-            font-weight: 500;
-            font-size: 0.9rem;
-            text-align: center;
-        }
-
-        /* Duplicate items to create infinite scroll effect - handled by JS now */
-
-        @keyframes scroll-tech {
-            0% {
-                transform: translateX(0%);
-            }
-
-            100% {
-                transform: translateX(-50%);
-            }
-
-            /* Scrolls half the width of duplicated content */
-        }
-
-        /* Scroll buttons for technology carousel */
-        .scroll-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: var(--gradient);
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            font-size: 1.2rem;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-            z-index: 10;
-            transition: all 0.3s ease;
-        }
-
-        .scroll-btn:hover {
-            background: var(--gradient-hover);
-            transform: translateY(-50%) scale(1.1);
-        }
-
-        .scroll-btn.left {
-            left: 0;
-        }
-
-        .scroll-btn.right {
-            right: 0;
-        }
-
-        /* Projects Section */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-
-        .project-card {
-            background: var(--card-color);
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px var(--shadow);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .project-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: var(--gradient);
-        }
-
-        .project-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .view-all-btn {
-            display: inline-block;
-            padding: 1rem 2rem;
-            background: var(--gradient);
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            text-align: center;
-            margin: 0 auto;
-            display: block;
-            width: fit-content;
-        }
-
-        .view-all-btn:hover {
-            background: var(--gradient-hover);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
-        }
-
-        /* Contact Section */
-        .contact-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .contact-link {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 1rem 1.5rem;
-            background: var(--card-color);
-            color: var(--text-color);
-            text-decoration: none;
-            border-radius: 50px;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px var(--shadow);
-        }
-
-        .contact-link:hover {
-            background: var(--gradient);
-            color: white;
-            transform: translateY(-3px);
-        }
-
-        /* Floating Buttons */
-        .floating-buttons {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            z-index: 100;
-        }
-
-        .floating-btn {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background: var(--gradient);
-            border: none;
-            color: white;
-            font-size: 1.2rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-        }
-
-        .floating-btn:hover {
-            transform: translateY(-3px) scale(1.1);
-            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
-        }
-
-        /* CV Overlay */
-        .cv-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            display: none;
-            justify-content: center;
-            align-items: center;
-            z-index: 10000;
-        }
-
-        .cv-container {
-            width: 90%;
-            max-width: 800px;
-            height: 90%;
-            background: white;
-            border-radius: 10px;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-            /* Ensure iframe stays within bounds */
-        }
-
-        .cv-header {
-            padding: 1rem;
-            background: var(--gradient);
-            color: white;
-            border-radius: 10px 10px 0 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .close-cv {
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
-            padding: 0.5rem;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .close-cv:hover {
-            background: rgba(255, 255, 255, 0.2);
-        }
-
-        .cv-content {
-            flex: 1;
-            padding: 0;
-            /* Remove padding here as iframe handles its own content */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #666;
-            font-size: 1.1rem;
-        }
-
-        /* --- Footer Styles --- */
-        footer {
-            padding: 3rem 5%;
-            /* Tăng padding */
-        }
-
-        .footer-content {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            gap: 2rem;
-            text-align: left;
-            margin-bottom: 2rem;
-        }
-
-        .footer-section {
-            flex: 1;
-            min-width: 250px;
-        }
-
-        .footer-logo {
-            font-size: 2.5rem;
-            font-weight: bold;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 1rem;
-        }
-
-        .footer-section p {
-            margin-bottom: 0.5rem;
-            opacity: 0.8;
-        }
-
-        .footer-section p i {
-            margin-right: 0.75rem;
-            color: var(--primary-blue);
-            width: 20px;
-            text-align: center;
-        }
-
-        .footer-section a {
-            color: var(--text-color);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer-section a:hover {
-            color: var(--primary-blue);
-        }
-
-        .footer-section.tech {
-            text-align: center;
-        }
-
-        .footer-bottom {
-            border-top: 1px solid rgba(102, 126, 234, 0.1);
-            padding-top: 1.5rem;
-            text-align: center;
-            font-size: 0.9rem;
-            opacity: 0.7;
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .tech-badge {
-            background: var(--gradient);
-            color: white;
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .home-content h1 {
-                font-size: 2.5rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            section {
-                padding: 3rem 3%;
-            }
-
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-links {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .floating-buttons {
-                bottom: 1rem;
-                right: 1rem;
-            }
-
-            .mobile-menu-btn {
-                display: block !important;
-            }
-
-            .nav-links {
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background: var(--card-color);
-                flex-direction: column;
-                padding: 1rem 0;
-                box-shadow: 0 5px 15px var(--shadow);
-                transform: translateY(-100%);
-                opacity: 0;
-                pointer-events: none;
-                transition: all 0.3s ease;
-            }
-
-            .nav-links.mobile-open {
-                display: flex !important;
-                transform: translateY(0);
-                opacity: 1;
-                pointer-events: auto;
-            }
-
-            .nav-links li {
-                text-align: center;
-                padding: 0.5rem 0;
-            }
-
-            /* Adjust carousel for small screens if needed */
-            .tech-carousel {
-                animation-duration: 25s;
-                /* Faster scroll on mobile */
-            }
-
-            .scroll-btn {
-                width: 35px;
-                height: 35px;
-                font-size: 1rem;
-            }
-        }
-
-        /* Smooth scrolling */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Hide scrollbar but keep functionality */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: var(--card-color);
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: var(--gradient);
-            border-radius: 4px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--gradient-hover);
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preload" href="background.png" as="image">
+    <link rel="preload" href="mainscripts.js" as="script">
+    <link rel="preload" href="app.js" as="script">
 </head>
 
 <body data-theme="light">
+    <!-- Splash Screen -->
     <div class="splash-screen" id="splashScreen">
         <div class="splash-text">hello there</div>
     </div>
 
+    <!-- Header -->
     <header>
         <nav>
-            <div class="logo">Trinh Hoang Tu</div>
+            <a href="#home" class="logo">Trinh Hoang Tu</a>
             <ul class="nav-links">
                 <li><a href="#home" data-i18n="nav_home">Trang chủ</a></li>
                 <li><a href="#technology" data-i18n="nav_tech">Công nghệ</a></li>
+                <li><a href="#gdg" data-i18n="nav_gdg">GDG</a></li>
                 <li><a href="#projects" data-i18n="nav_projects">Dự án</a></li>
                 <li><a href="#contact" data-i18n="nav_contact">Thông tin</a></li>
             </ul>
-            <div class="language-switcher">
-                <button id="langEn" class="lang-btn" data-lang="en">EN</button>
-                <button id="langVn" class="lang-btn" data-lang="vn">VN</button>
+            <div class="nav-controls">
+                <div class="language-switcher">
+                    <button id="langToggle" class="lang-btn" title="Switch Language">
+                        <i class="fas fa-globe"></i>
+                        <span id="currentLang">VI</span>
+                    </button>
+                </div>
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                </button>
             </div>
-            <button class="theme-toggle" id="themeToggle">
-                <i class="fas fa-moon"></i>
-            </button>
         </nav>
     </header>
 
+    <!-- Main Content -->
     <main>
+        <!-- Home Section -->
         <section id="home" class="home">
             <div class="home-bg"></div>
             <div class="home-content">
                 <h1 data-i18n="home_title">Hi, I'm Tu</h1>
                 <p data-i18n="home_subtitle">A Cybersecurity Enthusiast with a Passion for Code</p>
+                
                 <div class="progress-container">
                     <div class="progress-label">
                         <span data-i18n="progress_label">Hành trình cho tới khi tốt nghiệp</span>
                         <span id="progressPercentage">0%</span>
                     </div>
-                    <div class="progress-container">
-                        <div class="progress-bar" id="progressBar">
-                            <div class="progress-fill" id="progressFill"></div>
-                        </div>
-                        <div id="progressTooltip" class="progress-tooltip"></div>
+                    <div class="progress-bar" id="progressBar" title="Click để xem chi tiết">
+                        <div class="progress-fill" id="progressFill"></div>
+                        <div id="progressTooltip" class="progress-tooltip">Loading...</div>
                     </div>
                 </div>
-                <a href="#technology" class="scroll-down-arrow" aria-label="Cuộn xuống phần tiếp theo">
+                
+                <a href="#technology" class="scroll-down-arrow" aria-label="Scroll to next section">
                     <i class="fas fa-chevron-down"></i>
                 </a>
             </div>
-
         </section>
 
+        <!-- Technology Section -->
         <section id="technology">
-            <h2 class="section-title" data-i18n="tech_section_title">Công nghệ & Kỹ năng</h2>
-            <div class="tech-carousel-wrapper">
-                <button class="scroll-btn left" id="techScrollLeft"><i class="fas fa-chevron-left"></i></button>
-                <div class="tech-carousel-container" id="techCarouselContainer">
-                    <div class="tech-carousel" id="techCarousel">
-                        <div class="tech-item"><img src="images/technologies/csharp.png" alt="C#"><span>C#</span></div>
-                        <div class="tech-item"><img src="images/technologies/java.png" alt="Java"><span>Java</span>
+            <div class="container">
+                <h2 class="section-title" data-i18n="tech_section_title">Công nghệ & Kỹ năng</h2>
+                
+                <div class="tech-carousel-wrapper">
+                    <button class="scroll-btn left" id="techScrollLeft" aria-label="Scroll left">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    
+                    <div class="tech-carousel-container" id="techCarouselContainer">
+                        <div class="tech-carousel" id="techCarousel">
+                            <div class="tech-item"><img src="images/technologies/csharp.png" alt="C#"><span>C#</span></div>
+                            <div class="tech-item"><img src="images/technologies/java.png" alt="Java"><span>Java</span></div>
+                            <div class="tech-item"><img src="images/technologies/html5.png" alt="HTML5"><span>HTML5</span></div>
+                            <div class="tech-item"><img src="images/technologies/css3.png" alt="CSS3"><span>CSS3</span></div>
+                            <div class="tech-item"><img src="images/technologies/javascript.png" alt="JavaScript"><span>JavaScript</span></div>
+                            <div class="tech-item"><img src="images/technologies/aspnet.png" alt="ASP.NET"><span>ASP.NET</span></div>
+                            <div class="tech-item"><img src="images/technologies/android.png" alt="Android"><span>Android</span></div>
+                            <div class="tech-item"><img src="images/technologies/sqlserver.png" alt="SQL Server"><span>SQL Server</span></div>
+                            <div class="tech-item"><img src="images/technologies/github.png" alt="GitHub"><span>GitHub</span></div>
+                            <div class="tech-item"><img src="images/technologies/git.png" alt="Git"><span>Git</span></div>
+                            <div class="tech-item"><img src="images/technologies/firebase.png" alt="Firebase"><span>Firebase</span></div>
+                            <div class="tech-item"><img src="images/technologies/kali.png" alt="Kali Linux"><span>Kali Linux</span></div>
+                            <div class="tech-item"><img src="images/technologies/nmap.png" alt="Nmap"><span>Nmap</span></div>
+                            <div class="tech-item"><img src="images/technologies/wireshark.png" alt="Wireshark"><span>Wireshark</span></div>
+                            <div class="tech-item"><img src="images/technologies/vmware.png" alt="VMWare"><span>VMWare</span></div>
+                            <div class="tech-item"><img src="images/technologies/gemini.png" alt="Gemini Pro"><span>Gemini Pro</span></div>
+                            <div class="tech-item"><img src="images/technologies/chatgpt.png" alt="ChatGPT"><span>ChatGPT</span></div>
+                            <div class="tech-item"><img src="images/technologies/visual_studio.png" alt="Visual Studio"><span>Visual Studio</span></div>
+                            <div class="tech-item"><img src="images/technologies/vscode.png" alt="VS Code"><span>VS Code</span></div>
+                            <div class="tech-item"><img src="images/technologies/intellij.png" alt="IntelliJ IDEA"><span>IntelliJ IDEA</span></div>
+                            <div class="tech-item"><img src="images/technologies/docker.png" alt="Docker"><span>Docker</span></div>
+                            <div class="tech-item"><img src="images/technologies/python.png" alt="Python"><span>Python</span></div>
+                            <div class="tech-item"><img src="images/technologies/claude.png" alt="Claude AI"><span>Claude AI</span></div>
+                            <div class="tech-item"><img src="images/technologies/deepseek.png" alt="DeepSeek"><span>DeepSeek</span></div>
+                            <div class="tech-item"><img src="images/technologies/perplexity.png" alt="Perplexity"><span>Perplexity</span></div>
+                            <div class="tech-item"><img src="images/technologies/github_copilot.png" alt="GitHub Copilot"><span>GitHub Copilot</span></div>
                         </div>
-                        <div class="tech-item"><img src="images/technologies/html5.png" alt="HTML5"><span>HTML5</span>
-                        </div>
-                        <div class="tech-item"><img src="images/technologies/css3.png" alt="CSS3"><span>CSS3</span>
-                        </div>
-                        <div class="tech-item"><img src="images/technologies/javascript.png"
-                                alt="JavaScript"><span>JavaScript</span></div>
-
-                        <div class="tech-item"><img src="images/technologies/aspnet.png"
-                                alt="ASP.NET"><span>ASP.NET</span></div>
-                        <div class="tech-item"><img src="images/technologies/android.png"
-                                alt="Android"><span>Android</span></div>
-                        <div class="tech-item"><img src="images/technologies/sqlserver.png" alt="SQL Server"><span>SQL
-                                Server</span></div>
-                        <div class="tech-item"><img src="images/technologies/github.png"
-                                alt="GitHub"><span>GitHub</span></div>
-
-                        <div class="tech-item"><img src="images/technologies/git.png" alt="Git"><span>Git</span></div>
-                        <div class="tech-item"><img src="images/technologies/firebase.png"
-                                alt="Firebase"><span>Firebase</span></div>
-                        <div class="tech-item"><img src="images/technologies/kali.png" alt="Kali Linux"><span>Kali
-                                Linux</span></div>
-                        <div class="tech-item"><img src="images/technologies/nmap.png" alt="Nmap"><span>Nmap</span>
-                        </div>
-                        <div class="tech-item"><img src="images/technologies/wireshark.png"
-                                alt="Wireshark"><span>Wireshark</span></div>
-                        <div class="tech-item"><img src="images/technologies/vmware.png" alt="VMWare"><span>VMWare</span></div>
-                        <div class="tech-item"><img src="images/technologies/gemini.png" alt="Gemini Pro"><span>Gemini
-                                Pro</span></div>
-                        <div class="tech-item"><img src="images/technologies/chatgpt.png"
-                                alt="ChatGPT"><span>ChatGPT</span></div>
-
-                        <div class="tech-item"><img src="images/technologies/visual_studio.png"
-                                alt="Visual Studio"><span>Visual Studio</span></div>
-                        <div class="tech-item"><img src="images/technologies/vscode.png" alt="VS Code"><span>VS Code</span></div>
                     </div>
-
+                    
+                    <button class="scroll-btn right" id="techScrollRight" aria-label="Scroll right">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
                 </div>
-                <button class="scroll-btn right" id="techScrollRight"><i class="fas fa-chevron-right"></i></button>
-
             </div>
         </section>
 
+        <!-- GDG Section -->
+        <section id="gdg">
+            <div class="container">
+                <h2 class="section-title" data-i18n="gdg_title">Google Developer Group</h2>
+                
+                <div class="gdg-content">
+                    <div class="gdg-image">
+                        <img src="images/gdg-hcmc-placeholder.svg" alt="GDG Ho Chi Minh City Member" loading="lazy">
+                    </div>
+                    
+                    <div class="gdg-info">
+                        <h3 class="gdg-title" data-i18n="gdg_title">Google Developer Group</h3>
+                        
+                        <p class="gdg-description" data-i18n="gdg_description">
+                            Active participant in the Google Developer Group Ho Chi Minh City community, focusing on learning and sharing knowledge about Google technologies and developer practices.
+                        </p>
+                        
+                        <div class="gdg-stats">
+                            <div class="stat-item">
+                                <div class="stat-number">1</div>
+                                <div class="stat-label" data-i18n="gdg_stat_events">Events Attended</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">1</div>
+                                <div class="stat-label" data-i18n="gdg_stat_months">Months Active</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">3+</div>
+                                <div class="stat-label" data-i18n="gdg_stat_connections">Connections Made</div>
+                            </div>
+                        </div>
+                        
+                        <a href="https://gdg.community.dev/gdg-ho-chi-minh-city/" class="btn" target="_blank" rel="noopener noreferrer">
+                            <i class="fas fa-external-link-alt"></i>
+                            <span data-i18n="gdg_visit">Visit GDG HCMC</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
         <section id="projects">
-            <h2 class="section-title" data-i18n="project_section_title">Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card" data-category="web csharp">
-                    <div class="project-image">
-                        <i class="fas fa-plane"></i>
-                        <div class="project-status status-completed" data-i18n="status_completed">Completed</div>
+            <div class="container">
+                <h2 class="section-title" data-i18n="project_section_title">Projects</h2>
+                
+                <div class="projects-grid">
+                    <div class="project-card animate-on-scroll">
+                        <div class="project-image">
+                            <i class="fas fa-plane"></i>
+                            <div class="project-status" data-i18n="status_completed">Completed</div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title" data-i18n="proj_flight_title">Flight Reservation</h3>
+                            <p class="project-description" data-i18n="proj_flight_desc">
+                                Hệ thống đặt vé máy bay được phát triển bằng ASP.NET C#, cung cấp giao diện thân thiện và quản lý đặt chỗ hiệu quả.
+                            </p>
+                            <div class="tech-stack">
+                                <span class="tech-badge">ASP.NET</span>
+                                <span class="tech-badge">C#</span>
+                                <span class="tech-badge">SQL Server</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="project-content">
-                        <h3 class="project-title" data-i18n="proj_flight_title">Flight Reservation</h3>
-                        <p class="project-description" data-i18n="proj_flight_desc">
-                            Hệ thống đặt vé máy bay được phát triển bằng ASP.NET C#, cung cấp giao diện thân thiện và
-                            quản lý đặt chỗ hiệu quả.
-                        </p>
-                        <div class="tech-stack">
-                            <span class="tech-badge">ASP.NET</span>
-                            <span class="tech-badge">C#</span>
-                            <span class="tech-badge">SQL Server</span>
+
+                    <div class="project-card animate-on-scroll">
+                        <div class="project-image">
+                            <i class="fas fa-laptop"></i>
+                            <div class="project-status" data-i18n="status_completed">Completed</div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title" data-i18n="proj_computer_store_title">Computer Store</h3>
+                            <p class="project-description" data-i18n="proj_computer_store_desc">
+                                Website bán máy tính với tính năng quản lý sản phẩm, giỏ hàng và thanh toán, được xây dựng bằng ASP.NET C#.
+                            </p>
+                            <div class="tech-stack">
+                                <span class="tech-badge">ASP.NET Core</span>
+                                <span class="tech-badge">C#</span>
+                                <span class="tech-badge">Entity Framework</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card animate-on-scroll">
+                        <div class="project-image">
+                            <i class="fas fa-server"></i>
+                            <div class="project-status" data-i18n="status_completed">Completed</div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title" data-i18n="proj_linux_server_manager_title">Linux Server Manager</h3>
+                            <p class="project-description" data-i18n="proj_linux_server_manager_desc">
+                                Ứng dụng quản lý máy chủ Linux dành cho máy tính để bàn (WPF C#), hoạt động như một SSH client mạnh mẽ sử dụng thư viện SSH.NET.
+                            </p>
+                            <div class="tech-stack">
+                                <span class="tech-badge">WPF</span>
+                                <span class="tech-badge">C#</span>
+                                <span class="tech-badge">SSH.NET</span>
+                                <span class="tech-badge">Linux</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card animate-on-scroll">
+                        <div class="project-image">
+                            <i class="fas fa-book-open"></i>
+                            <div class="project-status" data-i18n="status_completed">Completed</div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title" data-i18n="proj_ereader_title">EReader</h3>
+                            <p class="project-description" data-i18n="proj_ereader_desc">
+                                Ứng dụng đọc sách điện tử giàu tính năng với giao diện tùy chỉnh, đánh dấu và theo dõi tiến trình đọc.
+                            </p>
+                            <div class="tech-stack">
+                                <span class="tech-badge">JavaScript</span>
+                                <span class="tech-badge">HTML5</span>
+                                <span class="tech-badge">CSS3</span>
+                                <span class="tech-badge">LocalStorage</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="project-card" data-category="web csharp">
-                    <div class="project-image">
-                        <i class="fas fa-laptop"></i>
-                        <div class="project-status status-completed" data-i18n="status_completed">Completed</div>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title" data-i18n="proj_computer_store_title">Computer Store</h3>
-                        <p class="project-description" data-i18n="proj_computer_store_desc">
-                            Website bán máy tính với tính năng quản lý sản phẩm, giỏ hàng và thanh toán, được xây dựng
-                            bằng ASP.NET C#.
-                        </p>
-                        <div class="tech-stack">
-                            <span class="tech-badge">ASP.NET Core</span>
-                            <span class="tech-badge">C#</span>
-                            <span class="tech-badge">Entity Framework</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card" data-category="desktop csharp cybersecurity">
-                    <div class="project-image">
-                        <i class="fas fa-server"></i>
-                        <div class="project-status status-completed" data-i18n="status_completed">Completed</div>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title" data-i18n="proj_linux_server_manager_title">Linux Server Manager</h3>
-                        <p class="project-description" data-i18n="proj_linux_server_manager_desc">
-                            Ứng dụng quản lý máy chủ Linux dành cho máy tính để bàn (WPF C#), hoạt động như một SSH client
-                            mạnh mẽ sử dụng thư viện SSH.NET, giúp quản lý và tự động hóa các tác vụ trên server một cách
-                            dễ dàng.
-                        </p>
-                        <div class="tech-stack">
-                            <span class="tech-badge">WPF</span>
-                            <span class="tech-badge">C#</span>
-                            <span class="tech-badge">SSH.NET (Renci.SshNet)</span>
-                            <span class="tech-badge">Linux</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card" data-category="ai java">
-                    <div class="project-image">
-                        <i class="fas fa-user-check"></i>
-                        <div class="project-status status-completed" data-i18n="status_completed">Completed</div>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title" data-i18n="proj_face_recognition_title">Face Recognition</h3>
-                        <p class="project-description" data-i18n="proj_face_recognition_desc">
-                            Ứng dụng nhận diện khuôn mặt sử dụng WebSocket và Java, tích hợp API để xử lý hình ảnh thời
-                            gian thực.
-                        </p>
-                        <div class="tech-stack">
-                            <span class="tech-badge">Java</span>
-                            <span class="tech-badge">Google Cloud Vision</span>
-                            <span class="tech-badge">Microsoft Object Detection</span>
-                        </div>
-                    </div>
+                
+                <div class="text-center">
+                    <a href="projects.html" class="btn view-all-btn" data-i18n="view_all_projects">
+                        <i class="fas fa-arrow-right"></i>
+                        View All Projects
+                    </a>
                 </div>
             </div>
-            <a href="projects.html" class="view-all-btn" data-i18n="view_all_projects">
-                <i class="fas fa-arrow-right"></i> View All Projects
-            </a>
         </section>
 
+        <!-- Contact Section -->
         <section id="contact">
-            <h2 class="section-title" data-i18n="contact_section_title">Thông tin liên hệ</h2>
-            <div class="contact-links">
-                <a href="https://www.linkedin.com/in/tutrinh-csec" class="contact-link" target="_blank"
-                    rel="noopener noreferrer">
-                    <i class="fab fa-linkedin"></i> <span data-i18n="contact_linkedin">LinkedIn</span>
-                </a>
-
-                <a href="https://www.facebook.com/thtcsec" class="contact-link" target="_blank"
-                    rel="noopener noreferrer">
-                    <i class="fab fa-facebook"></i> <span data-i18n="contact_facebook">Facebook</span>
-                </a>
-
-                <a href="https://github.com/thtcsec" class="contact-link" target="_blank" rel="noopener noreferrer">
-                    <i class="fab fa-github"></i> <span data-i18n="contact_github">GitHub</span>
-                </a>
-
-                <a href="https://leetcode.com/thtcsec" class="contact-link" target="_blank" rel="noopener noreferrer">
-                    <i class="fas fa-code"></i> <span data-i18n="contact_leetcode">LeetCode</span>
-                </a>
-
-                <a href="https://www.tiktok.com/@tuhocleetcode" class="contact-link" target="_blank"
-                    rel="noopener noreferrer">
-                    <i class="fab fa-tiktok"></i> <span data-i18n="contact_tiktok">TikTok</span>
-                </a>
-
-                <a href="https://discord.com/users/815074234241646592" class="contact-link" target="_blank"
-                    rel="noopener noreferrer">
-                    <i class="fab fa-discord"></i> <span data-i18n="contact_discord">Discord</span>
-                </a>
-
+            <div class="container">
+                <h2 class="section-title" data-i18n="contact_section_title">Thông tin liên hệ</h2>
+                
+                <div class="contact-links">
+                    <a href="https://www.linkedin.com/in/tutrinh-csec" class="contact-link" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-linkedin"></i>
+                        <span data-i18n="contact_linkedin">LinkedIn</span>
+                    </a>
+                    <a href="https://www.facebook.com/thtcsec" class="contact-link" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-facebook"></i>
+                        <span data-i18n="contact_facebook">Facebook</span>
+                    </a>
+                    <a href="https://github.com/thtcsec" class="contact-link" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-github"></i>
+                        <span data-i18n="contact_github">GitHub</span>
+                    </a>
+                    <a href="https://leetcode.com/thtcsec" class="contact-link" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-code"></i>
+                        <span data-i18n="contact_leetcode">LeetCode</span>
+                    </a>
+                    <a href="https://www.tiktok.com/@tuhocleetcode" class="contact-link" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-tiktok"></i>
+                        <span data-i18n="contact_tiktok">TikTok</span>
+                    </a>
+                    <a href="https://discord.com/users/815074234241646592" class="contact-link" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-discord"></i>
+                        <span data-i18n="contact_discord">Discord</span>
+                    </a>
+                </div>
             </div>
         </section>
     </main>
 
+    <!-- Floating Buttons -->
     <div class="floating-buttons">
-        <button class="floating-btn" id="backToTop" title="Back to Top">
+        <button class="floating-btn" id="backToTop" title="Back to Top" aria-label="Back to top">
             <i class="fas fa-arrow-up"></i>
         </button>
-        <button class="floating-btn" id="viewCV" title="Xem CV">
+        <button class="floating-btn" id="viewCV" title="Xem CV" aria-label="View CV">
             <i class="fas fa-file-pdf"></i>
         </button>
     </div>
 
+    <!-- CV Overlay -->
     <div class="cv-overlay" id="cvOverlay">
         <div class="cv-container">
             <div class="cv-header">
                 <h3 data-i18n="cv_title">CV - Trinh Hoang Tu</h3>
-                <button class="close-cv" id="closeCV">
+                <button class="close-cv" id="closeCV" aria-label="Close CV">
                     <i class="fas fa-times"></i>
                 </button>
             </div>
             <div class="cv-content">
-                <img src="mycv.png" alt="CV of Trinh Hoang Tu"
-                    style="max-width: 100%; max-height: 100%; object-fit: contain;">
+                <img src="mycv.png" alt="CV of Trinh Hoang Tu" loading="lazy">
             </div>
         </div>
     </div>
 
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section about">
-                <a href="https://huflit.edu.vn/" target="_blank" title="Trường Đại học Ngoại ngữ - Tin học TP.HCM">
-                    <img src="images/huflit.png" alt="HUFLIT Logo" style="width: 80px; margin-bottom: 1rem;">
-                </a>
-                <p><i class="fas fa-university"></i><strong>Trường Đại học Ngoại ngữ, Tin học TPHCM</strong></p>
-                <p><i class="fas fa-map-marker-alt"></i> Ho Chi Minh City, Vietnam</p>
-                <p><i class="fas fa-envelope"></i> <a href="mailto:tht.csec2005@gmail.com">tht.csec2005@gmail.com</a>
-                </p>
+    <!-- Progress Detail Panel -->
+    <div class="progress-detail-panel" id="progressDetailPanel">
+        <div class="progress-panel-header">
+            <button class="close-progress-panel" id="closeProgressPanel">
+                <i class="fas fa-times"></i>
+            </button>
+            <h3 class="progress-panel-title" data-i18n="progress_panel_title">Academic Progress</h3>
+            <p class="progress-panel-subtitle" data-i18n="progress_panel_subtitle">HUFI University - Information Technology</p>
+        </div>
+        
+        <div class="progress-panel-content">
+            <div class="progress-stats">
+                <div class="progress-stat">
+                    <div class="progress-stat-number" id="currentSemesterStat">5</div>
+                    <div class="progress-stat-label" data-i18n="progress_stats_semester">Current Semester</div>
+                </div>
+                <div class="progress-stat">
+                    <div class="progress-stat-number" id="remainingSemestersStat">4</div>
+                    <div class="progress-stat-label" data-i18n="progress_stats_remaining">Semesters Remaining</div>
+                </div>
+                <div class="progress-stat">
+                    <div class="progress-stat-number" id="completedCreditsStat">73</div>
+                    <div class="progress-stat-label" data-i18n="progress_stats_credits">Credits Completed</div>
+                </div>
+                <div class="progress-stat">
+                    <div class="progress-stat-number" id="gpaStatistic">3.26</div>
+                    <div class="progress-stat-label" data-i18n="progress_stats_gpa">Current GPA</div>
+                </div>
             </div>
-            <div class="footer-section tech">
-                <p data-i18n="footer_build_with">Build with <i class="fas fa-heart" style="color: #e53e3e;"></i> using
-                </p>
-                <div class="footer-tech">
-                    <span class="tech-badge">HTML</span>
-                    <span class="tech-badge">CSS</span>
-                    <span class="tech-badge">JavaScript</span>
+
+            <div class="progress-milestones">
+                <div class="progress-milestone completed">
+                    <div class="milestone-icon completed">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <div class="milestone-info">
+                        <h4 data-i18n="progress_milestone_year1">Year 1: C# Programming Fundamentals</h4>
+                        <p data-i18n="progress_milestone_year1_desc">Completed foundational programming concepts and C# basics</p>
+                    </div>
+                </div>
+
+                <div class="progress-milestone current">
+                    <div class="milestone-icon current">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="milestone-info">
+                        <h4 data-i18n="progress_milestone_year2">Year 2: Advanced C#, Java & Python (Current)</h4>
+                        <p data-i18n="progress_milestone_year2_desc">Building solid programming skills across multiple languages</p>
+                    </div>
+                </div>
+
+                <div class="progress-milestone upcoming">
+                    <div class="milestone-icon upcoming">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="milestone-info">
+                        <h4 data-i18n="progress_milestone_year3">Year 3: Deep Dive into Major Specialization</h4>
+                        <p data-i18n="progress_milestone_year3_desc">Focus on cybersecurity and advanced IT concepts</p>
+                    </div>
+                </div>
+
+                <div class="progress-milestone upcoming">
+                    <div class="milestone-icon upcoming">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div class="milestone-info">
+                        <h4 data-i18n="progress_milestone_year4">Year 4: Thesis & Graduation</h4>
+                        <p data-i18n="progress_milestone_year4_desc">Capstone project, internship, and graduation preparation</p>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="footer-bottom">
-            <p>© <span id="currentYear">2025</span> Trinh Hoang Tu. All rights reserved.</p>
-            <p><i class="fas fa-users"></i> Số lượt ghé thăm: <span id="visitor-count">...</span></p>
-            <p>Cập nhật lần cuối: <span id="lastUpdated"></span></p>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section about">
+                    <a href="https://huflit.edu.vn/" target="_blank" title="Trường Đại học Ngoại ngữ - Tin học TP.HCM">
+                        <img src="images/huflit.png" alt="HUFLIT Logo">
+                    </a>
+                    <p><i class="fas fa-university"></i><strong>Trường Đại học Ngoại ngữ, Tin học TPHCM</strong></p>
+                    <p><i class="fas fa-map-marker-alt"></i> Ho Chi Minh City, Vietnam</p>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:tht.csec2005@gmail.com">tht.csec2005@gmail.com</a></p>
+                </div>
+                
+                <div class="footer-section tech">
+                    <p data-i18n="footer_build_with">Built with <i class="fas fa-heart" style="color: #e53e3e;"></i> using</p>
+                    <div class="footer-tech">
+                        <span class="tech-badge">HTML5</span>
+                        <span class="tech-badge">CSS3</span>
+                        <span class="tech-badge">JavaScript</span>
+                        <span class="tech-badge">Font Awesome</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© <span id="currentYear">2025</span> Trinh Hoang Tu. All rights reserved.</p>
+                <div class="visitor-counter">
+                    <i class="fas fa-users"></i> 
+                    <span>Visitors: <span id="visitor-count">0</span></span>
+                </div>
+                <p>Last updated: <span id="lastUpdated">July 19, 2025</span></p>
+            </div>
         </div>
     </footer>
 
+    <!-- Scripts -->
     <script src="mainscripts.js"></script>
+    <script src="portfolio-enhancements.js"></script>
+    <script src="app.js"></script>
 </body>
-
 </html>
