@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="projects_page_title">Dự án - Portfolio Trịnh Hoàng Tú</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Portfolio of Trinh Hoang Tu - Cybersecurity enthusiast and developer showcasing web, mobile, and desktop applications">
+    <meta name="keywords" content="Trinh Hoang Tu, Portfolio, Projects, Cybersecurity, Web Development, Mobile Apps, C#, Java, JavaScript">
+    <meta name="author" content="Trinh Hoang Tu">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://trinhhoangtu.github.io/projects.html">
+    <meta property="og:title" content="Projects - Trinh Hoang Tu Portfolio">
+    <meta property="og:description" content="Explore my development journey through various projects">
+    <meta property="og:image" content="https://trinhhoangtu.github.io/images/avatar.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://trinhhoangtu.github.io/projects.html">
+    <meta property="twitter:title" content="Projects - Trinh Hoang Tu Portfolio">
+    <meta property="twitter:description" content="Explore my development journey through various projects">
+    <meta property="twitter:image" content="https://trinhhoangtu.github.io/images/avatar.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="images/avatar.jpg">
+    <link rel="apple-touch-icon" href="images/avatar.jpg">
+
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="styles.css" as="style">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    
+    <style>
+        /* Projects Page Specific Styles */
+        
+        /* Fix header overlap */
+        main {
+            margin-top: 100px;
+            padding: 2rem 5%;
+        }
+        
+        .projects-page-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            padding: 3rem 0;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+            border-radius: 20px;
+            animation: slideInUp 1s ease;
+        }
+
+        .projects-page-title {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .projects-page-subtitle {
+            font-size: 1.2rem;
+            color: var(--primary-blue);
+            margin-bottom: 2rem;
+        }
+
+        .projects-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--primary-blue);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Back to home button */
+        .back-home-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            background: var(--gradient);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 500;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .back-home-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Filters */
+        .project-filters {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: var(--card-color);
+            border: 2px solid transparent;
+            padding: 0.7rem 1.5rem;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            color: var(--text-color);
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--gradient);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+            justify-content: center;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .project-card {
+            background: var(--card-color);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .project-image {
+            height: 200px;
+            background: var(--gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+            position: relative;
+        }
+
+        .project-status {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(255, 255, 255, 0.9);
+            color: var(--primary-blue);
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .project-title {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-color);
+        }
+
+        .project-description {
+            color: var(--text-color);
+            opacity: 0.8;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+            flex-grow: 1;
+        }
+
+        .tech-stack {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+
+        .tech-badge {
+            background: rgba(102, 126, 234, 0.1);
+            color: var(--primary-blue);
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+        }
+
+        .project-actions {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: auto;
+        }
+
+        .btn-small {
+            padding: 0.6rem 1.2rem;
+            font-size: 0.9rem;
+            border-radius: 20px;
+            background: var(--gradient);
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            flex: none;
+        }
+
+        .btn-small:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        /* Modal */
+        .project-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .project-modal.show {
+            opacity: 1;
+            display: flex;
+        }
+
+        .modal-content {
+            background: var(--card-color);
+            padding: 2rem;
+            border-radius: 20px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            transform: scale(0.8);
+            transition: transform 0.3s ease;
+        }
+
+        .project-modal.show .modal-content {
+            transform: scale(1);
+        }
+
+        .modal-icon {
+            font-size: 3rem;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+
+        .modal-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-color);
+        }
+
+        .modal-text {
+            color: var(--text-color);
+            opacity: 0.8;
+            margin-bottom: 2rem;
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .modal-actions .btn {
+            background: var(--gradient);
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border-radius: 20px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .modal-actions .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        /* Animations */
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .project-card {
+            animation: fadeIn 0.6s ease forwards;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .projects-page-title {
+                font-size: 2rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .projects-stats {
+                gap: 2rem;
+            }
+
+            .project-filters {
+                gap: 0.5rem;
+            }
+
+            .filter-btn {
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
+            }
+
+            main {
+                margin-top: 80px;
+                padding: 2rem 3%;
+            }
+
+            .back-home-btn {
+                top: 10px;
+                left: 10px;
+                padding: 0.6rem 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body data-theme="light">
+    <!-- Back to Home Button -->
+    <a href="index.html" class="back-home-btn" data-i18n="back_home">
+        <i class="fas fa-arrow-left"></i>
+        <span>Trang chủ</span>
+    </a>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Projects Page Header -->
+        <div class="projects-page-header">
+            <h1 class="projects-page-title" data-i18n="projects_page_title">Dự án của tôi</h1>
+            <p class="projects-page-subtitle" data-i18n="projects_page_subtitle">Khám phá hành trình phát triển của tôi qua các dự án khác nhau</p>
+            
+            <div class="projects-stats">
+                <div class="stat-item">
+                    <span class="stat-number">8+</span>
+                    <span class="stat-label" data-i18n="stats_projects">Dự án hoàn thành</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">4</span>
+                    <span class="stat-label" data-i18n="stats_languages">Ngôn ngữ lập trình</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">2+</span>
+                    <span class="stat-label" data-i18n="stats_years">Năm kinh nghiệm</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project Filters -->
+        <div class="project-filters">
+            <button class="filter-btn active" data-filter="all" data-i18n="filter_all">Tất cả</button>
+            <button class="filter-btn" data-filter="web" data-i18n="filter_web">Web</button>
+            <button class="filter-btn" data-filter="desktop" data-i18n="filter_desktop">Desktop</button>
+            <button class="filter-btn" data-filter="mobile" data-i18n="filter_mobile">Mobile</button>
+        </div>
+
+        <!-- Projects Grid -->
+        <div class="projects-grid">
+            <!-- Personal Portfolio -->
+            <div class="project-card" data-category="web" data-project="portfolio">
+                <div class="project-image">
+                    <i class="fas fa-user"></i>
+                    <div class="project-status" data-i18n="status_completed">Đã hoàn thành</div>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title" data-i18n="proj_portfolio_title">Portfolio Website</h3>
+                    <p class="project-description" data-i18n="proj_portfolio_desc">
+                        Website portfolio cá nhân được thiết kế với giao diện hiện đại, responsive và hỗ trợ đa ngôn ngữ.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-badge">HTML5</span>
+                        <span class="tech-badge">CSS3</span>
+                        <span class="tech-badge">JavaScript</span>
+                    </div>
+                    <div class="project-actions">
+                        <button class="btn-small" onclick="showProjectModal('portfolio')" data-i18n="btn_view_details">Xem chi tiết</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Flight Reservation -->
+            <div class="project-card" data-category="web" data-project="flight">
+                <div class="project-image">
+                    <i class="fas fa-plane"></i>
+                    <div class="project-status" data-i18n="status_completed">Đã hoàn thành</div>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title" data-i18n="proj_flight_title">Flight Reservation System</h3>
+                    <p class="project-description" data-i18n="proj_flight_desc">
+                        Hệ thống đặt vé máy bay được phát triển bằng ASP.NET C#, cung cấp giao diện thân thiện và quản lý đặt chỗ hiệu quả.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-badge">ASP.NET</span>
+                        <span class="tech-badge">C#</span>
+                        <span class="tech-badge">SQL Server</span>
+                    </div>
+                    <div class="project-actions">
+                        <button class="btn-small" onclick="showProjectModal('flight')" data-i18n="btn_view_details">Xem chi tiết</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Computer Store -->
+            <div class="project-card" data-category="web" data-project="computer-store">
+                <div class="project-image">
+                    <i class="fas fa-laptop"></i>
+                    <div class="project-status" data-i18n="status_completed">Đã hoàn thành</div>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title" data-i18n="proj_computer_store_title">Computer Store Website</h3>
+                    <p class="project-description" data-i18n="proj_computer_store_desc">
+                        Website bán máy tính với tính năng quản lý sản phẩm, giỏ hàng và thanh toán, được xây dựng bằng ASP.NET C#.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-badge">ASP.NET Core</span>
+                        <span class="tech-badge">C#</span>
+                        <span class="tech-badge">Entity Framework</span>
+                    </div>
+                    <div class="project-actions">
+                        <button class="btn-small" onclick="showProjectModal('computer-store')" data-i18n="btn_view_details">Xem chi tiết</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Linux Server Manager -->
+            <div class="project-card" data-category="desktop" data-project="linux-manager">
+                <div class="project-image">
+                    <i class="fas fa-server"></i>
+                    <div class="project-status" data-i18n="status_completed">Đã hoàn thành</div>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title" data-i18n="proj_linux_server_manager_title">Linux Server Manager</h3>
+                    <p class="project-description" data-i18n="proj_linux_server_manager_desc">
+                        Ứng dụng quản lý máy chủ Linux dành cho máy tính để bàn (WPF C#), hoạt động như một SSH client mạnh mẽ sử dụng thư viện SSH.NET.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-badge">WPF</span>
+                        <span class="tech-badge">C#</span>
+                        <span class="tech-badge">SSH.NET</span>
+                        <span class="tech-badge">Linux</span>
+                    </div>
+                    <div class="project-actions">
+                        <button class="btn-small" onclick="showProjectModal('linux-manager')" data-i18n="btn_view_details">Xem chi tiết</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- EReader -->
+            <div class="project-card" data-category="web" data-project="ereader">
+                <div class="project-image">
+                    <i class="fas fa-book-open"></i>
+                    <div class="project-status" data-i18n="status_completed">Đã hoàn thành</div>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title" data-i18n="proj_ereader_title">EReader</h3>
+                    <p class="project-description" data-i18n="proj_ereader_desc">
+                        Ứng dụng đọc sách điện tử giàu tính năng với giao diện tùy chỉnh, đánh dấu và theo dõi tiến trình đọc.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-badge">JavaScript</span>
+                        <span class="tech-badge">HTML5</span>
+                        <span class="tech-badge">CSS3</span>
+                        <span class="tech-badge">LocalStorage</span>
+                    </div>
+                    <div class="project-actions">
+                        <button class="btn-small" onclick="showProjectModal('ereader')" data-i18n="btn_view_details">Xem chi tiết</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chat Application -->
+            <div class="project-card" data-category="web" data-project="chat">
+                <div class="project-image">
+                    <i class="fas fa-comments"></i>
+                    <div class="project-status" data-i18n="status_completed">Đã hoàn thành</div>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title" data-i18n="proj_chat_title">Chat Application</h3>
+                    <p class="project-description" data-i18n="proj_chat_desc">
+                        Ứng dụng chat thời gian thực sử dụng WebSocket và Java, hỗ trợ chat nhóm và tin nhắn cá nhân.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-badge">Java</span>
+                        <span class="tech-badge">WebSocket</span>
+                        <span class="tech-badge">HTML5</span>
+                        <span class="tech-badge">CSS3</span>
+                    </div>
+                    <div class="project-actions">
+                        <button class="btn-small" onclick="showProjectModal('chat')" data-i18n="btn_view_details">Xem chi tiết</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- English Master -->
+            <div class="project-card" data-category="mobile" data-project="english">
+                <div class="project-image">
+                    <i class="fas fa-language"></i>
+                    <div class="project-status" data-i18n="status_completed">Đã hoàn thành</div>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title" data-i18n="proj_english_title">English Master</h3>
+                    <p class="project-description" data-i18n="proj_english_desc">
+                        Ứng dụng học tiếng Anh trên Android với các bài học tương tác và hệ thống theo dõi tiến trình.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-badge">Android</span>
+                        <span class="tech-badge">Java</span>
+                        <span class="tech-badge">SQLite</span>
+                        <span class="tech-badge">Firebase</span>
+                    </div>
+                    <div class="project-actions">
+                        <button class="btn-small" onclick="showProjectModal('english')" data-i18n="btn_view_details">Xem chi tiết</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Drink Up -->
+            <div class="project-card" data-category="mobile" data-project="drinkup">
+                <div class="project-image">
+                    <i class="fas fa-glass-water"></i>
+                    <div class="project-status" data-i18n="status_completed">Đã hoàn thành</div>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title" data-i18n="proj_drinkup_title">Drink Up</h3>
+                    <p class="project-description" data-i18n="proj_drinkup_desc">
+                        Ứng dụng nhắc nhở uống nước hàng ngày với giao diện thân thiện và thống kê chi tiết.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-badge">Android</span>
+                        <span class="tech-badge">Java</span>
+                        <span class="tech-badge">SQLite</span>
+                    </div>
+                    <div class="project-actions">
+                        <button class="btn-small" onclick="showProjectModal('drinkup')" data-i18n="btn_view_details">Xem chi tiết</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Project Modal -->
+    <div id="projectModal" class="project-modal">
+        <div class="modal-content">
+            <div class="modal-icon">
+                <i class="fas fa-info-circle"></i>
+            </div>
+            <h3 id="modalTitle" class="modal-title">Project Title</h3>
+            <p id="modalText" class="modal-text">Project description goes here...</p>
+            <div class="modal-actions">
+                <button class="btn" onclick="hideModal()" data-i18n="btn_close">Đóng</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Language Switcher (floating) -->
+    <div class="language-switcher-float">
+        <button id="langToggle" class="lang-btn" title="Switch Language">
+            <i class="fas fa-globe"></i>
+            <span id="currentLang">VI</span>
+        </button>
+    </div>
+
+    <!-- Floating Buttons -->
+    <div class="floating-buttons">
+        <button class="floating-btn" id="backToTop" title="Back to Top">
+            <i class="fas fa-arrow-up"></i>
+        </button>
+    </div>
+
+    <!-- Scripts -->
+    <script src="app.js"></script>
+    <script>
+        // Projects page functionality
+        class ProjectsPage {
+            constructor() {
+                this.modal = document.getElementById('projectModal');
+                this.modalTitle = document.getElementById('modalTitle');
+                this.modalText = document.getElementById('modalText');
+                this.filterButtons = document.querySelectorAll('.filter-btn');
+                this.projectCards = document.querySelectorAll('.project-card');
+                this.backToTopBtn = document.getElementById('backToTop');
+                
+                this.projectDetails = {
+                    'portfolio': {
+                        title: 'Personal Portfolio Website',
+                        description: 'Website portfolio cá nhân được xây dựng với HTML5, CSS3, và JavaScript. Thiết kế responsive, hỗ trợ đa ngôn ngữ và có các hiệu ứng tương tác đẹp mắt.',
+                        link: 'current_page'
+                    },
+                    'flight': {
+                        title: 'Flight Reservation System',
+                        description: 'Hệ thống đặt vé máy bay toàn diện được phát triển bằng ASP.NET C#, bao gồm quản lý chuyến bay, đặt chỗ, thanh toán và báo cáo.',
+                        link: ''
+                    },
+                    'computer-store': {
+                        title: 'Computer Store Website',
+                        description: 'Website thương mại điện tử bán máy tính và linh kiện, tích hợp giỏ hàng, thanh toán online và quản lý đơn hàng.',
+                        link: ''
+                    },
+                    'linux-manager': {
+                        title: 'Linux Server Manager',
+                        description: 'Ứng dụng WPF C# để quản lý máy chủ Linux từ xa thông qua SSH, cung cấp giao diện đồ họa cho các lệnh terminal.',
+                        link: ''
+                    },
+                    'ereader': {
+                        title: 'EReader',
+                        description: 'Ứng dụng đọc sách điện tử với khả năng tùy chỉnh font, màu nền, đánh dấu và lưu tiến trình đọc.',
+                        link: ''
+                    },
+                    'chat': {
+                        title: 'Chat Application (WebSocket)',
+                        description: 'Ứng dụng chat thời gian thực sử dụng WebSocket và Java backend, hỗ trợ chat nhóm và tin nhắn riêng tư.',
+                        link: ''
+                    },
+                    'english': {
+                        title: 'English Master',
+                        description: 'Ứng dụng Android học tiếng Anh với các bài học tương tác, từ vựng, ngữ pháp và hệ thống theo dõi tiến trình học tập.',
+                        link: ''
+                    },
+                    'drinkup': {
+                        title: 'Drink Up - Water Reminder',
+                        description: 'Ứng dụng Android nhắc nhở uống nước hàng ngày với lịch uống tùy chỉnh, thống kê và giao diện thân thiện.',
+                        link: ''
+                    }
+                };
+                
+                this.init();
+            }
+            
+            init() {
+                // Filter functionality
+                this.filterButtons.forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        this.filterProjects(btn);
+                    });
+                });
+                
+                // Modal close functionality
+                this.modal.addEventListener('click', (e) => {
+                    if (e.target === this.modal) {
+                        this.hideModal();
+                    }
+                });
+                
+                // Back to top functionality
+                if (this.backToTopBtn) {
+                    window.addEventListener('scroll', () => {
+                        if (window.pageYOffset > 300) {
+                            this.backToTopBtn.style.display = 'flex';
+                        } else {
+                            this.backToTopBtn.style.display = 'none';
+                        }
+                    });
+                    
+                    this.backToTopBtn.addEventListener('click', () => {
+                        window.scrollTo({
+                            top: 0,
+                            behavior: 'smooth'
+                        });
+                    });
+                }
+                
+                // Animate on scroll
+                this.animateOnScroll();
+            }
+            
+            filterProjects(activeButton) {
+                this.filterButtons.forEach(btn => btn.classList.remove('active'));
+                activeButton.classList.add('active');
+                
+                const filterValue = activeButton.getAttribute('data-filter');
+                
+                this.projectCards.forEach(card => {
+                    if (filterValue === 'all' || card.getAttribute('data-category').includes(filterValue)) {
+                        card.style.display = 'block';
+                        card.style.animation = 'fadeIn 0.5s ease forwards';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            }
+            
+            showProjectModal(projectId) {
+                const project = this.projectDetails[projectId];
+                
+                if (project) {
+                    this.modalTitle.textContent = project.title;
+                    
+                    if (project.link === 'current_page') {
+                        this.modalText.innerHTML = `${project.description}<br><br><strong>Bạn đang xem rùi đó :D</strong>`;
+                    } else if (project.link === '') {
+                        this.modalText.innerHTML = `${project.description}<br><br><strong>Chưa gắn link dự án này.</strong>`;
+                    } else {
+                        this.modalText.textContent = project.description;
+                    }
+                    
+                    this.modal.style.display = 'flex';
+                    setTimeout(() => {
+                        this.modal.classList.add('show');
+                    }, 10);
+                }
+            }
+            
+            hideModal() {
+                this.modal.classList.remove('show');
+                setTimeout(() => {
+                    this.modal.style.display = 'none';
+                }, 300);
+            }
+            
+            animateOnScroll() {
+                const projects = document.querySelectorAll('.project-card');
+                
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach((entry, index) => {
+                        if (entry.isIntersecting) {
+                            entry.target.style.animation = `fadeIn 0.5s ease forwards ${index * 0.1}s`;
+                        }
+                    });
+                }, { threshold: 0.1 });
+                
+                projects.forEach(project => {
+                    observer.observe(project);
+                });
+            }
+        }
+        
+        // Global functions for onclick handlers
+        function showProjectModal(projectId) {
+            if (window.projectsPageInstance) {
+                window.projectsPageInstance.showProjectModal(projectId);
+            }
+        }
+        
+        function hideModal() {
+            if (window.projectsPageInstance) {
+                window.projectsPageInstance.hideModal();
+            }
+        }
+        
+        // Initialize Projects Page when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            window.projectsPageInstance = new ProjectsPage();
+        });
+    </script>
+</body>
+</html>

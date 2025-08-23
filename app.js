@@ -1,545 +1,548 @@
-// Portfolio JavaScript functionality
-document.addEventListener('DOMContentLoaded', function() {
-    // Enhanced progress calculation and visitor counter
-    function updateVisitorCounter() {
-        const today = new Date().toDateString();
-        const lastVisit = localStorage.getItem('portfolio-last-visit');
-        let visitors = parseInt(localStorage.getItem('portfolio-visitors')) || 0;
-        
-        // Only increment if it's a different day or first visit
-        if (lastVisit !== today) {
-            visitors += 1;
-            localStorage.setItem('portfolio-visitors', visitors);
-            localStorage.setItem('portfolio-last-visit', today);
-        }
-        
-        // Add realistic base number for showcase
-        const displayVisitors = visitors + 1250;
-        const visitorCountEl = document.getElementById('visitor-count');
-        if (visitorCountEl) {
-            visitorCountEl.textContent = displayVisitors.toLocaleString();
-        }
-    }
-    
-    updateVisitorCounter();
-    
-    // Current year
-    const currentYearEl = document.getElementById('currentYear');
-    if (currentYearEl) {
-        currentYearEl.textContent = new Date().getFullYear();
-    }
-    
-    // Animate elements on scroll
-    const animateElements = document.querySelectorAll('.animate-on-scroll');
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('animated');
-            }
-        });
-    }, { threshold: 0.1 });
-    
-    animateElements.forEach(el => observer.observe(el));
-    
-    // Enhanced progress bar calculation
-    function setupProgressBar() {
-        const progressFill = document.getElementById('progressFill');
-        const progressPercentage = document.getElementById('progressPercentage');
-        const tooltip = document.getElementById('progressTooltip');
-        const progressBar = document.getElementById('progressBar');
-        const progressPanel = document.getElementById('progressDetailPanel');
-        const closeBtn = document.getElementById('closeProgressPanel');
-        
-        if (!progressFill || !progressPercentage || !tooltip) return;
-        
-        // University timeline: Sep 2022 - June 2026 (4 years)
-        // Year 1: 2 semesters (Sep 2022 - Jun 2023)
-        // Year 2: 3 semesters (Sep 2023 - Jun 2024) - includes summer
-        // Current: 5th semester (Year 2, final semester)
-        const startDate = new Date('2022-09-01');
-        const endDate = new Date('2026-06-30');
-        const currentDate = new Date();
-        
-        // Fixed values based on user's current status
-        const currentSemester = 5; // Currently in 5th semester
-        const totalSemesters = 9; // Year 1 (2) + Year 2 (3) + Year 3 (2) + Year 4 (2)
-        const remainingSemesters = 4; // 4 semesters remaining
-        const completedCredits = 73; // 73 credits completed
-        const currentGPA = 3.26; // Current GPA
-        
-        // Calculate progress based on completed semesters
-        const progress = (currentSemester / totalSemesters) * 100;
-        
-        // Animate progress bar
-        setTimeout(() => {
-            progressFill.style.width = progress + '%';
-            
-            // Animate percentage counter
-            let currentPercent = 0;
-            const percentStep = () => {
-                if (currentPercent <= progress) {
-                    progressPercentage.textContent = Math.round(currentPercent) + '%';
-                    currentPercent += progress / 100;
-                    requestAnimationFrame(percentStep);
-                }
-            };
-            percentStep();
-            
-            // Update tooltip
-            tooltip.textContent = `Semester ${currentSemester}/${totalSemesters} - ${Math.round(progress)}% completed`;
-            
-            // Update panel stats with fixed values
-            const currentSemesterStat = document.getElementById('currentSemesterStat');
-            const remainingSemestersStat = document.getElementById('remainingSemestersStat');
-            const completedCreditsStat = document.getElementById('completedCreditsStat');
-            const gpaStatistic = document.getElementById('gpaStatistic');
-            
-            if (currentSemesterStat) currentSemesterStat.textContent = currentSemester;
-            if (remainingSemestersStat) remainingSemestersStat.textContent = remainingSemesters;
-            if (completedCreditsStat) completedCreditsStat.textContent = completedCredits;
-            if (gpaStatistic) gpaStatistic.textContent = currentGPA;
-        }, 500);
-        
-        // Progress bar click handler
-        if (progressBar && progressPanel) {
-            progressBar.addEventListener('click', () => {
-                progressPanel.classList.add('open');
-            });
-        }
-        
-        // Close panel handler
-        if (closeBtn && progressPanel) {
-            closeBtn.addEventListener('click', () => {
-                progressPanel.classList.remove('open');
-            });
-        }
-        
-        // Click outside to close
-        document.addEventListener('click', (e) => {
-            if (progressPanel && !progressPanel.contains(e.target) && !progressBar.contains(e.target)) {
-                progressPanel.classList.remove('open');
-            }
-        });
-    }
-    
-    setupProgressBar();
-    
-    // Language switching functionality
-    function setupLanguageSwitching() {
-        let translations = {
-            "en": {
-                "page_title": "Trinh Hoang Tu Portfolio",
-                "nav_home": "Home",
-                "nav_tech": "Technologies", 
-                "nav_gdg": "GDG",
-                "nav_projects": "Projects",
-                "nav_contact": "Contact",
-                "home_title": "Hi, I'm Tu",
-                "home_subtitle": "A Cybersecurity Enthusiast with a Passion for Code",
-                "progress_label": "Journey to Graduation",
-                "tech_section_title": "Technologies & Skills",
-                "gdg_title": "Google Developer Group",
-                "gdg_member": "Member",
-                "gdg_description": "Active participant in the Google Developer Group community, focusing on learning and sharing knowledge about Google technologies and developer practices.",
-                "gdg_stat_events": "Events Attended",
-                "gdg_stat_months": "Months Active",
-                "gdg_stat_connections": "Connections Made",
-                "gdg_visit": "Visit GDG HCMC",
-                "progress_panel_title": "Academic Progress",
-                "progress_panel_subtitle": "HUFLIT University - Information Technology",
-                "progress_milestone_year1": "Year 1: C# Programming Fundamentals",
-                "progress_milestone_year1_desc": "Completed foundational programming concepts and C# basics",
-                "progress_milestone_year2": "Year 2: Advanced C#, Java & Python (Current)",
-                "progress_milestone_year2_desc": "Building solid programming skills across multiple languages",
-                "progress_milestone_year3": "Year 3: Deep Dive into Major Specialization",
-                "progress_milestone_year3_desc": "Focus on cybersecurity and advanced IT concepts",
-                "progress_milestone_year4": "Year 4: Thesis & Graduation",
-                "progress_milestone_year4_desc": "Capstone project, internship, and graduation preparation",
-                "progress_stats_semester": "Current Semester",
-                "progress_stats_remaining": "Semesters Remaining",
-                "progress_stats_credits": "Credits Completed",
-                "progress_stats_gpa": "Current GPA",
-                "project_section_title": "Projects",
-                "proj_flight_title": "Flight Reservation System",
-                "proj_flight_desc": "A comprehensive flight booking system developed with ASP.NET C#, featuring user-friendly interface and efficient reservation management.",
-                "proj_computer_store_title": "Computer Store Website",
-                "proj_computer_store_desc": "E-commerce website for computer sales with product management, shopping cart, and payment features, built using ASP.NET C#.",
-                "proj_linux_server_manager_title": "Linux Server Manager",
-                "proj_linux_server_manager_desc": "Desktop application (WPF C#) for Linux server management, functioning as a powerful SSH client using SSH.NET library.",
-                "proj_ereader_title": "EReader",
-                "proj_ereader_desc": "A feature-rich digital book reader with customizable themes, bookmarking, and reading progress tracking.",
-                "status_completed": "Completed",
-                "view_all_projects": "View All Projects",
-                "back_home": "Back to Home",
-                "projects_page_title": "Projects - Trinh Hoang Tu Portfolio",
-                "filter_all": "All",
-                "filter_web": "Web",
-                "filter_desktop": "Desktop",
-                "filter_mobile": "Mobile",
-                "btn_view_details": "View Details",
-                "btn_close": "Close",
-                "contact_section_title": "Contact Information",
-                "contact_linkedin": "LinkedIn",
-                "contact_facebook": "Facebook",
-                "contact_github": "GitHub", 
-                "contact_leetcode": "LeetCode",
-                "contact_tiktok": "TikTok",
-                "contact_discord": "Discord",
-                "cv_title": "CV - Trinh Hoang Tu",
-                "footer_build_with": "Built with ❤️ using",
-                "projects_page_title": "My Projects", 
-                "projects_page_subtitle": "Explore my development journey through various projects",
-                "stats_projects": "Projects Completed",
-                "stats_languages": "Programming Languages", 
-                "stats_years": "Years of Experience",
-                "filter_all": "All",
-                "filter_web": "Web", 
-                "filter_desktop": "Desktop",
-                "filter_mobile": "Mobile",
-                "proj_portfolio_title": "Portfolio Website",
-                "proj_portfolio_desc": "Personal portfolio website built with modern, responsive design and multi-language support.",
-                "proj_chat_title": "Chat Application",
-                "proj_chat_desc": "Real-time chat application using WebSocket and Java, supporting group chat and private messaging.",
-                "proj_english_title": "English Master",
-                "proj_english_desc": "Android English learning application with interactive lessons and progress tracking system.",
-                "proj_drinkup_title": "Drink Up",
-                "proj_drinkup_desc": "Daily water reminder Android app with friendly interface and detailed statistics.",
-                "btn_view_details": "View Details",
-                "btn_close": "Close"
+// ===== MAIN PORTFOLIO APPLICATION =====
+
+class PortfolioApp {
+    constructor() {
+        // State
+        this.currentTheme = localStorage.getItem('theme') || 'dark';
+        this.currentLang = localStorage.getItem('language') || 'vi';
+        this.isNavOpen = false;
+        this.isFabOpen = false;
+        this.lastScrollY = 0;
+
+        // Modals
+        this.modals = {};
+
+        // Config
+        this.config = {
+            scrollThreshold: 100,
+            typingTexts: [
+                'Cybersecurity Enthusiast & Developer',
+                'Google Developer Group Member',
+                'Full-Stack Developer',
+                'Security Researcher',
+                'Problem Solver'
+            ],
+            academic: {
+                startDate: '2023-09-01',
+                endDate: '2027-07-31',
+                totalSemesters: 9,
+                currentSemester: 5,
+                gpa: 3.26
             },
-            "vi": {
-                "page_title": "Hồ sơ Trịnh Hoàng Tú",
-                "nav_home": "Trang chủ",
-                "nav_tech": "Công nghệ",
-                "nav_gdg": "GDG", 
-                "nav_projects": "Dự án",
-                "nav_contact": "Thông tin",
-                "home_title": "Chào, tôi là Tú",
-                "home_subtitle": "Chuyên gia An ninh mạng với Đam mê Lập trình",
-                "progress_label": "Hành trình cho tới khi tốt nghiệp",
-                "tech_section_title": "Công nghệ & Kỹ năng",
-                "gdg_title": "Google Developer Group",
-                "gdg_member": "Thành viên",
-                "gdg_description": "Người tham gia tích cực trong cộng đồng Google Developer Group, tập trung vào việc học hỏi và chia sẻ kiến thức về các công nghệ Google và thực hành phát triển.",
-                "gdg_stat_events": "Sự kiện đã tham gia",
-                "gdg_stat_months": "Tháng hoạt động",
-                "gdg_stat_connections": "Kết nối đã tạo",
-                "gdg_visit": "Thăm GDG HCMC",
-                "progress_panel_title": "Tiến trình học tập",
-                "progress_panel_subtitle": "Đại học HUFLIT - Công nghệ thông tin",
-                "progress_milestone_year1": "Năm 1: Nền tảng lập trình C#",
-                "progress_milestone_year1_desc": "Hoàn thành các khái niệm lập trình nền tảng và cơ bản về C#",
-                "progress_milestone_year2": "Năm 2: C# nâng cao, Java & Python (Hiện tại)",
-                "progress_milestone_year2_desc": "Xây dựng kỹ năng lập trình vững chắc qua nhiều ngôn ngữ",
-                "progress_milestone_year3": "Năm 3: Đào sâu vào chuyên ngành",
-                "progress_milestone_year3_desc": "Tập trung vào an ninh mạng và các khái niệm IT nâng cao",
-                "progress_milestone_year4": "Năm 4: Luận văn & tốt nghiệp",
-                "progress_milestone_year4_desc": "Dự án tốt nghiệp, thực tập và chuẩn bị tốt nghiệp",
-                "progress_stats_semester": "Học kỳ hiện tại",
-                "progress_stats_remaining": "Học kỳ còn lại",
-                "progress_stats_credits": "Tín chỉ hoàn thành",
-                "progress_stats_gpa": "GPA hiện tại",
-                "project_section_title": "Dự án",
-                "proj_flight_title": "Hệ thống đặt vé máy bay",
-                "proj_flight_desc": "Hệ thống đặt vé máy bay được phát triển bằng ASP.NET C#, cung cấp giao diện thân thiện và quản lý đặt chỗ hiệu quả.",
-                "proj_computer_store_title": "Website cửa hàng máy tính",
-                "proj_computer_store_desc": "Website bán máy tính với tính năng quản lý sản phẩm, giỏ hàng và thanh toán, được xây dựng bằng ASP.NET C#.",
-                "proj_linux_server_manager_title": "Trình quản lý máy chủ Linux",
-                "proj_linux_server_manager_desc": "Ứng dụng quản lý máy chủ Linux dành cho máy tính để bàn (WPF C#), hoạt động như một SSH client mạnh mẽ sử dụng thư viện SSH.NET.",
-                "proj_ereader_title": "EReader",
-                "proj_ereader_desc": "Một ứng dụng đọc sách điện tử giàu tính năng với giao diện tùy chỉnh, đánh dấu và theo dõi tiến trình đọc.",
-                "status_completed": "Đã hoàn thành",
-                "view_all_projects": "Xem tất cả dự án",
-                "back_home": "Trang chủ",
-                "projects_page_title": "Dự án - Portfolio Trịnh Hoàng Tú",
-                "filter_all": "Tất cả",
-                "filter_web": "Web",
-                "filter_desktop": "Desktop",
-                "filter_mobile": "Mobile",
-                "btn_view_details": "Xem chi tiết",
-                "btn_close": "Đóng",
-                "contact_section_title": "Thông tin liên hệ",
-                "contact_linkedin": "LinkedIn",
-                "contact_facebook": "Facebook",
-                "contact_github": "GitHub",
-                "contact_leetcode": "LeetCode", 
-                "contact_tiktok": "TikTok",
-                "contact_discord": "Discord",
-                "cv_title": "CV - Trịnh Hoàng Tú",
-                "footer_build_with": "Được xây dựng với ❤️ sử dụng",
-                "projects_page_title": "Dự án của tôi",
-                "projects_page_subtitle": "Khám phá hành trình phát triển của tôi qua các dự án khác nhau", 
-                "stats_projects": "Dự án hoàn thành",
-                "stats_languages": "Ngôn ngữ lập trình",
-                "stats_years": "Năm kinh nghiệm",
-                "filter_all": "Tất cả",
-                "filter_web": "Web",
-                "filter_desktop": "Desktop", 
-                "filter_mobile": "Mobile",
-                "proj_portfolio_title": "Website Portfolio",
-                "proj_portfolio_desc": "Website portfolio cá nhân được thiết kế với giao diện hiện đại, responsive và hỗ trợ đa ngôn ngữ.",
-                "proj_chat_title": "Ứng dụng Chat",
-                "proj_chat_desc": "Ứng dụng chat thời gian thực sử dụng WebSocket và Java, hỗ trợ chat nhóm và tin nhắn cá nhân.",
-                "proj_english_title": "English Master",
-                "proj_english_desc": "Ứng dụng học tiếng Anh trên Android với các bài học tương tác và hệ thống theo dõi tiến trình.",
-                "proj_drinkup_title": "Drink Up",
-                "proj_drinkup_desc": "Ứng dụng nhắc nhở uống nước hàng ngày với giao diện thân thiện và thống kê chi tiết.",
-                "btn_view_details": "Xem chi tiết",
-                "btn_close": "Đóng"
+            visitorCounterNamespace: 'trinhhoangtu-portfolio'
+        };
+
+        this.projectDetails = {
+            'face-recognition': {
+                title: 'Face / Object Recognition (Java + Python Microservice)',
+                description: 'Engineered a multi-threaded Java server using TCP sockets secured with SSL/TLS encryption. Developed a Python microservice exposing a REST API (Flask/FastAPI), leveraging OpenCV and face_recognition. Java server communicates securely with the Python service over HTTPS for inference, returning results to clients.',
+                link: ''
+            },
+            'yodobashi': {
+                title: 'Yodobashi Sniper V2',
+                description: 'Advanced browser extension for automated product purchasing. Built with modern JavaScript (ES6+), Chrome APIs, and robust testing.',
+                link: 'https://github.com/thtcsec/yodobashi-sniper-v2'
+            },
+            'portfolio': {
+                title: 'Portfolio Website',
+                description: 'Website portfolio cá nhân được thiết kế với giao diện hiện đại, responsive và hỗ trợ đa ngôn ngữ.',
+                link: ''
+            },
+            'flight': {
+                title: 'Flight Reservation System',
+                description: 'Hệ thống đặt vé máy bay được phát triển bằng ASP.NET C#, cung cấp giao diện thân thiện và quản lý đặt chỗ hiệu quả.',
+                link: ''
+            },
+            'linux-manager': {
+                title: 'Linux Server Manager',
+                description: 'Ứng dụng quản lý máy chủ Linux dành cho máy tính để bàn (WPF C#), hoạt động như một SSH client mạnh mẽ sử dụng thư viện SSH.NET.',
+                link: ''
+            },
+            'ereader': {
+                title: 'EReader',
+                description: 'Ứng dụng đọc sách điện tử giàu tính năng với giao diện tùy chỉnh, đánh dấu và theo dõi tiến trình đọc.',
+                link: ''
+            },
+            'chat': {
+                title: 'Chat Application',
+                description: 'Ứng dụng chat thời gian thực sử dụng WebSocket và Java, hỗ trợ chat nhóm và tin nhắn cá nhân.',
+                link: ''
+            },
+            'english': {
+                title: 'English Master',
+                description: 'Ứng dụng học tiếng Anh trên Android với các bài học tương tác và hệ thống theo dõi tiến trình học tập.',
+                link: ''
             }
         };
-        
-        let currentLanguage = 'vi'; // Default to Vietnamese
-        
-        console.log('Setting up language switching...');
-        console.log('Embedded translations loaded:', translations);
-        
-        // Set initial language
-        updateLanguage(currentLanguage);
-        
-        // Language toggle button
-        const langToggle = document.getElementById('langToggle');
-        const currentLangSpan = document.getElementById('currentLang');
-        
-        console.log('Language toggle button:', langToggle);
-        console.log('Current language span:', currentLangSpan);
-        
-        if (langToggle) {
-            // Set initial display
-            if (currentLangSpan) {
-                currentLangSpan.textContent = currentLanguage.toUpperCase();
+
+        // Translations
+        this.translations = {
+            en: {
+                page_title: "Trinh Hoang Tu Portfolio",
+                nav_home: "Home",
+                nav_about: "About",
+                nav_skills: "Skills",
+                nav_projects: "Projects",
+                nav_contact: "Contact",
+                hero_greeting: "Hello, I'm",
+                hero_subtitle: "Cybersecurity Enthusiast & Developer",
+                hero_description: "Passionate about securing digital landscapes and crafting innovative solutions with cutting-edge technologies.",
+                progress_label: "Academic Journey",
+                about_title: "About Me",
+                about_subtitle: "Get to know me better",
+                about_description: "I'm a cybersecurity enthusiast and developer currently pursuing my degree in Information Technology at HUFLIT University. With a strong passion for both security and development, I love exploring the intersection of these fields.",
+                about_description2: "As an active member of the Google Developer Group Ho Chi Minh City, I continuously expand my knowledge and contribute to the tech community.",
+                skills_title: "Skills & Technologies",
+                skills_subtitle: "Tools and technologies I work with",
+                projects_title: "Featured Projects",
+                projects_subtitle: "Some of my recent work",
+                contact_title: "Let's Connect",
+                contact_subtitle: "Get in touch for opportunities or collaborations",
+            },
+            vi: {
+                page_title: "Portfolio Trịnh Hoàng Tú",
+                nav_home: "Trang chủ",
+                nav_about: "Về tôi",
+                nav_skills: "Kỹ năng",
+                nav_projects: "Dự án",
+                nav_contact: "Liên hệ",
+                hero_greeting: "Xin chào, tôi là",
+                hero_subtitle: "Người đam mê An ninh mạng & Lập trình viên",
+                hero_description: "Đam mê bảo mật không gian số và tạo ra các giải pháp sáng tạo với những công nghệ tiên tiến.",
+                progress_label: "Hành trình học tập",
+                about_title: "Về bản thân",
+                about_subtitle: "Để hiểu rõ hơn về tôi",
+                about_description: "Tôi là một người đam mê an ninh mạng và là lập trình viên, hiện đang theo học ngành Công nghệ Thông tin tại Đại học HUFLIT. Với niềm đam mê mãnh liệt cho cả bảo mật và phát triển, tôi thích khám phá sự giao thoa của hai lĩnh vực này.",
+                about_description2: "Là một thành viên tích cực của Google Developer Group TP. Hồ Chí Minh, tôi không ngừng mở rộng kiến thức và đóng góp cho cộng đồng công nghệ.",
+                skills_title: "Kỹ năng & Công nghệ",
+                skills_subtitle: "Các công cụ và công nghệ tôi làm việc",
+                projects_title: "Dự án nổi bật",
+                projects_subtitle: "Một vài sản phẩm gần đây của tôi",
+                contact_title: "Kết nối",
+                contact_subtitle: "Liên hệ để trao đổi cơ hội hoặc hợp tác",
             }
-            
-            langToggle.addEventListener('click', () => {
-                console.log('Language toggle clicked! Current:', currentLanguage);
-                currentLanguage = currentLanguage === 'vi' ? 'en' : 'vi';
-                updateLanguage(currentLanguage);
-                
-                if (currentLangSpan) {
-                    currentLangSpan.textContent = currentLanguage.toUpperCase();
-                }
-                
-                // Update document language attribute
-                document.documentElement.lang = currentLanguage;
-                
-                // Dispatch custom event for projects page
-                document.dispatchEvent(new CustomEvent('languageChanged', {
-                    detail: { language: currentLanguage }
-                }));
-                
-                console.log('Language switched to:', currentLanguage);
-            });
+        };
+
+        // Initialize after DOM is loaded
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', () => this.init());
         } else {
-            console.error('Language toggle button not found!');
+            this.init();
         }
+    }
+
+    init() {
+        console.log("🚀 Portfolio Initializing...");
+        this.initTheme();
+        this.initLanguage();
+        this.initNavigation();
+        this.initScrollHandlers();
+        this.initCustomCursor();
+        this.initParticles();
+        this.initModals();
+        this.initFAB();
+        this.initAnimations();
+        this.initTypingEffect();
+        this.initProgressBar();
+        this.initVisitorCounter();
+        this.initLoadingScreen();
+        this.initProjectCardListeners();
+        this.initProjectsPage();
+        this.bindEvents();
+        console.log("✅ Portfolio Initialized Successfully!");
+    }
+
+    bindEvents() {
+        // Theme Toggle
+        document.getElementById('themeToggle')?.addEventListener('click', () => this.toggleTheme());
+
+        // Language Toggle
+        document.getElementById('langToggle')?.addEventListener('click', () => this.toggleLanguage());
+
+        // Nav Menu
+        document.getElementById('navToggle')?.addEventListener('click', () => this.toggleNavMenu());
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                if (link.getAttribute('href').includes('#')) {
+                    e.preventDefault();
+                    this.scrollToSection(link.getAttribute('href').substring(1));
+                    this.closeNavMenu();
+                }
+            });
+        });
+
+        // FAB
+        document.getElementById('mainFab')?.addEventListener('click', () => this.toggleFAB());
+        document.getElementById('backToTop')?.addEventListener('click', () => this.scrollToTop());
+        document.getElementById('viewCV')?.addEventListener('click', () => this.openModal('cv'));
         
-        // Legacy support for language buttons with data-lang attribute
-        const langButtons = document.querySelectorAll('.lang-btn[data-lang]');
-        langButtons.forEach(btn => {
+        // Modals
+        document.getElementById('modalOverlay')?.addEventListener('click', (e) => {
+            if (e.target.id === 'modalOverlay') this.closeAllModals();
+        });
+        document.querySelectorAll('.modal-close').forEach(btn => {
+            btn.addEventListener('click', () => this.closeAllModals());
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') this.closeAllModals();
+        });
+        
+        // CV Download
+        document.getElementById('downloadCV')?.addEventListener('click', () => this.openModal('cv'));
+        
+        // Progress Details
+        document.getElementById('progressExpand')?.addEventListener('click', () => this.openModal('progress'));
+    }
+
+    // ===== PROJECTS PAGE SPECIFIC =====
+    initProjectCardListeners() {
+        document.querySelectorAll('.project-card').forEach(card => {
+            const viewDetailsButton = card.querySelector('.btn-outline');
+            const projectId = card.dataset.project;
+
+            if (viewDetailsButton && projectId) {
+                viewDetailsButton.addEventListener('click', (e) => {
+                    e.preventDefault(); // Prevent any default button action
+                    this.openModal('project', projectId);
+                });
+            }
+        });
+    }
+
+    initProjectsPage() {
+        if (!document.getElementById('projects-page')) return;
+
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        filterButtons.forEach(btn => {
             btn.addEventListener('click', () => {
-                const lang = btn.getAttribute('data-lang');
-                if (lang && lang !== currentLanguage) {
-                    currentLanguage = lang;
-                    updateLanguage(lang);
-                    updateActiveLanguageButton(btn);
-                    
-                    // Update document language attribute
-                    document.documentElement.lang = lang;
-                    
-                    // Dispatch custom event for projects page
-                    document.dispatchEvent(new CustomEvent('languageChanged', {
-                        detail: { language: lang }
-                    }));
-                }
+                filterButtons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                this.filterProjects(btn.dataset.filter);
             });
         });
-        
-        function updateLanguage(lang) {
-            console.log('Updating language to:', lang);
-            console.log('Available translations:', translations);
-            
-            if (!translations[lang]) {
-                console.error('No translations found for language:', lang);
-                return;
-            }
-            
-            const elements = document.querySelectorAll('[data-i18n]');
-            console.log('Found elements with data-i18n:', elements.length);
-            
-            // Add fade-out effect
-            elements.forEach(el => {
-                el.style.opacity = '0.7';
-                el.style.transition = 'opacity 0.3s ease';
-            });
-            
-            // Update text after brief delay for smooth transition
-            setTimeout(() => {
-                elements.forEach(el => {
-                    const key = el.getAttribute('data-i18n');
-                    if (translations[lang] && translations[lang][key]) {
-                        el.textContent = translations[lang][key];
-                        // Fade back in
-                        el.style.opacity = '1';
-                    } else {
-                        console.warn('Translation missing for key:', key, 'in language:', lang);
-                        el.style.opacity = '1';
-                    }
-                });
-            }, 150);
-            
-            // Update current language display
-            const currentLangSpan = document.getElementById('currentLang');
-            if (currentLangSpan) {
-                currentLangSpan.textContent = lang.toUpperCase();
-            }
-        }
-        
-        // Make updateLanguage available globally
-        window.updateLanguage = updateLanguage;
-        window.getCurrentLanguage = () => currentLanguage;
-        
-        function updateActiveLanguageButton(activeBtn) {
-            langButtons.forEach(btn => btn.classList.remove('active'));
-            activeBtn.classList.add('active');
-        }
     }
-    
-    setupLanguageSwitching();
-    
-    // Tech carousel functionality
-    function setupTechCarousel() {
-        const carousel = document.getElementById('techCarousel');
-        const leftBtn = document.getElementById('techScrollLeft');
-        const rightBtn = document.getElementById('techScrollRight');
-        
-        if (!carousel || !leftBtn || !rightBtn) return;
-        
-        let scrollAmount = 0;
-        const itemWidth = 160; // Approximate width of tech item + gap
-        
-        leftBtn.addEventListener('click', () => {
-            scrollAmount = Math.max(scrollAmount - itemWidth * 3, 0);
-            carousel.style.transform = `translateX(-${scrollAmount}px)`;
-        });
-        
-        rightBtn.addEventListener('click', () => {
-            const maxScroll = carousel.scrollWidth / 2; // Since we have duplicated items
-            scrollAmount = Math.min(scrollAmount + itemWidth * 3, maxScroll);
-            carousel.style.transform = `translateX(-${scrollAmount}px)`;
-        });
-    }
-    
-    setupTechCarousel();
-    
-    // CV overlay functionality
-    function setupCVOverlay() {
-        const viewCVBtn = document.getElementById('viewCV');
-        const cvOverlay = document.getElementById('cvOverlay');
-        const closeCVBtn = document.getElementById('closeCV');
-        
-        if (viewCVBtn && cvOverlay) {
-            viewCVBtn.addEventListener('click', () => {
-                cvOverlay.style.display = 'flex';
-            });
-        }
-        
-        if (closeCVBtn && cvOverlay) {
-            closeCVBtn.addEventListener('click', () => {
-                cvOverlay.style.display = 'none';
-            });
-            
-            // Close on overlay click
-            cvOverlay.addEventListener('click', (e) => {
-                if (e.target === cvOverlay) {
-                    cvOverlay.style.display = 'none';
-                }
-            });
-        }
-    }
-    
-    setupCVOverlay();
-    
-    // Back to top functionality
-    function setupBackToTop() {
-        const backToTopBtn = document.getElementById('backToTop');
-        
-        if (backToTopBtn) {
-            backToTopBtn.addEventListener('click', () => {
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-            });
-            
-            // Show/hide back to top button based on scroll position
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 300) {
-                    backToTopBtn.style.opacity = '1';
-                } else {
-                    backToTopBtn.style.opacity = '0.7';
-                }
-            });
-        }
-    }
-    
-    setupBackToTop();
-    
-    // Theme toggle functionality
-    function setupThemeToggle() {
-        const themeToggle = document.getElementById('themeToggle');
-        const body = document.body;
-        
-        if (themeToggle) {
-            // Load saved theme or default to light
-            const savedTheme = localStorage.getItem('portfolio-theme') || 'light';
-            body.setAttribute('data-theme', savedTheme);
-            updateThemeIcon(savedTheme);
-            
-            themeToggle.addEventListener('click', () => {
-                const currentTheme = body.getAttribute('data-theme');
-                const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-                
-                body.setAttribute('data-theme', newTheme);
-                localStorage.setItem('portfolio-theme', newTheme);
-                updateThemeIcon(newTheme);
-            });
-        }
-        
-        function updateThemeIcon(theme) {
-            const icon = themeToggle.querySelector('i');
-            if (icon) {
-                icon.className = theme === 'light' ? 'fas fa-moon' : 'fas fa-sun';
-            }
-        }
-    }
-    
-    setupThemeToggle();
-    
-    // Splash screen functionality
-    function setupSplashScreen() {
-        const splashScreen = document.getElementById('splashScreen');
-        
-        if (splashScreen) {
-            // Check if it's the first visit
-            const hasVisited = localStorage.getItem('portfolio-visited');
-            
-            if (!hasVisited) {
-                // First visit - show splash screen
-                setTimeout(() => {
-                    splashScreen.classList.add('fade-out');
-                    setTimeout(() => {
-                        splashScreen.style.display = 'none';
-                    }, 500);
-                }, 2000);
-                
-                // Mark as visited
-                localStorage.setItem('portfolio-visited', 'true');
+
+    filterProjects(category) {
+        const projectCards = document.querySelectorAll('.project-card');
+        projectCards.forEach(card => {
+            const cardCategory = card.dataset.category;
+            if (category === 'all' || category === cardCategory) {
+                card.style.display = 'block';
             } else {
-                // Not first visit - hide immediately
-                splashScreen.style.display = 'none';
+                card.style.display = 'none';
             }
+        });
+    }
+
+    initModals() {
+        this.modalOverlay = document.getElementById('modalOverlay');
+        document.querySelectorAll('.modal').forEach(modal => {
+            // Use the modal's ID as the key, e.g., 'cvModal' -> 'cv'
+            const modalName = modal.id.replace('Modal', '');
+            this.modals[modalName] = modal;
+        });
+    }
+    
+    openModal(modalName, dataId = null) {
+        const modal = this.modals[modalName];
+        if (modal && this.modalOverlay) {
+            if (modalName === 'project' && dataId) {
+                const project = this.projectDetails[dataId];
+                if (project) {
+                    modal.innerHTML = `
+                        <div class="modal-header">
+                            <h3>${project.title}</h3>
+                            <button class="modal-close"><i class="fas fa-times"></i></button>
+                        </div>
+                        <div class="modal-body">
+                            <p>${project.description}</p>
+                        </div>
+                        <div class="modal-footer">
+                            <a href="${project.link}" class="btn-primary" target="_blank">View on GitHub</a>
+                        </div>
+                    `;
+                    modal.querySelector('.modal-close').addEventListener('click', () => this.closeAllModals());
+                }
+            }
+
+            this.closeAllModals(); // Close others
+            modal.style.display = 'block';
+            this.modalOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            modal.focus();
+        }
+    }
+
+    closeAllModals() {
+        if (this.modalOverlay) {
+            this.modalOverlay.classList.remove('active');
+            Object.values(this.modals).forEach(modal => {
+                if (modal) modal.style.display = 'none';
+            });
+            document.body.style.overflow = '';
+        }
+    }
+
+    // ===== THEME =====
+    initTheme() {
+        this.applyTheme();
+    }
+
+    applyTheme() {
+        document.body.dataset.theme = this.currentTheme;
+        localStorage.setItem('theme', this.currentTheme);
+    }
+
+    toggleTheme() {
+        this.currentTheme = this.currentTheme === 'dark' ? 'light' : 'dark';
+        this.applyTheme();
+    }
+
+    // ===== LANGUAGE =====
+    initLanguage() {
+        this.translatePage();
+    }
+
+    toggleLanguage() {
+        this.currentLang = this.currentLang === 'vi' ? 'en' : 'vi';
+        localStorage.setItem('language', this.currentLang);
+        this.translatePage();
+    }
+
+    translatePage() {
+        const trans = this.translations[this.currentLang];
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+            const key = el.dataset.i18n;
+            if (trans[key]) {
+                el.textContent = trans[key];
+            }
+        });
+        document.title = trans.page_title;
+        const langToggle = document.getElementById('langToggle');
+        if (langToggle) {
+            langToggle.querySelector('.lang-current').textContent = this.currentLang.toUpperCase();
+        }
+    }
+
+    // ===== NAVIGATION =====
+    initNavigation() {
+        this.navMenu = document.getElementById('navMenu');
+        this.navToggle = document.getElementById('navToggle');
+        this.navbar = document.getElementById('navbar');
+    }
+
+    toggleNavMenu() {
+        this.isNavOpen = !this.isNavOpen;
+        this.navMenu?.classList.toggle('active', this.isNavOpen);
+        this.navToggle?.classList.toggle('active', this.isNavOpen);
+    }
+
+    closeNavMenu() {
+        if (this.isNavOpen) {
+            this.toggleNavMenu();
         }
     }
     
-    setupSplashScreen();
-});
+    scrollToSection(sectionId) {
+        const section = document.getElementById(sectionId);
+        if (section) {
+            window.scrollTo({
+                top: section.offsetTop - (this.navbar?.offsetHeight || 80), // Default height
+                behavior: 'smooth'
+            });
+        }
+    }
+
+    // ===== SCROLL HANDLERS =====
+    initScrollHandlers() {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > this.config.scrollThreshold) {
+                this.navbar?.classList.add('scrolled');
+            } else {
+                this.navbar?.classList.remove('scrolled');
+            }
+            this.lastScrollY = window.scrollY;
+        });
+    }
+
+    // ===== CUSTOM CURSOR =====
+    initCustomCursor() {
+        const cursorDot = document.querySelector('.cursor-dot');
+        const cursorOutline = document.querySelector('.cursor-outline');
+
+        if (!cursorDot || !cursorOutline) return;
+
+        window.addEventListener('mousemove', (e) => {
+            const { clientX, clientY } = e;
+            cursorDot.style.left = `${clientX}px`;
+            cursorDot.style.top = `${clientY}px`;
+            cursorOutline.style.left = `${clientX}px`;
+            cursorOutline.style.top = `${clientY}px`;
+        });
+
+        document.querySelectorAll('a, button, .skill-item, .project-card, .social-card').forEach(el => {
+            el.addEventListener('mouseenter', () => cursorOutline.classList.add('hover'));
+            el.addEventListener('mouseleave', () => cursorOutline.classList.remove('hover'));
+        });
+    }
+
+    // ===== PARTICLES =====
+    initParticles() {
+        const container = document.getElementById('particlesContainer');
+        if (!container) return;
+        const particleCount = 50;
+        const fragment = document.createDocumentFragment();
+        for (let i = 0; i < particleCount; i++) {
+            const particle = document.createElement('div');
+            particle.classList.add('particle');
+            particle.style.left = `${Math.random() * 100}%`;
+            particle.style.top = `${Math.random() * 100}%`;
+            particle.style.animationDuration = `${Math.random() * 10 + 10}s`;
+            particle.style.animationDelay = `${Math.random() * 5}s`;
+            fragment.appendChild(particle);
+        }
+        container.appendChild(fragment);
+    }
+
+    // ===== FLOATING ACTION BUTTON (FAB) =====
+    initFAB() {
+        this.fabMenu = document.getElementById('fabMenu');
+    }
+
+    scrollToTop() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    }
+
+    toggleFAB() {
+        this.isFabOpen = !this.isFabOpen;
+        document.getElementById('mainFab')?.classList.toggle('active', this.isFabOpen);
+        this.fabMenu?.classList.toggle('active', this.isFabOpen);
+    }
+
+    // ===== ANIMATIONS =====
+    initAnimations() {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { rootMargin: '0px 0px -100px 0px', threshold: 0.1 });
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+    }
+
+    // ===== TYPING EFFECT =====
+    initTypingEffect() {
+        const el = document.querySelector('.typing-text');
+        if (!el) return;
+
+        let textIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+
+        const type = () => {
+            const currentText = this.config.typingTexts[textIndex];
+            let typeSpeed = isDeleting ? 50 : 100;
+
+            if (isDeleting) {
+                el.textContent = currentText.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                el.textContent = currentText.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            if (!isDeleting && charIndex === currentText.length) {
+                typeSpeed = 2000;
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                textIndex = (textIndex + 1) % this.config.typingTexts.length;
+                typeSpeed = 500;
+            }
+
+            setTimeout(type, typeSpeed);
+        };
+        setTimeout(type, 1500); // Initial delay
+    }
+
+    // ===== PROGRESS BAR =====
+    initProgressBar() {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    this.animateProgressBar();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        const progressWidget = document.getElementById('progressWidget');
+        if (progressWidget) observer.observe(progressWidget);
+    }
+
+    animateProgressBar() {
+        const fill = document.getElementById('progressFill');
+        const percentage = document.getElementById('progressPercentage');
+        if (!fill || !percentage) return;
+
+        const startDate = new Date(this.config.academic.startDate);
+        const endDate = new Date(this.config.academic.endDate);
+        const targetProgress = Math.min(((new Date() - startDate) / (endDate - startDate)) * 100, 100);
+
+        let progress = 0;
+        const duration = 2000;
+        const startTime = Date.now();
+
+        const animate = () => {
+            const elapsed = Date.now() - startTime;
+            const progressRatio = Math.min(elapsed / duration, 1);
+            progress = targetProgress * (1 - Math.pow(1 - progressRatio, 3)); // easeOutCubic
+
+            fill.style.width = `${progress}%`;
+            percentage.textContent = `${progress.toFixed(1)}%`;
+
+            if (progressRatio < 1) requestAnimationFrame(animate);
+        };
+        animate();
+    }
+
+    // ===== VISITOR COUNTER =====
+    initVisitorCounter() {
+        const el = document.getElementById('visitorCount');
+        if (!el) return;
+
+        const key = `${this.config.visitorCounterNamespace}-count`;
+        fetch(`https://api.countapi.xyz/hit/${this.config.visitorCounterNamespace}/${key}`)
+            .then(res => res.json())
+            .then(data => {
+                el.textContent = data.value.toLocaleString();
+            })
+            .catch(() => {
+                el.textContent = 'N/A';
+            });
+        
+        // Also update footer date
+        const lastUpdatedEl = document.getElementById('lastUpdated');
+        if(lastUpdatedEl) {
+            lastUpdatedEl.textContent = new Date().toLocaleDateString('vi-VN');
+        }
+    }
+
+    initLoadingScreen() {
+        const loadingScreen = document.getElementById('loadingScreen');
+        if (loadingScreen) {
+            setTimeout(() => {
+                loadingScreen.classList.add('hidden');
+            }, 500); // 500ms delay
+        }
+    }
+}
+
+// Instantiate the app
+new PortfolioApp();
