@@ -9,7 +9,7 @@
 
 ## 🚀 Live Demo
 
-Visit my portfolio: [**Live Demo**](https://your-username.github.io/portfolio) *(Replace with your GitHub Pages URL)*
+Visit my portfolio: [**Live Demo**](https://thtcsec.github.io)
 
 ## ✨ Features
 
@@ -48,73 +48,38 @@ Visit my portfolio: [**Live Demo**](https://your-username.github.io/portfolio) *
 
 ## 📊 Projects Showcase
 
+### 💻 Face/ Object Recognition
+- **Tech Stack**: Java Socket Programming with SSL/TLS encryption, Python backend, Google Cloud Vision
+- **Features**: Detect faces and objects, register new face
+
+### 🎭 Yodo***** Sniper V2
+- **Tech Stack**: JavaScript (ES6+), HTML5, CSS3, and Chrome APIs.
+- **Features**: Buying automation, async/await, cross-origin messaging for secure data transfer, and robust DOM
+manipulation.
+
 ### 🛫 Flight Reservation System
 - **Tech Stack**: ASP.NET, C#, SQL Server
 - **Features**: User management, booking system, admin panel
-
-### 💻 Computer Store E-commerce
-- **Tech Stack**: ASP.NET Core, C#, Entity Framework
-- **Features**: Product management, cart, payment system
 
 ### 🖥️ Linux Server Manager
 - **Tech Stack**: WPF, C#, SSH.NET
 - **Features**: SSH client, server automation, remote management
 
-### 🎭 Face Recognition App
-- **Tech Stack**: Java, Google Cloud Vision, WebSocket
-- **Features**: Real-time face detection, API integration
-
 ## 🎯 GDG Membership
 
-**Proud member of Google Developer Group Ho Chi Minh City**
-- 🏆 **Status**: Newbie Member
-- 📅 **Member Since**: 1 month
-- 🎪 **Events Attended**: 1 event
-- 🤝 **New Connections**: 3+
-
-## 🚀 Getting Started
-
-### Prerequisites
-- Modern web browser (Chrome, Firefox, Safari, Edge)
-- Web server (for local development)
-
-### Installation
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/thtcsec/portfolio.git
-   cd portfolio
-   ```
-
-2. **Run locally**
-   ```bash
-   # Using Python
-   python -m http.server 8000
-   
-   # Using Node.js
-   npx serve .
-   
-   # Using PHP
-   php -S localhost:8000
-   ```
-
-3. **Open in browser**
-   ```
-   http://localhost:8000
-   ```
+**Member of Google Developer Group Ho Chi Minh City**
 
 ## 📁 Project Structure
 
 ```
 portfolio/
 ├── index.html              # Main HTML file
-├── mainscripts.js           # Core functionality
-├── portfolio-enhancements.js # Enhanced features
-├── translations.json        # Language translations
+├── app.js           # Core functionality
 ├── projects.html           # Projects page
 ├── background.png          # Background image
-├── mycv.png               # CV image
-├── fr.png                 # French flag (language switcher)
+├── cv/
+│   ├── mycv.png
+│   ├── mycv.pdf 
 ├── images/
 │   ├── avatar.jpg         # Profile picture
 │   ├── huflit.png         # University logo
@@ -124,39 +89,9 @@ portfolio/
 │       ├── java.png
 │       ├── html5.png
 │       └── ...
-├── ENHANCEMENTS.md        # Detailed improvements log
 └── README.md              # This file
 ```
 
-## 🎨 Customization
-
-### Colors & Themes
-Edit CSS variables in `index.html`:
-```css
-:root {
-    --primary-blue: #2563eb;
-    --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    /* ... more variables */
-}
-```
-
-### Adding New Technologies
-Add new tech items in the carousel:
-```html
-<div class="tech-item">
-    <img src="images/technologies/your-tech.png" alt="Your Tech">
-    <span>Your Tech</span>
-</div>
-```
-
-### Language Support
-Add translations in `translations.json`:
-```json
-{
-  "en": { "key": "English text" },
-  "vn": { "key": "Vietnamese text" }
-}
-```
 
 ## 📈 Performance
 
@@ -165,13 +100,6 @@ Add translations in `translations.json`:
 - **Largest Contentful Paint**: < 2.5s
 - **Cumulative Layout Shift**: < 0.1
 
-## 🔧 Browser Support
-
-- ✅ Chrome 88+
-- ✅ Firefox 85+
-- ✅ Safari 14+
-- ✅ Edge 88+
-- ✅ Mobile browsers (iOS Safari, Chrome Mobile)
 
 ## 📱 Responsive Breakpoints
 
@@ -180,17 +108,6 @@ Add translations in `translations.json`:
 - **Mobile**: < 768px
 - **Small Mobile**: < 480px
 
-## 🤝 Contributing
-
-1. Fork the project
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## 🙏 Acknowledgments
 
@@ -214,4 +131,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ⭐ **If you like this project, please give it a star!** ⭐
 
-*Last updated: July 19, 2025*
+*Last updated: August 25, 2025*

@@ -27,7 +27,7 @@ class PortfolioApp {
                 endDate: '2027-07-31',
                 totalSemesters: 9,
                 currentSemester: 5,
-                gpa: 3.26
+                gpa: 3.31
             },
             visitorCounterNamespace: 'trinhhoangtu-portfolio'
         };
@@ -91,7 +91,7 @@ class PortfolioApp {
                 about_title: "About Me",
                 about_subtitle: "Get to know me better",
                 about_description: "I'm a cybersecurity enthusiast and developer currently pursuing my degree in Information Technology at HUFLIT University. With a strong passion for both security and development, I love exploring the intersection of these fields.",
-                about_description2: "As an active member of the Google Developer Group Ho Chi Minh City, I continuously expand my knowledge and contribute to the tech community.",
+                about_description2: "I would love to expand my knowledge and contribute to the tech community.",
                 skills_title: "Skills & Technologies",
                 skills_subtitle: "Tools and technologies I work with",
                 projects_title: "Featured Projects",

@@ -1,4 +1,3 @@
-/* ===== CSS CUSTOM PROPERTIES ===== */
 :root {
   /* Colors - Dark Theme */
   --primary-color: #6366f1;
@@ -2377,4 +2376,92 @@ section {
   align-items: baseline;
   gap: 1rem;
   flex-wrap: wrap;
+}
+
+/* ===== Mobile-First Refinements ===== */
+
+/* Adjustments for all tablets and phones (below 1024px) */
+@media (max-width: 1024px) {
+    .hero-name {
+        /* Further reduce hero name size on tablets */
+        font-size: clamp(3rem, 10vw, 5rem);
+    }
+
+    .section-title {
+        /* Reduce section titles earlier */
+        font-size: var(--font-size-3xl);
+    }
+}
+
+/* Adjustments for all phones (below 768px) */
+@media (max-width: 768px) {
+    .container {
+        /* Increase content area by reducing padding */
+        padding: 0 1.5rem;
+    }
+
+    .hero-name {
+        /* Make hero name more manageable on phones */
+        font-size: clamp(2.5rem, 12vw, 3.5rem);
+        gap: 0 0.5rem; /* Reduce gap between name parts */
+    }
+
+    .hero-subtitle {
+        font-size: var(--font-size-xl);
+    }
+
+    .hero-description {
+        font-size: var(--font-size-base);
+        max-width: 90%; /* Allow description to use more width */
+    }
+
+    .section-title {
+        font-size: var(--font-size-2xl); /* Make section titles even smaller */
+        margin-bottom: 3rem;
+    }
+
+    .section-subtitle {
+        font-size: var(--font-size-base);
+    }
+
+    .about-content, .contact-content {
+        gap: 2rem; /* Reduce gap in two-column layouts */
+    }
+
+    .skills-grid {
+        gap: 0.75rem; /* Tighten the skill items */
+    }
+
+    .projects-grid {
+        /* The minmax was a bit too large for some mobile screens */
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+}
+
+/* Fine-tuning for very small screens (below 480px) */
+@media (max-width: 480px) {
+    .container {
+        padding: 0 1rem; /* A little less padding for very small devices */
+    }
+
+    .hero-content {
+        padding: 0 1rem;
+    }
+
+    .hero-name {
+        font-size: 2.2rem;
+    }
+
+    .hero-subtitle {
+        font-size: var(--font-size-lg);
+    }
+
+    .about-stats {
+        gap: 1rem;
+    }
+
+    .stat-item {
+        padding: 1rem;
+    }
 }
