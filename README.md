@@ -74,12 +74,17 @@ manipulation.
 ```
 portfolio/
 ├── index.html              # Main HTML file
-├── app.js           # Core functionality
 ├── projects.html           # Projects page
-├── background.png          # Background image
-├── cv/
+├── certificates.html       # Certificates page
+├── 404.html                # 404
+├── app.js                  # Core functionality
+├── (css respectively)      # CSS
+├── cv/                     # Curriculum vitae folder
 │   ├── mycv.png
-│   ├── mycv.pdf 
+│   ├── mycv.pdf
+├── certificates/           # Certificates image folder
+│   ├── image_...
+│   ├── ...
 ├── images/
 │   ├── avatar.jpg         # Profile picture
 │   ├── huflit.png         # University logo
@@ -89,6 +94,9 @@ portfolio/
 │       ├── java.png
 │       ├── html5.png
 │       └── ...
+├── robots.txt             # ...
+├── sitemap.xml            # ...
+├── .nojekyll              # ...
 └── README.md              # This file
 ```
 
@@ -131,4 +139,4 @@ portfolio/
 
 ⭐ **If you like this project, please give it a star!** ⭐
 
-*Last updated: August 25, 2025*
+*Last updated: August 27, 2025*

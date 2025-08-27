@@ -54,18 +54,15 @@
             </a>
             
             <ul class="nav-menu" id="navMenu">
-                <li><a href="index.html#home" class="nav-link">Home</a></li>
-                <li><a href="index.html#about" class="nav-link">About</a></li>
-                <li><a href="index.html#skills" class="nav-link">Skills</a></li>
-                <li><a href="index.html#projects" class="nav-link active">Projects</a></li>
-                <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+                <li><a href="projects.html" class="nav-link active" data-i18n="nav_projects">Projects</a></li>
+                <li><a href="certificates.html" class="nav-link" data-i18n="nav_certificates">Certificates</a></li>
             </ul>
             
             <div class="nav-controls">
-                <button onclick="history.back()" class="btn-secondary" style="padding: 0.75rem 1.5rem;">
+                <a href="index.html" class="btn-secondary" style="padding: 0.75rem 1.5rem; text-decoration: none;">
                     <i class="fas fa-arrow-left"></i>
-                    <span style="margin-left: 0.5rem;">Back to Home</span>
-                </button>
+                    <span style="margin-left: 0.5rem;" data-i18n="projects_page_btn_back">Back to Home</span>
+                </a>
             </div>
         </div>
     </nav>
@@ -80,27 +77,27 @@
                 <div class="projects-stats">
                     <div class="stat-item">
                         <span class="stat-number">9+</span>
-                        <span class="stat-label" data-i18n="stats_projects">Completed Projects</span>
+                        <span class="stat-label" data-i18n="projects_page_stat_1">Completed Projects</span>
                     </div>
                     <div class="stat-item">
                         <span class="stat-number">4</span>
-                        <span class="stat-label" data-i18n="stats_languages">Languages</span>
+                        <span class="stat-label" data-i18n="projects_page_stat_2">Languages</span>
                     </div>
                     <div class="stat-item">
                         <span class="stat-number">20+</span>
-                        <span class="stat-label" data-i18n="stats_tech">Technologies</span>
+                        <span class="stat-label" data-i18n="projects_page_stat_3">Technologies</span>
                     </div>
                 </div>
             </div>
 
             <!-- Project Filters -->
             <div class="project-filters">
-                <button class="filter-btn active" data-filter="all">All</button>
-                <button class="filter-btn" data-filter="web">Web</button>
-                <button class="filter-btn" data-filter="desktop">Desktop</button>
-                <button class="filter-btn" data-filter="mobile">Mobile</button>
-                <button class="filter-btn" data-filter="backend">Backend</button>
-                <button class="filter-btn" data-filter="extension">Extension</button>
+                <button class="filter-btn active" data-filter="all" data-i18n="projects_page_filter_all">All</button>
+                <button class="filter-btn" data-filter="web" data-i18n="projects_page_filter_web">Web</button>
+                <button class="filter-btn" data-filter="desktop" data-i18n="projects_page_filter_desktop">Desktop</button>
+                <button class="filter-btn" data-filter="mobile" data-i18n="projects_page_filter_mobile">Mobile</button>
+                <button class="filter-btn" data-filter="backend" data-i18n="projects_page_filter_backend">Backend</button>
+                <button class="filter-btn" data-filter="extension" data-i18n="projects_page_filter_extension">Extension</button>
             </div>
 
             <!-- Projects Grid -->

@@ -15,13 +15,6 @@ class PortfolioApp {
         // Config
         this.config = {
             scrollThreshold: 100,
-            typingTexts: [
-                'Cybersecurity Enthusiast & Developer',
-                'Google Developer Group Member',
-                'Full-Stack Developer',
-                'Security Researcher',
-                'Problem Solver'
-            ],
             academic: {
                 startDate: '2023-09-01',
                 endDate: '2027-07-31',
@@ -33,93 +26,289 @@ class PortfolioApp {
         };
 
         this.projectDetails = {
-            'face-recognition': {
-                title: 'Face / Object Recognition (Java + Python Microservice)',
-                description: 'Engineered a multi-threaded Java server using TCP sockets secured with SSL/TLS encryption. Developed a Python microservice exposing a REST API (Flask/FastAPI), leveraging OpenCV and face_recognition. Java server communicates securely with the Python service over HTTPS for inference, returning results to clients.',
-                link: ''
-            },
-            'yodobashi': {
-                title: 'Yodobashi Sniper V2',
-                description: 'Advanced browser extension for automated product purchasing. Built with modern JavaScript (ES6+), Chrome APIs, and robust testing.',
-                link: 'https://github.com/thtcsec/yodobashi-sniper-v2'
-            },
-            'portfolio': {
-                title: 'Portfolio Website',
-                description: 'Website portfolio cá nhân được thiết kế với giao diện hiện đại, responsive và hỗ trợ đa ngôn ngữ.',
-                link: ''
-            },
-            'flight': {
-                title: 'Flight Reservation System',
-                description: 'Hệ thống đặt vé máy bay được phát triển bằng ASP.NET C#, cung cấp giao diện thân thiện và quản lý đặt chỗ hiệu quả.',
-                link: ''
-            },
-            'linux-manager': {
-                title: 'Linux Server Manager',
-                description: 'Ứng dụng quản lý máy chủ Linux dành cho máy tính để bàn (WPF C#), hoạt động như một SSH client mạnh mẽ sử dụng thư viện SSH.NET.',
-                link: ''
-            },
-            'ereader': {
-                title: 'EReader',
-                description: 'Ứng dụng đọc sách điện tử giàu tính năng với giao diện tùy chỉnh, đánh dấu và theo dõi tiến trình đọc.',
-                link: ''
-            },
-            'chat': {
-                title: 'Chat Application',
-                description: 'Ứng dụng chat thời gian thực sử dụng WebSocket và Java, hỗ trợ chat nhóm và tin nhắn cá nhân.',
-                link: ''
-            },
-            'english': {
-                title: 'English Master',
-                description: 'Ứng dụng học tiếng Anh trên Android với các bài học tương tác và hệ thống theo dõi tiến trình học tập.',
-                link: ''
-            }
+            'face-recognition': { title: 'Face / Object Recognition', link: '' },
+            'yodobashi': { title: 'Yodobashi Sniper V2', link: '' },
+            'portfolio': { title: 'Portfolio Website', link: '' },
+            'flight': { title: 'Flight Reservation System', link: '' },
+            'linux-manager': { title: 'Linux Server Manager', link: '' },
+            'ereader': { title: 'EReader', link: '' },
+            'chat': { title: 'Chat Application', link: '' },
+            'english': { title: 'English Master', link: '' }
         };
 
         // Translations
         this.translations = {
             en: {
+                // Page Title
                 page_title: "Trinh Hoang Tu Portfolio",
+
+                // Navigation
                 nav_home: "Home",
                 nav_about: "About",
                 nav_skills: "Skills",
                 nav_projects: "Projects",
+                nav_certificates: "Certificates",
                 nav_contact: "Contact",
+
+                // Hero Section
                 hero_greeting: "Hello, I'm",
-                hero_subtitle: "Cybersecurity Enthusiast & Developer",
+                hero_subtitle_static: "Cybersecurity Enthusiast & Developer",
                 hero_description: "Passionate about securing digital landscapes and crafting innovative solutions with cutting-edge technologies.",
+                hero_btn_work: "View My Work",
+                hero_btn_contact: "Get In Touch",
+
+                // Academic Progress
                 progress_label: "Academic Journey",
+
+                // About Section
                 about_title: "About Me",
-                about_subtitle: "Get to know me better",
-                about_description: "I'm a cybersecurity enthusiast and developer currently pursuing my degree in Information Technology at HUFLIT University. With a strong passion for both security and development, I love exploring the intersection of these fields.",
-                about_description2: "I would love to expand my knowledge and contribute to the tech community.",
+                about_subtitle: "Get to know me",
+                about_desc_1: "I'm a cybersecurity enthusiast and developer currently pursuing my degree in Information Technology at HUFLIT University. With a strong passion for both security and development, I love exploring the intersection of these fields.",
+                about_desc_2: "I would love to expand my knowledge and contribute to the tech community.",
+                about_stat_1: "Credits Completed",
+                about_stat_2: "Projects Built",
+                about_stat_3: "Technologies Used",
+                about_btn_cv: "Download CV",
+
+                // Skills Section
                 skills_title: "Skills & Technologies",
                 skills_subtitle: "Tools and technologies I work with",
+                skills_cat_1: "Programming Languages",
+                skills_cat_2: "Frameworks & Tools",
+                skills_cat_3: "Cybersecurity",
+
+                // Projects Section
                 projects_title: "Featured Projects",
                 projects_subtitle: "Some of my recent work",
+                projects_btn_all: "View All Projects",
+                projects_btn_details: "View Details",
+
+                // GDG Section
+                gdg_title: "Google Developer Group",
+                gdg_desc: "Active member of GDG Ho Chi Minh City, participating in tech events and contributing to the developer community.",
+                gdg_stat_1: "Events",
+                gdg_stat_2: "Connections",
+                gdg_stat_3: "Months",
+                gdg_btn_profile: "Visit my GDG Profile",
+
+                // Contact Section
                 contact_title: "Let's Connect",
                 contact_subtitle: "Get in touch for opportunities or collaborations",
+                contact_item_1: "Email",
+                contact_item_2: "Location",
+                contact_item_3: "University",
+                contact_card_linkedin: "Professional Network",
+                contact_card_github: "Code Repository",
+                contact_card_leetcode: "Problem Solving",
+                contact_card_tiktok: "Educational Content",
+                contact_card_facebook: "Social Updates",
+                contact_card_discord: "Private Message",
+
+                // Footer
+                footer_tagline: "Building the future, one line of code at a time.",
+                footer_nav: "Navigation",
+                footer_connect: "Connect",
+                footer_built: "Built with",
+                footer_rights: "All rights reserved.",
+                footer_university: "HUFLIT • Information Technology",
+                footer_visitors: "visitors",
+                footer_last_updated: "Last updated:",
+
+                // FAB Menu
+                fab_top: "Back to Top",
+                fab_cv: "View CV",
+                fab_share: "Share Profile",
+
+                // Modals
+                modal_cv_title: "Curriculum Vitae",
+                modal_cv_print: "Print",
+                modal_cv_download: "Download PDF",
+                modal_progress_title: "Academic Progress Details",
+                modal_progress_semesters: "Semesters",
+                modal_progress_credits: "Credits",
+                modal_progress_gpa: "GPA",
+                modal_progress_grad: "Expected Graduation",
+                modal_progress_y1_title: "Year 1: Foundations",
+                modal_progress_y1_desc: "Completed C# programming fundamentals and basic computer science concepts",
+                modal_progress_y2_title: "Year 2: Advanced Programming",
+                modal_progress_y2_desc: "Mastered advanced C#, Java, Python, and web development",
+                modal_progress_y3_title: "Year 3: Specialization",
+                modal_progress_y3_desc: "Currently diving deep into cybersecurity and advanced IT concepts",
+                modal_progress_y4_title: "Year 4: Graduation",
+                modal_progress_y4_desc: "Capstone project, internship, and graduation preparation",
+                modal_project_title: "Project Details",
+
+                // Projects Page
+                projects_page_title: "My Projects",
+                projects_page_subtitle: "Exploring my journey through various creations",
+                projects_page_stat_1: "Completed Projects",
+                projects_page_stat_2: "Languages",
+                projects_page_stat_3: "Technologies",
+                projects_page_filter_all: "All",
+                projects_page_filter_web: "Web",
+                projects_page_filter_desktop: "Desktop",
+                projects_page_filter_mobile: "Mobile",
+                projects_page_filter_backend: "Backend",
+                projects_page_filter_extension: "Extension",
+                projects_page_btn_back: "Back to Home",
+
+                // Certificates Page
+                cert_page_title: "Certificates",
+                cert_page_subtitle: "A collection of my certifications and achievements.",
+                cert_view_button: "Zoom In",
+
+                // Dynamic Content
+                typing_texts: [
+                    'Cybersecurity Enthusiast & Developer',
+                    'Google Developer Group Member',
+                    'Full-Stack Developer',
+                    'Security Researcher',
+                    'Problem Solver'
+                ],
+                project_desc_face_recognition: 'Engineered a multi-threaded Java server using TCP sockets secured with SSL/TLS encryption. Developed a Python microservice exposing a REST API (Flask/FastAPI), leveraging OpenCV and face_recognition. Java server communicates securely with the Python service over HTTPS for inference, returning results to clients.',
+                project_desc_yodobashi: 'Advanced browser extension for automated product purchasing. Built with modern JavaScript (ES6+), Chrome APIs, and robust testing.',
+                project_desc_portfolio: 'Personal portfolio website designed with a modern, responsive interface and multi-language support.',
+                project_desc_flight: 'Flight reservation system developed with ASP.NET C#, providing a friendly interface and effective booking management.',
+                project_desc_linux_manager: 'Linux server management desktop application (WPF C#), acting as a powerful SSH client using the SSH.NET library.',
+                project_desc_ereader: 'Feature-rich e-book reader application with a customizable interface, bookmarking, and reading progress tracking.',
+                project_desc_chat: 'Real-time chat application using WebSockets and Java, supporting group chat and private messages.',
+                project_desc_english: 'Android English learning application with interactive lessons and a progress tracking system.',
             },
             vi: {
+                // Page Title
                 page_title: "Portfolio Trịnh Hoàng Tú",
+
+                // Navigation
                 nav_home: "Trang chủ",
                 nav_about: "Về tôi",
                 nav_skills: "Kỹ năng",
                 nav_projects: "Dự án",
+                nav_certificates: "Chứng chỉ",
                 nav_contact: "Liên hệ",
+
+                // Hero Section
                 hero_greeting: "Xin chào, tôi là",
-                hero_subtitle: "Người đam mê An ninh mạng & Lập trình viên",
+                hero_subtitle_static: "Người đam mê An ninh mạng & Lập trình viên",
                 hero_description: "Đam mê bảo mật không gian số và tạo ra các giải pháp sáng tạo với những công nghệ tiên tiến.",
+                hero_btn_work: "Xem sản phẩm",
+                hero_btn_contact: "Liên hệ ngay",
+
+                // Academic Progress
                 progress_label: "Hành trình học tập",
+
+                // About Section
                 about_title: "Về bản thân",
                 about_subtitle: "Để hiểu rõ hơn về tôi",
-                about_description: "Tôi là một người đam mê an ninh mạng và là lập trình viên, hiện đang theo học ngành Công nghệ Thông tin tại Đại học HUFLIT. Với niềm đam mê mãnh liệt cho cả bảo mật và phát triển, tôi thích khám phá sự giao thoa của hai lĩnh vực này.",
-                about_description2: "Là một thành viên tích cực của Google Developer Group TP. Hồ Chí Minh, tôi không ngừng mở rộng kiến thức và đóng góp cho cộng đồng công nghệ.",
+                about_desc_1: "Tôi là một người đam mê an ninh mạng và là lập trình viên, hiện đang theo học ngành Công nghệ Thông tin tại Đại học HUFLIT. Với niềm đam mê mãnh liệt cho cả bảo mật và phát triển, tôi thích khám phá sự giao thoa của hai lĩnh vực này.",
+                about_desc_2: "Tôi rất muốn mở rộng kiến thức và đóng góp cho cộng đồng công nghệ.",
+                about_stat_1: "Tín chỉ đã hoàn thành",
+                about_stat_2: "Dự án đã xây dựng",
+                about_stat_3: "Công nghệ đã sử dụng",
+                about_btn_cv: "Tải xuống CV",
+
+                // Skills Section
                 skills_title: "Kỹ năng & Công nghệ",
                 skills_subtitle: "Các công cụ và công nghệ tôi làm việc",
+                skills_cat_1: "Ngôn ngữ lập trình",
+                skills_cat_2: "Frameworks & Công cụ",
+                skills_cat_3: "An ninh mạng",
+
+                // Projects Section
                 projects_title: "Dự án nổi bật",
                 projects_subtitle: "Một vài sản phẩm gần đây của tôi",
+                projects_btn_all: "Xem tất cả dự án",
+                projects_btn_details: "Xem chi tiết",
+
+                // GDG Section
+                gdg_title: "Google Developer Group",
+                gdg_desc: "Là thành viên tích cực của GDG TP. Hồ Chí Minh, tham gia các sự kiện công nghệ và đóng góp cho cộng đồng lập trình viên.",
+                gdg_stat_1: "Sự kiện",
+                gdg_stat_2: "Kết nối",
+                gdg_stat_3: "Tháng",
+                gdg_btn_profile: "Xem hồ sơ GDG của tôi",
+
+                // Contact Section
                 contact_title: "Kết nối",
                 contact_subtitle: "Liên hệ để trao đổi cơ hội hoặc hợp tác",
+                contact_item_1: "Email",
+                contact_item_2: "Vị trí",
+                contact_item_3: "Trường đại học",
+                contact_card_linkedin: "Mạng lưới chuyên nghiệp",
+                contact_card_github: "Kho mã nguồn",
+                contact_card_leetcode: "Giải quyết vấn đề",
+                contact_card_tiktok: "Nội dung giáo dục",
+                contact_card_facebook: "Cập nhật xã hội",
+                contact_card_discord: "Tin nhắn riêng",
+
+                // Footer
+                footer_tagline: "Xây dựng tương lai, mỗi lần một dòng mã.",
+                footer_nav: "Điều hướng",
+                footer_connect: "Kết nối",
+                footer_built: "Xây dựng với",
+                footer_rights: "Bản quyền đã được đăng ký.",
+                footer_university: "HUFLIT • Công nghệ thông tin",
+                footer_visitors: "lượt xem",
+                footer_last_updated: "Cập nhật lần cuối:",
+
+                // FAB Menu
+                fab_top: "Lên đầu trang",
+                fab_cv: "Xem CV",
+                fab_share: "Chia sẻ hồ sơ",
+
+                // Modals
+                modal_cv_title: "Hồ sơ năng lực (CV)",
+                modal_cv_print: "In",
+                modal_cv_download: "Tải PDF",
+                modal_progress_title: "Chi tiết tiến độ học tập",
+                modal_progress_semesters: "Học kỳ",
+                modal_progress_credits: "Tín chỉ",
+                modal_progress_gpa: "Điểm trung bình",
+                modal_progress_grad: "Tốt nghiệp dự kiến",
+                modal_progress_y1_title: "Năm 1: Nền tảng",
+                modal_progress_y1_desc: "Hoàn thành các kiến thức cơ bản về lập trình C# và khoa học máy tính",
+                modal_progress_y2_title: "Năm 2: Lập trình nâng cao",
+                modal_progress_y2_desc: "Thành thạo C# nâng cao, Java, Python và phát triển web",
+                modal_progress_y3_title: "Năm 3: Chuyên ngành",
+                modal_progress_y3_desc: "Hiện đang tìm hiểu sâu về an ninh mạng và các khái niệm CNTT tiên tiến",
+                modal_progress_y4_title: "Năm 4: Tốt nghiệp",
+                modal_progress_y4_desc: "Đồ án tốt nghiệp, thực tập và chuẩn bị tốt nghiệp",
+                modal_project_title: "Chi tiết dự án",
+
+                // Projects Page
+                projects_page_title: "Dự án của tôi",
+                projects_page_subtitle: "Khám phá hành trình của tôi qua các sáng tạo khác nhau",
+                projects_page_stat_1: "Dự án đã hoàn thành",
+                projects_page_stat_2: "Ngôn ngữ",
+                projects_page_stat_3: "Công nghệ",
+                projects_page_filter_all: "Tất cả",
+                projects_page_filter_web: "Web",
+                projects_page_filter_desktop: "Desktop",
+                projects_page_filter_mobile: "Di động",
+                projects_page_filter_backend: "Backend",
+                projects_page_filter_extension: "Extension",
+                projects_page_btn_back: "Trở về trang chủ",
+
+                // Certificates Page
+                cert_page_title: "Chứng chỉ",
+                                cert_page_subtitle: "Bộ sưu tập các chứng chỉ và thành tựu của tôi.",
+                cert_view_button: "Phóng to",
+
+                // Dynamic Content
+                typing_texts: [
+                    'Người đam mê An ninh mạng & Lập trình viên',
+                    'Thành viên Google Developer Group',
+                    'Lập trình viên Full-Stack',
+                    'Nghiên cứu bảo mật',
+                    'Giải quyết vấn đề'
+                ],
+                project_desc_face_recognition: 'Thiết kế một máy chủ Java đa luồng sử dụng TCP socket được bảo mật bằng mã hóa SSL/TLS. Phát triển một microservice Python với REST API (Flask/FastAPI), tận dụng OpenCV và face_recognition. Máy chủ Java giao tiếp an toàn với dịch vụ Python qua HTTPS để thực hiện nhận dạng và trả kết quả về cho client.',
+                project_desc_yodobashi: 'Tiện ích mở rộng trình duyệt nâng cao để tự động hóa quy trình mua sản phẩm. Được xây dựng bằng JavaScript hiện đại (ES6+), Chrome API và kiểm thử kỹ lưỡng.',
+                project_desc_portfolio: 'Trang web portfolio cá nhân được thiết kế với giao diện hiện đại, responsive và hỗ trợ đa ngôn ngữ.',
+                project_desc_flight: 'Hệ thống đặt vé máy bay được phát triển bằng ASP.NET C#, cung cấp giao diện thân thiện và quản lý đặt chỗ hiệu quả.',
+                project_desc_linux_manager: 'Ứng dụng quản lý máy chủ Linux dành cho máy tính để bàn (WPF C#), hoạt động như một SSH client mạnh mẽ sử dụng thư viện SSH.NET.',
+                project_desc_ereader: 'Ứng dụng đọc sách điện tử giàu tính năng với giao diện tùy chỉnh, đánh dấu và theo dõi tiến trình đọc.',
+                project_desc_chat: 'Ứng dụng chat thời gian thực sử dụng WebSocket và Java, hỗ trợ chat nhóm và tin nhắn cá nhân.',
+                project_desc_english: 'Ứng dụng học tiếng Anh trên Android với các bài học tương tác và hệ thống theo dõi tiến trình học tập.',
             }
         };
 
@@ -137,7 +326,6 @@ class PortfolioApp {
         this.initLanguage();
         this.initNavigation();
         this.initScrollHandlers();
-        this.initCustomCursor();
         this.initParticles();
         this.initModals();
         this.initFAB();
@@ -148,8 +336,40 @@ class PortfolioApp {
         this.initLoadingScreen();
         this.initProjectCardListeners();
         this.initProjectsPage();
+        this.initCertificateModal();
         this.bindEvents();
         console.log("✅ Portfolio Initialized Successfully!");
+    }
+
+    initCertificateModal() {
+        if (!document.getElementById('certificates-page')) return;
+
+        const modal = document.getElementById('certModal');
+        const modalImg = document.getElementById('certModalImage');
+        const closeBtn = document.getElementById('closeCertModal');
+
+        if (!modal || !modalImg || !closeBtn) return;
+
+        document.querySelectorAll('.view-cert-btn, .cert-image-preview').forEach(el => {
+            el.addEventListener('click', (e) => {
+                let imgSrc = e.currentTarget.dataset.imgSrc || e.currentTarget.getAttribute('src');
+                modal.classList.add('active');
+                modalImg.src = imgSrc;
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        const closeModal = () => {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        closeBtn.addEventListener('click', closeModal);
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
     }
 
     bindEvents() {
@@ -196,13 +416,13 @@ class PortfolioApp {
 
     // ===== PROJECTS PAGE SPECIFIC =====
     initProjectCardListeners() {
-        document.querySelectorAll('.project-card').forEach(card => {
-            const viewDetailsButton = card.querySelector('.btn-outline');
-            const projectId = card.dataset.project;
+        document.querySelectorAll('.project-card .btn-outline').forEach(button => {
+            const card = button.closest('.project-card');
+            const projectId = card?.dataset.project;
 
-            if (viewDetailsButton && projectId) {
-                viewDetailsButton.addEventListener('click', (e) => {
-                    e.preventDefault(); // Prevent any default button action
+            if (projectId) {
+                button.addEventListener('click', (e) => {
+                    e.preventDefault();
                     this.openModal('project', projectId);
                 });
             }
@@ -223,7 +443,7 @@ class PortfolioApp {
     }
 
     filterProjects(category) {
-        const projectCards = document.querySelectorAll('.project-card');
+        const projectCards = document.querySelectorAll('#projects-page .project-card');
         projectCards.forEach(card => {
             const cardCategory = card.dataset.category;
             if (category === 'all' || category === cardCategory) {
@@ -237,7 +457,6 @@ class PortfolioApp {
     initModals() {
         this.modalOverlay = document.getElementById('modalOverlay');
         document.querySelectorAll('.modal').forEach(modal => {
-            // Use the modal's ID as the key, e.g., 'cvModal' -> 'cv'
             const modalName = modal.id.replace('Modal', '');
             this.modals[modalName] = modal;
         });
@@ -249,25 +468,17 @@ class PortfolioApp {
             if (modalName === 'project' && dataId) {
                 const project = this.projectDetails[dataId];
                 if (project) {
-                    modal.innerHTML = `
-                        <div class="modal-header">
-                            <h3>${project.title}</h3>
-                            <button class="modal-close"><i class="fas fa-times"></i></button>
-                        </div>
-                        <div class="modal-body">
-                            <p>${project.description}</p>
-                        </div>
-                        <div class="modal-footer">
-                            <a href="${project.link}" class="btn-primary" target="_blank">View on GitHub</a>
-                        </div>
-                    `;
-                    modal.querySelector('.modal-close').addEventListener('click', () => this.closeAllModals());
+                    const description = this.translations[this.currentLang][`project_desc_${dataId}`] || '';
+                    modal.querySelector('#projectModalTitle').textContent = project.title;
+                    const body = modal.querySelector('.modal-body');
+                    if(body) body.innerHTML = `<p>${description}</p>`;
+                    const footer = modal.querySelector('.modal-footer');
+                    if(footer) footer.innerHTML = `<a href="${project.link}" class="btn-primary" target="_blank">View on GitHub</a>`;
                 }
             }
 
-            this.closeAllModals(); // Close others
-            modal.style.display = 'block';
             this.modalOverlay.classList.add('active');
+            modal.style.display = 'block';
             document.body.style.overflow = 'hidden';
             modal.focus();
         }
@@ -307,6 +518,7 @@ class PortfolioApp {
         this.currentLang = this.currentLang === 'vi' ? 'en' : 'vi';
         localStorage.setItem('language', this.currentLang);
         this.translatePage();
+        this.initTypingEffect(); // Re-initialize typing effect for new language
     }
 
     translatePage() {
@@ -317,7 +529,7 @@ class PortfolioApp {
                 el.textContent = trans[key];
             }
         });
-        document.title = trans.page_title;
+        document.title = trans.page_title || "Trinh Hoang Tu Portfolio";
         const langToggle = document.getElementById('langToggle');
         if (langToggle) {
             langToggle.querySelector('.lang-current').textContent = this.currentLang.toUpperCase();
@@ -362,27 +574,6 @@ class PortfolioApp {
                 this.navbar?.classList.remove('scrolled');
             }
             this.lastScrollY = window.scrollY;
-        });
-    }
-
-    // ===== CUSTOM CURSOR =====
-    initCustomCursor() {
-        const cursorDot = document.querySelector('.cursor-dot');
-        const cursorOutline = document.querySelector('.cursor-outline');
-
-        if (!cursorDot || !cursorOutline) return;
-
-        window.addEventListener('mousemove', (e) => {
-            const { clientX, clientY } = e;
-            cursorDot.style.left = `${clientX}px`;
-            cursorDot.style.top = `${clientY}px`;
-            cursorOutline.style.left = `${clientX}px`;
-            cursorOutline.style.top = `${clientY}px`;
-        });
-
-        document.querySelectorAll('a, button, .skill-item, .project-card, .social-card').forEach(el => {
-            el.addEventListener('mouseenter', () => cursorOutline.classList.add('hover'));
-            el.addEventListener('mouseleave', () => cursorOutline.classList.remove('hover'));
         });
     }
 
@@ -441,12 +632,16 @@ class PortfolioApp {
         const el = document.querySelector('.typing-text');
         if (!el) return;
 
+        // Stop any previous typing animation
+        if (this.typingTimeout) clearTimeout(this.typingTimeout);
+
         let textIndex = 0;
         let charIndex = 0;
         let isDeleting = false;
+        const typingTexts = this.translations[this.currentLang].typing_texts || [];
 
         const type = () => {
-            const currentText = this.config.typingTexts[textIndex];
+            const currentText = typingTexts[textIndex];
             let typeSpeed = isDeleting ? 50 : 100;
 
             if (isDeleting) {
@@ -462,13 +657,13 @@ class PortfolioApp {
                 isDeleting = true;
             } else if (isDeleting && charIndex === 0) {
                 isDeleting = false;
-                textIndex = (textIndex + 1) % this.config.typingTexts.length;
+                textIndex = (textIndex + 1) % typingTexts.length;
                 typeSpeed = 500;
             }
 
-            setTimeout(type, typeSpeed);
+            this.typingTimeout = setTimeout(type, typeSpeed);
         };
-        setTimeout(type, 1500); // Initial delay
+        type();
     }
 
     // ===== PROGRESS BAR =====

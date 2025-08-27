@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chứng chỉ - Portfolio Trịnh Hoàng Tú</title>
+    
+    <meta name="description" content="Danh sách các chứng chỉ và thành tích của Trịnh Hoàng Tú">
+    <meta name="author" content="Trinh Hoang Tu">
+
+    <link rel="icon" type="image/x-icon" href="images/avatar.jpg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="certificates.css">
+    <meta name="theme-color" content="#0f172a">
+</head>
+
+<body data-theme="dark">
+    <div class="particles-container" id="particlesContainer"></div>
+    
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <div class="logo-ring"></div>
+                <div class="logo-ring"></div>
+                <div class="logo-ring"></div>
+                <span class="logo-text">TU</span>
+            </div>
+            <div class="loading-text">Loading Certificates...</div>
+        </div>
+    </div>
+
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <div class="logo-icon"><span>T</span><span>H</span><span>T</span></div>
+            </a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="projects.html" class="nav-link" data-i18n="nav_projects">Projects</a></li>
+                <li><a href="certificates.html" class="nav-link active" data-i18n="nav_certificates">Certificates</a></li>
+            </ul>
+            <div class="nav-controls">
+                <a href="index.html" class="btn-secondary" style="padding: 0.75rem 1.5rem; text-decoration: none;">
+                    <i class="fas fa-arrow-left"></i>
+                    <span style="margin-left: 0.5rem;">Back</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main id="certificates-page">
+        <div class="container">
+            <div class="projects-page-header">
+                <h1 class="projects-page-title" data-i18n="cert_page_title">Certificates</h1>
+                <p class="projects-page-subtitle" data-i18n="cert_page_subtitle">A collection of my certifications and achievements.</p>
+            </div>
+
+            <div class="certificate-list">
+                <!-- Cybersecurity Certificate -->
+                <div class="cert-list-item">
+                    <div class="cert-image-container">
+                        <img src="certificates/image_foundations_of_cybersecurity.jpg" alt="Foundations of Cybersecurity Certificate" class="cert-image-preview" loading="lazy" data-img-src="certificates/image_foundations_of_cybersecurity.jpg">
+                    </div>
+                    <div class="cert-details-container">
+                        <h3 class="cert-title">Foundations of Cybersecurity</h3>
+                        <p class="cert-description">Issued by Google. Validates foundational understanding of cybersecurity principles.</p>
+                        <button class="btn-primary view-cert-btn" data-img-src="certificates/image_foundations_of_cybersecurity.jpg">
+                            <i class="fas fa-eye"></i> <span data-i18n="cert_view_button">Zoom In</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Project Management Certificate -->
+                <div class="cert-list-item">
+                    <div class="cert-image-container">
+                        <img src="certificates/image_foundations_of_project_management.jpg" alt="Foundations of Project Management Certificate" class="cert-image-preview" loading="lazy" data-img-src="certificates/image_foundations_of_project_management.jpg">
+                    </div>
+                    <div class="cert-details-container">
+                        <h3 class="cert-title">Foundations of Project Management</h3>
+                        <p class="cert-description">Issued by Google. Demonstrates an understanding of the project management lifecycle.</p>
+                        <button class="btn-primary view-cert-btn" data-img-src="certificates/image_foundations_of_project_management.jpg">
+                            <i class="fas fa-eye"></i> <span data-i18n="cert_view_button">Zoom In</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Google AI Essentials Certificate -->
+                <div class="cert-list-item">
+                    <div class="cert-image-container">
+                        <img src="certificates/image_google_ai_essentials.jpg" alt="Google AI Essentials Certificate" class="cert-image-preview" loading="lazy" data-img-src="certificates/image_google_ai_essentials.jpg">
+                    </div>
+                    <div class="cert-details-container">
+                        <h3 class="cert-title">Google AI Essentials</h3>
+                        <p class="cert-description">Issued by Google. Covers the fundamental concepts of Artificial Intelligence.</p>
+                        <button class="btn-primary view-cert-btn" data-img-src="certificates/image_google_ai_essentials.jpg">
+                            <i class="fas fa-eye"></i> <span data-i18n="cert_view_button">Zoom In</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Technical Support Certificate -->
+                <div class="cert-list-item">
+                    <div class="cert-image-container">
+                        <img src="certificates/image_technical_support_fundamentals.jpg" alt="Technical Support Fundamentals Certificate" class="cert-image-preview" loading="lazy" data-img-src="certificates/image_technical_support_fundamentals.jpg">
+                    </div>
+                    <div class="cert-details-container">
+                        <h3 class="cert-title">Technical Support Fundamentals</h3>
+                        <p class="cert-description">Issued by Google. Provides a comprehensive overview of IT support.</p>
+                        <button class="btn-primary view-cert-btn" data-img-src="certificates/image_technical_support_fundamentals.jpg">
+                            <i class="fas fa-eye"></i> <span data-i18n="cert_view_button">Zoom In</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Certificate Viewer Modal -->
+    <div id="certModal" class="modal-overlay">
+        <span class="modal-close" id="closeCertModal" title="Close">&times;</span>
+        <img class="modal-content" id="certModalImage">
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <div class="footer-info">
+                    <p>&copy; 2025 Trinh Hoang Tu. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js" defer></script>
+</body>
+</html>
