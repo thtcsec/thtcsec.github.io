@@ -12,8 +12,8 @@
   <link rel="manifest" href="/manifest.webmanifest">
 
   <!-- Icons -->
-  <link rel="icon" href="/images/avatar-192.png" sizes="192x192">
-  <link rel="apple-touch-icon" href="/images/avatar-192.png">
+  <link rel="icon" href="/images/avatar.jpg" sizes="192x192">
+  <link rel="apple-touch-icon" href="/images/avatar.jpg">
 
   <!-- Open Graph -->
    <meta name="google-site-verification" content="vEGFMwS-HSy7G3Z1YmFgp-xtLRE28MFT9EfC3xLSAgg" />
@@ -32,8 +32,41 @@
 
   <!-- CSS & assets -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <link rel="stylesheet" href="styles.css">
-  <link rel="preload" href="app.js" as="script">
+  <link rel="stylesheet" href="styles.min.css">
+  <link rel="preload" href="app.min.js" as="script">
+  <style>
+    .modal-overlay.active .modal:not(.closing) {
+        animation: scaleIn 0.3s ease;
+    }
+
+    .modal.closing {
+        animation: scaleOut 0.3s ease forwards;
+    }
+
+    @keyframes scaleIn {
+      from {
+        opacity: 0;
+        transform: scale(0.8);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @keyframes scaleOut {
+      from {
+        opacity: 1;
+        transform: scale(1);
+      }
+      to {
+        opacity: 0;
+        transform: scale(0.8);
+      }
+    }
+
+    
+  </style>
 
   <!-- JSON-LD -->
   <script type="application/ld+json">
@@ -49,8 +82,8 @@
       "https://www.facebook.com/thtcsec"
     ],
     "jobTitle": "Cybersecurity Enthusiast & Developer",
-    "worksFor": { "@type": "Organization", "name": "HUFLIT University" },
-    "alumniOf": { "@type": "CollegeOrUniversity", "name": "HUFLIT University" }
+    "worksFor": { "@type": "Organization", "name": "HUFLIT" },
+    "alumniOf": { "@type": "CollegeOrUniversity", "name": "HUFLIT" }
   }
   </script>
 </head>
@@ -89,7 +122,7 @@
                 <li><a href="#about" class="nav-link" data-i18n="nav_about">About</a></li>
                 <li><a href="#skills" class="nav-link" data-i18n="nav_skills">Skills</a></li>
                 <li><a href="projects.html" class="nav-link" data-i18n="nav_projects">Projects</a></li>
-                <li><a href="certificates.html" class="nav-link">Certificates</a></li>
+                <li><a href="certificates.html" class="nav-link" data-i18n="nav_certificates">Certificates</a></li>
                 <li><a href="#contact" class="nav-link" data-i18n="nav_contact">Contact</a></li>
             </ul>
             
@@ -185,7 +218,7 @@
             <div class="about-content">
                 <div class="about-image">
                     <div class="image-frame">
-                        <img src="images/avatar.jpg" alt="Trinh Hoang Tu" loading="lazy">
+                        <img src="images/avatar2.png" alt="Trinh Hoang Tu" loading="lazy">
                         <div class="image-overlay"></div>
                     </div>
                 </div>
@@ -193,7 +226,7 @@
                 <div class="about-info">
                     <div class="about-text">
                         <p data-i18n="about_description">
-                            I'm a cybersecurity enthusiast and developer currently pursuing my degree in Information Technology at HUFLIT University. With a strong passion for both security and development, I love exploring the intersection of these fields.
+                            I'm a cybersecurity enthusiast and developer currently pursuing my degree in Information Technology at HUFLIT. With a strong passion for both security and development, I love exploring the intersection of these fields.
                         </p>
                         <p data-i18n="about_description2">
                             I would love to expand my knowledge and contribute to the tech community.
@@ -470,7 +503,7 @@
                         </div>
                         <div class="contact-details">
                             <h4>University</h4>
-                            <a href="https://huflit.edu.vn/" target="_blank">HUFLIT University</a>
+                            <a href="https://huflit.edu.vn/" target="_blank">HUFLIT</a>
                         </div>
                     </div>
                 </div>
@@ -589,7 +622,10 @@
             <div class="footer-bottom">
                 <div class="footer-info">
                     <p>&copy; 2025 Trinh Hoang Tu. All rights reserved.</p>
-                    <p>HUFLIT University • Information Technology</p>
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <img src="images/huflit.png" alt="HUFLIT Logo" style="height: 24px;">
+                        <p>HUFLIT • Information Technology</p>
+                    </div>
                 </div>
                 
                 <div class="footer-stats">
@@ -768,18 +804,12 @@
         </div>
     </div>
 
-    <!-- Custom Cursor -->
-    <div class="custom-cursor" id="customCursor">
-        <div class="cursor-dot"></div>
-        <div class="cursor-outline"></div>
-    </div>
-
     <!-- Scripts -->
-    <script src="app.js" defer></script>
+        <script src="app.min.js" defer></script>
     <script>
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker.register('/sw.js');
-    }
+        }
     </script>
     <noscript>JavaScript đang tắt nên portfolio sẽ mất nhiều hiệu ứng và PWA.</noscript>
 </body>

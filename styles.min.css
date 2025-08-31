@@ -2428,4 +2428,182 @@ section {
     .stat-item {
         padding: 1rem;
     }
+}/* projects.css */
+
+/* Style for the filter container */
+.project-filters {
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 3rem;
+    padding-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem; /* Reduced gap for a tighter look */
+}
+
+/* Overriding the base .filter-btn style from styles.css */
+.filter-btn {
+    background: transparent; /* Make it look less like a button */
+    border: none; /* Remove the default border */
+    border-bottom: 3px solid transparent; /* Add space for an active indicator */
+    border-radius: 0; /* Remove rounded corners to look more like a tab */
+    padding: 0.75rem 1.5rem;
+    color: var(--text-muted); /* Muted color for inactive tabs */
+    font-weight: 600;
+    transition: all var(--transition-normal);
+    position: relative;
+    top: 1px; /* Align with the container's bottom border */
+}
+
+/* Hover effect for inactive buttons */
+.filter-btn:not(.active):hover {
+    background-color: var(--bg-glass); /* Subtle background on hover */
+    color: var(--text-primary);
+}
+
+/* Active button style */
+.filter-btn.active {
+    color: var(--primary-color);
+    background-color: transparent; /* Ensure no gradient background */
+    border-bottom-color: var(--primary-color); /* Highlight with a bottom border */
+    box-shadow: none; /* Remove any potential shadows */
+}
+/* certificates.css - List Layout */
+
+#certificates-page {
+    padding-top: var(--header-height); /* Pushes content down from fixed navbar */
+}
+
+.certificate-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem; /* Space between list items */
+    margin-top: 4rem; /* Add space below the header */
+}
+
+.cert-list-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center; /* Vertically center the items */
+    background: var(--bg-glass);
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+    transition: all var(--transition-normal);
+}
+
+.cert-list-item:hover {
+    transform: translateY(-4px) scale(1.01);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary-color);
+}
+
+.cert-image-container {
+    flex: 0 0 300px; /* Fixed width for the image container */
+    overflow: hidden;
+}
+
+.cert-image-preview {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 20%; /* Adjusts the image upwards */
+    display: block;
+    cursor: pointer;
+    transition: transform var(--transition-normal);
+}
+
+.cert-list-item:hover .cert-image-preview {
+    transform: scale(1.1);
+}
+
+.cert-details-container {
+    flex: 1;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Stop items from stretching */
+}
+
+.cert-title {
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+
+.cert-description {
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+    flex-grow: 1; /* Pushes the button to the bottom */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .cert-list-item {
+        flex-direction: column;
+    }
+
+    .cert-image-container {
+        flex-basis: 200px; /* Adjust height for mobile */
+    }
+}
+
+/* Styles for the Certificate Modal (retained from previous step) */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+    z-index: 10001;
+    display: none; /* Hidden by default */
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity var(--transition-normal);
+}
+
+.modal-overlay.active {
+    display: flex;
+    opacity: 1;
+}
+
+.modal-content {
+    display: block;
+    max-width: 90vw;
+    max-height: 90vh;
+    margin: auto;
+    object-fit: contain;
+    animation: zoomIn 0.3s ease-in-out;
+}
+
+.modal-close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.modal-close:hover,
+.modal-close:focus {
+    color: #bbb;
+    text-decoration: none;
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
 }

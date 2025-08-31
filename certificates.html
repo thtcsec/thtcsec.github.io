@@ -10,9 +10,82 @@
 
     <link rel="icon" type="image/x-icon" href="images/avatar.jpg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="certificates.css">
+    <link rel="stylesheet" href="styles.min.css">
+    <style>
+    .modal-overlay.active .modal:not(.closing) {
+        animation: scaleIn 0.3s ease;
+    }
+
+    .modal.closing {
+        animation: scaleOut 0.3s ease forwards;
+    }
+
+    @keyframes scaleIn {
+      from {
+        opacity: 0;
+        transform: scale(0.8);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @keyframes scaleOut {
+      from {
+        opacity: 1;
+        transform: scale(1);
+      }
+      to {
+        opacity: 0;
+        transform: scale(0.8);
+      }
+    }
+
+    
+  </style>
     <meta name="theme-color" content="#0f172a">
+    <style>
+        .achievement-item {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            background: var(--bg-glass);
+            border-radius: var(--radius-xl);
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+            margin-top: 2rem;
+        }
+
+        .achievement-image-container {
+            flex: 0 0 300px;
+            overflow: hidden;
+        }
+
+        .achievement-image-preview {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .achievement-details-container {
+            flex: 1;
+            padding: 2rem;
+        }
+
+        .achievement-title {
+            font-size: var(--font-size-xl);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .achievement-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+    </style>
 </head>
 
 <body data-theme="dark">
@@ -112,6 +185,19 @@
                     </div>
                 </div>
             </div>
+
+            <div class="projects-page-header">
+                <h1 class="projects-page-title" data-i18n="cert_achievement_title">Achievements</h1>
+            </div>
+            <div class="achievement-item">
+                <div class="achievement-image-container">
+                    <img src="images/outst.jpg" alt="Outstanding Student of the Year 2023" class="achievement-image-preview" loading="lazy">
+                </div>
+                <div class="achievement-details-container">
+                    <h3 class="achievement-title" data-i18n="cert_achievement_title">Outstanding Student of the Year 2023</h3>
+                    <p class="achievement-description" data-i18n="cert_achievement_desc">Awarded by Bu Dang District, Binh Phuoc Province.</p>
+                </div>
+            </div>
         </div>
     </main>
 
@@ -131,6 +217,6 @@
         </div>
     </footer>
 
-    <script src="app.js" defer></script>
+    <script src="app.min.js" defer></script>
 </body>
 </html>

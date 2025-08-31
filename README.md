@@ -122,7 +122,7 @@ portfolio/
 - [Font Awesome](https://fontawesome.com/) - Icons
 - [Google Fonts](https://fonts.google.com/) - Typography
 - [GDG Ho Chi Minh City](https://gdg.community.dev/gdg-ho-chi-minh-city/) - Community support
-- [HUFLIT University](https://huflit.edu.vn/) - Education institution
+- [HUFLIT](https://huflit.edu.vn/) - Education institution
 
 ## 📞 Contact
 
@@ -139,4 +139,4 @@ portfolio/
 
 ⭐ **If you like this project, please give it a star!** ⭐
 
-*Last updated: August 27, 2025*
+*Last updated: August 31, 2025*
