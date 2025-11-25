@@ -1,0 +1,30 @@
+{
+  "name": "trinh-hoang-tu-portfolio",
+  "version": "1.0.0",
+  "description": "Personal portfolio website",
+  "scripts": {
+    "dev": "npx live-server --port=3000 --open=/",
+    "build": "npm run minify",
+    "minify:css": "npx cleancss-cli styles.css -o styles.min.css",
+    "minify:js": "npx terser app.js -o app.min.js --compress --mangle",
+    "minify": "npm run minify:css && npm run minify:js",
+    "optimize:images": "npx imagemin images/*.{jpg,png} --out-dir=images/optimized --plugin=imagemin-mozjpeg --plugin=imagemin-pngquant",
+    "validate": "npx html-validate *.html",
+    "lighthouse": "npx lighthouse https://thtcsec.github.io --output=html --output-path=./lighthouse-report.html",
+    "webp": "npx imagemin images/*.{jpg,png} --out-dir=images/webp --plugin=imagemin-webp"
+  },
+  "devDependencies": {
+    "clean-css-cli": "^5.6.1",
+    "terser": "^5.19.2",
+    "imagemin": "^8.0.1",
+    "imagemin-mozjpeg": "^10.0.0",
+    "imagemin-pngquant": "^9.0.2",
+    "imagemin-webp": "^8.0.0",
+    "html-validate": "^8.2.0",
+    "lighthouse": "^10.4.0",
+    "live-server": "^1.2.2"
+  },
+  "keywords": ["portfolio", "cybersecurity", "developer", "pwa"],
+  "author": "Trinh Hoang Tu",
+  "license": "MIT"
+}

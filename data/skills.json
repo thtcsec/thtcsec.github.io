@@ -1,0 +1,170 @@
+{
+  "categories": [
+    {
+      "id": "languages",
+      "name": {
+        "en": "Programming Languages",
+        "vi": "Ngôn ngữ lập trình"
+      },
+      "skills": [
+        {
+          "name": "C#",
+          "icon": "images/technologies/csharp.png",
+          "proficiency": 90
+        },
+        {
+          "name": "Java",
+          "icon": "images/technologies/java.png",
+          "proficiency": 85
+        },
+        {
+          "name": "Python",
+          "icon": "images/technologies/python.png",
+          "proficiency": 80
+        },
+        {
+          "name": "JavaScript",
+          "icon": "images/technologies/javascript.png",
+          "proficiency": 85
+        },
+        {
+          "name": "HTML5",
+          "icon": "images/technologies/html5.png",
+          "proficiency": 95
+        },
+        {
+          "name": "CSS3",
+          "icon": "images/technologies/css3.png",
+          "proficiency": 90
+        }
+      ]
+    },
+    {
+      "id": "frameworks",
+      "name": {
+        "en": "Frameworks & Tools",
+        "vi": "Framework & Công cụ"
+      },
+      "skills": [
+        {
+          "name": "ASP.NET",
+          "icon": "images/technologies/aspnet.png",
+          "proficiency": 85
+        },
+        {
+          "name": "Android",
+          "icon": "images/technologies/android.png",
+          "proficiency": 75
+        },
+        {
+          "name": "Firebase",
+          "icon": "images/technologies/firebase.png",
+          "proficiency": 70
+        },
+        {
+          "name": "Docker",
+          "icon": "images/technologies/docker.png",
+          "proficiency": 65
+        },
+        {
+          "name": "Git",
+          "icon": "images/technologies/git.png",
+          "proficiency": 90
+        },
+        {
+          "name": "GitHub",
+          "icon": "images/technologies/github.png",
+          "proficiency": 90
+        },
+        {
+          "name": "VS Code",
+          "icon": "images/technologies/vscode.png",
+          "proficiency": 95
+        },
+        {
+          "name": "Visual Studio",
+          "icon": "images/technologies/visual_studio.png",
+          "proficiency": 85
+        },
+        {
+          "name": "IntelliJ IDEA",
+          "icon": "images/technologies/intellij.png",
+          "proficiency": 80
+        },
+        {
+          "name": "SQL Server",
+          "icon": "images/technologies/sqlserver.png",
+          "proficiency": 75
+        }
+      ]
+    },
+    {
+      "id": "cybersecurity",
+      "name": {
+        "en": "Cybersecurity",
+        "vi": "An ninh mạng"
+      },
+      "skills": [
+        {
+          "name": "Kali Linux",
+          "icon": "images/technologies/kali.png",
+          "proficiency": 75
+        },
+        {
+          "name": "Nmap",
+          "icon": "images/technologies/nmap.png",
+          "proficiency": 80
+        },
+        {
+          "name": "Wireshark",
+          "icon": "images/technologies/wireshark.png",
+          "proficiency": 70
+        },
+        {
+          "name": "VMware",
+          "icon": "images/technologies/vmware.png",
+          "proficiency": 85
+        }
+      ]
+    },
+    {
+      "id": "ai",
+      "name": {
+        "en": "AI Tools",
+        "vi": "Công cụ AI"
+      },
+      "skills": [
+        {
+          "name": "ChatGPT",
+          "icon": "images/technologies/chatgpt.png",
+          "proficiency": 90
+        },
+        {
+          "name": "Claude",
+          "icon": "images/technologies/claude.png",
+          "proficiency": 85
+        },
+        {
+          "name": "Gemini",
+          "icon": "images/technologies/gemini.png",
+          "proficiency": 80
+        },
+        {
+          "name": "DeepSeek",
+          "icon": "images/technologies/deepseek.png",
+          "proficiency": 75
+        },
+        {
+          "name": "Perplexity",
+          "icon": "images/technologies/perplexity.png",
+          "proficiency": 80
+        },
+        {
+          "name": "GitHub Copilot",
+          "icon": "images/technologies/github_copilot.png",
+          "proficiency": 85
+        }
+      ]
+    }
+  ]
+}

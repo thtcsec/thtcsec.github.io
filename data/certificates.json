@@ -1,0 +1,53 @@
+{
+  "certificates": [
+    {
+      "id": "aws-practitioner",
+      "title": {
+        "en": "AWS Cloud Practitioner",
+        "vi": "AWS Cloud Practitioner"
+      },
+      "issuer": "Amazon Web Services",
+      "date": "2024-03-15",
+      "image": "certificates/aws-facj.png",
+      "credentialId": "AWS-CP-2024-001",
+      "description": {
+        "en": "Foundational understanding of AWS Cloud services and concepts",
+        "vi": "Hiểu biết cơ bản về các dịch vụ và khái niệm AWS Cloud"
+      },
+      "skills": ["AWS", "Cloud Computing", "Cloud Security"],
+      "featured": true
+    },
+    {
+      "id": "gdg-member",
+      "title": {
+        "en": "Google Developer Group Member",
+        "vi": "Thành viên Google Developer Group"
+      },
+      "issuer": "Google Developers",
+      "date": "2023-09-01",
+      "image": "images/gdg-hcmc.jpg",
+      "description": {
+        "en": "Active member participating in tech events and community building",
+        "vi": "Thành viên tích cực tham gia các sự kiện công nghệ và xây dựng cộng đồng"
+      },
+      "skills": ["Community Building", "Technology Events", "Networking"],
+      "featured": true
+    },
+    {
+      "id": "outstanding-student",
+      "title": {
+        "en": "Outstanding Student Award",
+        "vi": "Giải thưởng Sinh viên Xuất sắc"
+      },
+      "issuer": "HUFLIT University",
+      "date": "2024-06-30",
+      "image": "images/outst.jpg",
+      "description": {
+        "en": "Recognition for academic excellence and contribution to university activities",
+        "vi": "Ghi nhận về thành tích học tập xuất sắc và đóng góp cho các hoạt động của trường"
+      },
+      "skills": ["Academic Excellence", "Leadership", "Team Work"],
+      "featured": true
+    }
+  ]
+}

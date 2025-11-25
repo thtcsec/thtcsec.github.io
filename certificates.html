@@ -1,222 +1,369 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chứng chỉ - Portfolio Trịnh Hoàng Tú</title>
+    <title>Certificates - Trinh Hoang Tu</title>
     
-    <meta name="description" content="Danh sách các chứng chỉ và thành tích của Trịnh Hoàng Tú">
-    <meta name="author" content="Trinh Hoang Tu">
-
-    <link rel="icon" type="image/x-icon" href="images/avatar.jpg">
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="styles.min.css">
-    <style>
-    .modal-overlay.active .modal:not(.closing) {
-        animation: scaleIn 0.3s ease;
-    }
-
-    .modal.closing {
-        animation: scaleOut 0.3s ease forwards;
-    }
-
-    @keyframes scaleIn {
-      from {
-        opacity: 0;
-        transform: scale(0.8);
-      }
-      to {
-        opacity: 1;
-        transform: scale(1);
-      }
-    }
-
-    @keyframes scaleOut {
-      from {
-        opacity: 1;
-        transform: scale(1);
-      }
-      to {
-        opacity: 0;
-        transform: scale(0.8);
-      }
-    }
-
     
-  </style>
-    <meta name="theme-color" content="#0f172a">
+    <!-- Styles -->
+    <link rel="stylesheet" href="professional.css">
+    <link rel="stylesheet" href="professional-enhancements.css">
     <style>
-        .achievement-item {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            background: var(--bg-glass);
-            border-radius: var(--radius-xl);
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .cert-card {
+            background: var(--bg-card);
             border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .cert-card:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .cert-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .cert-content {
+            padding: 1.5rem;
+        }
+
+        .cert-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .cert-issuer {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .cert-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: transparent;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            border-radius: 4px;
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .cert-btn:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .achievement-section {
+            margin-top: 4rem;
+            padding-top: 4rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .achievement-card {
+            display: flex;
+            gap: 2rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
             overflow: hidden;
             margin-top: 2rem;
         }
 
-        .achievement-image-container {
-            flex: 0 0 300px;
-            overflow: hidden;
-        }
-
-        .achievement-image-preview {
-            width: 100%;
-            height: 100%;
+        .achievement-image {
+            width: 300px;
+            height: 200px;
             object-fit: cover;
-            display: block;
         }
 
-        .achievement-details-container {
-            flex: 1;
+        .achievement-content {
             padding: 2rem;
+            flex: 1;
         }
 
         .achievement-title {
-            font-size: var(--font-size-xl);
-            font-weight: 700;
-            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            font-weight: 600;
             color: var(--text-primary);
+            margin-bottom: 0.5rem;
         }
 
-        .achievement-description {
+        .achievement-desc {
             color: var(--text-secondary);
             line-height: 1.6;
         }
+
+        /* Modal */
+        .cert-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .cert-modal.active {
+            display: flex;
+        }
+
+        .cert-modal img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+        }
+
+        .cert-modal-close {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            font-size: 2rem;
+            color: white;
+            cursor: pointer;
+            background: rgba(0, 0, 0, 0.5);
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+        }
+
+        .cert-modal-close:hover {
+            background: rgba(0, 0, 0, 0.8);
+            transform: rotate(90deg);
+        }
+
+        @media (max-width: 768px) {
+            .achievement-card {
+                flex-direction: column;
+            }
+
+            .achievement-image {
+                width: 100%;
+            }
+        }
     </style>
 </head>
-
-<body data-theme="dark">
-    <div class="particles-container" id="particlesContainer"></div>
-    
-    <div class="loading-screen" id="loadingScreen">
-        <div class="loading-content">
-            <div class="loading-logo">
-                <div class="logo-ring"></div>
-                <div class="logo-ring"></div>
-                <div class="logo-ring"></div>
-                <span class="logo-text">TU</span>
-            </div>
-            <div class="loading-text">Loading Certificates...</div>
-        </div>
-    </div>
-
-    <nav class="navbar" id="navbar">
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
         <div class="nav-container">
-            <a href="index.html" class="nav-logo">
-                <div class="logo-icon"><span>T</span><span>H</span><span>T</span></div>
-            </a>
-            <ul class="nav-menu" id="navMenu">
-                <li><a href="projects.html" class="nav-link" data-i18n="nav_projects">Projects</a></li>
-                <li><a href="certificates.html" class="nav-link active" data-i18n="nav_certificates">Certificates</a></li>
+            <div class="nav-brand">Trinh Hoang Tu</div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="projects.html" class="nav-link">Projects</a></li>
+                <li><a href="certificates.html" class="nav-link active">Certificates</a></li>
             </ul>
-            <div class="nav-controls">
-                <a href="index.html" class="btn-secondary" style="padding: 0.75rem 1.5rem; text-decoration: none;">
-                    <i class="fas fa-arrow-left"></i>
-                    <span style="margin-left: 0.5rem;">Back</span>
-                </a>
-            </div>
         </div>
     </nav>
 
-    <main id="certificates-page">
-        <div class="container">
-            <div class="projects-page-header">
-                <h1 class="projects-page-title" data-i18n="cert_page_title">Certificates</h1>
-                <p class="projects-page-subtitle" data-i18n="cert_page_subtitle">A collection of my certifications and achievements.</p>
+    <!-- Certificates Page -->
+    <section id="certificates" style="padding-top: 8rem;">
+        <div class="section-container">
+            <div class="section-header fade-in">
+                <span class="section-label">Credentials</span>
+                <h2 class="section-title">Certificates & Achievements</h2>
+                <p class="section-description">
+                    Professional certifications and achievements demonstrating continuous learning and growth
+                </p>
             </div>
 
-            <div class="certificate-list">
+            <div class="cert-grid">
                 <!-- Cybersecurity Certificate -->
-                <div class="cert-list-item">
-                    <div class="cert-image-container">
-                        <img src="certificates/image_foundations_of_cybersecurity.jpg" alt="Foundations of Cybersecurity Certificate" class="cert-image-preview" loading="lazy" data-img-src="certificates/image_foundations_of_cybersecurity.jpg">
-                    </div>
-                    <div class="cert-details-container">
+                <div class="cert-card fade-in" onclick="openCertModal('certificates/image_foundations_of_cybersecurity.jpg')">
+                    <img src="certificates/image_foundations_of_cybersecurity.jpg" alt="Foundations of Cybersecurity" class="cert-image">
+                    <div class="cert-content">
                         <h3 class="cert-title">Foundations of Cybersecurity</h3>
-                        <p class="cert-description">Issued by Google. Validates foundational understanding of cybersecurity principles.</p>
-                        <button class="btn-primary view-cert-btn" data-img-src="certificates/image_foundations_of_cybersecurity.jpg">
-                            <i class="fas fa-eye"></i> <span data-i18n="cert_view_button">Zoom In</span>
+                        <p class="cert-issuer">Issued by Google</p>
+                        <button class="cert-btn">
+                            <i class="fas fa-eye"></i>
+                            View Certificate
                         </button>
                     </div>
                 </div>
 
                 <!-- Project Management Certificate -->
-                <div class="cert-list-item">
-                    <div class="cert-image-container">
-                        <img src="certificates/image_foundations_of_project_management.jpg" alt="Foundations of Project Management Certificate" class="cert-image-preview" loading="lazy" data-img-src="certificates/image_foundations_of_project_management.jpg">
-                    </div>
-                    <div class="cert-details-container">
+                <div class="cert-card fade-in" onclick="openCertModal('certificates/image_foundations_of_project_management.jpg')">
+                    <img src="certificates/image_foundations_of_project_management.jpg" alt="Foundations of Project Management" class="cert-image">
+                    <div class="cert-content">
                         <h3 class="cert-title">Foundations of Project Management</h3>
-                        <p class="cert-description">Issued by Google. Demonstrates an understanding of the project management lifecycle.</p>
-                        <button class="btn-primary view-cert-btn" data-img-src="certificates/image_foundations_of_project_management.jpg">
-                            <i class="fas fa-eye"></i> <span data-i18n="cert_view_button">Zoom In</span>
+                        <p class="cert-issuer">Issued by Google</p>
+                        <button class="cert-btn">
+                            <i class="fas fa-eye"></i>
+                            View Certificate
                         </button>
                     </div>
                 </div>
 
-                <!-- Google AI Essentials Certificate -->
-                <div class="cert-list-item">
-                    <div class="cert-image-container">
-                        <img src="certificates/image_google_ai_essentials.jpg" alt="Google AI Essentials Certificate" class="cert-image-preview" loading="lazy" data-img-src="certificates/image_google_ai_essentials.jpg">
-                    </div>
-                    <div class="cert-details-container">
+                <!-- Google AI Essentials -->
+                <div class="cert-card fade-in" onclick="openCertModal('certificates/image_google_ai_essentials.jpg')">
+                    <img src="certificates/image_google_ai_essentials.jpg" alt="Google AI Essentials" class="cert-image">
+                    <div class="cert-content">
                         <h3 class="cert-title">Google AI Essentials</h3>
-                        <p class="cert-description">Issued by Google. Covers the fundamental concepts of Artificial Intelligence.</p>
-                        <button class="btn-primary view-cert-btn" data-img-src="certificates/image_google_ai_essentials.jpg">
-                            <i class="fas fa-eye"></i> <span data-i18n="cert_view_button">Zoom In</span>
+                        <p class="cert-issuer">Issued by Google</p>
+                        <button class="cert-btn">
+                            <i class="fas fa-eye"></i>
+                            View Certificate
                         </button>
                     </div>
                 </div>
 
-                <!-- Technical Support Certificate -->
-                <div class="cert-list-item">
-                    <div class="cert-image-container">
-                        <img src="certificates/image_technical_support_fundamentals.jpg" alt="Technical Support Fundamentals Certificate" class="cert-image-preview" loading="lazy" data-img-src="certificates/image_technical_support_fundamentals.jpg">
-                    </div>
-                    <div class="cert-details-container">
+                <!-- Technical Support -->
+                <div class="cert-card fade-in" onclick="openCertModal('certificates/image_technical_support_fundamentals.jpg')">
+                    <img src="certificates/image_technical_support_fundamentals.jpg" alt="Technical Support Fundamentals" class="cert-image">
+                    <div class="cert-content">
                         <h3 class="cert-title">Technical Support Fundamentals</h3>
-                        <p class="cert-description">Issued by Google. Provides a comprehensive overview of IT support.</p>
-                        <button class="btn-primary view-cert-btn" data-img-src="certificates/image_technical_support_fundamentals.jpg">
-                            <i class="fas fa-eye"></i> <span data-i18n="cert_view_button">Zoom In</span>
+                        <p class="cert-issuer">Issued by Google</p>
+                        <button class="cert-btn">
+                            <i class="fas fa-eye"></i>
+                            View Certificate
                         </button>
                     </div>
                 </div>
             </div>
 
-            <div class="projects-page-header">
-                <h1 class="projects-page-title" data-i18n="cert_achievement_title">Achievements</h1>
-            </div>
-            <div class="achievement-item">
-                <div class="achievement-image-container">
-                    <img src="images/outst.jpg" alt="Outstanding Student of the Year 2023" class="achievement-image-preview" loading="lazy">
+            <!-- Achievements Section -->
+            <div class="achievement-section">
+                <div class="section-header fade-in">
+                    <span class="section-label">Recognition</span>
+                    <h2 class="section-title">Achievements</h2>
                 </div>
-                <div class="achievement-details-container">
-                    <h3 class="achievement-title" data-i18n="cert_achievement_title">Outstanding Student of the Year 2023</h3>
-                    <p class="achievement-description" data-i18n="cert_achievement_desc">Awarded by Bu Dang District, Binh Phuoc Province.</p>
+
+                <div class="achievement-card fade-in">
+                    <img src="images/outst.jpg" alt="Outstanding Student Award" class="achievement-image">
+                    <div class="achievement-content">
+                        <h3 class="achievement-title">Outstanding Student of the Year 2023</h3>
+                        <p class="achievement-desc">
+                            Awarded by Bu Dang District, Binh Phuoc Province for exceptional academic performance and contributions to the community.
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
-    </main>
+    </section>
 
-    <!-- Certificate Viewer Modal -->
-    <div id="certModal" class="modal-overlay">
-        <span class="modal-close" id="closeCertModal" title="Close">&times;</span>
-        <img class="modal-content" id="certModalImage">
-    </div>
-
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-bottom">
-                <div class="footer-info">
-                    <p>&copy; 2025 Trinh Hoang Tu. All rights reserved.</p>
-                </div>
-            </div>
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <p class="footer-text">© 2024 Trinh Hoang Tu. All rights reserved.</p>
+            <p class="footer-text">Built with HTML, CSS & JavaScript</p>
         </div>
     </footer>
 
-    <script src="app.min.js" defer></script>
+    <!-- Certificate Modal -->
+    <div class="cert-modal" id="certModal">
+        <span class="cert-modal-close" onclick="closeCertModal()">
+            <i class="fas fa-times"></i>
+        </span>
+        <img id="certModalImage" src="" alt="Certificate">
+    </div>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollToTop" class="scroll-to-top" aria-label="Scroll to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Simple JS -->
+    <script>
+        // Navbar scroll effect
+        const navbar = document.querySelector('.navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Scroll to top button
+        const scrollToTopBtn = document.getElementById('scrollToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollToTopBtn.classList.add('visible');
+            } else {
+                scrollToTopBtn.classList.remove('visible');
+            }
+        });
+
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Certificate modal
+        function openCertModal(imageSrc) {
+            const modal = document.getElementById('certModal');
+            const modalImage = document.getElementById('certModalImage');
+            modalImage.src = imageSrc;
+            modal.classList.add('active');
+        }
+
+        function closeCertModal() {
+            const modal = document.getElementById('certModal');
+            modal.classList.remove('active');
+        }
+
+        // Close modal on overlay click
+        document.getElementById('certModal').addEventListener('click', (e) => {
+            if (e.target.id === 'certModal') {
+                closeCertModal();
+            }
+        });
+
+        // Close modal on ESC key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeCertModal();
+            }
+        });
+    </script>
 </body>
 </html>

@@ -3,26 +3,20 @@ const CACHE_NAME = 'portfolio-cache-v1';
 const urlsToCache = [
   '/',
   '/index.html',
-  '/styles.css',
-  '/app.js',
+  '/styles.min.css',
+  '/app.min.js',
   '/manifest.webmanifest',
-  '/images/avatar.jpg',
-  '/images/avatar2.png',
-  '/images/gdg-hcmc.jpg',
-  '/images/huflit.png',
+  '/images/favicon.png',
   '/projects.html',
-  '/projects.css',
   '/certificates.html',
-  '/certificates.css',
-  '/cv/mycv.png',
-  '/cv/mycv.pdf'
+  '/cv/mycv.png'
 ];
 
 self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(CACHE_NAME)
       .then(cache => {
-        console.log('Opened cache');
+        // console.log('Opened cache'); // Removed for production
         return cache.addAll(urlsToCache);
       })
   );

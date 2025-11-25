@@ -1,268 +1,116 @@
+<!DOCTYPE html>
+<html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="description" content="Trinh Hoang Tu - Cybersecurity enthusiast and developer, Google Developer Group member">
-  <meta name="robots" content="index, follow">
-  <meta name="theme-color" content="#0f172a">
-
-  <title data-i18n="page_title">Trinh Hoang Tu Portfolio</title>
-  <link rel="canonical" href="https://thtcsec.github.io/">
-
-  <!-- PWA manifest -->
-  <link rel="manifest" href="/manifest.webmanifest">
-
-  <!-- Icons -->
-  <link rel="icon" href="/images/avatar.jpg" sizes="192x192">
-  <link rel="apple-touch-icon" href="/images/avatar.jpg">
-
-  <!-- Open Graph -->
-   <meta name="google-site-verification" content="vEGFMwS-HSy7G3Z1YmFgp-xtLRE28MFT9EfC3xLSAgg" />
-  <meta property="og:title" content="Trinh Hoang Tu - Portfolio">
-  <meta property="og:description" content="Cybersecurity enthusiast and developer, Google Developer Group member">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://thtcsec.github.io/">
-  <meta property="og:image" content="https://thtcsec.github.io/images/avatar.jpg">
-  <meta property="og:site_name" content="THT CSEC">
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Trinh Hoang Tu - Portfolio">
-  <meta name="twitter:description" content="Cybersecurity enthusiast and developer, Google Developer Group member">
-  <meta name="twitter:image" content="https://thtcsec.github.io/images/avatar.jpg">
-
-  <!-- CSS & assets -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <link rel="stylesheet" href="styles.min.css">
-  <link rel="preload" href="app.min.js" as="script">
-  <style>
-    .modal-overlay.active .modal:not(.closing) {
-        animation: scaleIn 0.3s ease;
-    }
-
-    .modal.closing {
-        animation: scaleOut 0.3s ease forwards;
-    }
-
-    @keyframes scaleIn {
-      from {
-        opacity: 0;
-        transform: scale(0.8);
-      }
-      to {
-        opacity: 1;
-        transform: scale(1);
-      }
-    }
-
-    @keyframes scaleOut {
-      from {
-        opacity: 1;
-        transform: scale(1);
-      }
-      to {
-        opacity: 0;
-        transform: scale(0.8);
-      }
-    }
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Trinh Hoang Tu - Developer, Cybersecurity Enthusiast & Tech Explorer">
+    <meta name="theme-color" content="#0a0a0a">
     
-  </style>
-
-  <!-- JSON-LD -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Trinh Hoang Tu",
-    "url": "https://thtcsec.github.io",
-    "image": "https://thtcsec.github.io/images/avatar.jpg",
-    "sameAs": [
-      "https://github.com/thtcsec",
-      "https://www.linkedin.com/in/tutrinh-csec",
-      "https://www.facebook.com/thtcsec"
-    ],
-    "jobTitle": "Cybersecurity Enthusiast & Developer",
-    "worksFor": { "@type": "Organization", "name": "HUFLIT" },
-    "alumniOf": { "@type": "CollegeOrUniversity", "name": "HUFLIT" }
-  }
-  </script>
+    <title>Trinh Hoang Tu - Developer & Tech Enthusiast</title>
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="professional.css">
+    <link rel="stylesheet" href="professional-enhancements.css">
 </head>
-
-<body data-theme="dark">
-    <!-- Dynamic Background Particles -->
-    <div class="particles-container" id="particlesContainer"></div>
-    <div class="loading-screen" id="loadingScreen">
-        <div class="loading-content">
-            <div class="loading-logo">
-                <div class="logo-ring"></div>
-                <div class="logo-ring"></div>
-                <div class="logo-ring"></div>
-                <span class="logo-text">TU</span>
-            </div>
-            <div class="loading-text">Initializing Portfolio...</div>
-            <div class="loading-progress">
-                <div class="loading-bar"></div>
-            </div>
-        </div>
-    </div>
-
+<body>
     <!-- Navigation -->
-    <nav class="navbar" id="navbar">
+    <nav class="navbar">
         <div class="nav-container">
-            <a href="#home" class="nav-logo">
-                <div class="logo-icon">
-                    <span>T</span>
-                    <span>H</span>
-                    <span>T</span>
-                </div>
-            </a>
-            
-            <ul class="nav-menu" id="navMenu">
-                <li><a href="#home" class="nav-link" data-i18n="nav_home">Home</a></li>
-                <li><a href="#about" class="nav-link" data-i18n="nav_about">About</a></li>
-                <li><a href="#skills" class="nav-link" data-i18n="nav_skills">Skills</a></li>
-                <li><a href="projects.html" class="nav-link" data-i18n="nav_projects">Projects</a></li>
-                <li><a href="certificates.html" class="nav-link" data-i18n="nav_certificates">Certificates</a></li>
-                <li><a href="#contact" class="nav-link" data-i18n="nav_contact">Contact</a></li>
+            <div class="nav-brand">Trinh Hoang Tu</div>
+            <ul class="nav-menu">
+                <li><a href="projects.html" class="nav-link">Projects</a></li>
+                <li><a href="certificates.html" class="nav-link">Certificates</a></li>
             </ul>
-            
-            <div class="nav-controls">
-                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-                    <i class="fas fa-sun light-icon"></i>
-                    <i class="fas fa-moon dark-icon"></i>
-                </button>
-                
-                <button class="lang-toggle" id="langToggle" aria-label="Switch language">
-                    <span class="lang-current">VI</span>
-                    <i class="fas fa-chevron-down"></i>
-                </button>
-                
-                <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-            </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <div class="hero-background">
-            <div class="gradient-orb orb-1"></div>
-            <div class="gradient-orb orb-2"></div>
-            <div class="gradient-orb orb-3"></div>
-        </div>
-        
-        <div class="hero-content">
-            <div class="hero-text">
-                <div class="hero-greeting" data-i18n="hero_greeting">Hello, I'm</div>
-                <h1 class="hero-name">
-                    <span class="name-part">Trinh</span>
-                    <span class="name-part">Hoang</span>
-                    <span class="name-part highlight">Tu</span>
-                </h1>
-                <div class="hero-subtitle">
-                    <span class="typing-text" data-i18n="hero_subtitle">Cybersecurity Enthusiast & Developer</span>
-                    <span class="cursor">|</span>
-                </div>
-                <p class="hero-description" data-i18n="hero_description">
-                    Passionate about securing digital landscapes and crafting innovative solutions with cutting-edge technologies.
+        <div class="hero-container">
+            <div class="hero-content fade-in">
+                <div class="hero-label">👋 Xin chào, tôi là</div>
+                <h1 class="hero-title">Trinh Hoang Tu</h1>
+                <p class="hero-description">
+                    IT Specialist focused on Cybersecurity and Software Development. 
+                    Currently pursuing Information Technology at HUFLIT University.
                 </p>
-            </div>
-            
-            <div class="hero-actions">
-                <a href="#projects" class="btn-primary">
-                    <span>View My Work</span>
-                    <i class="fas fa-arrow-right"></i>
-                </a>
-                <a href="#contact" class="btn-secondary">
-                    <span>Get In Touch</span>
-                    <i class="fas fa-paper-plane"></i>
-                </a>
-            </div>
-            
-            <!-- Academic Progress -->
-            <div class="progress-widget" id="progressWidget">
-                <div class="progress-label">
-                    <span data-i18n="progress_label">Academic Journey</span>
-                    <span class="progress-percentage" id="progressPercentage">55.6%</span>
+                <div class="hero-cta">
+                    <a href="#projects" class="btn btn-primary">
+                        <i class="fas fa-folder"></i>
+                        View Projects
+                    </a>
+                    <a href="#contact" class="btn btn-secondary">
+                        <i class="fas fa-envelope"></i>
+                        Get In Touch
+                    </a>
                 </div>
-                <div class="progress-track">
-                    <div class="progress-fill" id="progressFill"></div>
-                    <div class="progress-glow"></div>
-                </div>
-                <div class="progress-info">
-                    <span class="progress-detail">Semester 5/9 • GPA 3.31</span>
-                    <button class="progress-expand" id="progressExpand">
-                        <i class="fas fa-info-circle"></i>
-                    </button>
+                
+                <!-- Graduation Progress Bar -->
+                <div class="progress-widget">
+                    <div class="progress-label">
+                        <span>Academic Journey to Graduation</span>
+                        <span class="progress-percentage">55.6%</span>
+                    </div>
+                    <div class="progress-track">
+                        <div class="progress-fill"></div>
+                        <div class="progress-glow"></div>
+                    </div>
+                    <div class="progress-info">
+                        <span class="progress-detail">Semester 5/9 • GPA 3.38 • Expected 2027</span>
+                        <button class="progress-expand" title="View details">
+                            <i class="fas fa-info-circle"></i>
+                        </button>
+                    </div>
                 </div>
             </div>
-        </div>
-        
-        <div class="scroll-indicator">
-            <div class="scroll-line"></div>
-            <span class="scroll-text">Scroll</span>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title" data-i18n="about_title">About Me</h2>
-                <div class="section-subtitle" data-i18n="about_subtitle">Get to know me better</div>
+    <section id="about">
+        <div class="section-container">
+            <div class="section-header fade-in">
+                <span class="section-label">About Me</span>
+                <h2 class="section-title">Professional Background</h2>
+                <p class="section-description">
+                    Passionate about technology, security, and building innovative solutions
+                </p>
             </div>
-            
-            <div class="about-content">
-                <div class="about-image">
-                    <div class="image-frame">
-                        <img src="images/avatar2.png" alt="Trinh Hoang Tu" loading="lazy">
-                        <div class="image-overlay"></div>
-                    </div>
+
+            <div class="about-grid">
+                <div class="about-image-wrapper fade-in">
+                    <img src="images/avatar.jpg" alt="Trinh Hoang Tu" class="about-image">
                 </div>
-                
-                <div class="about-info">
-                    <div class="about-text">
-                        <p data-i18n="about_description">
-                            I'm a cybersecurity enthusiast and developer currently pursuing my degree in Information Technology at HUFLIT. With a strong passion for both security and development, I love exploring the intersection of these fields.
-                        </p>
-                        <p data-i18n="about_description2">
-                            I would love to expand my knowledge and contribute to the tech community.
-                        </p>
-                    </div>
-                    
-                    <div class="about-stats">
-                        <div class="stat-item">
+
+                <div class="fade-in">
+                    <h3 class="mb-3">Cybersecurity Enthusiast & Developer</h3>
+                    <p class="mb-3">
+                        I'm a cybersecurity enthusiast and developer currently pursuing my degree in Information Technology at HUFLIT University. 
+                        With a strong passion for both security and development, I love exploring the intersection of these fields.
+                    </p>
+                    <p class="mb-4">
+                        I would love to expand my knowledge and contribute to the tech community through innovative projects and continuous learning.
+                    </p>
+
+                    <div class="stats-grid">
+                        <div class="stat-card">
                             <div class="stat-number">73+</div>
                             <div class="stat-label">Credits Completed</div>
                         </div>
-                        <div class="stat-item">
-                            <div class="stat-number">5+</div>
+                        <div class="stat-card">
+                            <div class="stat-number">8+</div>
                             <div class="stat-label">Projects Built</div>
                         </div>
-                        <div class="stat-item">
-                            <div class="stat-number">20+</div>
-                            <div class="stat-label">Technologies Used</div>
+                        <div class="stat-card">
+                            <div class="stat-number">26+</div>
+                            <div class="stat-label">Technologies</div>
                         </div>
-                    </div>
-                    
-                    <div class="about-actions">
-                        <button class="btn-primary" id="downloadCV">
-                            <i class="fas fa-download"></i>
-                            <span>Download CV</span>
-                        </button>
-                        <div class="social-links">
-                            <a href="https://www.linkedin.com/in/tutrinh-csec" target="_blank" rel="noopener">
-                                <i class="fab fa-linkedin"></i>
-                            </a>
-                            <a href="https://github.com/thtcsec" target="_blank" rel="noopener">
-                                <i class="fab fa-github"></i>
-                            </a>
-                            <a href="https://www.facebook.com/thtcsec" target="_blank" rel="noopener">
-                                <i class="fab fa-facebook"></i>
-                            </a>
+                        <div class="stat-card">
+                            <div class="stat-number">3.38</div>
+                            <div class="stat-label">GPA</div>
                         </div>
                     </div>
                 </div>
@@ -271,69 +119,117 @@
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="skills">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title" data-i18n="skills_title">Skills & Technologies</h2>
-                <div class="section-subtitle" data-i18n="skills_subtitle">Tools and technologies I work with</div>
+    <section id="skills">
+        <div class="section-container">
+            <div class="section-header fade-in">
+                <span class="section-label">Expertise</span>
+                <h2 class="section-title">Technologies & Tools</h2>
+                <p class="section-description">
+                    Proficient in modern development tools and technologies
+                </p>
             </div>
-            
-            <div class="skills-container">
-                <div class="skill-category" data-category="languages">
-                    <h3 class="category-title">Programming Languages</h3>
-                    <div class="skills-grid">
-                        <div class="skill-item">
-                            <div class="skill-icon"><img src="images/technologies/csharp.png" alt="C#" loading="lazy"></div>
-                            <span class="skill-name">C#</span>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon"><img src="images/technologies/java.png" alt="Java" loading="lazy"></div>
-                            <span class="skill-name">Java</span>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon"><img src="images/technologies/python.png" alt="Python" loading="lazy"></div>
-                            <span class="skill-name">Python</span>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon"><img src="images/technologies/javascript.png" alt="JavaScript" loading="lazy"></div>
-                            <span class="skill-name">JavaScript</span>
-                        </div>
+
+            <!-- Auto-scrolling Tech Carousel -->
+            <div class="tech-carousel-container">
+                <div class="tech-carousel">
+                    <!-- First set of items -->
+                    <div class="tech-item">
+                        <div class="tech-icon">☕</div>
+                        <div class="tech-name">Java</div>
                     </div>
-                </div>
-                
-                <div class="skill-category" data-category="frameworks">
-                    <h3 class="category-title">Frameworks & Tools</h3>
-                    <div class="skills-grid">
-                        <div class="skill-item">
-                            <div class="skill-icon"><img src="images/technologies/aspnet.png" alt="ASP.NET" loading="lazy"></div>
-                            <span class="skill-name">ASP.NET</span>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon"><img src="images/technologies/docker.png" alt="Docker" loading="lazy"></div>
-                            <span class="skill-name">Docker</span>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon"><img src="images/technologies/git.png" alt="Git" loading="lazy"></div>
-                            <span class="skill-name">Git</span>
-                        </div>
+                    <div class="tech-item">
+                        <div class="tech-icon">⚙️</div>
+                        <div class="tech-name">C#</div>
                     </div>
-                </div>
-                
-                <div class="skill-category" data-category="security">
-                    <h3 class="category-title">Cybersecurity</h3>
-                    <div class="skills-grid">
-                        <div class="skill-item">
-                            <div class="skill-icon"><img src="images/technologies/kali.png" alt="Kali Linux" loading="lazy"></div>
-                            <span class="skill-name">Kali Linux</span>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon"><img src="images/technologies/nmap.png" alt="Nmap" loading="lazy"></div>
-                            <span class="skill-name">Nmap</span>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon"><img src="images/technologies/wireshark.png" alt="Wireshark" loading="lazy"></div>
-                            <span class="skill-name">Wireshark</span>
-                        </div>
+                    <div class="tech-item">
+                        <div class="tech-icon">🐍</div>
+                        <div class="tech-name">Python</div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-icon">⚡</div>
+                        <div class="tech-name">JavaScript</div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-icon">🌐</div>
+                        <div class="tech-name">HTML/CSS</div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-icon">🔒</div>
+                        <div class="tech-name">Cybersecurity</div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-icon">🐧</div>
+                        <div class="tech-name">Linux</div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-icon">🐳</div>
+                        <div class="tech-name">Docker</div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-icon">📊</div>
+                        <div class="tech-name">SQL</div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-icon">🤖</div>
+                        <div class="tech-name">AI Tools</div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-icon">�</div>
+                        <div class="tech-name">Git</div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-icon">🚀</div>
+                        <div class="tech-name">VS Code</div>
+                    </div>
+                    
+                    <!-- Duplicate set for seamless loop -->
+                    <div class="tech-item">
+                        <div class="tech-icon">☕</div>
+                        <div class="tech-name">Java</div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-icon">⚙️</div>
+                        <div class="tech-name">C#</div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-icon">🐍</div>
+                        <div class="tech-name">Python</div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-icon">⚡</div>
+                        <div class="tech-name">JavaScript</div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-icon">🌐</div>
+                        <div class="tech-name">HTML/CSS</div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-icon">🔒</div>
+                        <div class="tech-name">Cybersecurity</div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-icon">🐧</div>
+                        <div class="tech-name">Linux</div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-icon">🐳</div>
+                        <div class="tech-name">Docker</div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-icon">📊</div>
+                        <div class="tech-name">SQL</div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-icon">🤖</div>
+                        <div class="tech-name">AI Tools</div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-icon">🔧</div>
+                        <div class="tech-name">Git</div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-icon">🚀</div>
+                        <div class="tech-name">VS Code</div>
                     </div>
                 </div>
             </div>
@@ -341,389 +237,196 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="projects">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title" data-i18n="projects_title">Featured Projects</h2>
-                <div class="section-subtitle" data-i18n="projects_subtitle">Some of my recent work</div>
+    <section id="projects">
+        <div class="section-container">
+            <div class="section-header fade-in">
+                <span class="section-label">Projects</span>
+                <h2 class="section-title">Featured Work</h2>
+                <p class="section-description">
+                    A selection of projects I've worked on
+                </p>
             </div>
-            
-            <div class="projects-grid">
-                <div class="project-card featured" data-project="face-recognition">
-                    <div class="project-image">
-                        <div class="project-tech-stack"><span class="tech-badge">Java</span><span class="tech-badge">Python</span></div>
-                        <div class="project-icon"><i class="fas fa-robot"></i></div>
-                        <div class="project-status new">New</div>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Face / Object Recognition</h3>
-                        <p class="project-description">A multi-threaded Java server with a Python microservice for face and object recognition.</p>
-                        <div class="project-actions">
-                            <button class="btn-outline"><i class="fas fa-eye"></i> View Details</button>
-                            <a href="#" class="btn-icon" target="_blank"><i class="fab fa-github"></i></a>
+
+            <div class="grid grid-2">
+                <!-- Project 1 -->
+                <div class="project-card fade-in">
+                    <div class="project-header">
+                        <h3 class="project-title">🤖 Face / Object Recognition</h3>
+                        <p class="project-description">
+                            Multi-threaded Java server with Python microservice for face and object recognition using OpenCV and Google Cloud Vision API.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">Java</span>
+                            <span class="tag">Python</span>
+                            <span class="tag">OpenCV</span>
+                            <span class="tag">Spring Boot</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="project-card" data-project="yodobashi">
-                    <div class="project-image">
-                        <div class="project-tech-stack"><span class="tech-badge">Chrome Extension</span></div>
-                        <div class="project-icon"><i class="fas fa-crosshairs"></i></div>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Yodobashi Sniper V2</h3>
-                        <p class="project-description">Advanced browser extension for automated product purchase workflow.</p>
-                        <div class="project-actions">
-                            <button class="btn-outline"><i class="fas fa-eye"></i> View Details</button>
-                            <a href="https://github.com/thtcsec/yodobashi-sniper-v2" class="btn-icon" target="_blank"><i class="fab fa-github"></i></a>
+                <!-- Project 2 -->
+                <div class="project-card fade-in">
+                    <div class="project-header">
+                        <h3 class="project-title">🎯 Yodobashi Sniper V2</h3>
+                        <p class="project-description">
+                            Advanced browser extension for automated product purchase workflow with async/await and cross-origin messaging.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">Chrome Extension</span>
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">HTML/CSS</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="project-card" data-project="portfolio">
-                    <div class="project-image">
-                        <div class="project-tech-stack"><span class="tech-badge">HTML</span><span class="tech-badge">CSS</span><span class="tech-badge">JS</span></div>
-                        <div class="project-icon"><i class="fas fa-user"></i></div>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Portfolio Website</h3>
-                        <p class="project-description">Website portfolio cá nhân được thiết kế với giao diện hiện đại, responsive và hỗ trợ đa ngôn ngữ.</p>
-                        <div class="project-actions">
-                            <button class="btn-outline"><i class="fas fa-eye"></i> View Details</button>
+                <!-- Project 3 -->
+                <div class="project-card fade-in">
+                    <div class="project-header">
+                        <h3 class="project-title">🌐 Portfolio Website</h3>
+                        <p class="project-description">
+                            Modern responsive portfolio with PWA features, professional design, and multi-language support.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">HTML</span>
+                            <span class="tag">CSS</span>
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">PWA</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="project-card" data-project="flight">
-                    <div class="project-image">
-                        <div class="project-tech-stack"><span class="tech-badge">ASP.NET</span><span class="tech-badge">C#</span></div>
-                        <div class="project-icon"><i class="fas fa-plane"></i></div>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Flight Reservation System</h3>
-                        <p class="project-description">Hệ thống đặt vé máy bay được phát triển bằng ASP.NET C#.</p>
-                        <div class="project-actions">
-                            <button class="btn-outline"><i class="fas fa-eye"></i> View Details</button>
+                <!-- Project 4 -->
+                <div class="project-card fade-in">
+                    <div class="project-header">
+                        <h3 class="project-title">✈️ Flight Reservation System</h3>
+                        <p class="project-description">
+                            Comprehensive flight booking system with admin panel, user management, and real-time booking capabilities.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">ASP.NET</span>
+                            <span class="tag">C#</span>
+                            <span class="tag">SQL Server</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="project-card" data-project="linux-manager">
-                    <div class="project-image">
-                        <div class="project-tech-stack"><span class="tech-badge">WPF</span><span class="tech-badge">C#</span></div>
-                        <div class="project-icon"><i class="fas fa-server"></i></div>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Linux Server Manager</h3>
-                        <p class="project-description">Ứng dụng quản lý máy chủ Linux dành cho máy tính để bàn (WPF C#).</p>
-                        <div class="project-actions">
-                            <button class="btn-outline"><i class="fas fa-eye"></i> View Details</button>
+                <!-- Project 5 -->
+                <div class="project-card fade-in">
+                    <div class="project-header">
+                        <h3 class="project-title">🐧 Linux Server Manager</h3>
+                        <p class="project-description">
+                            Web-based Linux server management tool with SSH client integration and system monitoring capabilities.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">WPF</span>
+                            <span class="tag">C#</span>
+                            <span class="tag">SSH.NET</span>
                         </div>
                     </div>
                 </div>
-            </div>
-            
-            <div class="projects-footer">
-                <a href="projects.html" class="btn-primary">
-                    <span>View All Projects</span>
-                    <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-        </div>
-    </section>
 
-    <!-- GDG Section -->
-    <section id="gdg" class="gdg">
-        <div class="container">
-            <div class="gdg-content">
-                <div class="gdg-badge">
-                    <img src="images/gdg-hcmc-placeholder.png" alt="GDG Ho Chi Minh City" loading="lazy">
-                </div>
-                <div class="gdg-info">
-                    <h3 class="gdg-title">Google Developer Group</h3>
-                    <p class="gdg-description">
-                        Active member of GDG Ho Chi Minh City, participating in tech events and contributing to the developer community.
-                    </p>
-                    <div class="gdg-stats">
-                        <div class="stat">
-                            <span class="stat-number">1</span>
-                            <span class="stat-label">Events</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-number">3+</span>
-                            <span class="stat-label">Connections</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-number">1</span>
-                            <span class="stat-label">Months</span>
+                <!-- Project 6 -->
+                <div class="project-card fade-in">
+                    <div class="project-header">
+                        <h3 class="project-title">💬 Chat Application</h3>
+                        <p class="project-description">
+                            Real-time messaging application with modern UI, group chat features, and WebSocket support.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">Socket.IO</span>
+                            <span class="tag">Node.js</span>
+                            <span class="tag">MongoDB</span>
                         </div>
                     </div>
-                    <a href="https://gdg.community.dev/u/tu44/" class="btn-outline" target="_blank">
-                        <span>Visit my GDG Profile</span>
-                        <i class="fas fa-external-link-alt"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- First AI Cloud Journey Section -->
-    <section id="facj" class="gdg">
-        <div class="container">
-            <div class="gdg-content">
-                <div class="gdg-badge">
-                    <img src="images/aws-facj.png" alt="First AI Cloud Journey" loading="lazy">
-                </div>
-                <div class="gdg-info">
-                    <h3 class="gdg-title">AWS First AI Cloud Journey</h3>
-                    <p class="gdg-description">
-                        Participating in the First AI Cloud Journey study group, gaining hands-on experience with AWS's AI and machine learning services.
-                    </p>
-                    <div class="gdg-stats">
-                        <div class="stat">
-                            <span class="stat-number">5+</span>
-                            <span class="stat-label">Labs</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-number">10+</span>
-                            <span class="stat-label">Skills</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-number">1</span>
-                            <span class="stat-label">Study Group</span>
-                        </div>
-                    </div>
-                    <a href="certificates.html" class="btn-outline" target="_blank" style="display: none;">
-                        <span>View Certificate</span>
-                        <i class="fas fa-external-link-alt"></i>
-                    </a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title" data-i18n="contact_title">Let's Connect</h2>
-                <div class="section-subtitle" data-i18n="contact_subtitle">Get in touch for opportunities or collaborations</div>
+    <section id="contact">
+        <div class="section-container">
+            <div class="section-header fade-in">
+                <span class="section-label">Contact</span>
+                <h2 class="section-title">Get In Touch</h2>
+                <p class="section-description">
+                    Feel free to reach out for opportunities or collaborations
+                </p>
             </div>
-            
-            <div class="contact-content">
-                <div class="contact-info">
+
+            <div class="contact-grid">
+                <div class="contact-info fade-in">
                     <div class="contact-item">
                         <div class="contact-icon">
                             <i class="fas fa-envelope"></i>
                         </div>
                         <div class="contact-details">
                             <h4>Email</h4>
-                            <a href="mailto:tht.csec2005@gmail.com">tht.csec2005@gmail.com</a>
+                            <p><a href="mailto:tht.csec2005@gmail.com">tht.csec2005@gmail.com</a></p>
                         </div>
                     </div>
-                    
+
                     <div class="contact-item">
                         <div class="contact-icon">
                             <i class="fas fa-map-marker-alt"></i>
                         </div>
                         <div class="contact-details">
                             <h4>Location</h4>
-                            <span>Ho Chi Minh City, Vietnam</span>
+                            <p>Ho Chi Minh City, Vietnam</p>
                         </div>
                     </div>
-                    
+
                     <div class="contact-item">
                         <div class="contact-icon">
                             <i class="fas fa-graduation-cap"></i>
                         </div>
                         <div class="contact-details">
                             <h4>University</h4>
-                            <a href="https://huflit.edu.vn/" target="_blank">HUFLIT</a>
+                            <p><a href="https://huflit.edu.vn/" target="_blank">HUFLIT</a></p>
                         </div>
                     </div>
                 </div>
-                
-                <div class="social-grid">
-                    <a href="https://www.linkedin.com/in/tutrinh-csec" class="social-card linkedin" target="_blank">
-                        <div class="social-icon">
+
+                <div class="fade-in">
+                    <h3 class="mb-3">Connect With Me</h3>
+                    <p class="mb-4">Find me on these platforms</p>
+                    
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/tutrinh-csec" target="_blank" class="social-link" title="LinkedIn">
                             <i class="fab fa-linkedin"></i>
-                        </div>
-                        <div class="social-info">
-                            <h4>LinkedIn</h4>
-                            <span>Professional Network</span>
-                        </div>
-                        <i class="fas fa-arrow-up-right social-arrow"></i>
-                    </a>
-                    
-                    <a href="https://github.com/thtcsec" class="social-card github" target="_blank">
-                        <div class="social-icon">
+                        </a>
+                        <a href="https://github.com/thtcsec" target="_blank" class="social-link" title="GitHub">
                             <i class="fab fa-github"></i>
-                        </div>
-                        <div class="social-info">
-                            <h4>GitHub</h4>
-                            <span>Code Repository</span>
-                        </div>
-                        <i class="fas fa-arrow-up-right social-arrow"></i>
-                    </a>
-                    
-                    <a href="https://leetcode.com/thtcsec" class="social-card leetcode" target="_blank">
-                        <div class="social-icon">
-                            <i class="fas fa-code"></i>
-                        </div>
-                        <div class="social-info">
-                            <h4>LeetCode</h4>
-                            <span>Problem Solving</span>
-                        </div>
-                        <i class="fas fa-arrow-up-right social-arrow"></i>
-                    </a>
-                    
-                    <a href="https://www.tiktok.com/@tuhocleetcode" class="social-card tiktok" target="_blank">
-                        <div class="social-icon">
-                            <i class="fab fa-tiktok"></i>
-                        </div>
-                        <div class="social-info">
-                            <h4>TikTok</h4>
-                            <span>Educational Content</span>
-                        </div>
-                        <i class="fas fa-arrow-up-right social-arrow"></i>
-                    </a>
-                    
-                    <a href="https://www.facebook.com/thtcsec" class="social-card facebook" target="_blank">
-                        <div class="social-icon">
+                        </a>
+                        <a href="https://www.facebook.com/thtcsec" target="_blank" class="social-link" title="Facebook">
                             <i class="fab fa-facebook"></i>
-                        </div>
-                        <div class="social-info">
-                            <h4>Facebook</h4>
-                            <span>Social Updates</span>
-                        </div>
-                        <i class="fas fa-arrow-up-right social-arrow"></i>
-                    </a>
-                    
-                    <a href="https://discord.com/users/815074234241646592" class="social-card discord" target="_blank">
-                        <div class="social-icon">
+                        </a>
+                        <a href="https://leetcode.com/thtcsec" target="_blank" class="social-link" title="LeetCode">
+                            <i class="fas fa-code"></i>
+                        </a>
+                        <a href="https://www.tiktok.com/@tuhocleetcode" target="_blank" class="social-link" title="TikTok">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                        <a href="https://discord.com/users/815074234241646592" target="_blank" class="social-link" title="Discord">
                             <i class="fab fa-discord"></i>
-                        </div>
-                        <div class="social-info">
-                            <h4>Discord</h4>
-                            <span>Private Message</span>
-                        </div>
-                        <i class="fas fa-arrow-up-right social-arrow"></i>
-                    </a>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <div class="footer-logo">
-                        <span>T</span>
-                        <span>H</span>
-                        <span>T</span>
-                    </div>
-                    <p class="footer-tagline">Building the future, one line of code at a time.</p>
-                </div>
-                
-                <div class="footer-links">
-                    <div class="link-group">
-                        <h4>Navigation</h4>
-                        <a href="#home">Home</a>
-                        <a href="#about">About</a>
-                        <a href="#skills">Skills</a>
-                        <a href="#projects">Projects</a>
-                    </div>
-                    <div class="link-group">
-                        <h4>Connect</h4>
-                        <a href="https://github.com/thtcsec" target="_blank">GitHub</a>
-                        <a href="https://www.linkedin.com/in/tutrinh-csec" target="_blank">LinkedIn</a>
-                        <a href="mailto:tht.csec2005@gmail.com">Email</a>
-                    </div>
-                </div>
-                
-                <div class="footer-tech">
-                    <h4>Built with</h4>
-                    <div class="tech-badges">
-                        <span class="tech-badge">HTML5</span>
-                        <span class="tech-badge">CSS3</span>
-                        <span class="tech-badge">JavaScript</span>
-                        <span class="tech-badge">❤️</span>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <div class="footer-info">
-                    <p>&copy; 2025 Trinh Hoang Tu. All rights reserved.</p>
-                    <div style="display: flex; align-items: center; gap: 10px;">
-                        <img src="images/huflit.png" alt="HUFLIT Logo" style="height: 24px;">
-                        <p>HUFLIT • Information Technology</p>
-                    </div>
-                </div>
-                
-                <div class="footer-stats">
-                    <div class="visitor-counter">
-                        <i class="fas fa-eye"></i>
-                        <span id="visitorCount">1,234</span> visitors
-                    </div>
-                    <div class="last-updated">
-                        Last updated: <span id="lastUpdated">Dec 2024</span>
-                    </div>
-                </div>
-            </div>
+    <footer>
+        <div class="footer-container">
+            <p class="footer-text">© 2024 Trinh Hoang Tu. All rights reserved.</p>
+            <p class="footer-text">Built with HTML, CSS & JavaScript</p>
         </div>
     </footer>
 
-    <!-- Floating Action Button -->
-    <div class="fab-container">
-        <button class="fab main-fab" id="mainFab">
-            <i class="fas fa-plus"></i>
-        </button>
-        
-        <div class="fab-menu" id="fabMenu">
-            <button class="fab sub-fab" id="backToTop" title="Back to Top">
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            <button class="fab sub-fab" id="viewCV" title="View CV">
-                <i class="fas fa-file-pdf"></i>
-            </button>
-            <button class="fab sub-fab" id="shareProfile" title="Share Profile">
-                <i class="fas fa-share-alt"></i>
-            </button>
-        </div>
-    </div>
-
-    <!-- Modals -->
-    <div class="modal-overlay" id="modalOverlay">
-        <!-- CV Modal -->
-        <div class="modal cv-modal" id="cvModal">
-            <div class="modal-header">
-                <h3>Curriculum Vitae</h3>
-                <button class="modal-close" id="closeCVModal">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="cv-viewer">
-                    <img src="cv/mycv.png" alt="CV of Trinh Hoang Tu" loading="lazy">
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button class="btn-outline" onclick="window.print()">
-                    <i class="fas fa-print"></i>
-                    Print
-                </button>
-                <a href="cv/mycv.pdf" class="btn-primary" download>
-                    <i class="fas fa-download"></i>
-                    Download PDF
-                </a>
-            </div>
-        </div>
-        
-        <!-- Progress Detail Modal -->
-        <div class="modal progress-modal" id="progressModal">
+    <!-- Progress Modal -->
+    <div class="modal-overlay" id="progressModal">
+        <div class="modal">
             <div class="modal-header">
                 <h3>Academic Progress Details</h3>
                 <button class="modal-close" id="closeProgressModal">
@@ -731,121 +434,184 @@
                 </button>
             </div>
             <div class="modal-body">
-                <div class="progress-overview">
-                    <div class="progress-stats-grid">
-                        <div class="progress-stat-card">
-                            <div class="stat-icon">
-                                <i class="fas fa-calendar"></i>
-                            </div>
-                            <div class="stat-info">
-                                <span class="stat-value">5/9</span>
-                                <span class="stat-label">Semesters</span>
-                            </div>
+                <div class="progress-stats-grid">
+                    <div class="progress-stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-calendar"></i>
                         </div>
-                        
-                        <div class="progress-stat-card">
-                            <div class="stat-icon">
-                                <i class="fas fa-book"></i>
-                            </div>
-                            <div class="stat-info">
-                                <span class="stat-value">73</span>
-                                <span class="stat-label">Credits</span>
-                            </div>
-                        </div>
-                        
-                        <div class="progress-stat-card">
-                            <div class="stat-icon">
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <div class="stat-info">
-                                <span class="stat-value">3.31</span>
-                                <span class="stat-label">GPA</span>
-                            </div>
-                        </div>
-                        
-                        <div class="progress-stat-card">
-                            <div class="stat-icon">
-                                <i class="fas fa-graduation-cap"></i>
-                            </div>
-                            <div class="stat-info">
-                                <span class="stat-value">2027</span>
-                                <span class="stat-label">Expected Graduation</span>
-                            </div>
+                        <div class="stat-info">
+                            <span class="stat-value">5/9</span>
+                            <span class="stat-label">Semesters</span>
                         </div>
                     </div>
-                    
-                    <div class="progress-timeline">
-                        <div class="timeline-item completed">
-                            <div class="timeline-marker">
-                                <i class="fas fa-check"></i>
-                            </div>
-                            <div class="timeline-content">
-                                <h4>Year 1: Foundations</h4>
-                                <p>Completed C# programming fundamentals and basic computer science concepts</p>
-                                <span class="timeline-date">2023-2024</span>
-                            </div>
+                    <div class="progress-stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-book"></i>
                         </div>
-                        
-                        <div class="timeline-item completed">
-                            <div class="timeline-marker">
-                                <i class="fas fa-check"></i>
-                            </div>
-                            <div class="timeline-content">
-                                <h4>Year 2: Advanced Programming</h4>
-                                <p>Mastered advanced C#, Java, Python, and web development</p>
-                                <span class="timeline-date">2024-2025</span>
-                            </div>
+                        <div class="stat-info">
+                            <span class="stat-value">73</span>
+                            <span class="stat-label">Credits</span>
                         </div>
-                        
-                        <div class="timeline-item current">
-                            <div class="timeline-marker">
-                                <i class="fas fa-code"></i>
-                            </div>
-                            <div class="timeline-content">
-                                <h4>Year 3: Specialization</h4>
-                                <p>Currently diving deep into cybersecurity and advanced IT concepts</p>
-                                <span class="timeline-date">2025-2026</span>
-                            </div>
+                    </div>
+                    <div class="progress-stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-star"></i>
                         </div>
-                        
-                        <div class="timeline-item upcoming">
-                            <div class="timeline-marker">
-                                <i class="fas fa-trophy"></i>
-                            </div>
-                            <div class="timeline-content">
-                                <h4>Year 4: Graduation</h4>
-                                <p>Capstone project, internship, and graduation preparation</p>
-                                <span class="timeline-date">2026-2027</span>
-                            </div>
+                        <div class="stat-info">
+                            <span class="stat-value">3.38</span>
+                            <span class="stat-label">GPA</span>
+                        </div>
+                    </div>
+                    <div class="progress-stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-value">2027</span>
+                            <span class="stat-label">Expected Graduation</span>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        
-        <!-- Project Detail Modal -->
-        <div class="modal project-modal" id="projectModal">
-            <div class="modal-header">
-                <h3 id="projectModalTitle">Project Details</h3>
-                <button class="modal-close" id="closeProjectModal">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="project-detail-content" id="projectDetailContent">
-                    <!-- Content will be populated by JavaScript -->
+                
+                <div class="progress-timeline">
+                    <div class="timeline-item completed">
+                        <div class="timeline-marker">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <h4>Year 1: Foundations</h4>
+                            <p>Completed C# programming fundamentals and basic computer science concepts</p>
+                            <span class="timeline-date">2023-2024</span>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item completed">
+                        <div class="timeline-marker">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <h4>Year 2: Advanced Programming</h4>
+                            <p>Mastered advanced C#, Java, Python, and web development</p>
+                            <span class="timeline-date">2024-2025</span>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item current">
+                        <div class="timeline-marker">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <h4>Year 3: Specialization</h4>
+                            <p>Currently diving deep into cybersecurity and advanced IT concepts</p>
+                            <span class="timeline-date">2025-2026</span>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item upcoming">
+                        <div class="timeline-marker">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <h4>Year 4: Graduation</h4>
+                            <p>Capstone project, internship, and graduation preparation</p>
+                            <span class="timeline-date">2026-2027</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Scripts -->
-        <script src="app.min.js" defer></script>
+    <!-- Scroll to Top Button -->
+    <button id="scrollToTop" class="scroll-to-top" aria-label="Scroll to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Simple JS for scroll animations -->
     <script>
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('/sw.js');
+        // Navbar scroll effect
+        const navbar = document.querySelector('.navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Scroll to top button
+        const scrollToTopBtn = document.getElementById('scrollToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollToTopBtn.classList.add('visible');
+            } else {
+                scrollToTopBtn.classList.remove('visible');
+            }
+        });
+
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Progress modal
+        const progressExpandBtn = document.querySelector('.progress-expand');
+        const progressModal = document.getElementById('progressModal');
+        const closeProgressModal = document.getElementById('closeProgressModal');
+
+        if (progressExpandBtn) {
+            progressExpandBtn.addEventListener('click', () => {
+                progressModal.classList.add('active');
+            });
         }
+
+        if (closeProgressModal) {
+            closeProgressModal.addEventListener('click', () => {
+                progressModal.classList.remove('active');
+            });
+        }
+
+        // Close modal on overlay click
+        progressModal.addEventListener('click', (e) => {
+            if (e.target === progressModal) {
+                progressModal.classList.remove('active');
+            }
+        });
     </script>
-    <noscript>JavaScript đang tắt nên portfolio sẽ mất nhiều hiệu ứng và PWA.</noscript>
 </body>
 </html>

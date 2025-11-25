@@ -1,456 +1,244 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-i18n="projects_page_title">Dự án - Portfolio Trịnh Hoàng Tú</title>
+    <title>Projects - Trinh Hoang Tu</title>
     
-    <!-- SEO and Meta Tags -->
-    <meta name="description" content="Portfolio of Trinh Hoang Tu - Showcasing web, mobile, and desktop applications">
-    <meta name="keywords" content="Trinh Hoang Tu, Portfolio, Projects, Cybersecurity, Web Development">
-    <meta name="author" content="Trinh Hoang Tu">
-    <meta property="og:title" content="Projects - Trinh Hoang Tu Portfolio">
-    <meta property="og:image" content="images/avatar.jpg">
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="images/avatar.jpg">
-
-    <!-- External Libraries -->
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
-    <!-- Custom Styles -->
-    <link rel="stylesheet" href="styles.min.css">
-    <style>
-    .modal-overlay.active .modal:not(.closing) {
-        animation: scaleIn 0.3s ease;
-    }
-
-    .modal.closing {
-        animation: scaleOut 0.3s ease forwards;
-    }
-
-    @keyframes scaleIn {
-      from {
-        opacity: 0;
-        transform: scale(0.8);
-      }
-      to {
-        opacity: 1;
-        transform: scale(1);
-      }
-    }
-
-    @keyframes scaleOut {
-      from {
-        opacity: 1;
-        transform: scale(1);
-      }
-      to {
-        opacity: 0;
-        transform: scale(0.8);
-      }
-    }
-
-    
-  </style>
-
-    <!-- PWA & Theme -->
-    <meta name="theme-color" content="#0f172a">
-    <link rel="manifest" href="manifest.json">
+    <!-- Styles -->
+    <link rel="stylesheet" href="professional.css">
+    <link rel="stylesheet" href="professional-enhancements.css">
 </head>
-
-<body data-theme="dark">
-    <!-- Dynamic Background Particles -->
-    <div class="particles-container" id="particlesContainer"></div>
-    
-    <!-- Loading Screen -->
-    <div class="loading-screen" id="loadingScreen">
-        <div class="loading-content">
-            <div class="loading-logo">
-                <div class="logo-ring"></div>
-                <div class="logo-ring"></div>
-                <div class="logo-ring"></div>
-                <span class="logo-text">TU</span>
-            </div>
-            <div class="loading-text">Loading Projects...</div>
-        </div>
-    </div>
-
+<body>
     <!-- Navigation -->
-    <nav class="navbar" id="navbar">
+    <nav class="navbar">
         <div class="nav-container">
-            <a href="index.html" class="nav-logo">
-                <div class="logo-icon">
-                    <span>T</span><span>H</span><span>T</span>
-                </div>
-            </a>
-            
-            <ul class="nav-menu" id="navMenu">
-                <li><a href="projects.html" class="nav-link active" data-i18n="nav_projects">Projects</a></li>
-                <li><a href="certificates.html" class="nav-link" data-i18n="nav_certificates">Certificates</a></li>
+            <div class="nav-brand">Trinh Hoang Tu</div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="projects.html" class="nav-link active">Projects</a></li>
+                <li><a href="certificates.html" class="nav-link">Certificates</a></li>
             </ul>
-            
-            <div class="nav-controls">
-                <a href="index.html" class="btn-secondary" style="padding: 0.75rem 1.5rem; text-decoration: none;">
-                    <i class="fas fa-arrow-left"></i>
-                    <span style="margin-left: 0.5rem;" data-i18n="projects_page_btn_back">Back</span>
-                </a>
-            </div>
         </div>
     </nav>
 
-    <main id="projects-page">
-        <div class="container">
-            <!-- Projects Page Header -->
-            <div class="projects-page-header">
-                <h1 class="projects-page-title" data-i18n="projects_page_title">My Projects</h1>
-                <p class="projects-page-subtitle" data-i18n="projects_page_subtitle">Exploring my journey through various creations</p>
-                <div class="projects-stats">
-                    <div class="stat-item">
-                        <span class="stat-number">9+</span>
-                        <span class="stat-label" data-i18n="projects_page_stat_1">Completed Projects</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">4</span>
-                        <span class="stat-label" data-i18n="projects_page_stat_2">Languages</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">20+</span>
-                        <span class="stat-label" data-i18n="projects_page_stat_3">Technologies</span>
-                    </div>
-                </div>
+    <!-- Projects Page -->
+    <section id="projects" style="padding-top: 8rem;">
+        <div class="section-container">
+            <div class="section-header fade-in">
+                <span class="section-label">My Work</span>
+                <h2 class="section-title">Featured Projects</h2>
+                <p class="section-description">
+                    A collection of my development projects showcasing various technologies and skills
+                </p>
             </div>
 
-            <!-- Project Filters -->
-            <div class="project-filters">
-                <button class="filter-btn active" data-filter="all" data-i18n="projects_page_filter_all">All</button>
-                <button class="filter-btn" data-filter="web" data-i18n="projects_page_filter_web">Web</button>
-                <button class="filter-btn" data-filter="desktop" data-i18n="projects_page_filter_desktop">Desktop</button>
-                <button class="filter-btn" data-filter="mobile" data-i18n="projects_page_filter_mobile">Mobile</button>
-                <button class="filter-btn" data-filter="backend" data-i18n="projects_page_filter_backend">Backend</button>
-                <button class="filter-btn" data-filter="extension" data-i18n="projects_page_filter_extension">Extension</button>
-            </div>
-
-            <!-- Projects Grid -->
             <div class="projects-grid">
                 <!-- Face Recognition -->
-                <div class="project-card" data-category="backend" data-project="face-recognition">
-                    <div class="project-image">
-                        <div class="project-tech-stack"><span class="tech-badge">Java</span><span class="tech-badge">Python</span></div>
-                        <div class="project-icon"><i class="fas fa-robot"></i></div>
+                <div class="project-card fade-in">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <div class="project-tags">
+                            <span class="tag">Java</span>
+                            <span class="tag">Python</span>
+                            <span class="tag">AI</span>
+                        </div>
                     </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Face / Object Recognition</h3>
-                        <p class="project-description">Engineered a multi-threaded Java server using TCP sockets secured with SSL/TLS encryption...</p>
-                        <div class="project-actions"><button class="btn-outline"><i class="fas fa-eye"></i> View Details</button></div>
-                    </div>
+                    <h3 class="project-title">Face / Object Recognition</h3>
+                    <p class="project-description">
+                        Engineered a multi-threaded Java server using TCP sockets secured with SSL/TLS encryption. 
+                        Integrated Python-based AI models for real-time face and object detection.
+                    </p>
                 </div>
-                <!-- Yodobashi Sniper V2 -->
-                <div class="project-card" data-category="extension" data-project="yodobashi">
-                    <div class="project-image">
-                        <div class="project-tech-stack"><span class="tech-badge">Chrome Extension</span></div>
-                        <div class="project-icon"><i class="fas fa-crosshairs"></i></div>
+
+                <!-- Yodobashi Sniper -->
+                <div class="project-card fade-in">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="fas fa-crosshairs"></i>
+                        </div>
+                        <div class="project-tags">
+                            <span class="tag">Chrome Extension</span>
+                            <span class="tag">JavaScript</span>
+                        </div>
                     </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Yodobashi Sniper V2</h3>
-                        <p class="project-description">Advanced browser extension for automated product purchase workflow...</p>
-                        <div class="project-actions"><button class="btn-outline"><i class="fas fa-eye"></i> View Details</button></div>
-                    </div>
+                    <h3 class="project-title">Yodobashi Sniper V2</h3>
+                    <p class="project-description">
+                        Advanced browser extension for automated product purchase workflow with intelligent timing and form automation.
+                    </p>
                 </div>
-                <!-- Portfolio -->
-                <div class="project-card" data-category="web" data-project="portfolio">
-                    <div class="project-image"><div class="project-icon"><i class="fas fa-user"></i></div></div>
-                    <div class="project-content">
-                        <h3 class="project-title">Portfolio Website</h3>
-                        <p class="project-description">Website portfolio cá nhân được thiết kế với giao diện hiện đại, responsive và hỗ trợ đa ngôn ngữ.</p>
-                        <div class="project-actions"><button class="btn-outline"><i class="fas fa-eye"></i> View Details</button></div>
+
+                <!-- Portfolio Website -->
+                <div class="project-card fade-in">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="project-tags">
+                            <span class="tag">HTML</span>
+                            <span class="tag">CSS</span>
+                            <span class="tag">JavaScript</span>
+                        </div>
                     </div>
+                    <h3 class="project-title">Portfolio Website</h3>
+                    <p class="project-description">
+                        Modern, responsive portfolio website with professional design, space theme background, and smooth animations.
+                    </p>
                 </div>
+
                 <!-- Flight Reservation -->
-                <div class="project-card" data-category="web" data-project="flight">
-                    <div class="project-image"><div class="project-icon"><i class="fas fa-plane"></i></div></div>
-                    <div class="project-content">
-                        <h3 class="project-title">Flight Reservation System</h3>
-                        <p class="project-description">Hệ thống đặt vé máy bay được phát triển bằng ASP.NET C#...</p>
-                        <div class="project-actions"><button class="btn-outline"><i class="fas fa-eye"></i> View Details</button></div>
+                <div class="project-card fade-in">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="fas fa-plane"></i>
+                        </div>
+                        <div class="project-tags">
+                            <span class="tag">ASP.NET</span>
+                            <span class="tag">C#</span>
+                            <span class="tag">SQL</span>
+                        </div>
                     </div>
+                    <h3 class="project-title">Flight Reservation System</h3>
+                    <p class="project-description">
+                        Full-stack flight booking system with user authentication, seat selection, and payment processing.
+                    </p>
                 </div>
+
                 <!-- Linux Server Manager -->
-                <div class="project-card" data-category="desktop" data-project="linux-manager">
-                    <div class="project-image"><div class="project-icon"><i class="fas fa-server"></i></div></div>
-                    <div class="project-content">
-                        <h3 class="project-title">Linux Server Manager</h3>
-                        <p class="project-description">Ứng dụng quản lý máy chủ Linux dành cho máy tính để bàn (WPF C#)...</p>
-                        <div class="project-actions"><button class="btn-outline"><i class="fas fa-eye"></i> View Details</button></div>
+                <div class="project-card fade-in">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="fas fa-server"></i>
+                        </div>
+                        <div class="project-tags">
+                            <span class="tag">WPF</span>
+                            <span class="tag">C#</span>
+                            <span class="tag">SSH</span>
+                        </div>
                     </div>
+                    <h3 class="project-title">Linux Server Manager</h3>
+                    <p class="project-description">
+                        Desktop application for managing Linux servers with SSH connection, file transfer, and command execution.
+                    </p>
                 </div>
+
                 <!-- EReader -->
-                <div class="project-card" data-category="web" data-project="ereader">
-                    <div class="project-image"><div class="project-icon"><i class="fas fa-book-open"></i></div></div>
-                    <div class="project-content">
-                        <h3 class="project-title">EReader</h3>
-                        <p class="project-description">Ứng dụng đọc sách điện tử giàu tính năng với giao diện tùy chỉnh...</p>
-                        <div class="project-actions"><button class="btn-outline"><i class="fas fa-eye"></i> View Details</button></div>
+                <div class="project-card fade-in">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="fas fa-book-open"></i>
+                        </div>
+                        <div class="project-tags">
+                            <span class="tag">Web App</span>
+                            <span class="tag">JavaScript</span>
+                        </div>
                     </div>
+                    <h3 class="project-title">EReader</h3>
+                    <p class="project-description">
+                        Feature-rich e-book reader with customizable interface, bookmarks, and reading progress tracking.
+                    </p>
                 </div>
+
                 <!-- Chat Application -->
-                <div class="project-card" data-category="web" data-project="chat">
-                    <div class="project-image"><div class="project-icon"><i class="fas fa-comments"></i></div></div>
-                    <div class="project-content">
-                        <h3 class="project-title">Chat Application</h3>
-                        <p class="project-description">Ứng dụng chat thời gian thực sử dụng WebSocket và Java...</p>
-                        <div class="project-actions"><button class="btn-outline"><i class="fas fa-eye"></i> View Details</button></div>
+                <div class="project-card fade-in">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <div class="project-tags">
+                            <span class="tag">WebSocket</span>
+                            <span class="tag">Java</span>
+                        </div>
                     </div>
+                    <h3 class="project-title">Chat Application</h3>
+                    <p class="project-description">
+                        Real-time chat application using WebSocket for instant messaging with group chat support.
+                    </p>
                 </div>
+
                 <!-- English Master -->
-                <div class="project-card" data-category="mobile" data-project="english">
-                    <div class="project-image"><div class="project-icon"><i class="fas fa-language"></i></div></div>
-                    <div class="project-content">
-                        <h3 class="project-title">English Master</h3>
-                        <p class="project-description">Ứng dụng học tiếng Anh trên Android với các bài học tương tác...</p>
-                        <div class="project-actions"><button class="btn-outline"><i class="fas fa-eye"></i> View Details</button></div>
+                <div class="project-card fade-in">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="fas fa-language"></i>
+                        </div>
+                        <div class="project-tags">
+                            <span class="tag">Android</span>
+                            <span class="tag">Java</span>
+                        </div>
                     </div>
+                    <h3 class="project-title">English Master</h3>
+                    <p class="project-description">
+                        Android app for learning English with interactive lessons, quizzes, and progress tracking.
+                    </p>
                 </div>
             </div>
         </div>
-    </main>
+    </section>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <div class="footer-logo">
-                        <span>T</span>
-                        <span>H</span>
-                        <span>T</span>
-                    </div>
-                    <p class="footer-tagline">Building the future, one line of code at a time.</p>
-                </div>
-                
-                <div class="footer-links">
-                    <div class="link-group">
-                        <h4>Navigation</h4>
-                        <a href="#home">Home</a>
-                        <a href="#about">About</a>
-                        <a href="#skills">Skills</a>
-                        <a href="#projects">Projects</a>
-                    </div>
-                    <div class="link-group">
-                        <h4>Connect</h4>
-                        <a href="https://github.com/thtcsec" target="_blank">GitHub</a>
-                        <a href="https://www.linkedin.com/in/tutrinh-csec" target="_blank">LinkedIn</a>
-                        <a href="mailto:tht.csec2005@gmail.com">Email</a>
-                    </div>
-                </div>
-                
-                <div class="footer-tech">
-                    <h4>Built with</h4>
-                    <div class="tech-badges">
-                        <span class="tech-badge">HTML5</span>
-                        <span class="tech-badge">CSS3</span>
-                        <span class="tech-badge">JavaScript</span>
-                        <span class="tech-badge">❤️</span>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <div class="footer-info">
-                    <p>&copy; 2025 Trinh Hoang Tu. All rights reserved.</p>
-                    <div style="display: flex; align-items: center; gap: 10px;">
-                        <img src="images/huflit.png" alt="HUFLIT Logo" style="height: 24px;">
-                        <p>HUFLIT • Information Technology</p>
-                    </div>
-                </div>
-                
-                <div class="footer-stats">
-                    <div class="visitor-counter">
-                        <i class="fas fa-eye"></i>
-                        <span id="visitorCount">N/A</span> visitors
-                    </div>
-                    <div class="last-updated">
-                        Last updated: <span id="lastUpdated">Aug 2025</span>
-                    </div>
-                </div>
-            </div>
+    <footer>
+        <div class="footer-container">
+            <p class="footer-text">© 2024 Trinh Hoang Tu. All rights reserved.</p>
+            <p class="footer-text">Built with HTML, CSS & JavaScript</p>
         </div>
     </footer>
 
-    <!-- Modals -->
-    <div class="modal-overlay" id="modalOverlay">
-        <!-- CV Modal -->
-        <div class="modal cv-modal" id="cvModal">
-            <div class="modal-header">
-                <h3>Curriculum Vitae</h3>
-                <button class="modal-close" id="closeCVModal">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="cv-viewer">
-                    <img src="cv/mycv.png" alt="CV of Trinh Hoang Tu" loading="lazy">
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button class="btn-outline" onclick="window.print()">
-                    <i class="fas fa-print"></i>
-                    Print
-                </button>
-                <a href="cv/mycv.pdf" class="btn-primary" download>
-                    <i class="fas fa-download"></i>
-                    Download PDF
-                </a>
-            </div>
-        </div>
-        
-        <!-- Progress Detail Modal -->
-        <div class="modal progress-modal" id="progressModal">
-            <div class="modal-header">
-                <h3>Academic Progress Details</h3>
-                <button class="modal-close" id="closeProgressModal">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="progress-overview">
-                    <div class="progress-stats-grid">
-                        <div class="progress-stat-card">
-                            <div class="stat-icon">
-                                <i class="fas fa-calendar"></i>
-                            </div>
-                            <div class="stat-info">
-                                <span class="stat-value">5/9</span>
-                                <span class="stat-label">Semesters</span>
-                            </div>
-                        </div>
-                        
-                        <div class="progress-stat-card">
-                            <div class="stat-icon">
-                                <i class="fas fa-book"></i>
-                            </div>
-                            <div class="stat-info">
-                                <span class="stat-value">73</span>
-                                <span class="stat-label">Credits</span>
-                            </div>
-                        </div>
-                        
-                        <div class="progress-stat-card">
-                            <div class="stat-icon">
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <div class="stat-info">
-                                <span class="stat-value">3.31</span>
-                                <span class="stat-label">GPA</span>
-                            </div>
-                        </div>
-                        
-                        <div class="progress-stat-card">
-                            <div class="stat-icon">
-                                <i class="fas fa-graduation-cap"></i>
-                            </div>
-                            <div class="stat-info">
-                                <span class="stat-value">2027</span>
-                                <span class="stat-label">Expected Graduation</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="progress-timeline">
-                        <div class="timeline-item completed">
-                            <div class="timeline-marker">
-                                <i class="fas fa-check"></i>
-                            </div>
-                            <div class="timeline-content">
-                                <h4>Year 1: Foundations</h4>
-                                <p>Completed C# programming fundamentals and basic computer science concepts</p>
-                                <span class="timeline-date">2023-2024</span>
-                            </div>
-                        </div>
-                        
-                        <div class="timeline-item current">
-                            <div class="timeline-marker">
-                                <i class="fas fa-code"></i>
-                            </div>
-                            <div class="timeline-content">
-                                <h4>Year 2: Advanced Programming</h4>
-                                <p>Currently mastering advanced C#, Java, Python, and web development</p>
-                                <span class="timeline-date">2024-2025</span>
-                            </div>
-                        </div>
-                        
-                        <div class="timeline-item upcoming">
-                            <div class="timeline-marker">
-                                <i class="fas fa-shield-alt"></i>
-                            </div>
-                            <div class="timeline-content">
-                                <h4>Year 3: Specialization</h4>
-                                <p>Deep dive into cybersecurity and advanced IT concepts</p>
-                                <span class="timeline-date">2025-2026</span>
-                            </div>
-                        </div>
-                        
-                        <div class="timeline-item upcoming">
-                            <div class="timeline-marker">
-                                <i class="fas fa-trophy"></i>
-                            </div>
-                            <div class="timeline-content">
-                                <h4>Year 4: Graduation</h4>
-                                <p>Capstone project, internship, and graduation preparation</p>
-                                <span class="timeline-date">2026-2027</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Project Detail Modal -->
-        <div class="modal project-modal" id="projectModal">
-            <div class="modal-header">
-                <h3 id="projectModalTitle">Project Details</h3>
-                <button class="modal-close" id="closeProjectModal">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="project-detail-content" id="projectDetailContent">
-                    <!-- Content will be populated by JavaScript -->
-                </div>
-            </div>
-        </div>
-    </div>
+    <!-- Scroll to Top Button -->
+    <button id="scrollToTop" class="scroll-to-top" aria-label="Scroll to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
-    <!-- Floating Action Button -->
-    <div class="fab-container">
-        <button class="fab main-fab" id="mainFab">
-            <i class="fas fa-plus"></i>
-        </button>
+    <!-- Simple JS -->
+    <script>
+        // Navbar scroll effect
+        const navbar = document.querySelector('.navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Scroll to top button
+        const scrollToTopBtn = document.getElementById('scrollToTop');
         
-        <div class="fab-menu" id="fabMenu">
-            <button class="fab sub-fab" id="backToTop" title="Back to Top">
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            <button class="fab sub-fab" id="viewCV" title="View CV">
-                <i class="fas fa-file-pdf"></i>
-            </button>
-            <button class="fab sub-fab" id="shareProfile" title="Share Profile">
-                <i class="fas fa-share-alt"></i>
-            </button>
-        </div>
-    </div>
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollToTopBtn.classList.add('visible');
+            } else {
+                scrollToTopBtn.classList.remove('visible');
+            }
+        });
 
-    <!-- Custom Cursor -->
-    <div class="custom-cursor" id="customCursor">
-        <div class="cursor-dot"></div>
-        <div class="cursor-outline"></div>
-    </div>
-
-    <!-- Scripts -->
-    <script src="app.js" defer></script>
-    <!-- Scripts -->
-    <script src="app.min.js" defer></script>
-</body>
-</html>
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
 </body>
 </html>
