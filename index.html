@@ -6,7 +6,10 @@
     <meta name="description" content="Trinh Hoang Tu - Developer, Cybersecurity Enthusiast & Tech Explorer">
     <meta name="theme-color" content="#0a0a0a">
     
-    <title>Trinh Hoang Tu - Developer & Tech Enthusiast</title>
+    <title>Trinh Hoang Tu</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
     
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -14,15 +17,28 @@
     <!-- Styles -->
     <link rel="stylesheet" href="professional.css">
     <link rel="stylesheet" href="professional-enhancements.css">
+    <link rel="stylesheet" href="footer-styles.css">
+    
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
 <body>
+    <!-- Space Canvas Background -->
+    <canvas id="space-canvas" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background: linear-gradient(180deg, rgba(0,4,40,0.3) 0%, rgba(0,20,60,0.4) 50%, rgba(10,5,30,0.5) 100%);"></canvas>
+    
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-brand">Trinh Hoang Tu</div>
+            <button class="hamburger" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
             <ul class="nav-menu">
                 <li><a href="projects.html" class="nav-link">Projects</a></li>
                 <li><a href="certificates.html" class="nav-link">Certificates</a></li>
+                <li><a href="gallery.html" class="nav-link">Gallery</a></li>
             </ul>
         </div>
     </nav>
@@ -30,17 +46,21 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-container">
-            <div class="hero-content fade-in">
-                <div class="hero-label">👋 Xin chào, tôi là</div>
-                <h1 class="hero-title">Trinh Hoang Tu</h1>
-                <p class="hero-description">
+            <div class="hero-content" style="text-align: center; max-width: 800px; margin: 0 auto;">
+                <div class="hero-label">Hello I'm</div>
+                <h1 class="hero-title">Trịnh Hoàng Tú</h1>
+                <p class="hero-description" style="text-align: center;">
                     IT Specialist focused on Cybersecurity and Software Development. 
                     Currently pursuing Information Technology at HUFLIT University.
                 </p>
-                <div class="hero-cta">
+                <div class="hero-cta" style="justify-content: center;">
                     <a href="#projects" class="btn btn-primary">
                         <i class="fas fa-folder"></i>
                         View Projects
+                    </a>
+                    <a href="cv/mycv.pdf" class="btn btn-secondary" target="_blank" download>
+                        <i class="fas fa-file-pdf"></i>
+                        Download CV
                     </a>
                     <a href="#contact" class="btn btn-secondary">
                         <i class="fas fa-envelope"></i>
@@ -49,7 +69,7 @@
                 </div>
                 
                 <!-- Graduation Progress Bar -->
-                <div class="progress-widget">
+                <div class="progress-widget" style="max-width: 600px; margin: 2rem auto;">
                     <div class="progress-label">
                         <span>Academic Journey to Graduation</span>
                         <span class="progress-percentage">55.6%</span>
@@ -134,102 +154,155 @@
                 <div class="tech-carousel">
                     <!-- First set of items -->
                     <div class="tech-item">
-                        <div class="tech-icon">☕</div>
+                        <img src="images/technologies/java.png" alt="Java" class="tech-icon" style="width: 48px; height: 48px; object-fit: contain;">
                         <div class="tech-name">Java</div>
                     </div>
                     <div class="tech-item">
-                        <div class="tech-icon">⚙️</div>
+                        <img src="images/technologies/csharp.png" alt="C#" class="tech-icon" style="width: 48px; height: 48px; object-fit: contain;">
                         <div class="tech-name">C#</div>
                     </div>
                     <div class="tech-item">
-                        <div class="tech-icon">🐍</div>
+                        <img src="images/technologies/python.png" alt="Python" class="tech-icon" style="width: 48px; height: 48px; object-fit: contain;">
                         <div class="tech-name">Python</div>
                     </div>
                     <div class="tech-item">
-                        <div class="tech-icon">⚡</div>
+                        <img src="images/technologies/javascript.png" alt="JavaScript" class="tech-icon" style="width: 48px; height: 48px; object-fit: contain;">
                         <div class="tech-name">JavaScript</div>
                     </div>
                     <div class="tech-item">
-                        <div class="tech-icon">🌐</div>
-                        <div class="tech-name">HTML/CSS</div>
+                        <img src="images/technologies/html5.png" alt="HTML5" class="tech-icon" style="width: 48px; height: 48px; object-fit: contain;">
+                        <div class="tech-name">HTML5</div>
                     </div>
                     <div class="tech-item">
-                        <div class="tech-icon">🔒</div>
-                        <div class="tech-name">Cybersecurity</div>
+                        <img src="images/technologies/css3.png" alt="CSS3" class="tech-icon" style="width: 48px; height: 48px; object-fit: contain;">
+                        <div class="tech-name">CSS3</div>
                     </div>
                     <div class="tech-item">
-                        <div class="tech-icon">🐧</div>
-                        <div class="tech-name">Linux</div>
+                        <img src="images/technologies/kali.png" alt="Kali Linux" class="tech-icon" style="width: 48px; height: 48px; object-fit: contain;">
+                        <div class="tech-name">Kali Linux</div>
                     </div>
                     <div class="tech-item">
-                        <div class="tech-icon">🐳</div>
+                        <img src="images/technologies/docker.png" alt="Docker" class="tech-icon" style="width: 48px; height: 48px; object-fit: contain;">
                         <div class="tech-name">Docker</div>
                     </div>
                     <div class="tech-item">
-                        <div class="tech-icon">📊</div>
-                        <div class="tech-name">SQL</div>
+                        <img src="images/technologies/sqlserver.png" alt="SQL Server" class="tech-icon" style="width: 48px; height: 48px; object-fit: contain;">
+                        <div class="tech-name">SQL Server</div>
                     </div>
                     <div class="tech-item">
-                        <div class="tech-icon">🤖</div>
-                        <div class="tech-name">AI Tools</div>
+                        <img src="images/technologies/chatgpt.png" alt="ChatGPT" class="tech-icon" style="width: 48px; height: 48px; object-fit: contain;">
+                        <div class="tech-name">ChatGPT</div>
                     </div>
                     <div class="tech-item">
-                        <div class="tech-icon">�</div>
+                        <img src="images/technologies/git.png" alt="Git" class="tech-icon" style="width: 48px; height: 48px; object-fit: contain;">
                         <div class="tech-name">Git</div>
                     </div>
                     <div class="tech-item">
-                        <div class="tech-icon">🚀</div>
+                        <img src="images/technologies/vscode.png" alt="VS Code" class="tech-icon" style="width: 48px; height: 48px; object-fit: contain;">
                         <div class="tech-name">VS Code</div>
                     </div>
                     
                     <!-- Duplicate set for seamless loop -->
                     <div class="tech-item">
-                        <div class="tech-icon">☕</div>
+                        <img src="images/technologies/java.png" alt="Java" class="tech-icon" style="width: 48px; height: 48px; object-fit: contain;">
                         <div class="tech-name">Java</div>
                     </div>
                     <div class="tech-item">
-                        <div class="tech-icon">⚙️</div>
+                        <img src="images/technologies/csharp.png" alt="C#" class="tech-icon" style="width: 48px; height: 48px; object-fit: contain;">
                         <div class="tech-name">C#</div>
                     </div>
                     <div class="tech-item">
-                        <div class="tech-icon">🐍</div>
+                        <img src="images/technologies/python.png" alt="Python" class="tech-icon" style="width: 48px; height: 48px; object-fit: contain;">
                         <div class="tech-name">Python</div>
                     </div>
                     <div class="tech-item">
-                        <div class="tech-icon">⚡</div>
+                        <img src="images/technologies/javascript.png" alt="JavaScript" class="tech-icon" style="width: 48px; height: 48px; object-fit: contain;">
                         <div class="tech-name">JavaScript</div>
                     </div>
                     <div class="tech-item">
-                        <div class="tech-icon">🌐</div>
-                        <div class="tech-name">HTML/CSS</div>
+                        <img src="images/technologies/html5.png" alt="HTML5" class="tech-icon" style="width: 48px; height: 48px; object-fit: contain;">
+                        <div class="tech-name">HTML5</div>
                     </div>
                     <div class="tech-item">
-                        <div class="tech-icon">🔒</div>
-                        <div class="tech-name">Cybersecurity</div>
+                        <img src="images/technologies/css3.png" alt="CSS3" class="tech-icon" style="width: 48px; height: 48px; object-fit: contain;">
+                        <div class="tech-name">CSS3</div>
                     </div>
                     <div class="tech-item">
-                        <div class="tech-icon">🐧</div>
-                        <div class="tech-name">Linux</div>
+                        <img src="images/technologies/kali.png" alt="Kali Linux" class="tech-icon" style="width: 48px; height: 48px; object-fit: contain;">
+                        <div class="tech-name">Kali Linux</div>
                     </div>
                     <div class="tech-item">
-                        <div class="tech-icon">🐳</div>
+                        <img src="images/technologies/docker.png" alt="Docker" class="tech-icon" style="width: 48px; height: 48px; object-fit: contain;">
                         <div class="tech-name">Docker</div>
                     </div>
                     <div class="tech-item">
-                        <div class="tech-icon">📊</div>
-                        <div class="tech-name">SQL</div>
+                        <img src="images/technologies/sqlserver.png" alt="SQL Server" class="tech-icon" style="width: 48px; height: 48px; object-fit: contain;">
+                        <div class="tech-name">SQL Server</div>
                     </div>
                     <div class="tech-item">
-                        <div class="tech-icon">🤖</div>
-                        <div class="tech-name">AI Tools</div>
+                        <img src="images/technologies/chatgpt.png" alt="ChatGPT" class="tech-icon" style="width: 48px; height: 48px; object-fit: contain;">
+                        <div class="tech-name">ChatGPT</div>
                     </div>
                     <div class="tech-item">
-                        <div class="tech-icon">🔧</div>
+                        <img src="images/technologies/git.png" alt="Git" class="tech-icon" style="width: 48px; height: 48px; object-fit: contain;">
                         <div class="tech-name">Git</div>
                     </div>
                     <div class="tech-item">
-                        <div class="tech-icon">🚀</div>
+                        <img src="images/technologies/vscode.png" alt="VS Code" class="tech-icon" style="width: 48px; height: 48px; object-fit: contain;">
                         <div class="tech-name">VS Code</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community & Forums Section -->
+    <section id="community">
+        <div class="section-container">
+            <div class="section-header fade-in">
+                <span class="section-label">Community</span>
+                <h2 class="section-title">Forums & Tech Communities</h2>
+                <p class="section-description">
+                    Active participation in developer communities and tech events
+                </p>
+            </div>
+
+            <div class="forum-grid">
+                <!-- Google Developer Group -->
+                <div class="forum-card fade-in">
+                    <div class="forum-image-container">
+                        <img src="images/forums/gdg-hcmc.png" alt="Google Developer Group HCMC" class="forum-image">
+                    </div>
+                    <div class="forum-content">
+                        <h3 class="forum-title">Google Developer Group HCMC</h3>
+                        <p class="forum-description">
+                            Active member of GDG Ho Chi Minh City, participating in tech talks, workshops, and networking events focused on Google technologies and modern development practices.
+                        </p>
+                        <div class="forum-tags">
+                            <span class="tag">GDG</span>
+                            <span class="tag">Google Cloud</span>
+                            <span class="tag">Android</span>
+                            <span class="tag">Web Development</span>
+                            <span class="tag">Firebase</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AWS First Cloud AI Journey -->
+                <div class="forum-card fade-in">
+                    <div class="forum-image-container">
+                        <img src="images/forums/aws-fcaj.png" alt="AWS First Cloud AI Journey" class="forum-image">
+                    </div>
+                    <div class="forum-content">
+                        <h3 class="forum-title">AWS First Cloud AI Journey</h3>
+                        <p class="forum-description">
+                            Participant in AWS First Cloud AI Journey program, gaining hands-on experience with AWS cloud services, AI/ML solutions, and cloud architecture best practices.
+                        </p>
+                        <div class="forum-tags">
+                            <span class="tag">AWS</span>
+                            <span class="tag">Cloud Computing</span>
+                            <span class="tag">AI/ML</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -392,11 +465,17 @@
                     <p class="mb-4">Find me on these platforms</p>
                     
                     <div class="social-links">
-                        <a href="https://www.linkedin.com/in/tutrinh-csec" target="_blank" class="social-link" title="LinkedIn">
+                        <a href="https://www.linkedin.com/in/thtcsec" target="_blank" class="social-link" title="LinkedIn">
                             <i class="fab fa-linkedin"></i>
                         </a>
                         <a href="https://github.com/thtcsec" target="_blank" class="social-link" title="GitHub">
                             <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.threads.net/@tht._csec" target="_blank" class="social-link" title="Threads">
+                            <img src="images/threads.png" alt="Threads" style="width: 24px; height: 24px; object-fit: contain;">
+                        </a>
+                        <a href="https://www.instagram.com/tht._csec" target="_blank" class="social-link" title="Instagram">
+                            <i class="fab fa-instagram"></i>
                         </a>
                         <a href="https://www.facebook.com/thtcsec" target="_blank" class="social-link" title="Facebook">
                             <i class="fab fa-facebook"></i>
@@ -419,8 +498,32 @@
     <!-- Footer -->
     <footer>
         <div class="footer-container">
-            <p class="footer-text">© 2024 Trinh Hoang Tu. All rights reserved.</p>
-            <p class="footer-text">Built with HTML, CSS & JavaScript</p>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo-section">
+                        <img src="images/huflit.png" alt="HUFLIT Logo" class="footer-logo">
+                        <div class="footer-university">
+                            <h4>Ho Chi Minh City University of Foreign Languages - Information Technology</h4>
+                            <p>Faculty of Information Technology</p>
+                            <p>Major: Cybersecurity</p>
+                            <p>Expected Graduation: 2027</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-text">© 2025 Trinh Hoang Tu. All rights reserved.</p>
+                <p class="footer-text">Built with HTML, CSS & JavaScript</p>
+            </div>
         </div>
     </footer>
 
@@ -531,6 +634,31 @@
     <script>
         // Navbar scroll effect
         const navbar = document.querySelector('.navbar');
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+
+        // Hamburger menu toggle
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!navbar.contains(e.target)) {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            }
+        });
+
+        // Close menu when clicking nav links
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
                 navbar.classList.add('scrolled');
@@ -612,6 +740,249 @@
                 progressModal.classList.remove('active');
             }
         });
+    </script>
+
+    <!-- Cinematic Space Effect Script -->
+    <script>
+    (function() {
+        const canvas = document.getElementById('space-canvas');
+        if (!canvas || !window.THREE) return;
+
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 2000);
+        const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
+        
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        camera.position.z = 50;
+
+        // Starfield - Subtle stars
+        const starGeometry = new THREE.BufferGeometry();
+        const starCount = 3000;
+        const starPositions = new Float32Array(starCount * 3);
+        const starColors = new Float32Array(starCount * 3);
+        const starSizes = new Float32Array(starCount);
+
+        for (let i = 0; i < starCount; i++) {
+            const i3 = i * 3;
+            starPositions[i3] = (Math.random() - 0.5) * 2000;
+            starPositions[i3 + 1] = (Math.random() - 0.5) * 2000;
+            starPositions[i3 + 2] = (Math.random() - 0.5) * 1000 - 200;
+            
+            const colorChoice = Math.random();
+            if (colorChoice < 0.6) {
+                starColors[i3] = 0.8 + Math.random() * 0.2;
+                starColors[i3 + 1] = 0.8 + Math.random() * 0.2;
+                starColors[i3 + 2] = 1.0;
+            } else if (colorChoice < 0.85) {
+                starColors[i3] = 1.0;
+                starColors[i3 + 1] = 1.0;
+                starColors[i3 + 2] = 1.0;
+            } else {
+                starColors[i3] = 0.8 + Math.random() * 0.2;
+                starColors[i3 + 1] = 0.5 + Math.random() * 0.3;
+                starColors[i3 + 2] = 1.0;
+            }
+            
+            starSizes[i] = Math.random() * 2.5 + 0.5;
+        }
+
+        starGeometry.setAttribute('position', new THREE.BufferAttribute(starPositions, 3));
+        starGeometry.setAttribute('color', new THREE.BufferAttribute(starColors, 3));
+        starGeometry.setAttribute('size', new THREE.BufferAttribute(starSizes, 1));
+
+        const starMaterial = new THREE.PointsMaterial({
+            size: 1.5,
+            vertexColors: true,
+            transparent: true,
+            opacity: 0.5,
+            sizeAttenuation: true,
+            blending: THREE.AdditiveBlending
+        });
+
+        const stars = new THREE.Points(starGeometry, starMaterial);
+        scene.add(stars);
+
+        // Nebula clouds - Subtle background layers
+        const nebulaLayers = [];
+        for (let layer = 0; layer < 2; layer++) {
+            const nebulaGeometry = new THREE.BufferGeometry();
+            const nebulaCount = 800;
+            const nebulaPositions = new Float32Array(nebulaCount * 3);
+            const nebulaColors = new Float32Array(nebulaCount * 3);
+            const nebulaSizes = new Float32Array(nebulaCount);
+
+            for (let i = 0; i < nebulaCount; i++) {
+                const i3 = i * 3;
+                const angle = Math.random() * Math.PI * 2;
+                const radius = 200 + Math.random() * 400;
+                nebulaPositions[i3] = Math.cos(angle) * radius + (Math.random() - 0.5) * 300;
+                nebulaPositions[i3 + 1] = (Math.random() - 0.5) * 400;
+                nebulaPositions[i3 + 2] = Math.sin(angle) * radius - 300 - layer * 100;
+                
+                const colorType = Math.random();
+                if (colorType < 0.4) {
+                    nebulaColors[i3] = 0.4 + Math.random() * 0.3;
+                    nebulaColors[i3 + 1] = 0.1 + Math.random() * 0.2;
+                    nebulaColors[i3 + 2] = 0.8 + Math.random() * 0.2;
+                } else if (colorType < 0.7) {
+                    nebulaColors[i3] = 0.1 + Math.random() * 0.3;
+                    nebulaColors[i3 + 1] = 0.3 + Math.random() * 0.4;
+                    nebulaColors[i3 + 2] = 0.9 + Math.random() * 0.1;
+                } else {
+                    nebulaColors[i3] = 0.2 + Math.random() * 0.3;
+                    nebulaColors[i3 + 1] = 0.6 + Math.random() * 0.3;
+                    nebulaColors[i3 + 2] = 0.8 + Math.random() * 0.2;
+                }
+                
+                nebulaSizes[i] = Math.random() * 40 + 20;
+            }
+
+            nebulaGeometry.setAttribute('position', new THREE.BufferAttribute(nebulaPositions, 3));
+            nebulaGeometry.setAttribute('color', new THREE.BufferAttribute(nebulaColors, 3));
+            nebulaGeometry.setAttribute('size', new THREE.BufferAttribute(nebulaSizes, 1));
+
+            const nebulaMaterial = new THREE.PointsMaterial({
+                size: 20,
+                vertexColors: true,
+                transparent: true,
+                opacity: 0.06 - layer * 0.02,
+                sizeAttenuation: true,
+                blending: THREE.AdditiveBlending
+            });
+
+            const nebula = new THREE.Points(nebulaGeometry, nebulaMaterial);
+            scene.add(nebula);
+            nebulaLayers.push(nebula);
+        }
+
+        // Planets - Subtle floating orbs
+        const planets = [];
+        const planetData = [
+            { radius: 6, color: 0x4a90e2, x: -150, y: 100, z: -250, glowColor: 0x6bb6ff },
+            { radius: 8, color: 0x9b59b6, x: 180, y: -80, z: -320, glowColor: 0xc39bd3 }
+        ];
+
+        planetData.forEach(data => {
+            const planetGeometry = new THREE.SphereGeometry(data.radius, 32, 32);
+            const planetMaterial = new THREE.MeshBasicMaterial({ 
+                color: data.color,
+                transparent: true,
+                opacity: 0.4
+            });
+            const planet = new THREE.Mesh(planetGeometry, planetMaterial);
+            planet.position.set(data.x, data.y, data.z);
+            scene.add(planet);
+
+            const glowGeometry = new THREE.SphereGeometry(data.radius * 1.3, 32, 32);
+            const glowMaterial = new THREE.MeshBasicMaterial({
+                color: data.glowColor,
+                transparent: true,
+                opacity: 0.08,
+                side: THREE.BackSide
+            });
+            const glow = new THREE.Mesh(glowGeometry, glowMaterial);
+            glow.position.copy(planet.position);
+            scene.add(glow);
+
+            planets.push({ planet, glow, originalY: data.y });
+        });
+
+        // Mouse parallax
+        let mouseX = 0, mouseY = 0;
+        let targetX = 0, targetY = 0;
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = (e.clientX / window.innerWidth) * 2 - 1;
+            mouseY = -(e.clientY / window.innerHeight) * 2 + 1;
+        });
+
+        // Scroll parallax
+        let scrollY = 0;
+        window.addEventListener('scroll', () => {
+            scrollY = window.pageYOffset;
+        });
+
+        // Animation loop
+        let time = 0;
+        function animate() {
+            requestAnimationFrame(animate);
+            time += 0.001;
+
+            targetX += (mouseX * 5 - targetX) * 0.05;
+            targetY += (mouseY * 5 - targetY) * 0.05;
+            camera.position.x = targetX;
+            camera.position.y = targetY;
+
+            stars.rotation.y += 0.0001;
+            stars.rotation.x = Math.sin(time * 0.1) * 0.05;
+
+            nebulaLayers.forEach((nebula, index) => {
+                nebula.rotation.z += 0.0002 * (index + 1);
+                nebula.rotation.y += 0.0001;
+            });
+
+            planets.forEach((planetObj, index) => {
+                const offset = index * 2;
+                planetObj.planet.position.y = planetObj.originalY + Math.sin(time * 0.5 + offset) * 10;
+                planetObj.glow.position.copy(planetObj.planet.position);
+                planetObj.planet.rotation.y += 0.001;
+                planetObj.glow.rotation.y += 0.001;
+            });
+
+            const scrollFactor = Math.min(scrollY * 0.01, 30);
+            camera.position.z = 50 - scrollFactor;
+
+            renderer.render(scene, camera);
+        }
+
+        animate();
+
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+    })();
+    </script>
+
+    <script>
+        // Calculate graduation progress dynamically
+        function updateGraduationProgress() {
+            const startDate = new Date('2023-09-01'); // Ngày bắt đầu đại học
+            const endDate = new Date('2027-06-30'); // Ngày dự kiến tốt nghiệp
+            const today = new Date();
+            
+            const totalDays = (endDate - startDate) / (1000 * 60 * 60 * 24);
+            const daysPassed = (today - startDate) / (1000 * 60 * 60 * 24);
+            const percentage = Math.min(Math.max((daysPassed / totalDays) * 100, 0), 100);
+            
+            // Update percentage display
+            const percentageElement = document.querySelector('.progress-percentage');
+            if (percentageElement) {
+                percentageElement.textContent = percentage.toFixed(1) + '%';
+            }
+            
+            // Update progress bar
+            const progressFill = document.querySelector('.progress-fill');
+            const progressGlow = document.querySelector('.progress-glow');
+            if (progressFill) {
+                progressFill.style.width = percentage + '%';
+            }
+            if (progressGlow) {
+                progressGlow.style.width = percentage + '%';
+            }
+            
+            // Calculate days remaining
+            const daysRemaining = Math.ceil((endDate - today) / (1000 * 60 * 60 * 24));
+            console.log(`Graduation progress: ${percentage.toFixed(1)}%, Days remaining: ${daysRemaining}`);
+        }
+        
+        // Update on page load
+        updateGraduationProgress();
+        
+        // Update daily at midnight
+        setInterval(updateGraduationProgress, 24 * 60 * 60 * 1000);
     </script>
 </body>
 </html>

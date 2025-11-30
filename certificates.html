@@ -3,7 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Certificates - Trinh Hoang Tu</title>
+    <title>Certificates - THT</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    
+    <!-- Preload first certificate image -->
+    <link rel="preload" as="image" href="images/certificates/foundations_of_cybersecurity.jpg">
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -91,12 +97,22 @@
             border-radius: 8px;
             overflow: hidden;
             margin-top: 2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .achievement-card:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-xl);
         }
 
         .achievement-image {
-            width: 300px;
-            height: 200px;
-            object-fit: cover;
+            width: 400px;
+            height: 300px;
+            object-fit: contain;
+            background: #1a1a1a;
+            padding: 1rem;
         }
 
         .achievement-content {
@@ -124,20 +140,81 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.9);
+            background: rgba(0, 0, 0, 0);
             z-index: 1000;
             align-items: center;
             justify-content: center;
+            transition: background 0.3s ease;
         }
 
         .cert-modal.active {
             display: flex;
+            animation: fadeInBackground 0.3s ease forwards;
+        }
+
+        .cert-modal.closing {
+            animation: fadeOutBackground 0.3s ease forwards;
+        }
+
+        @keyframes fadeInBackground {
+            from {
+                background: rgba(0, 0, 0, 0);
+            }
+            to {
+                background: rgba(0, 0, 0, 0.9);
+            }
+        }
+
+        @keyframes fadeOutBackground {
+            from {
+                background: rgba(0, 0, 0, 0.9);
+            }
+            to {
+                background: rgba(0, 0, 0, 0);
+            }
+        }
+
+        @keyframes bounceIn {
+            0% {
+                transform: scale(0.3);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            70% {
+                transform: scale(0.9);
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        @keyframes zoomOut {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(0.3);
+                opacity: 0;
+            }
         }
 
         .cert-modal img {
             max-width: 90%;
             max-height: 90%;
             object-fit: contain;
+            opacity: 0;
+        }
+
+        .cert-modal.active img {
+            animation: bounceIn 0.5s ease forwards;
+        }
+
+        .cert-modal.closing img {
+            animation: zoomOut 0.3s ease forwards;
         }
 
         .cert-modal-close {
@@ -169,6 +246,8 @@
 
             .achievement-image {
                 width: 100%;
+                height: auto;
+                min-height: 250px;
             }
         }
     </style>
@@ -182,6 +261,7 @@
                 <li><a href="index.html" class="nav-link">Home</a></li>
                 <li><a href="projects.html" class="nav-link">Projects</a></li>
                 <li><a href="certificates.html" class="nav-link active">Certificates</a></li>
+                <li><a href="gallery.html" class="nav-link">Gallery</a></li>
             </ul>
         </div>
     </nav>
@@ -189,9 +269,14 @@
     <!-- Certificates Page -->
     <section id="certificates" style="padding-top: 8rem;">
         <div class="section-container">
+            <a href="index.html" class="btn btn-secondary" style="display: inline-flex; margin-bottom: 2rem;">
+                <i class="fas fa-arrow-left"></i>
+                Back to Home
+            </a>
+            
             <div class="section-header fade-in">
                 <span class="section-label">Credentials</span>
-                <h2 class="section-title">Certificates & Achievements</h2>
+                <h2 class="section-title">Certificates</h2>
                 <p class="section-description">
                     Professional certifications and achievements demonstrating continuous learning and growth
                 </p>
@@ -199,8 +284,8 @@
 
             <div class="cert-grid">
                 <!-- Cybersecurity Certificate -->
-                <div class="cert-card fade-in" onclick="openCertModal('certificates/image_foundations_of_cybersecurity.jpg')">
-                    <img src="certificates/image_foundations_of_cybersecurity.jpg" alt="Foundations of Cybersecurity" class="cert-image">
+                <div class="cert-card fade-in" onclick="openCertModal('images/certificates/foundations_of_cybersecurity.jpg')">
+                    <img src="images/certificates/foundations_of_cybersecurity.jpg" alt="Foundations of Cybersecurity" class="cert-image">
                     <div class="cert-content">
                         <h3 class="cert-title">Foundations of Cybersecurity</h3>
                         <p class="cert-issuer">Issued by Google</p>
@@ -212,8 +297,8 @@
                 </div>
 
                 <!-- Project Management Certificate -->
-                <div class="cert-card fade-in" onclick="openCertModal('certificates/image_foundations_of_project_management.jpg')">
-                    <img src="certificates/image_foundations_of_project_management.jpg" alt="Foundations of Project Management" class="cert-image">
+                <div class="cert-card fade-in" onclick="openCertModal('images/certificates/foundations_of_project_management.jpg')">
+                    <img src="images/certificates/foundations_of_project_management.jpg" alt="Foundations of Project Management" class="cert-image" loading="lazy">
                     <div class="cert-content">
                         <h3 class="cert-title">Foundations of Project Management</h3>
                         <p class="cert-issuer">Issued by Google</p>
@@ -225,8 +310,8 @@
                 </div>
 
                 <!-- Google AI Essentials -->
-                <div class="cert-card fade-in" onclick="openCertModal('certificates/image_google_ai_essentials.jpg')">
-                    <img src="certificates/image_google_ai_essentials.jpg" alt="Google AI Essentials" class="cert-image">
+                <div class="cert-card fade-in" onclick="openCertModal('images/certificates/google_ai_essentials.jpg')">
+                    <img src="images/certificates/google_ai_essentials.jpg" alt="Google AI Essentials" class="cert-image" loading="lazy">
                     <div class="cert-content">
                         <h3 class="cert-title">Google AI Essentials</h3>
                         <p class="cert-issuer">Issued by Google</p>
@@ -238,11 +323,37 @@
                 </div>
 
                 <!-- Technical Support -->
-                <div class="cert-card fade-in" onclick="openCertModal('certificates/image_technical_support_fundamentals.jpg')">
-                    <img src="certificates/image_technical_support_fundamentals.jpg" alt="Technical Support Fundamentals" class="cert-image">
+                <div class="cert-card fade-in" onclick="openCertModal('images/certificates/technical_support_fundamentals.jpg')">
+                    <img src="images/certificates/technical_support_fundamentals.jpg" alt="Technical Support Fundamentals" class="cert-image" loading="lazy">
                     <div class="cert-content">
                         <h3 class="cert-title">Technical Support Fundamentals</h3>
                         <p class="cert-issuer">Issued by Google</p>
+                        <button class="cert-btn">
+                            <i class="fas fa-eye"></i>
+                            View Certificate
+                        </button>
+                    </div>
+                </div>
+
+                <!-- VPBank Hackathon -->
+                <div class="cert-card fade-in" onclick="openCertModal('images/certificates/vpbank_hackathon_participation.png')">
+                    <img src="images/certificates/vpbank_hackathon_participation.png" alt="VPBank Hackathon Participation" class="cert-image" loading="lazy">
+                    <div class="cert-content">
+                        <h3 class="cert-title">VPBank Hackathon</h3>
+                        <p class="cert-issuer">Certificate of Participation</p>
+                        <button class="cert-btn">
+                            <i class="fas fa-eye"></i>
+                            View Certificate
+                        </button>
+                    </div>
+                </div>
+
+                <!-- VNG Code Tour -->
+                <div class="cert-card fade-in" onclick="openCertModal('images/certificates/vng_code_tour.jpg')">
+                    <img src="images/certificates/vng_code_tour.jpg" alt="VNG Code Tour Participation" class="cert-image" loading="lazy">
+                    <div class="cert-content">
+                        <h3 class="cert-title">VNG Code Tour</h3>
+                        <p class="cert-issuer">Certificate of Participation</p>
                         <button class="cert-btn">
                             <i class="fas fa-eye"></i>
                             View Certificate
@@ -258,13 +369,63 @@
                     <h2 class="section-title">Achievements</h2>
                 </div>
 
-                <div class="achievement-card fade-in">
-                    <img src="images/outst.jpg" alt="Outstanding Student Award" class="achievement-image">
+                <!-- Outstanding Student 2023 -->
+                <div class="achievement-card fade-in" onclick="openCertModal('images/achievements/outstanding_student_2023.jpg')">
+                    <img src="images/achievements/outstanding_student_2023.jpg" alt="Outstanding Student Award" class="achievement-image">
                     <div class="achievement-content">
                         <h3 class="achievement-title">Outstanding Student of the Year 2023</h3>
                         <p class="achievement-desc">
                             Awarded by Bu Dang District, Binh Phuoc Province for exceptional academic performance and contributions to the community.
                         </p>
+                        <button class="cert-btn" style="margin-top: 1rem;">
+                            <i class="fas fa-eye"></i>
+                            View Award
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Google Digital Talent Scholarship -->
+                <div class="achievement-card fade-in" onclick="openCertModal('images/achievements/digital_talent_scholarship.jpg')">
+                    <img src="images/achievements/digital_talent_scholarship.jpg" alt="Digital Talent Scholarship" class="achievement-image">
+                    <div class="achievement-content">
+                        <h3 class="achievement-title">Google Digital Talent Scholarship</h3>
+                        <p class="achievement-desc">
+                            Recipient of the prestigious Google Digital Talent Scholarship, recognizing excellence in technology and innovation fields.
+                        </p>
+                        <button class="cert-btn" style="margin-top: 1rem;">
+                            <i class="fas fa-eye"></i>
+                            View Award
+                        </button>
+                    </div>
+                </div>
+
+                <!-- HSU Vibe Coding Talents Winner -->
+                <div class="achievement-card fade-in" onclick="openCertModal('images/achievements/hsu_vibe_coding_talents_winner.png')">
+                    <img src="images/achievements/hsu_vibe_coding_talents_winner.png" alt="HSU Vibe Coding Talents Winner" class="achievement-image">
+                    <div class="achievement-content">
+                        <h3 class="achievement-title">Winner - HSU Vibe Coding Talents</h3>
+                        <p class="achievement-desc">
+                            Winner of HSU Vibe Coding Talents competition with a prize valued at approximately 15 million VND, demonstrating exceptional coding skills and innovative problem-solving abilities.
+                        </p>
+                        <button class="cert-btn" style="margin-top: 1rem;">
+                            <i class="fas fa-eye"></i>
+                            View Award
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Excellent Student 2023 -->
+                <div class="achievement-card fade-in" onclick="openCertModal('images/achievements/excellent_student_2023.jpg')">
+                    <img src="images/achievements/excellent_student_2023.jpg" alt="Excellent Student Award" class="achievement-image">
+                    <div class="achievement-content">
+                        <h3 class="achievement-title">Excellent Student Award 2023</h3>
+                        <p class="achievement-desc">
+                            Recognized as an Excellent Student for outstanding academic achievements and dedication to learning excellence.
+                        </p>
+                        <button class="cert-btn" style="margin-top: 1rem;">
+                            <i class="fas fa-eye"></i>
+                            View Award
+                        </button>
                     </div>
                 </div>
             </div>
@@ -274,7 +435,7 @@
     <!-- Footer -->
     <footer>
         <div class="footer-container">
-            <p class="footer-text">© 2024 Trinh Hoang Tu. All rights reserved.</p>
+            <p class="footer-text">© 2025 Trinh Hoang Tu. All rights reserved.</p>
             <p class="footer-text">Built with HTML, CSS & JavaScript</p>
         </div>
     </footer>
@@ -348,7 +509,10 @@
 
         function closeCertModal() {
             const modal = document.getElementById('certModal');
-            modal.classList.remove('active');
+            modal.classList.add('closing');
+            setTimeout(() => {
+                modal.classList.remove('active', 'closing');
+            }, 300);
         }
 
         // Close modal on overlay click

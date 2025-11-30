@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - Trinh Hoang Tu</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="professional.css">
+    <link rel="stylesheet" href="professional-enhancements.css">
+    <link rel="stylesheet" href="gallery.css">
+    <link rel="stylesheet" href="footer-styles.css">
+
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">Trinh Hoang Tu</div>
+            <button class="hamburger" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="projects.html" class="nav-link">Projects</a></li>
+                <li><a href="certificates.html" class="nav-link">Certificates</a></li>
+                <li><a href="gallery.html" class="nav-link active">Gallery</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Gallery Page -->
+    <section id="gallery" style="padding-top: 8rem;">
+        <div class="section-container">
+            <a href="index.html" class="btn btn-secondary" style="display: inline-flex; margin-bottom: 2rem;">
+                <i class="fas fa-arrow-left"></i>
+                Back to Home
+            </a>
+            
+            <div class="section-header fade-in">
+                <span class="section-label">Memories</span>
+                <h2 class="section-title">Photo Gallery</h2>
+                <p class="section-description">
+                    A collection of moments, experiences, and memories from my journey
+                </p>
+            </div>
+
+            <!-- View Toggle Controls -->
+            <div class="view-controls">
+                <button class="view-btn active" id="listViewBtn" onclick="switchView('list')">
+                    <i class="fas fa-list"></i>
+                    List View
+                </button>
+                <button class="view-btn" id="gridViewBtn" onclick="switchView('grid')">
+                    <i class="fas fa-th"></i>
+                    Grid View
+                </button>
+            </div>
+
+            <div class="gallery-categories" id="galleryCategories">
+                <!-- Myself Folder -->
+                <div class="folder-container" data-category="myself">
+                    <div class="folder-card" onclick="toggleFolder(this)">
+                        <div class="folder-icon-wrapper">
+                            <i class="fas fa-folder folder-icon"></i>
+                        </div>
+                        <div class="folder-info">
+                            <h3 class="folder-title">Myself</h3>
+                            <p class="folder-count">
+                                <i class="fas fa-images"></i>
+                                13 photos
+                            </p>
+                        </div>
+                        <button class="folder-expand-btn" onclick="event.stopPropagation(); toggleFolder(this)">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <div class="photo-strip">
+                        <div class="photo-strip-wrapper" id="myself-strip">
+                            <!-- Photos will be inserted by JS -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Vivo Meeting Folder -->
+                <div class="folder-container" data-category="vivo_meeting">
+                    <div class="folder-card" onclick="toggleFolder(this)">
+                        <div class="folder-icon-wrapper">
+                            <i class="fas fa-folder folder-icon"></i>
+                        </div>
+                        <div class="folder-info">
+                            <h3 class="folder-title">Vivo Meeting</h3>
+                            <p class="folder-count">
+                                <i class="fas fa-images"></i>
+                                1 photos
+                            </p>
+                        </div>
+                        <button class="folder-expand-btn" onclick="event.stopPropagation(); toggleFolder(this)">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <div class="photo-strip">
+                        <div class="photo-strip-wrapper" id="vivo_meeting-strip">
+                            <!-- Photos will be inserted by JS -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Shot on Vivo Folder -->
+                <div class="folder-container" data-category="shot_on_vivo">
+                    <div class="folder-card" onclick="toggleFolder(this)">
+                        <div class="folder-icon-wrapper">
+                            <i class="fas fa-folder folder-icon"></i>
+                        </div>
+                        <div class="folder-info">
+                            <h3 class="folder-title">Shot on Vivo</h3>
+                            <p class="folder-count">
+                                <i class="fas fa-images"></i>
+                                4 photos
+                            </p>
+                        </div>
+                        <button class="folder-expand-btn" onclick="event.stopPropagation(); toggleFolder(this)">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <div class="photo-strip">
+                        <div class="photo-strip-wrapper" id="shot_on_vivo-strip">
+                            <!-- Photos will be inserted by JS -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Christmas Tree Folder -->
+                <div class="folder-container" data-category="christmas_tree">
+                    <div class="folder-card" onclick="toggleFolder(this)">
+                        <div class="folder-icon-wrapper">
+                            <i class="fas fa-folder folder-icon"></i>
+                        </div>
+                        <div class="folder-info">
+                            <h3 class="folder-title">Christmas Tree</h3>
+                            <p class="folder-count">
+                                <i class="fas fa-images"></i>
+                                2 photos
+                            </p>
+                        </div>
+                        <button class="folder-expand-btn" onclick="event.stopPropagation(); toggleFolder(this)">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <div class="photo-strip">
+                        <div class="photo-strip-wrapper" id="christmas_tree-strip">
+                            <!-- Photos will be inserted by JS -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Invitation Folder -->
+                <div class="folder-container" data-category="invitation">
+                    <div class="folder-card" onclick="toggleFolder(this)">
+                        <div class="folder-icon-wrapper">
+                            <i class="fas fa-folder folder-icon"></i>
+                        </div>
+                        <div class="folder-info">
+                            <h3 class="folder-title">Invitation</h3>
+                            <p class="folder-count">
+                                <i class="fas fa-images"></i>
+                                1 photo
+                            </p>
+                        </div>
+                        <button class="folder-expand-btn" onclick="event.stopPropagation(); toggleFolder(this)">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <div class="photo-strip">
+                        <div class="photo-strip-wrapper" id="invitation-strip">
+                            <!-- Photos will be inserted by JS -->
+                        </div>
+                    </div>
+                </div>
+                    <div class="photo-strip">
+                        <div class="photo-strip-wrapper" id="travel-strip">
+                            <!-- Photos will be inserted by JS -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo-section">
+                        <img src="images/huflit.png" alt="HUFLIT Logo" class="footer-logo">
+                        <div class="footer-university">
+                            <h4>Ho Chi Minh City University of Foreign Languages - Information Technology</h4>
+                            <p>Faculty of Information Technology</p>
+                            <p>Major: Cybersecurity</p>
+                            <p>Expected Graduation: 2027</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="certificates.html">Certificates</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-text">© 2025 Trinh Hoang Tu. All rights reserved.</p>
+                <p class="footer-text">Built with HTML, CSS & JavaScript</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" onclick="closeLightbox()">
+            <i class="fas fa-times"></i>
+        </button>
+        <button class="lightbox-nav lightbox-prev" onclick="navigateLightbox(-1)">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <div class="lightbox-content">
+            <img id="lightboxImage" class="lightbox-image" src="" alt="">
+        </div>
+        <button class="lightbox-nav lightbox-next" onclick="navigateLightbox(1)">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+        <div class="lightbox-info">
+            <h4 class="lightbox-title" id="lightboxTitle"></h4>
+            <p class="lightbox-date" id="lightboxDate"></p>
+        </div>
+    </div>
+
+    <script>
+        // Gallery data with actual image paths
+        const galleryData = {
+            'myself': [
+                { src: 'images/gallery/myself/hackathon_20251128_01.jpg', title: 'KTC Hackathon', date: 'November 28, 2025' },
+                { src: 'images/gallery/myself/myself_20251129_02.jpg', title: 'Myself Portrait', date: 'November 29, 2025' },
+                { src: 'images/gallery/myself/myself_20251125_03.jpg', title: 'Daily Moment', date: 'November 25, 2025' },
+                { src: 'images/gallery/myself/myself_20251123_01.png', title: 'Creative Edit', date: 'November 23, 2025' },
+                { src: 'images/gallery/myself/myself_20251123_04.png', title: 'Artistic Shot', date: 'November 23, 2025' },
+                { src: 'images/gallery/myself/myself_20251123_06.jpg', title: 'Casual Vibe', date: 'November 23, 2025' },
+                { src: 'images/gallery/myself/myself_20251118_07.jpg', title: 'Personal Style', date: 'November 18, 2025' },
+                { src: 'images/gallery/myself/myself_20251116_05.jpg', title: 'Fashion Moment', date: 'November 16, 2025' },
+                { src: 'images/gallery/myself/myself_20251116_14.jpg', title: 'Cosplay Look', date: 'November 16, 2025' },
+                { src: 'images/gallery/myself/myself_20251109_09.jpg', title: 'November Shot', date: 'November 9, 2025' },
+                { src: 'images/gallery/myself/myself_20251104_10.jpg', title: 'Early November', date: 'November 4, 2025' },
+                { src: 'images/gallery/myself/myself_20251007_11.jpg', title: 'October Vibe', date: 'October 7, 2025' },
+                { src: 'images/gallery/myself/myself_20251007_12.jpg', title: 'Afternoon Look', date: 'October 7, 2025' },
+                { src: 'images/gallery/myself/myself_20251006_13.jpg', title: 'October Beginning', date: 'October 6, 2025' },
+            ],
+            'vivo_meeting': [
+                { src: 'images/gallery/vivo_meeting/vivo_meeting_20251115_02.jpg', title: 'Vivo Event', date: 'November 15, 2025' },
+            ],
+            'shot_on_vivo': [
+                { src: 'images/gallery/shot_on_vivo/shot_on_vivo_20251129_01.jpg', title: 'Night Photography', date: 'November 29, 2025' },
+                { src: 'images/gallery/shot_on_vivo/shot_on_vivo_20251129_02.jpg', title: 'Afternoon Capture', date: 'November 29, 2025' },
+                { src: 'images/gallery/shot_on_vivo/shot_on_vivo_20251119_04.jpg', title: 'Morning Light', date: 'November 19, 2025' },
+                { src: 'images/gallery/shot_on_vivo/shot_on_vivo_20251115_03.jpg', title: 'Evening Shot', date: 'November 15, 2025' },
+            ],
+            'christmas_tree': [
+                { src: 'images/gallery/christmas_tree/christmas_tree_20251130_01.jpg', title: 'Christmas Decoration', date: 'November 30, 2025' },
+                { src: 'images/gallery/christmas_tree/christmas_tree_20251125_02.jpg', title: 'Holiday Spirit', date: 'November 25, 2025' },
+            ],
+            'invitation': [
+                { src: 'images/gallery/invitation/invitation_20251118_01.png', title: 'Event Invitation', date: 'November 18, 2025' },
+            ]
+        };
+
+        let currentCategory = '';
+        let currentImageIndex = 0;
+
+        // Initialize photo strips on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            Object.keys(galleryData).forEach(category => {
+                const stripWrapper = document.getElementById(`${category}-strip`);
+                if (stripWrapper) {
+                    populatePhotoStrip(category, stripWrapper);
+                }
+            });
+        });
+
+        // Populate photo strip
+        function populatePhotoStrip(category, wrapper) {
+            const photos = galleryData[category];
+            wrapper.innerHTML = '';
+            
+            photos.forEach((photo, index) => {
+                const item = document.createElement('div');
+                item.className = 'photo-item';
+                item.onclick = () => openLightbox(category, index);
+                item.innerHTML = `
+                    <img src="${photo.src}" alt="${photo.title}">
+                    <div class="photo-item-overlay">
+                        <h4 class="photo-item-title">${photo.title}</h4>
+                        <p class="photo-item-date">${photo.date}</p>
+                    </div>
+                `;
+                wrapper.appendChild(item);
+            });
+        }
+
+        // Toggle folder on click
+        function toggleFolder(element) {
+            const container = element.closest('.folder-container');
+            container.classList.toggle('expanded');
+        }
+
+        // Switch between list and grid view
+        function switchView(view) {
+            const categories = document.getElementById('galleryCategories');
+            const listBtn = document.getElementById('listViewBtn');
+            const gridBtn = document.getElementById('gridViewBtn');
+            
+            if (view === 'grid') {
+                categories.classList.add('grid-view');
+                gridBtn.classList.add('active');
+                listBtn.classList.remove('active');
+            } else {
+                categories.classList.remove('grid-view');
+                listBtn.classList.add('active');
+                gridBtn.classList.remove('active');
+            }
+        }
+
+        // Hamburger menu
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!document.querySelector('.navbar').contains(e.target)) {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            }
+        });
+
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Lightbox functions
+        function openLightbox(category, index) {
+            currentCategory = category;
+            currentImageIndex = index;
+            showLightboxImage();
+            document.getElementById('lightbox').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function navigateLightbox(direction) {
+            const images = galleryData[currentCategory];
+            currentImageIndex = (currentImageIndex + direction + images.length) % images.length;
+            showLightboxImage();
+        }
+
+        function showLightboxImage() {
+            const item = galleryData[currentCategory][currentImageIndex];
+            document.getElementById('lightboxImage').src = item.src;
+            document.getElementById('lightboxTitle').textContent = item.title;
+            document.getElementById('lightboxDate').textContent = item.date;
+        }
+
+        // Close on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeLightbox();
+            }
+            if (document.getElementById('lightbox').classList.contains('active')) {
+                if (e.key === 'ArrowLeft') navigateLightbox(-1);
+                if (e.key === 'ArrowRight') navigateLightbox(1);
+            }
+        });
+
+        // Fade in animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

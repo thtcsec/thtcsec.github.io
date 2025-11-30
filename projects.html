@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects - Trinh Hoang Tu</title>
+    <title>Projects - THT</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -11,6 +14,225 @@
     <!-- Styles -->
     <link rel="stylesheet" href="professional.css">
     <link rel="stylesheet" href="professional-enhancements.css">
+    <style>
+        /* Redesigned Project Cards */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .project-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .project-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(59, 130, 246, 0.15);
+        }
+
+        .project-header {
+            padding: 2rem;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.05) 0%, rgba(139, 92, 246, 0.05) 100%);
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .project-icon {
+            width: 64px;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg-tertiary);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            font-size: 2rem;
+            color: var(--primary);
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover .project-icon {
+            transform: scale(1.1) rotate(5deg);
+            border-color: var(--primary);
+            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: flex-end;
+            flex: 1;
+            margin-left: 1rem;
+        }
+
+        .tag {
+            padding: 0.375rem 0.875rem;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            transition: all 0.2s ease;
+        }
+
+        .project-card:hover .tag {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .project-body {
+            padding: 2rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+            line-height: 1.3;
+        }
+
+        .project-description {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            font-size: 0.9375rem;
+            flex: 1;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-footer {
+            padding: 1.5rem 2rem;
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            gap: 0.75rem;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            border-radius: 8px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            flex: 1;
+            justify-content: center;
+            max-width: 200px;
+        }
+
+        .project-link:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+        }
+
+        .project-link i {
+            font-size: 1rem;
+        }
+
+        .project-link-demo {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .project-link-demo:hover {
+            background: var(--accent);
+            color: white;
+            box-shadow: 0 6px 20px rgba(139, 92, 246, 0.4);
+        }
+
+        .project-status {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            font-style: italic;
+            text-align: center;
+            padding: 0.5rem;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .project-header {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap: 1rem;
+            }
+
+            .project-tags {
+                justify-content: center;
+                margin-left: 0;
+            }
+
+            .project-icon {
+                width: 56px;
+                height: 56px;
+                font-size: 1.75rem;
+            }
+
+            .project-body {
+                padding: 1.5rem;
+            }
+
+            .project-title {
+                font-size: 1.25rem;
+                text-align: center;
+            }
+
+            .project-description {
+                text-align: center;
+                font-size: 0.875rem;
+            }
+
+            .project-footer {
+                flex-direction: column;
+                padding: 1.25rem 1.5rem;
+            }
+
+            .project-link {
+                width: 100%;
+                max-width: 100%;
+            }
+        }
+
+        /* Tablet */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation -->
@@ -21,6 +243,7 @@
                 <li><a href="index.html" class="nav-link">Home</a></li>
                 <li><a href="projects.html" class="nav-link active">Projects</a></li>
                 <li><a href="certificates.html" class="nav-link">Certificates</a></li>
+                <li><a href="gallery.html" class="nav-link">Gallery</a></li>
             </ul>
         </div>
     </nav>
@@ -28,6 +251,11 @@
     <!-- Projects Page -->
     <section id="projects" style="padding-top: 8rem;">
         <div class="section-container">
+            <a href="index.html" class="btn btn-secondary" style="display: inline-flex; margin-bottom: 2rem;">
+                <i class="fas fa-arrow-left"></i>
+                Back to Home
+            </a>
+            
             <div class="section-header fade-in">
                 <span class="section-label">My Work</span>
                 <h2 class="section-title">Featured Projects</h2>
@@ -49,11 +277,16 @@
                             <span class="tag">AI</span>
                         </div>
                     </div>
-                    <h3 class="project-title">Face / Object Recognition</h3>
-                    <p class="project-description">
-                        Engineered a multi-threaded Java server using TCP sockets secured with SSL/TLS encryption. 
-                        Integrated Python-based AI models for real-time face and object detection.
-                    </p>
+                    <div class="project-body">
+                        <h3 class="project-title">Face / Object Recognition</h3>
+                        <p class="project-description">
+                            Engineered a multi-threaded Java server using TCP sockets secured with SSL/TLS encryption. 
+                            Integrated Python-based AI models for real-time face and object detection.
+                        </p>
+                    </div>
+                    <div class="project-footer">
+                        <span class="project-status">Private Repository</span>
+                    </div>
                 </div>
 
                 <!-- Yodobashi Sniper -->
@@ -67,10 +300,18 @@
                             <span class="tag">JavaScript</span>
                         </div>
                     </div>
-                    <h3 class="project-title">Yodobashi Sniper V2</h3>
-                    <p class="project-description">
-                        Advanced browser extension for automated product purchase workflow with intelligent timing and form automation.
-                    </p>
+                    <div class="project-body">
+                        <h3 class="project-title">Yodobashi Sniper V2</h3>
+                        <p class="project-description">
+                            Advanced browser extension for automated product purchase workflow with intelligent timing and form automation.
+                        </p>
+                    </div>
+                    <div class="project-footer">
+                        <a href="https://github.com/thtcsec/yodobashi-sniper-v2" target="_blank" class="project-link">
+                            <i class="fab fa-github"></i>
+                            View on GitHub
+                        </a>
+                    </div>
                 </div>
 
                 <!-- Portfolio Website -->
@@ -85,10 +326,22 @@
                             <span class="tag">JavaScript</span>
                         </div>
                     </div>
-                    <h3 class="project-title">Portfolio Website</h3>
-                    <p class="project-description">
-                        Modern, responsive portfolio website with professional design, space theme background, and smooth animations.
-                    </p>
+                    <div class="project-body">
+                        <h3 class="project-title">Portfolio Website</h3>
+                        <p class="project-description">
+                            Modern, responsive portfolio website with professional design, space theme background, and smooth animations.
+                        </p>
+                    </div>
+                    <div class="project-footer">
+                        <a href="https://github.com/thtcsec/thtcsec.github.io" target="_blank" class="project-link">
+                            <i class="fab fa-github"></i>
+                            View on GitHub
+                        </a>
+                        <a href="https://thtcsec.github.io" target="_blank" class="project-link project-link-demo">
+                            <i class="fas fa-external-link-alt"></i>
+                            Live Demo
+                        </a>
+                    </div>
                 </div>
 
                 <!-- Flight Reservation -->
@@ -103,10 +356,15 @@
                             <span class="tag">SQL</span>
                         </div>
                     </div>
-                    <h3 class="project-title">Flight Reservation System</h3>
-                    <p class="project-description">
-                        Full-stack flight booking system with user authentication, seat selection, and payment processing.
-                    </p>
+                    <div class="project-body">
+                        <h3 class="project-title">Flight Reservation System</h3>
+                        <p class="project-description">
+                            Full-stack flight booking system with user authentication, seat selection, and payment processing.
+                        </p>
+                    </div>
+                    <div class="project-footer">
+                        <span class="project-status">Private Repository</span>
+                    </div>
                 </div>
 
                 <!-- Linux Server Manager -->
@@ -121,10 +379,15 @@
                             <span class="tag">SSH</span>
                         </div>
                     </div>
-                    <h3 class="project-title">Linux Server Manager</h3>
-                    <p class="project-description">
-                        Desktop application for managing Linux servers with SSH connection, file transfer, and command execution.
-                    </p>
+                    <div class="project-body">
+                        <h3 class="project-title">Linux Server Manager</h3>
+                        <p class="project-description">
+                            Desktop application for managing Linux servers with SSH connection, file transfer, and command execution.
+                        </p>
+                    </div>
+                    <div class="project-footer">
+                        <span class="project-status">Private Repository</span>
+                    </div>
                 </div>
 
                 <!-- EReader -->
@@ -138,10 +401,15 @@
                             <span class="tag">JavaScript</span>
                         </div>
                     </div>
-                    <h3 class="project-title">EReader</h3>
-                    <p class="project-description">
-                        Feature-rich e-book reader with customizable interface, bookmarks, and reading progress tracking.
-                    </p>
+                    <div class="project-body">
+                        <h3 class="project-title">EReader</h3>
+                        <p class="project-description">
+                            Feature-rich e-book reader with customizable interface, bookmarks, and reading progress tracking.
+                        </p>
+                    </div>
+                    <div class="project-footer">
+                        <span class="project-status">Private Repository</span>
+                    </div>
                 </div>
 
                 <!-- Chat Application -->
@@ -155,10 +423,15 @@
                             <span class="tag">Java</span>
                         </div>
                     </div>
-                    <h3 class="project-title">Chat Application</h3>
-                    <p class="project-description">
-                        Real-time chat application using WebSocket for instant messaging with group chat support.
-                    </p>
+                    <div class="project-body">
+                        <h3 class="project-title">Chat Application</h3>
+                        <p class="project-description">
+                            Real-time chat application using WebSocket for instant messaging with group chat support.
+                        </p>
+                    </div>
+                    <div class="project-footer">
+                        <span class="project-status">Private Repository</span>
+                    </div>
                 </div>
 
                 <!-- English Master -->
@@ -172,10 +445,15 @@
                             <span class="tag">Java</span>
                         </div>
                     </div>
-                    <h3 class="project-title">English Master</h3>
-                    <p class="project-description">
-                        Android app for learning English with interactive lessons, quizzes, and progress tracking.
-                    </p>
+                    <div class="project-body">
+                        <h3 class="project-title">English Master</h3>
+                        <p class="project-description">
+                            Android app for learning English with interactive lessons, quizzes, and progress tracking.
+                        </p>
+                    </div>
+                    <div class="project-footer">
+                        <span class="project-status">Private Repository</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -184,7 +462,7 @@
     <!-- Footer -->
     <footer>
         <div class="footer-container">
-            <p class="footer-text">© 2024 Trinh Hoang Tu. All rights reserved.</p>
+            <p class="footer-text">© 2025 Trinh Hoang Tu. All rights reserved.</p>
             <p class="footer-text">Built with HTML, CSS & JavaScript</p>
         </div>
     </footer>
