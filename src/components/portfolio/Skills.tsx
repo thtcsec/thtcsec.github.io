@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { Icon } from "@iconify/react";
 import { allSkills, skillCategories } from "@/data/skills";
 
 const Skills = () => {
@@ -72,15 +73,9 @@ const Skills = () => {
                 key={`${skill.name}-${index}`}
                 className="flex-shrink-0 flex flex-col items-center gap-3 p-4 rounded-xl bg-card border border-border hover:border-primary/50 transition-all duration-300 min-w-[120px]"
               >
-                <img
-                  src={skill.icon}
-                  alt={skill.name}
-                  className="w-12 h-12 object-contain"
-                  loading="lazy"
-                  onError={(e) => {
-                    // Fallback for missing icons
-                    (e.target as HTMLImageElement).src = "/placeholder.svg";
-                  }}
+                <Icon
+                  icon={skill.icon}
+                  className="w-12 h-12"
                 />
                 <span className="text-sm font-medium text-foreground">
                   {skill.name}
@@ -106,14 +101,9 @@ const Skills = () => {
                     key={skill.name}
                     className="flex items-center gap-2 px-3 py-2 rounded-lg bg-muted/50 hover:bg-primary/10 transition-colors"
                   >
-                    <img
-                      src={skill.icon}
-                      alt={skill.name}
-                      className="w-5 h-5 object-contain"
-                      loading="lazy"
-                      onError={(e) => {
-                        (e.target as HTMLImageElement).src = "/placeholder.svg";
-                      }}
+                    <Icon
+                      icon={skill.icon}
+                      className="w-5 h-5"
                     />
                     <span className="text-sm text-foreground">{skill.name}</span>
                   </div>

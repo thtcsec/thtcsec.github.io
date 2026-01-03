@@ -16,7 +16,7 @@ const Footer = () => {
               loading="lazy"
             />
             <div>
-              <h4 className="font-bold mb-1 text-foreground">HUFLIT</h4>
+              <h4 className="font-bold mb-1 text-foreground">Ho Chi Minh City University of Foreign Languages - Information Technology</h4>
               <p className="text-sm text-muted-foreground">Faculty of Information Technology</p>
               <p className="text-sm text-muted-foreground">Major: {siteConfig.major}</p>
               <p className="text-sm text-muted-foreground">Expected: {siteConfig.academic.expectedGraduation}</p>

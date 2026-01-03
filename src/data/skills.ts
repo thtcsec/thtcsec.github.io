@@ -1,7 +1,8 @@
 // Skills data - migrated from data/skills.json
+// Using Iconify icons for professional appearance: https://icon-sets.iconify.design/
 export interface Skill {
     name: string;
-    icon: string;
+    icon: string; // Iconify icon identifier (e.g., "logos:react" or "devicon:python")
 }
 
 export interface SkillCategory {
@@ -15,54 +16,68 @@ export const skillCategories: SkillCategory[] = [
         id: "languages",
         name: "Programming Languages",
         skills: [
-            { name: "C#", icon: "/images/technologies/csharp.png" },
-            { name: "Java", icon: "/images/technologies/java.png" },
-            { name: "Python", icon: "/images/technologies/python.png" },
-            { name: "JavaScript", icon: "/images/technologies/javascript.png" },
-            { name: "HTML5", icon: "/images/technologies/html5.png" },
-            { name: "CSS3", icon: "/images/technologies/css3.png" },
+            { name: "C#", icon: "devicon:csharp" },
+            { name: "Java", icon: "logos:java" },
+            { name: "Python", icon: "logos:python" },
+            { name: "JavaScript", icon: "logos:javascript" },
+            { name: "TypeScript", icon: "logos:typescript-icon" },
+            { name: "HTML5", icon: "logos:html-5" },
+            { name: "CSS3", icon: "logos:css-3" },
         ]
     },
     {
         id: "frameworks",
         name: "Frameworks & Tools",
         skills: [
-            { name: "ASP.NET", icon: "/images/technologies/aspnet.png" },
-            { name: "Android", icon: "/images/technologies/android.png" },
-            { name: "Firebase", icon: "/images/technologies/firebase.png" },
-            { name: "Docker", icon: "/images/technologies/docker.png" },
-            { name: "Git", icon: "/images/technologies/git.png" },
-            { name: "GitHub", icon: "/images/technologies/github.png" },
-            { name: "VS Code", icon: "/images/technologies/vscode.png" },
-            { name: "Visual Studio", icon: "/images/technologies/visual_studio.png" },
-            { name: "IntelliJ IDEA", icon: "/images/technologies/intellij.png" },
-            { name: "PyCharm", icon: "/images/technologies/pycharm.png" },
-            { name: "SQL Server", icon: "/images/technologies/sqlserver.png" },
+            { name: "React", icon: "logos:react" },
+            { name: "Vite", icon: "logos:vitejs" },
+            { name: "Tailwind CSS", icon: "logos:tailwindcss-icon" },
+            { name: "ASP.NET Core", icon: "devicon:dotnetcore" },
+            { name: "Entity Framework", icon: "devicon:dotnetcore" },
+            { name: "SignalR", icon: "simple-icons:signalr" },
+            { name: "Android", icon: "logos:android-icon" },
+            { name: "Firebase", icon: "logos:firebase" },
+            { name: "PostgreSQL", icon: "logos:postgresql" },
+            { name: "SQL Server", icon: "devicon:microsoftsqlserver" },
+            { name: "Redis", icon: "logos:redis" },
+            { name: "Nginx", icon: "logos:nginx" },
+            { name: "Docker", icon: "logos:docker-icon" },
+            { name: "Git", icon: "logos:git-icon" },
+            { name: "GitHub", icon: "logos:github-icon" },
+            { name: "VS Code", icon: "logos:visual-studio-code" },
+            { name: "Visual Studio", icon: "devicon:visualstudio" },
+            { name: "IntelliJ IDEA", icon: "logos:intellij-idea" },
+            { name: "PyCharm", icon: "logos:pycharm" },
         ]
     },
     {
         id: "cybersecurity",
         name: "Cybersecurity",
         skills: [
-            { name: "Kali Linux", icon: "/images/technologies/kali.png" },
-            { name: "Nmap", icon: "/images/technologies/nmap.png" },
-            { name: "Wireshark", icon: "/images/technologies/wireshark.png" },
-            { name: "VMware", icon: "/images/technologies/vmware.png" },
-            { name: "Volatility", icon: "/images/technologies/volatility.png" },
-            { name: "dnSpy", icon: "/images/technologies/dnspy.png" },
-            { name: "x64dbg", icon: "/images/technologies/x64dbg.png" },
+            { name: "Kali Linux", icon: "devicon:linux" },
+            { name: "Burp Suite", icon: "simple-icons:burpsuite" },
+            { name: "Nmap", icon: "mdi:lan-connect" },
+            { name: "Wireshark", icon: "devicon:networkx" },
+            { name: "Suricata IDS", icon: "mdi:shield-alert" },
+            { name: "Honeypot", icon: "mdi:pot" },
+            { name: "Postman", icon: "logos:postman-icon" },
+            { name: "VMware", icon: "simple-icons:vmware" },
+            { name: "Volatility", icon: "mdi:memory" },
+            { name: "dnSpy", icon: "mdi:code-braces" },
+            { name: "x64dbg", icon: "mdi:bug-outline" },
+            { name: "FFmpeg", icon: "logos:ffmpeg-icon" },
         ]
     },
     {
         id: "ai",
         name: "AI Tools",
         skills: [
-            { name: "ChatGPT", icon: "/images/technologies/chatgpt.png" },
-            { name: "Claude", icon: "/images/technologies/claude.png" },
-            { name: "Gemini", icon: "/images/technologies/gemini.png" },
-            { name: "DeepSeek", icon: "/images/technologies/deepseek.png" },
-            { name: "Perplexity", icon: "/images/technologies/perplexity.png" },
-            { name: "GitHub Copilot", icon: "/images/technologies/github_copilot.png" },
+            { name: "ChatGPT", icon: "simple-icons:openai" },
+            { name: "Claude", icon: "simple-icons:anthropic" },
+            { name: "Gemini", icon: "logos:google-bard-icon" },
+            { name: "DeepSeek", icon: "mdi:chart-bubble" },
+            { name: "Perplexity", icon: "simple-icons:perplexity" },
+            { name: "GitHub Copilot", icon: "logos:github-octocat" },
         ]
     }
 ];
