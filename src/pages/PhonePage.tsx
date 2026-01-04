@@ -387,6 +387,69 @@ const PhonePage = () => {
                     </div>
                 </section>
 
+                {/* Shot on vivo Gallery - Easter Egg */}
+                <section className="py-20 bg-gradient-to-br from-primary/5 via-purple-500/5 to-orange-500/5">
+                    <div className="container mx-auto px-4">
+                        <div className="text-center mb-16">
+                            <div className="inline-flex items-center gap-3 bg-card/50 backdrop-blur-sm border border-primary/30 rounded-full px-6 py-3 mb-4">
+                                <Icon icon="mdi:camera-enhance" className="w-6 h-6 text-primary" />
+                                <span className="text-sm font-semibold text-primary">Easter Egg Unlocked</span>
+                            </div>
+                            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-foreground">
+                                Shot on vivo X200 Pro
+                            </h2>
+                            <p className="text-muted-foreground max-w-2xl mx-auto">
+                                Real-world photography captured with 200MP ZEISS camera system
+                            </p>
+                        </div>
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
+                            {[
+                                { src: "/images/gallery/shot_on_vivo_new/IMG_20260104_093210.jpg", alt: "Morning Shot - Jan 4, 2026" },
+                                { src: "/images/gallery/shot_on_vivo_new/IMG_20251203_220142.jpg", alt: "Night Photography - Dec 3, 2025" },
+                                { src: "/images/gallery/shot_on_vivo_new/IMG_20251130_135117.jpg", alt: "Afternoon Light - Nov 30, 2025" },
+                                { src: "/images/gallery/shot_on_vivo_new/IMG_20251125_110903.jpg", alt: "Urban Scene - Nov 25, 2025" },
+                                { src: "/images/gallery/shot_on_vivo_new/IMG_20251119_090659.jpg", alt: "Morning Photography - Nov 19, 2025" },
+                                { src: "/images/gallery/shot_on_vivo_new/IMG_20251119_090115.jpg", alt: "Landscape - Nov 19, 2025" },
+                                { src: "/images/gallery/shot_on_vivo_new/IMG_20251119_085949.jpg", alt: "Nature Photography - Nov 19, 2025" },
+                                { src: "/images/gallery/shot_on_vivo_new/IMG_20251119_083642.jpg", alt: "Outdoor Scene - Nov 19, 2025" },
+                                { src: "/images/gallery/shot_on_vivo_new/IMG_20251116_132820.jpg", alt: "Afternoon Shot - Nov 16, 2025" },
+                                { src: "/images/gallery/shot_on_vivo_new/IMG_20251116_132533.jpg", alt: "Portrait Mode - Nov 16, 2025" },
+                                { src: "/images/gallery/shot_on_vivo_new/IMG_20251116_114355.jpg", alt: "Midday Photography - Nov 16, 2025" },
+                                { src: "/images/gallery/shot_on_vivo_new/IMG_20251105_181752.jpg", alt: "Evening Golden Hour - Nov 5, 2025" }
+                            ].map((photo, index) => (
+                                <div
+                                    key={index}
+                                    className="group relative rounded-2xl overflow-hidden cursor-pointer bg-card border border-border hover:border-primary/50 transition-all duration-300"
+                                    onClick={() => setModalImage({ src: photo.src, alt: photo.alt })}
+                                >
+                                    <LazyImage
+                                        src={photo.src}
+                                        alt={photo.alt}
+                                        className="w-full h-[400px] object-cover group-hover:scale-110 transition-transform duration-500"
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                        <div className="absolute bottom-0 left-0 right-0 p-6">
+                                            <div className="flex items-center gap-2 text-white mb-2">
+                                                <Icon icon="mdi:camera" className="w-5 h-5" />
+                                                <span className="text-sm font-medium">200MP ZEISS Camera</span>
+                                            </div>
+                                            <p className="text-sm text-gray-300">{photo.alt}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+
+                        <div className="text-center mt-12">
+                            <p className="text-sm text-muted-foreground">
+                                <Icon icon="mdi:information-outline" className="inline w-4 h-4 mr-1" />
+                                All photos captured with vivo X200 Pro | No post-processing
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
                 {/* Why Choose Section */}
                 <section className="py-20 bg-card/30">
                     <div className="container mx-auto px-4">
