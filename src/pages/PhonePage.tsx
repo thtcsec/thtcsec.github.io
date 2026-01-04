@@ -246,7 +246,7 @@ const PhonePage = () => {
                     <div 
                         className="absolute inset-0 bg-cover bg-center"
                         style={{
-                            backgroundImage: `url(/vivo-smooth-at-origin.jpg)`,
+                            backgroundImage: `url(/images/vivo/vivo_smooth_origin.jpg)`,
                             transform: `translateY(${scrollY * 0.3}px)`,
                             filter: 'brightness(0.7)'
                         }}
@@ -268,7 +268,7 @@ const PhonePage = () => {
                             <Button 
                                 size="lg" 
                                 className="bg-white text-black hover:bg-white/90"
-                                onClick={() => setModalImage({ src: "/vivo-smooth-at-origin.jpg", alt: "Origin OS 6 - Smooth at Origin" })}
+                                onClick={() => setModalImage({ src: "/images/vivo/vivo_smooth_origin.jpg", alt: "Origin OS 5 - Smooth at Origin" })}
                             >
                                 <Icon icon="mdi:fullscreen" className="w-5 h-5 mr-2" />
                                 View Full Image
@@ -344,10 +344,10 @@ const PhonePage = () => {
                                 {/* Dimensity 9400 */}
                                 <div className="relative rounded-2xl overflow-hidden bg-neutral-900 p-6 cursor-pointer group">
                                     <LazyImage
-                                        src="/mediatek-dimensity-9400.jpg"
+                                        src="/images/vivo/vivo_dimen_9400_new.jpg"
                                         alt="Dimensity 9400 Chipset"
                                         className="w-full h-48 object-contain group-hover:scale-110 transition-transform duration-500"
-                                        onClick={() => setModalImage({ src: "/mediatek-dimensity-9400.jpg", alt: "Dimensity 9400" })}
+                                        onClick={() => setModalImage({ src: "/images/vivo/vivo_dimen_9400_new.jpg", alt: "Dimensity 9400" })}
                                     />
                                     <div className="mt-4 text-center">
                                         <h3 className="text-lg font-bold text-white mb-1">Dimensity 9400</h3>
