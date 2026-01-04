@@ -453,7 +453,7 @@ const PhonePage = () => {
                             ].map((photo, index) => (
                                 <div
                                     key={index}
-                                    className="group relative rounded-2xl overflow-hidden cursor-pointer bg-card border border-border hover:border-primary/50 transition-all duration-300"
+                                    className="relative rounded-2xl overflow-hidden cursor-pointer bg-card border border-border/50"
                                     style={{ 
                                         minHeight: '400px',
                                         contentVisibility: 'auto',
@@ -464,15 +464,12 @@ const PhonePage = () => {
                                     <LazyImage
                                         src={photo.src}
                                         alt={photo.alt}
-                                        className="w-full h-[400px] object-cover will-change-transform group-hover:scale-105 transition-transform duration-300"
+                                        className="w-full h-[400px] object-cover"
                                     />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                                        <div className="absolute bottom-0 left-0 right-0 p-6 pointer-events-auto">
-                                            <div className="flex items-center gap-2 text-white mb-2">
-                                                <Icon icon="mdi:camera" className="w-5 h-5" />
-                                                <span className="text-sm font-medium">200MP ZEISS Camera</span>
-                                            </div>
-                                            <p className="text-sm text-gray-300">{photo.alt}</p>
+                                    <div className="absolute bottom-0 left-0 right-0 bg-black/90 backdrop-blur-sm p-4 pointer-events-none">
+                                        <div className="flex items-center gap-2 text-white">
+                                            <Icon icon="mdi:camera" className="w-4 h-4" />
+                                            <span className="text-xs font-medium">200MP ZEISS</span>
                                         </div>
                                     </div>
                                 </div>

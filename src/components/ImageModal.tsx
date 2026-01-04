@@ -31,23 +31,28 @@ const ImageModal = ({ isOpen, imageSrc, imageAlt, onClose }: ImageModalProps) =>
 
     return (
         <div
-            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 animate-in fade-in duration-200"
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 backdrop-blur-sm"
             onClick={onClose}
+            style={{ willChange: 'opacity' }}
         >
             {/* Close Button */}
             <button
                 onClick={onClose}
-                className="absolute top-6 right-6 p-3 rounded-full bg-black/50 text-white hover:bg-black/80 transition-all duration-200 hover:rotate-90 z-10"
+                className="absolute top-4 right-4 p-2 rounded-full bg-black/60 text-white z-10"
                 aria-label="Close"
             >
-                <X size={28} />
+                <X size={24} />
             </button>
 
             {/* Image */}
             <img
                 src={imageSrc}
                 alt={imageAlt}
-                className="max-w-[90vw] max-h-[90vh] object-contain rounded-lg shadow-2xl animate-in zoom-in-95 duration-300"
+                className="max-w-[90vw] max-h-[90vh] object-contain"
+                style={{ 
+                    imageRendering: 'high-quality',
+                    contentVisibility: 'auto'
+                }}
                 onClick={(e) => e.stopPropagation()}
             />
 
