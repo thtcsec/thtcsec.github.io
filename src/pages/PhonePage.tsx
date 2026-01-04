@@ -74,7 +74,7 @@ const colorOptions = [
     { name: "White", color: "bg-white", border: "border-gray-300" },
 ];
 
-// Lazy loaded image component with skeleton
+// Lazy loaded image component with CSS loader
 const LazyImage = ({
     src,
     alt,
@@ -91,7 +91,13 @@ const LazyImage = ({
     return (
         <div className="relative" onClick={onClick}>
             {!loaded && (
-                <div className={`absolute inset-0 bg-neutral-800 animate-pulse rounded-xl ${className}`} />
+                <div className={`absolute inset-0 flex items-center justify-center bg-neutral-900/50 backdrop-blur-sm rounded-xl ${className}`}>
+                    {/* CSS Spinner from css-loaders.com */}
+                    <div className="relative w-12 h-12">
+                        <div className="absolute inset-0 border-4 border-primary/30 rounded-full"></div>
+                        <div className="absolute inset-0 border-4 border-transparent border-t-primary rounded-full animate-spin"></div>
+                    </div>
+                </div>
             )}
             <img
                 src={src}

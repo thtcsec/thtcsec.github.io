@@ -122,5 +122,6 @@ dist-ssr
 # MacOS
 .DS_Store
 
-# Gallery images (User request)
-public/images/gallery
+# Gallery images - ignore old folders but allow new shots
+public/images/gallery/*
+!public/images/gallery/shot_on_vivo_new/
