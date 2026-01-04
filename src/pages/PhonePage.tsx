@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Icon } from "@iconify/react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -74,7 +74,7 @@ const colorOptions = [
     { name: "White", color: "bg-white", border: "border-gray-300" },
 ];
 
-// Lazy loaded image component with CSS loader
+// Optimized lazy loaded image with Intersection Observer
 const LazyImage = ({
     src,
     alt,
@@ -87,26 +87,53 @@ const LazyImage = ({
     onClick?: () => void;
 }) => {
     const [loaded, setLoaded] = useState(false);
+    const [inView, setInView] = useState(false);
+    const imgRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        setInView(true);
+                        observer.disconnect();
+                    }
+                });
+            },
+            {
+                rootMargin: '50px', // Load slightly before visible
+                threshold: 0.01
+            }
+        );
+
+        if (imgRef.current) {
+            observer.observe(imgRef.current);
+        }
+
+        return () => observer.disconnect();
+    }, []);
 
     return (
-        <div className="relative" onClick={onClick}>
+        <div ref={imgRef} className="relative" onClick={onClick}>
             {!loaded && (
-                <div className={`absolute inset-0 flex items-center justify-center bg-neutral-900/50 backdrop-blur-sm rounded-xl ${className}`}>
-                    {/* CSS Spinner from css-loaders.com */}
-                    <div className="relative w-12 h-12">
-                        <div className="absolute inset-0 border-4 border-primary/30 rounded-full"></div>
-                        <div className="absolute inset-0 border-4 border-transparent border-t-primary rounded-full animate-spin"></div>
-                    </div>
+                <div className={`absolute inset-0 bg-gradient-to-br from-neutral-900/90 to-neutral-800/90 rounded-xl ${className}`}>
+                    {inView && (
+                        <div className="absolute inset-0 flex items-center justify-center">
+                            <div className="w-8 h-8 border-2 border-primary/30 border-t-primary rounded-full animate-spin" />
+                        </div>
+                    )}
                 </div>
             )}
-            <img
-                src={src}
-                alt={alt}
-                className={`${className} ${loaded ? 'opacity-100' : 'opacity-0'} transition-opacity duration-300`}
-                loading="lazy"
-                decoding="async"
-                onLoad={() => setLoaded(true)}
-            />
+            {inView && (
+                <img
+                    src={src}
+                    alt={alt}
+                    className={`${className} ${loaded ? 'opacity-100' : 'opacity-0'} transition-opacity duration-500`}
+                    loading="lazy"
+                    decoding="async"
+                    onLoad={() => setLoaded(true)}
+                />
+            )}
         </div>
     );
 };
@@ -427,15 +454,20 @@ const PhonePage = () => {
                                 <div
                                     key={index}
                                     className="group relative rounded-2xl overflow-hidden cursor-pointer bg-card border border-border hover:border-primary/50 transition-all duration-300"
+                                    style={{ 
+                                        minHeight: '400px',
+                                        contentVisibility: 'auto',
+                                        contain: 'layout style paint'
+                                    }}
                                     onClick={() => setModalImage({ src: photo.src, alt: photo.alt })}
                                 >
                                     <LazyImage
                                         src={photo.src}
                                         alt={photo.alt}
-                                        className="w-full h-[400px] object-cover group-hover:scale-110 transition-transform duration-500"
+                                        className="w-full h-[400px] object-cover will-change-transform group-hover:scale-105 transition-transform duration-300"
                                     />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                        <div className="absolute bottom-0 left-0 right-0 p-6">
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                                        <div className="absolute bottom-0 left-0 right-0 p-6 pointer-events-auto">
                                             <div className="flex items-center gap-2 text-white mb-2">
                                                 <Icon icon="mdi:camera" className="w-5 h-5" />
                                                 <span className="text-sm font-medium">200MP ZEISS Camera</span>
