@@ -14,6 +14,24 @@ export interface Project {
 
 export const projects: Project[] = [
     {
+        id: "ct-smartcam",
+        title: "CT-SmartCam - Smart Security System",
+        description: "AI-powered camera management system for Can Tho City with real-time monitoring, license plate recognition, face detection, and microservices architecture.",
+        category: "ai",
+        technologies: ["ASP.NET Core 9", "React", "YOLOv11", "Docker", "PostgreSQL", "SignalR"],
+        github: "",
+        demo: "",
+        image: "/images/preview/preview_ctsmartcam.png",
+        featured: true,
+        highlights: [
+            "Real-time AI detection (People, Vehicles, LPR)",
+            "Microservices architecture with Docker",
+            "Live streaming via HLS (H.265 support)",
+            "Security honeypot & intrusion detection",
+            "SignalR real-time alerts & monitoring"
+        ]
+    },
+    {
         id: "ai-lms",
         title: "AI-Powered LMS - toanvotruongtoan.com",
         description: "Production-ready Learning Management System with Gemini AI integration for automated exam generation and intelligent tutoring, serving hundreds of students.",
@@ -90,7 +108,7 @@ export const projects: Project[] = [
         description: "Advanced automation system for Yodobashi with stealth anti-detection, real-time monitoring, and hybrid speed/safe mode attack strategies.",
         category: "extension",
         technologies: ["Playwright", "Node.js", "JavaScript", "Stealth Tech"],
-        github: "https://github.com/thtcsec/yodobashi-sniper-v2",
+        github: "",
         demo: "",
         image: "/images/preview/preview_yodobashi.jpg",
         featured: true,
@@ -120,40 +138,29 @@ export const projects: Project[] = [
         technologies: ["ASP.NET", "C#", "SQL Server", "Bootstrap"],
         github: "",
         demo: "",
-        image: "/images/projects/placeholder.svg",
+        image: "/images/preview/preview_flight_reservation.png",
         featured: false
     },
     {
         id: "linux-manager",
         title: "Linux Server Manager",
-        description: "Web-based Linux server management tool with SSH client integration and system monitoring capabilities.",
-        category: "system",
+        description: "Desktop application for Linux server management with SSH client integration and system monitoring capabilities.",
+        category: "desktop",
         technologies: ["WPF", "C#", "SSH.NET"],
         github: "",
         demo: "",
-        image: "/images/projects/placeholder.svg",
+        image: "/images/preview/preview_linux_server_manager.png",
         featured: false
     },
     {
         id: "ereader",
         title: "EReader",
         description: "Digital book reader application with customizable reading experience and modern UI.",
-        category: "desktop",
-        technologies: ["C#", "WPF", ".NET"],
+        category: "mobile",
+        technologies: ["Android", "Java", "SQLite"],
         github: "",
         demo: "",
-        image: "/images/projects/placeholder.svg",
-        featured: false
-    },
-    {
-        id: "chat",
-        title: "Chat Application",
-        description: "Real-time messaging application with modern UI, group chat features, and WebSocket support.",
-        category: "web",
-        technologies: ["Socket.IO", "Node.js", "Express", "MongoDB"],
-        github: "",
-        demo: "",
-        image: "/images/projects/placeholder.svg",
+        image: "/images/preview/preview_ereader.jpg",
         featured: false
     },
     {
@@ -164,7 +171,7 @@ export const projects: Project[] = [
         technologies: ["Android", "Java", "SQLite"],
         github: "",
         demo: "",
-        image: "/images/projects/placeholder.svg",
+        image: "/images/preview/preview_english_master.jpg",
         featured: false
     }
 ];

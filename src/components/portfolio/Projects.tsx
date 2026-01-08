@@ -82,7 +82,7 @@ const ProjectCard = ({ project, imageLoaded, onImageLoad }: ProjectCardProps) =>
   return (
     <div className="group relative rounded-2xl overflow-hidden bg-card border border-border hover:border-primary/50 transition-all duration-500 hover:-translate-y-2">
       {/* Image with lazy loading */}
-      <div className="relative aspect-video overflow-hidden bg-muted">
+      <div className={`relative overflow-hidden bg-muted ${project.category === 'mobile' ? 'aspect-[4/3]' : 'aspect-video'}`}>
         {/* Placeholder/skeleton while loading */}
         {!imageLoaded && (
           <div className="absolute inset-0 bg-gradient-to-br from-muted to-muted-foreground/10 animate-pulse" />
@@ -90,8 +90,8 @@ const ProjectCard = ({ project, imageLoaded, onImageLoad }: ProjectCardProps) =>
         <img
           src={project.image}
           alt={project.title}
-          className={`w-full h-full object-cover transition-all duration-500 group-hover:scale-110 ${imageLoaded ? "opacity-100" : "opacity-0"
-            }`}
+          className={`w-full h-full transition-all duration-500 group-hover:scale-110 ${imageLoaded ? "opacity-100" : "opacity-0"
+            } ${project.category === 'mobile' ? 'object-contain bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-800 dark:to-slate-900' : 'object-cover'}`}
           loading="lazy"
           onLoad={onImageLoad}
         />
