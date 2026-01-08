@@ -149,7 +149,18 @@ const Header = () => {
 
       {/* Mobile Navigation */}
       {isMobileMenuOpen && (
-        <div className="fixed inset-0 z-30 bg-background/95 dark:bg-background/95 backdrop-blur-3xl pt-24 px-6 flex flex-col gap-6 animate-fade-in md:hidden text-center">
+        <div className="fixed inset-0 z-30 bg-background/98 dark:bg-background/98 backdrop-blur-xl pt-24 px-6 flex flex-col gap-6 animate-fade-in md:hidden text-center border-t border-border/20">
+          {/* Close button overlay for better visibility */}
+          <div className="absolute top-6 right-6">
+            <button
+              className="p-3 text-foreground bg-background/80 hover:bg-muted border border-border/50 rounded-full transition-all duration-200 hover:scale-105 shadow-lg"
+              onClick={() => setIsMobileMenuOpen(false)}
+              aria-label="Close menu"
+            >
+              <X size={24} />
+            </button>
+          </div>
+          
           {navItems.map((item, index) => (
             <a
               key={item.href}
@@ -158,7 +169,7 @@ const Header = () => {
                 e.preventDefault();
                 handleNavClick(item.href);
               }}
-              className={`text-2xl font-bold hover:text-primary py-4 border-b border-border/50 animate-slide-up ${activeSection === item.href.substring(1)
+              className={`text-2xl font-bold hover:text-primary py-4 border-b border-border/50 animate-slide-up transition-colors ${activeSection === item.href.substring(1)
                   ? "text-primary"
                   : "text-foreground/80"
                 }`}
