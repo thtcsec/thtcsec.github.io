@@ -96,6 +96,13 @@ export const certificates: Certificate[] = [
         image: "/images/certificates/hack2skill_serverless_learning.png",
         type: "certificate"
     },
+    {
+        id: "hack2skill-ai-ml",
+        title: "AI and ML Learning",
+        issuer: "Hack2skill",
+        image: "/images/certificates/hack2skill_ai_ml_learning.png",
+        type: "certificate"
+    },
     // Hackathon Participation (last)
     {
         id: "vpbank-hackathon",
