@@ -39,25 +39,61 @@ export const certificates: Certificate[] = [
         type: "certificate"
     },
     {
+        id: "prompting-essentials",
+        title: "Google Prompting Essentials",
+        issuer: "Google",
+        image: "/images/certificates/google_prompting_essentials.jpg",
+        type: "certificate"
+    },
+    {
+        id: "network-architecture",
+        title: "Network Architecture",
+        issuer: "Google",
+        image: "/images/certificates/network_architecture.jpg",
+        type: "certificate"
+    },
+    {
         id: "intro-to-cip",
         title: "Introduction to CIP",
         issuer: "Cybersecurity",
         image: "/images/certificates/introduction_to_cip.png",
         type: "certificate"
     },
-    // Professional Certifications (second)
+    // Professional Certifications
     {
         id: "ccep-certified",
-        title: "CCEP Certified",
-        issuer: "Certification",
+        title: "Red Team Leaders CCEP",
+        issuer: "Cybersecurity",
         image: "/images/certificates/ccep_certified_certificate.jpg",
         type: "certificate"
     },
+    // Hack2skill Certifications
     {
-        id: "network-architecture",
-        title: "Network Architecture",
-        issuer: "Certification",
-        image: "/images/certificates/network_architecture.jpg",
+        id: "hack2skill-data",
+        title: "Data Learning",
+        issuer: "Hack2skill",
+        image: "/images/certificates/hack2skill_data_learning.png",
+        type: "certificate"
+    },
+    {
+        id: "hack2skill-devops",
+        title: "DevOps",
+        issuer: "Hack2skill",
+        image: "/images/certificates/hack2skill_devops.png",
+        type: "certificate"
+    },
+    {
+        id: "hack2skill-network",
+        title: "Network Learning",
+        issuer: "Hack2skill",
+        image: "/images/certificates/hack2skill_network_learning.png",
+        type: "certificate"
+    },
+    {
+        id: "hack2skill-serverless",
+        title: "Serverless Learning",
+        issuer: "Hack2skill",
+        image: "/images/certificates/hack2skill_serverless_learning.png",
         type: "certificate"
     },
     // Hackathon Participation (last)
