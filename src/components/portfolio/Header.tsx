@@ -105,11 +105,19 @@ const Header = () => {
             </div>
           </nav>
 
-          {/* Right side - Theme + Easter Egg */}
+          {/* Right side - Pricing + Theme + Easter Egg */}
           <div
             className={`hidden md:flex items-center transition-all duration-500 ${isScrolled ? "gap-1" : "gap-2"
               }`}
           >
+            <Button
+              size={isScrolled ? "sm" : "default"}
+              variant="default"
+              className="transition-all duration-500 hover:scale-105"
+              asChild
+            >
+              <Link to="/price">Báo giá</Link>
+            </Button>
             <ThemeToggle />
             <Button
               size={isScrolled ? "sm" : "default"}
@@ -123,8 +131,16 @@ const Header = () => {
             </Button>
           </div>
 
-          {/* Mobile: Help + Theme Toggle + Menu Button */}
+          {/* Mobile: Pricing + Help + Theme Toggle + Menu Button */}
           <div className="md:hidden flex items-center gap-2">
+            <Button
+              size="sm"
+              variant="default"
+              className="transition-all duration-300 hover:scale-105 text-xs px-3"
+              asChild
+            >
+              <Link to="/price">Báo giá</Link>
+            </Button>
             <Button
               size="sm"
               variant="ghost"
