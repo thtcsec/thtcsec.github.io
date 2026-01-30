@@ -14,6 +14,24 @@ export interface Project {
 
 export const projects: Project[] = [
     {
+        id: "lingfilm",
+        title: "LingFilm - Language Learning Platform",
+        description: "Full-stack movie streaming platform for language learning with subtitle support. Features dual subtitles, instant dictionary, and vocab tracking.",
+        category: "web",
+        technologies: [".NET 8", "PostgreSQL", "React", "TypeScript", "Docker", "TailwindCSS"],
+        github: "",
+        demo: "",
+        image: "/images/preview/preview_lingfilm.png",
+        featured: true,
+        highlights: [
+            "Dual-subtitle system for language learning",
+            "Instant dictionary lookup & save vocabulary",
+            "JWT Authentication & Role-based Access",
+            "Microservices-ready architecture with Docker",
+            "AI Integration (Gemini/Groq) for content analysis"
+        ]
+    },
+    {
         id: "ct-smartcam",
         title: "CT-SmartCam - Smart Security System",
         description: "AI-powered camera management system for Can Tho City with real-time monitoring, license plate recognition, face detection, and microservices architecture.",
@@ -58,7 +76,7 @@ export const projects: Project[] = [
         github: "",
         demo: "",
         image: "/images/preview/preview_chaincampus.png",
-        featured: true,
+        featured: false,
         highlights: [
             "NFT tickets on Ethereum Sepolia testnet",
             "Smart Contract with Solidity + Hardhat",
