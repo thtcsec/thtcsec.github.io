@@ -19,7 +19,7 @@ export const siteConfig = {
         leetcode: "https://leetcode.com/thtcsec",
         tiktok: "https://www.tiktok.com/@tuhocleetcode",
         discord: "https://discord.com/users/815074234241646592",
-        gdg: "https://gdg.community.dev/u/tu44/",
+        gdg: "https://g.dev/thtcsec",
     },
 
     academic: {

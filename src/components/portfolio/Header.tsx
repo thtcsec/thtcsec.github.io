@@ -51,14 +51,14 @@ const Header = () => {
   return (
     <header
       className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 transition-all duration-500 ${isScrolled
-          ? "w-[90%] md:w-[700px]"
-          : "w-[95%] md:w-[90%] max-w-7xl"
+        ? "w-[90%] md:w-[700px]"
+        : "w-[95%] md:w-[90%] max-w-7xl"
         }`}
     >
       <div
         className={`transition-all duration-500 ${isScrolled
-            ? "bg-background/70 dark:bg-background/40 backdrop-blur-xl border border-border/50 dark:border-white/10 rounded-full shadow-xl dark:shadow-[0_0_30px_rgba(0,0,0,0.5)] py-2 px-4 md:px-6"
-            : "bg-background/30 dark:bg-background/20 backdrop-blur-sm border border-transparent rounded-full py-3 md:py-4 px-4 md:px-6"
+          ? "bg-background/70 dark:bg-background/40 backdrop-blur-xl border border-border/50 dark:border-white/10 rounded-full shadow-xl dark:shadow-[0_0_30px_rgba(0,0,0,0.5)] py-2 px-4 md:px-6"
+          : "bg-background/30 dark:bg-background/20 backdrop-blur-sm border border-transparent rounded-full py-3 md:py-4 px-4 md:px-6"
           }`}
       >
         <div className="flex items-center justify-between">
@@ -79,8 +79,8 @@ const Header = () => {
           <nav className={`hidden md:flex items-center transition-all duration-500 ${isScrolled ? "mx-auto" : ""}`}>
             <div
               className={`flex items-center transition-all duration-500 ${isScrolled
-                  ? "gap-0.5"
-                  : "gap-1"
+                ? "gap-0.5"
+                : "gap-1"
                 }`}
             >
               {navItems.map((item, index) => (
@@ -92,8 +92,8 @@ const Header = () => {
                     handleNavClick(item.href);
                   }}
                   className={`rounded-full font-medium transition-all duration-500 ease-out hover:scale-105 whitespace-nowrap ${activeSection === item.href.substring(1)
-                      ? "text-primary bg-primary/10"
-                      : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
+                    ? "text-primary bg-primary/10"
+                    : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
                     } ${isScrolled
                       ? "px-3 py-1.5 text-xs"
                       : "px-4 py-2 text-sm"
@@ -116,7 +116,7 @@ const Header = () => {
               className="transition-all duration-500 hover:scale-105"
               asChild
             >
-              <Link to="/price">Báo giá</Link>
+              <Link to="/price">Pricing</Link>
             </Button>
             <ThemeToggle />
             <Button
@@ -139,7 +139,7 @@ const Header = () => {
               className="transition-all duration-300 hover:scale-105 text-xs px-3"
               asChild
             >
-              <Link to="/price">Báo giá</Link>
+              <Link to="/price">Pricing</Link>
             </Button>
             <Button
               size="sm"
@@ -176,7 +176,7 @@ const Header = () => {
               <X size={24} />
             </button>
           </div>
-          
+
           {navItems.map((item, index) => (
             <a
               key={item.href}
@@ -186,24 +186,24 @@ const Header = () => {
                 handleNavClick(item.href);
               }}
               className={`text-2xl font-bold hover:text-primary py-4 border-b border-border/50 animate-slide-up transition-colors ${activeSection === item.href.substring(1)
-                  ? "text-primary"
-                  : "text-foreground/80"
+                ? "text-primary"
+                : "text-foreground/80"
                 }`}
               style={{ animationDelay: `${index * 50}ms` }}
             >
               {item.label}
             </a>
           ))}
-          <Button 
-            className="mt-4 w-full py-6 text-lg shadow-xl animate-slide-up" 
+          <Button
+            className="mt-4 w-full py-6 text-lg shadow-xl animate-slide-up"
             onClick={() => handleNavClick("#contact")}
             style={{ animationDelay: `${navItems.length * 50}ms` }}
           >
             Contact Me
           </Button>
-          <Button 
-            variant="outline" 
-            className="w-full py-6 text-lg animate-slide-up" 
+          <Button
+            variant="outline"
+            className="w-full py-6 text-lg animate-slide-up"
             asChild
             style={{ animationDelay: `${(navItems.length + 1) * 50}ms` }}
           >

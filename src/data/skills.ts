@@ -27,7 +27,7 @@ export const skillCategories: SkillCategory[] = [
     },
     {
         id: "frameworks",
-        name: "Frameworks & Tools",
+        name: "Frameworks & Libraries",
         skills: [
             { name: "React", icon: "logos:react" },
             { name: "Vite", icon: "logos:vitejs" },
@@ -36,18 +36,35 @@ export const skillCategories: SkillCategory[] = [
             { name: "Entity Framework", icon: "devicon:dotnetcore" },
             { name: "SignalR", icon: "simple-icons:signalr" },
             { name: "Android", icon: "logos:android-icon" },
+        ]
+    },
+    {
+        id: "tools",
+        name: "Tools & Platforms",
+        skills: [
+            // Cloud & Infrastructure
+            { name: "AWS", icon: "logos:aws" },
+            { name: "Google Antigravity", icon: "logos:google-icon" },
             { name: "Firebase", icon: "logos:firebase" },
+            { name: "Nginx", icon: "logos:nginx" },
+            { name: "Docker", icon: "logos:docker-icon" },
+            { name: "VMware", icon: "logos:vmware" },
+            { name: "Git", icon: "logos:git-icon" },
+            { name: "GitHub", icon: "logos:github-icon" },
+
+            // Databases
             { name: "PostgreSQL", icon: "logos:postgresql" },
             { name: "SQL Server", icon: "devicon:microsoftsqlserver" },
             { name: "Redis", icon: "logos:redis" },
-            { name: "Nginx", icon: "logos:nginx" },
-            { name: "Docker", icon: "logos:docker-icon" },
-            { name: "Git", icon: "logos:git-icon" },
-            { name: "GitHub", icon: "logos:github-icon" },
+
+            // IDEs & Editors
+            { name: "Windsurf", icon: "mdi:weather-windy" }, // AI Editor
+            { name: "Cursor", icon: "mdi:cursor-default" },   // AI Editor
             { name: "VS Code", icon: "logos:visual-studio-code" },
             { name: "Visual Studio", icon: "devicon:visualstudio" },
             { name: "IntelliJ IDEA", icon: "logos:intellij-idea" },
             { name: "PyCharm", icon: "logos:pycharm" },
+            { name: "Kiro", icon: "mdi:pencil-ruler" },     // Assumed: Tool
         ]
     },
     {
