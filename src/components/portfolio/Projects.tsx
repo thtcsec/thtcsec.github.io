@@ -80,9 +80,10 @@ interface ProjectCardProps {
 
 const ProjectCard = ({ project, imageLoaded, onImageLoad }: ProjectCardProps) => {
   return (
-    <div className="group relative rounded-2xl overflow-hidden bg-card border border-border hover:border-primary/50 transition-all duration-500 hover:-translate-y-2">
-      {/* Image with lazy loading */}
-      <div className={`relative overflow-hidden bg-muted ${project.category === 'mobile' ? 'aspect-[4/3]' : 'aspect-video'}`}>
+    <div
+      className="group relative rounded-2xl overflow-hidden bg-card border border-border hover:border-primary/50 transition-all duration-500 hover:-translate-y-2 flex flex-col h-full"
+    >
+      <Link to={`/projects/${project.id}`} className="block relative overflow-hidden bg-muted cursor-pointer">
         {/* Placeholder/skeleton while loading */}
         {!imageLoaded && (
           <div className="absolute inset-0 bg-gradient-to-br from-muted to-muted-foreground/10 animate-pulse" />
@@ -109,13 +110,15 @@ const ProjectCard = ({ project, imageLoaded, onImageLoad }: ProjectCardProps) =>
             ⭐ Featured
           </div>
         )}
-      </div>
+      </Link>
 
       {/* Content */}
       <div className="p-6">
-        <h3 className="text-xl font-bold mb-2 text-foreground group-hover:text-primary transition-colors">
-          {project.title}
-        </h3>
+        <Link to={`/projects/${project.id}`}>
+          <h3 className="text-xl font-bold mb-2 text-foreground group-hover:text-primary transition-colors">
+            {project.title}
+          </h3>
+        </Link>
         <p className="text-muted-foreground text-sm mb-4 line-clamp-2">
           {project.description}
         </p>
@@ -149,8 +152,8 @@ const ProjectCard = ({ project, imageLoaded, onImageLoad }: ProjectCardProps) =>
           )}
         </div>
 
-        {/* Actions */}
-        <div className="flex items-center gap-3">
+        {/* Actions - Stop propagation to prevent modal open when clicking buttons */}
+        <div className="flex items-center gap-3 mt-auto" onClick={(e) => e.stopPropagation()}>
           {project.github && (
             <Button variant="outline" size="sm" asChild className="gap-2">
               <a href={project.github} target="_blank" rel="noopener noreferrer">
@@ -159,6 +162,15 @@ const ProjectCard = ({ project, imageLoaded, onImageLoad }: ProjectCardProps) =>
               </a>
             </Button>
           )}
+
+          {/* Private Badge - Left of Demo */}
+          {project.isPrivate && (
+            <span className="text-xs text-muted-foreground flex items-center gap-1 border border-border px-2 py-1 rounded-md bg-muted/50">
+              <span className="text-xs">🔒</span>
+              Private Project
+            </span>
+          )}
+
           {project.demo && (
             <Button size="sm" asChild className="gap-2">
               <a href={project.demo} target="_blank" rel="noopener noreferrer">
@@ -167,7 +179,8 @@ const ProjectCard = ({ project, imageLoaded, onImageLoad }: ProjectCardProps) =>
               </a>
             </Button>
           )}
-          {!project.github && !project.demo && (
+
+          {!project.github && !project.demo && !project.isPrivate && (
             <span className="text-xs text-muted-foreground flex items-center gap-1">
               <ChevronRight size={14} />
               Private Project

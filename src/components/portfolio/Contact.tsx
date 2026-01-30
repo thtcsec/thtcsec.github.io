@@ -32,7 +32,7 @@ const Contact = () => {
     { icon: "logos:discord-icon", href: siteConfig.social.discord, label: "Discord", color: "" },
     { icon: "simple-icons:leetcode", href: siteConfig.social.leetcode, label: "LeetCode", color: "" },
     { icon: "logos:tiktok-icon", href: siteConfig.social.tiktok, label: "TikTok", color: "" },
-    { icon: "logos:google-developers", href: siteConfig.social.gdg, label: "GDG", color: "" },
+    { icon: "logos:google-developers", href: siteConfig.social.gdg, label: "Google for Developers", color: "" },
   ];
 
   return (
@@ -99,7 +99,7 @@ const Contact = () => {
                   aria-label={social.label}
                 >
                   <Icon icon={social.icon} className="w-6 h-6" />
-                  <span className="text-xs text-muted-foreground group-hover:text-foreground transition-colors">
+                  <span className="text-xs text-muted-foreground group-hover:text-foreground transition-colors text-center">
                     {social.label}
                   </span>
                 </a>

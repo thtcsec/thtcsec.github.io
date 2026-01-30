@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useEffect } from "react";
 import Index from "./pages/Index";
 import ProjectsPage from "./pages/ProjectsPage";
+import ProjectDetailPage from "./pages/ProjectDetailPage";
 import CertificatesPage from "./pages/CertificatesPage";
 import PhonePage from "./pages/PhonePage";
 import PricingPage from "./pages/PricingPage";
@@ -35,6 +36,7 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/projects" element={<ProjectsPage />} />
+            <Route path="/projects/:id" element={<ProjectDetailPage />} />
             <Route path="/certificates" element={<CertificatesPage />} />
             <Route path="/phone" element={<PhonePage />} />
             <Route path="/price" element={<PricingPage />} />

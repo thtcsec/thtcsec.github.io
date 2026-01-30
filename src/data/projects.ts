@@ -10,6 +10,7 @@ export interface Project {
     image: string;
     featured: boolean;
     highlights?: string[];
+    isPrivate?: boolean;
 }
 
 export const projects: Project[] = [
@@ -64,8 +65,10 @@ export const projects: Project[] = [
             "Server-side Rate Limiting (30 req/min)",
             "Strict Supabase Row-Level Security (RLS)",
             "Serverless architecture with <100ms response times",
+            "Serverless architecture with <100ms response times",
             "SSL A+ rating"
-        ]
+        ],
+        isPrivate: true
     },
     {
         id: "chaincampus",
@@ -148,50 +151,6 @@ export const projects: Project[] = [
         image: "/images/preview/preview_portfolio.png",
         featured: true
     },
-    {
-        id: "flight",
-        title: "Flight Reservation System",
-        description: "Comprehensive flight booking system with admin panel, user management, and real-time booking capabilities.",
-        category: "web",
-        technologies: ["ASP.NET", "C#", "SQL Server", "Bootstrap"],
-        github: "",
-        demo: "",
-        image: "/images/preview/preview_flight_reservation.png",
-        featured: false
-    },
-    {
-        id: "linux-manager",
-        title: "Linux Server Manager",
-        description: "Desktop application for Linux server management with SSH client integration and system monitoring capabilities.",
-        category: "desktop",
-        technologies: ["WPF", "C#", "SSH.NET"],
-        github: "",
-        demo: "",
-        image: "/images/preview/preview_linux_server_manager.png",
-        featured: false
-    },
-    {
-        id: "ereader",
-        title: "EReader",
-        description: "Digital book reader application with customizable reading experience and modern UI.",
-        category: "mobile",
-        technologies: ["Android", "Java", "SQLite"],
-        github: "",
-        demo: "",
-        image: "/images/preview/preview_ereader.jpg",
-        featured: false
-    },
-    {
-        id: "english",
-        title: "English Master",
-        description: "Interactive English learning application for Android with lesson management and progress tracking.",
-        category: "mobile",
-        technologies: ["Android", "Java", "SQLite"],
-        github: "",
-        demo: "",
-        image: "/images/preview/preview_english_master.jpg",
-        featured: false
-    }
 ];
 
 // Limit to 6 featured projects on homepage

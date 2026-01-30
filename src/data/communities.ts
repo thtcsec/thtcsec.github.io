@@ -12,7 +12,7 @@ export const communities: Community[] = [
     {
         id: "gdg-hcmc",
         title: "Google Developer Group HCMC",
-        description: "Active member of GDG Ho Chi Minh City, participating in tech talks, workshops, and networking events focused on Google technologies and modern development practices.",
+        description: "Active member of Google Developer Groups Ho Chi Minh City, participating in tech talks, workshops, and networking events focused on Google technologies and modern development practices.",
         image: "/images/forums/gdg-hcmc.png",
         tags: ["GDG", "Google Cloud", "Android", "Web Development", "Firebase"],
         link: "https://gdg.community.dev/u/tu44/"
