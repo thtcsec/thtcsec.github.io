@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { ArrowDown, Github, Linkedin, Mail, Terminal, Code2, Sparkles, FileText, Facebook } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 import { siteConfig, getAcademicProgress, getDaysRemaining } from "@/data/config";
 
 const titles = ["Cybersecurity Enthusiast", "Full-Stack Developer", "HUFLIT Student", "Tech Explorer"];
@@ -148,10 +149,10 @@ const Hero = () => {
                 View My Work
               </Button>
               <Button variant="outline" size="lg" className="min-w-[180px] border-primary/50 hover:bg-primary/10 hover:border-primary" asChild>
-                <a href="/cv/mycv.pdf" target="_blank" download>
+                <Link to="/resume">
                   <FileText size={18} className="mr-2" />
-                  Download CV
-                </a>
+                  View Resume
+                </Link>
               </Button>
             </div>
 

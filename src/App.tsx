@@ -10,6 +10,7 @@ import ProjectDetailPage from "./pages/ProjectDetailPage";
 import CertificatesPage from "./pages/CertificatesPage";
 import PhonePage from "./pages/PhonePage";
 import PricingPage from "./pages/PricingPage";
+import ResumePage from "./pages/ResumePage";
 import NotFound from "./pages/NotFound";
 import { initGA } from "./lib/ga4";
 import { useHumanActivity } from "./hooks/useHumanActivity";
@@ -40,6 +41,7 @@ const App = () => {
             <Route path="/certificates" element={<CertificatesPage />} />
             <Route path="/phone" element={<PhonePage />} />
             <Route path="/price" element={<PricingPage />} />
+            <Route path="/resume" element={<ResumePage />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
