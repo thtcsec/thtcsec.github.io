@@ -37,9 +37,9 @@ const ResumePage = () => {
             </div>
 
             {/* Resume Container */}
-            <div className="container max-w-[210mm] mx-auto mt-16 bg-white dark:bg-neutral-900 shadow-xl print:shadow-none print:m-0 print:max-w-full print:bg-white print:text-black">
+            <div className="container max-w-[240mm] mx-auto mt-16 bg-white dark:bg-neutral-900 shadow-2xl rounded-lg print:shadow-none print:m-0 print:max-w-full print:rounded-none print:bg-white print:text-black overflow-hidden">
                 {/* A4 Aspect Ratio Container / Print Sheet */}
-                <div className="p-[15mm_20mm] md:p-[20mm] print:p-0 min-h-[297mm]">
+                <div className="p-8 md:p-12 lg:p-16 print:p-0 min-h-[297mm]">
 
                     {/* Header */}
                     <header className="text-center mb-6 border-b border-neutral-300 dark:border-neutral-700 pb-6 print:border-black/20">
@@ -69,12 +69,12 @@ const ResumePage = () => {
                     </header>
 
                     {/* Content Grid */}
-                    <div className="space-y-5 print:space-y-4 text-sm font-serif">
+                    <div className="space-y-8 print:space-y-4 text-sm font-serif">
 
                         {/* Summary */}
                         <section>
                             <h2 className="text-base font-bold uppercase border-b border-neutral-900 dark:border-neutral-100 mb-2 pb-0.5 print:border-black text-neutral-900 dark:text-white print:text-black">Summary</h2>
-                            <p className="text-neutral-700 dark:text-neutral-300 text-justify leading-relaxed print:text-neutral-800 font-sans">
+                            <p className="text-neutral-700 dark:text-neutral-300 leading-relaxed print:text-neutral-800 font-sans text-[15px] md:text-base">
                                 Third-year Cybersecurity student aspiring to work in DevSecOps and secure backend engineering. Hands-on experience in designing, deploying, and securing fullstack and cloud-based systems using ASP.NET Core, Docker, and modern cloud platforms. Strong foundation in application security, threat detection, and security monitoring within real-world projects.
                             </p>
                         </section>
@@ -91,7 +91,7 @@ const ResumePage = () => {
                                     <span className="italic text-neutral-700 dark:text-neutral-300 print:text-neutral-800">Ho Chi Minh City University of Foreign Languages and Information Technology</span>
                                     <span className="italic text-neutral-600 dark:text-neutral-400 text-xs print:text-neutral-600">Ho Chi Minh City</span>
                                 </div>
-                                <ul className="list-disc list-outside ml-4 space-y-0.5 text-neutral-700 dark:text-neutral-300 print:text-neutral-800 text-[13.5px]">
+                                <ul className="list-disc list-outside ml-5 space-y-2 text-neutral-700 dark:text-neutral-300 print:text-neutral-800 text-[14px] md:text-[15px] leading-relaxed">
                                     <li>GPA: 3.44/4.0</li>
                                     <li>Relevant Courses: Network Security, C#, Java, Web & Mobile Development, ASP.NET.</li>
                                 </ul>
@@ -110,7 +110,7 @@ const ResumePage = () => {
                                     <span className="italic text-neutral-700 dark:text-neutral-300 print:text-neutral-800">MVV Telecom Joint Stock Company (Subsidiary of MobiFone)</span>
                                     <span className="italic text-neutral-600 dark:text-neutral-400 text-xs print:text-neutral-600">Ho Chi Minh City</span>
                                 </div>
-                                <ul className="list-disc list-outside ml-4 space-y-0.5 text-neutral-700 dark:text-neutral-300 print:text-neutral-800 text-justify text-[13.5px] leading-snug">
+                                <ul className="list-disc list-outside ml-5 space-y-2 text-neutral-700 dark:text-neutral-300 print:text-neutral-800 text-[14px] md:text-[15px] leading-relaxed">
                                     <li>Designed and developed an AI-powered Camera Management System (CMS) for enterprise surveillance use cases.</li>
                                     <li>Built secure backend services using ASP.NET Core (C#) with JWT authentication and internal service authorization.</li>
                                     <li>Implemented real-time monitoring and security event logging via SignalR.</li>
@@ -130,7 +130,7 @@ const ResumePage = () => {
                                     <div className="flex justify-between items-baseline mb-0.5">
                                         <h3 className="font-bold text-neutral-900 dark:text-white print:text-black">Smart Camera Surveillance System (AI-Powered CMS & Security Platform)</h3>
                                     </div>
-                                    <ul className="list-disc list-outside ml-4 space-y-0.5 text-neutral-700 dark:text-neutral-300 print:text-neutral-800 text-justify text-[13.5px] leading-snug">
+                                    <ul className="list-disc list-outside ml-5 space-y-2 text-neutral-700 dark:text-neutral-300 print:text-neutral-800 text-[14px] md:text-[15px] leading-relaxed">
                                         <li><strong className="text-neutral-900 dark:text-white print:text-black">Tech Stack:</strong> React, Vite, TypeScript, Nginx, ASP.NET Core (C#), Python, Docker, Suricata</li>
                                         <li>Designed and implemented an AI-powered Camera Management System using a microservices architecture.</li>
                                         <li>Developed backend services with ASP.NET Core Web API, JWT authentication, and internal secret-based service handshake.</li>
@@ -145,7 +145,7 @@ const ResumePage = () => {
                                     <div className="flex justify-between items-baseline mb-0.5">
                                         <h3 className="font-bold text-neutral-900 dark:text-white print:text-black">AI-Powered LMS <span className="font-normal text-neutral-500">– toanvotruongtoan.com (Fullstack & DevSecOps)</span></h3>
                                     </div>
-                                    <ul className="list-disc list-outside ml-4 space-y-0.5 text-neutral-700 dark:text-neutral-300 print:text-neutral-800 text-justify text-[13.5px] leading-snug">
+                                    <ul className="list-disc list-outside ml-5 space-y-2 text-neutral-700 dark:text-neutral-300 print:text-neutral-800 text-[14px] md:text-[15px] leading-relaxed">
                                         <li><strong className="text-neutral-900 dark:text-white print:text-black">Tech Stack:</strong> React, Vite, TypeScript, Supabase, PostgreSQL, Vercel</li>
                                         <li>Architected and deployed a production-ready Learning Management System serving hundreds of students.</li>
                                         <li>Integrated Gemini AI for automated exam generation and intelligent tutoring.</li>
@@ -159,7 +159,7 @@ const ResumePage = () => {
                                     <div className="flex justify-between items-baseline mb-0.5">
                                         <h3 className="font-bold text-neutral-900 dark:text-white print:text-black">Yodobashi Sniper V2 <span className="font-normal text-neutral-500">(Browser Extension – Manifest V3)</span></h3>
                                     </div>
-                                    <ul className="list-disc list-outside ml-4 space-y-0.5 text-neutral-700 dark:text-neutral-300 print:text-neutral-800 text-justify text-[13.5px] leading-snug">
+                                    <ul className="list-disc list-outside ml-5 space-y-2 text-neutral-700 dark:text-neutral-300 print:text-neutral-800 text-[14px] md:text-[15px] leading-relaxed">
                                         <li><strong className="text-neutral-900 dark:text-white print:text-black">Tech Stack:</strong> JavaScript (ES6+), Node.js, Chrome Extension APIs</li>
                                         <li>Automated product purchase workflow using modern JavaScript and Chrome APIs.</li>
                                         <li>Implemented asynchronous control flow, cross-origin messaging, and robust DOM manipulation.</li>
@@ -172,7 +172,7 @@ const ResumePage = () => {
                                     <div className="flex justify-between items-baseline mb-0.5">
                                         <h3 className="font-bold text-neutral-900 dark:text-white print:text-black">Face / Object Recognition (Java Client and Server)</h3>
                                     </div>
-                                    <ul className="list-disc list-outside ml-4 space-y-0.5 text-neutral-700 dark:text-neutral-300 print:text-neutral-800 text-justify text-[13.5px] leading-snug">
+                                    <ul className="list-disc list-outside ml-5 space-y-2 text-neutral-700 dark:text-neutral-300 print:text-neutral-800 text-[14px] md:text-[15px] leading-relaxed">
                                         <li><strong className="text-neutral-900 dark:text-white print:text-black">Tech Stack:</strong> Java (Socket Programming), Python, REST API, Gemini AI</li>
                                         <li>Engineered a multi-threaded Java server using TCP sockets with encrypted communication.</li>
                                         <li>Developed a Python microservice exposing REST APIs for AI inference.</li>
@@ -185,7 +185,7 @@ const ResumePage = () => {
                                     <div className="flex justify-between items-baseline mb-0.5">
                                         <h3 className="font-bold text-neutral-900 dark:text-white print:text-black">Mini SOC Environment <span className="font-normal text-neutral-500">(ELK Stack)</span></h3>
                                     </div>
-                                    <ul className="list-disc list-outside ml-4 space-y-0.5 text-neutral-700 dark:text-neutral-300 print:text-neutral-800 text-justify text-[13.5px] leading-snug">
+                                    <ul className="list-disc list-outside ml-5 space-y-2 text-neutral-700 dark:text-neutral-300 print:text-neutral-800 text-[14px] md:text-[15px] leading-relaxed">
                                         <li><strong className="text-neutral-900 dark:text-white print:text-black">Tech Stack:</strong> Linux, Elasticsearch, Logstash, Kibana (ELK Stack)</li>
                                         <li>Built a miniature Security Operations Center to collect, process, and visualize security events.</li>
                                         <li>Configured dashboards for detecting brute-force attacks, anomalies, and network threats.</li>
@@ -197,7 +197,7 @@ const ResumePage = () => {
                         {/* Technical Skills */}
                         <section>
                             <h2 className="text-base font-bold uppercase border-b border-neutral-900 dark:border-neutral-100 mb-2 pb-0.5 print:border-black text-neutral-900 dark:text-white print:text-black">Technical Skills</h2>
-                            <div className="grid grid-cols-[100px_1fr] gap-y-1 gap-x-4 text-[13.5px] font-sans">
+                            <div className="grid grid-cols-[120px_1fr] gap-y-3 gap-x-6 text-[14px] md:text-[15px] font-sans">
                                 <div className="font-bold text-neutral-900 dark:text-white print:text-black">Security</div>
                                 <div className="text-neutral-700 dark:text-neutral-300 print:text-neutral-800">Kali Linux, Wireshark, Nmap, Burp Suite, Metasploit</div>
 
@@ -221,8 +221,8 @@ const ResumePage = () => {
                         {/* Awards */}
                         <section>
                             <h2 className="text-base font-bold uppercase border-b border-neutral-900 dark:border-neutral-100 mb-2 pb-0.5 print:border-black text-neutral-900 dark:text-white print:text-black">Awards</h2>
-                            <ul className="list-disc list-outside ml-4 space-y-0.5 text-neutral-700 dark:text-neutral-300 print:text-neutral-800 text-[13.5px] font-sans">
-                                <li>Winner – <strong>HSU Vibe Coding Talents 2025</strong></li>
+                            <ul className="list-disc list-outside ml-5 space-y-2 text-neutral-700 dark:text-neutral-300 print:text-neutral-800 text-[14px] md:text-[15px] font-sans leading-relaxed">
+                                <li>Winner – <strong className="text-neutral-900 dark:text-white print:text-black">HSU Vibe Coding Talents 2025</strong></li>
                                 <li>Awarded "Outstanding Student of the Year 2023" by Bu Dang District, Binh Phuoc Province.</li>
                             </ul>
                         </section>
@@ -230,7 +230,7 @@ const ResumePage = () => {
                         {/* Certificates */}
                         <section>
                             <h2 className="text-base font-bold uppercase border-b border-neutral-900 dark:border-neutral-100 mb-2 pb-0.5 print:border-black text-neutral-900 dark:text-white print:text-black">Certificates</h2>
-                            <ul className="list-disc list-outside ml-4 space-y-0.5 text-neutral-700 dark:text-neutral-300 print:text-neutral-800 text-[13.5px] font-sans">
+                            <ul className="list-disc list-outside ml-5 space-y-2 text-neutral-700 dark:text-neutral-300 print:text-neutral-800 text-[14px] md:text-[15px] font-sans leading-relaxed">
                                 <li className="flex justify-between">
                                     <span>Certified Cybersecurity Educator Professional (CCEP) – <span className="italic">Red Team Leaders</span></span>
                                     <span className="text-neutral-500 dark:text-neutral-400 italic text-xs print:text-neutral-600">Dec 2025</span>
@@ -264,7 +264,7 @@ const ResumePage = () => {
                     </div>
                 </div>
             </div>
-            <div className="container max-w-[210mm] mx-auto mt-4 text-center pb-8 print:hidden">
+            <div className="container max-w-[240mm] mx-auto mt-4 text-center pb-8 print:hidden">
                 <p className="text-neutral-400 text-xs">
                     This version is optimized for printing. Click "Save as PDF" to download a clean copy.
                 </p>
