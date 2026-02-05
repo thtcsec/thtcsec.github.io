@@ -10,6 +10,14 @@ export interface Community {
 
 export const communities: Community[] = [
     {
+        id: "gsa-huflit",
+        title: "Google Student Ambassador - HUFLIT",
+        description: "Officially selected as Google Student Ambassador representing HUFLIT. Leading the adoption of Google AI technologies on campus through leadership, community engagement, creative thinking, and digital communication.",
+        image: "/images/forums/gsa.png",
+        tags: ["Google", "AI", "Leadership", "Ambassador", "HUFLIT"],
+        link: "https://googlestudentambassador.vn"
+    },
+    {
         id: "gdg-hcmc",
         title: "Google Developer Group HCMC",
         description: "Active member of Google Developer Groups Ho Chi Minh City, participating in tech talks, workshops, and networking events focused on Google technologies and modern development practices.",
