@@ -53,18 +53,32 @@ export const certificates: Certificate[] = [
         type: "certificate"
     },
     {
-        id: "intro-to-cip",
-        title: "Introduction to CIP",
-        issuer: "Cybersecurity",
-        image: "/images/certificates/introduction_to_cip.png",
+        id: "aws-security-fundamentals",
+        title: "AWS Security Fundamentals",
+        issuer: "Amazon Web Services",
+        image: "/images/certificates/aws_security_fundamentals.jpg",
         type: "certificate"
     },
     // Professional Certifications
     {
         id: "ccep-certified",
-        title: "Red Team Leaders CCEP",
-        issuer: "Cybersecurity",
+        title: "Certified Cybersecurity Educator Professional (CCEP)",
+        issuer: "Red Team Leaders",
         image: "/images/certificates/ccep_certified_certificate.jpg",
+        type: "certificate"
+    },
+    {
+        id: "threat-intelligence-governance",
+        title: "Certified Threat Intelligence Governance Analyst (CTIGA)",
+        issuer: "Red Team Leaders",
+        image: "/images/certificates/certified_threat_intelligence_governace_analyst.jpg",
+        type: "certificate"
+    },
+    {
+        id: "intro-to-cip",
+        title: "Introduction to Critical Infrastructure Protection (ICIP)",
+        issuer: "OPSWAT Academy",
+        image: "/images/certificates/introduction_to_cip.png",
         type: "certificate"
     },
     // Hack2skill Certifications
@@ -122,6 +136,14 @@ export const certificates: Certificate[] = [
 
 export const achievements: Certificate[] = [
     {
+        id: "google-student-ambassador",
+        title: "Google Student Ambassador (GSA) - HUFLIT Representative",
+        issuer: "#TeamGoogle Vietnam",
+        image: "/images/forums/gsa.png",
+        type: "achievement",
+        description: "Selected to represent HUFLIT in the national Google Student Ambassador program, leading Google AI initiatives and connecting the student community with Google's technologies."
+    },
+    {
         id: "outstanding-student-2023",
         title: "Outstanding Student of the Year 2023",
         issuer: "Bu Dang District, Binh Phuoc Province",
@@ -163,5 +185,12 @@ export const achievements: Certificate[] = [
     }
 ];
 
-export const featuredCertificates = certificates.slice(0, 3);
-export const featuredAchievements = achievements.slice(0, 2);
+export const featuredCertificates = [
+    certificates[0],
+    certificates.find(c => c.id === "hack2skill-devops")!,
+    certificates.find(c => c.id === "aws-security-fundamentals")!
+];
+export const featuredAchievements = [
+    achievements.find(a => a.id === "google-student-ambassador")!,
+    achievements.find(a => a.id === "hsu-vibe-coding")!
+];
