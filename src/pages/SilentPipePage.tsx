@@ -309,7 +309,7 @@ const SilentPipePage = () => {
                   <img 
                     src="/images/silentpipe/home.jpg" 
                     alt="SilentPipe App Home Screen" 
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-contain"
                   />
                   <div className="absolute inset-0 bg-gradient-to-b from-purple-900/30 to-pink-900/30" />
                 </div>
@@ -395,7 +395,7 @@ const SilentPipePage = () => {
                 <img 
                   src="/images/silentpipe/equalizer.jpg" 
                   alt="SilentPipe Equalizer" 
-                  className="w-full rounded-2xl shadow-2xl"
+                  className="w-full rounded-2xl shadow-2xl object-contain"
                 />
               </div>
             </motion.div>
