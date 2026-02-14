@@ -30,7 +30,8 @@ export const projects: Project[] = [
             "JWT Authentication & Role-based Access",
             "Microservices-ready architecture with Docker",
             "AI Integration (Gemini/Groq) for content analysis"
-        ]
+        ],
+        isPrivate: true
     },
     {
         id: "ct-smartcam",
@@ -48,7 +49,8 @@ export const projects: Project[] = [
             "Live streaming via HLS (H.265 support)",
             "Security honeypot & intrusion detection",
             "SignalR real-time alerts & monitoring"
-        ]
+        ],
+        isPrivate: true
     },
     {
         id: "ai-lms",
@@ -71,6 +73,25 @@ export const projects: Project[] = [
         isPrivate: true
     },
     {
+        id: "silentpipe",
+        title: "SilentPipe - Android Media Player",
+        description: "Anonymous & powerful Android media player for YouTube/TikTok with no ads, background playback, custom equalizer, and offline download support.",
+        category: "mobile",
+        technologies: ["Java", "Kotlin", "Android Media3", "Chaquopy", "NewPipeExtractor", "OkHttp"],
+        github: "https://github.com/thtcsec/SilentPipe",
+        demo: "https://thtcsec.github.io/silentpipe",
+        image: "/images/silentpipe/equalizer.jpg",
+        featured: true,
+        highlights: [
+            "Share-to-Play from YouTube/TikTok",
+            "Spotify link support with auto YouTube search",
+            "Custom 10-band equalizer with presets",
+            "Offline download & background playback",
+            "No ads, no tracking, privacy-first",
+            "Python-powered yt-dlp integration"
+        ],
+    },
+    {
         id: "chaincampus",
         title: "ChainCampus - Blockchain Event Ticketing",
         description: "Anti-fraud event ticketing system using Ethereum blockchain. NFT tickets with QR verification, Metamask SIWE authentication, and real-time updates.",
@@ -86,7 +107,8 @@ export const projects: Project[] = [
             "QR Scanner with webcam integration",
             "Sign-In with Ethereum (SIWE) authentication",
             "Real-time SSE updates"
-        ]
+        ],
+        isPrivate: true
     },
     {
         id: "ai-sentinel",
@@ -121,7 +143,8 @@ export const projects: Project[] = [
             "Python Flask API with face embedding",
             "SSL/TLS secure communication",
             "Real-time webcam integration"
-        ]
+        ],
+        isPrivate: true
     },
     {
         id: "yodobashi",
@@ -138,7 +161,8 @@ export const projects: Project[] = [
             "Intercept & Fulfill stealth resource blocking",
             "Promise.race for uncertainty handling",
             "50ms real-time availability watcher"
-        ]
+        ],
+        isPrivate: true
     },
     {
         id: "portfolio",
@@ -150,7 +174,7 @@ export const projects: Project[] = [
         demo: "https://thtcsec.github.io",
         image: "/images/preview/preview_portfolio.png",
         featured: true
-    },
+    }
 ];
 
 // Limit to 6 featured projects on homepage

@@ -103,13 +103,6 @@ const ProjectCard = ({ project, imageLoaded, onImageLoad }: ProjectCardProps) =>
         <div className="absolute top-4 left-4 px-3 py-1 rounded-full bg-primary/20 backdrop-blur-sm border border-primary/30 text-xs font-medium text-primary">
           {categoryEmoji[project.category]} {categoryLabels[project.category]}
         </div>
-
-        {/* Featured Badge */}
-        {project.featured && (
-          <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-accent/20 backdrop-blur-sm border border-accent/30 text-xs font-medium text-accent">
-            ⭐ Featured
-          </div>
-        )}
       </Link>
 
       {/* Content */}
