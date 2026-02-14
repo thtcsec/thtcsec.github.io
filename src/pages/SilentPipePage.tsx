@@ -303,13 +303,13 @@ const SilentPipePage = () => {
               viewport={{ once: true }}
               className="relative"
             >
-              <div className="relative mx-auto w-80 h-[600px] bg-gradient-to-b from-gray-900 to-gray-800 rounded-[3rem] p-4 shadow-2xl">
+              <div className="relative mx-auto w-80 max-w-[320px] bg-gradient-to-b from-gray-900 to-gray-800 rounded-[3rem] p-4 shadow-2xl">
                 <div className="absolute top-8 left-1/2 transform -translate-x-1/2 w-20 h-6 bg-black rounded-full" />
-                <div className="w-full h-full bg-black rounded-[2.5rem] overflow-hidden relative">
+                <div className="w-full aspect-video bg-black rounded-[2.5rem] overflow-hidden relative">
                   <img 
                     src="/images/silentpipe/home.jpg" 
                     alt="SilentPipe App Home Screen" 
-                    className="w-full h-full object-contain"
+                    className="w-full h-full object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-b from-purple-900/30 to-pink-900/30" />
                 </div>
