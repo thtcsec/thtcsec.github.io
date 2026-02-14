@@ -80,7 +80,7 @@ export const projects: Project[] = [
         technologies: ["Java", "Kotlin", "Android Media3", "Chaquopy", "NewPipeExtractor", "OkHttp"],
         github: "https://github.com/thtcsec/SilentPipe",
         demo: "https://thtcsec.github.io/silentpipe",
-        image: "/images/silentpipe/equalizer.jpg",
+        image: "/images/silentpipe/equalizer-cropped.jpg",
         featured: true,
         highlights: [
             "Share-to-Play from YouTube/TikTok",
