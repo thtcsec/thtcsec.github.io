@@ -44,6 +44,7 @@ const App = () => {
             <Route path="/price" element={<PricingPage />} />
             <Route path="/resume" element={<ResumePage />} />
             <Route path="/silentpipe" element={<SilentPipePage />} />
+            <Route path="/silentpipe/" element={<SilentPipePage />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
