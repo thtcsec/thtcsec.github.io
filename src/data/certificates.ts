@@ -25,10 +25,10 @@ export const certificates: Certificate[] = [
         type: "certificate"
     },
     {
-        id: "ai-essentials",
-        title: "Google AI Essentials",
+        id: "ai",
+        title: "Google AI",
         issuer: "Google",
-        image: "/images/certificates/google_ai_essentials.jpg",
+        image: "/images/certificates/google_ai_full_cert.jpg",
         type: "certificate"
     },
     {
