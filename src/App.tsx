@@ -12,6 +12,7 @@ import PhonePage from "./pages/PhonePage";
 import PricingPage from "./pages/PricingPage";
 import ResumePage from "./pages/ResumePage";
 import SilentPipePage from "./pages/SilentPipePage";
+import PentestLabPage from "./pages/PentestLabPage";
 import NotFound from "./pages/NotFound";
 import { initGA } from "./lib/ga4";
 import { useHumanActivity } from "./hooks/useHumanActivity";
@@ -45,6 +46,8 @@ const App = () => {
             <Route path="/resume" element={<ResumePage />} />
             <Route path="/silentpipe" element={<SilentPipePage />} />
             <Route path="/silentpipe/" element={<SilentPipePage />} />
+            <Route path="/pentestlab" element={<PentestLabPage />} />
+            <Route path="/pentestlab/" element={<PentestLabPage />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

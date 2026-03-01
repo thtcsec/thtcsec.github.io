@@ -15,6 +15,23 @@ export interface Project {
 
 export const projects: Project[] = [
     {
+        id: "pentest-lab",
+        title: "Realistic Pentest Home Lab Series",
+        description: "Môi trường giả lập Kiểm Thử Xâm Nhập thực tế từ Web, Active Directory đến Cloud. One-Click Setup với Docker và tập trung vào tư duy: Root Cause ➜ Attack Path ➜ Mitigation ➜ Detection.",
+        category: "system",
+        technologies: ["Docker", "Python", "Node.js", "PHP", "Active Directory"],
+        github: "https://github.com/thtcsec/",
+        demo: "https://hoangtu.dev/pentestlab",
+        image: "/images/preview/preview_pentest_lab.png",
+        featured: true,
+        highlights: [
+            "100% Reproducible & One-Click Install",
+            "Môi trường phân tách theo từng Phase (Web, AD, Cloud...)",
+            "Ứng dụng lỗ hổng thực tế thay vì bài tập CTF khô khan",
+            "Focus vào Mitigation và Detection thay vì chỉ Exploit"
+        ]
+    },
+    {
         id: "lingfilm",
         title: "LingFilm - Language Learning Platform",
         description: "Full-stack movie streaming platform for language learning with subtitle support. Features dual subtitles, instant dictionary, and vocab tracking.",
