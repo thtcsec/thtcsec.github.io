@@ -3,14 +3,14 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
-import { 
-  Play, 
-  Download, 
-  Shield, 
-  Zap, 
-  Music, 
-  Video, 
-  Smartphone, 
+import {
+  Play,
+  Download,
+  Shield,
+  Zap,
+  Music,
+  Video,
+  Smartphone,
   Github,
   Star,
   Heart,
@@ -58,6 +58,7 @@ import {
   Save
 } from "lucide-react";
 import { motion } from "framer-motion";
+import ProjectHeader from "@/components/portfolio/ProjectHeader";
 
 const SilentPipePage = () => {
   const [activeFeature, setActiveFeature] = useState(0);
@@ -134,7 +135,8 @@ const SilentPipePage = () => {
   }, [features.length]);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 pt-16">
+      <ProjectHeader />
       {/* Hero Section */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-black/20" />
@@ -149,34 +151,34 @@ const SilentPipePage = () => {
             <div className="flex justify-center mb-6">
               <motion.div
                 animate={{ rotate: 360 }}
-                transition={{ duration: 20, repeat: Infinity, ease: "linear" as const }}
+                transition={{ duration: 20, repeat: Number.POSITIVE_INFINITY, ease: "linear" as const }}
                 className="relative"
               >
                 <div className="w-24 h-24 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center shadow-2xl p-2">
-                  <img 
-                    src="/images/silentpipe/silentpipe.png" 
-                    alt="SilentPipe Logo" 
+                  <img
+                    src="/images/silentpipe/silentpipe.png"
+                    alt="SilentPipe Logo"
                     className="w-full h-full object-contain"
                   />
                 </div>
 
               </motion.div>
             </div>
-            
+
             <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
               <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
                 SilentPipe
               </span>
             </h1>
-            
+
             <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
               Trình phát media ẩn danh & mạnh mẽ cho Android
             </p>
-            
+
             <p className="text-lg text-gray-400 mb-12 max-w-2xl mx-auto">
               Phát nhạc và video từ YouTube, TikTok mà không cần quảng cáo, không theo dõi người dùng, và hỗ trợ chạy nền hoàn hảo.
             </p>
-            
+
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-8 py-3 text-lg group" asChild>
                 <a href="https://github.com/thtcsec/SilentPipe" target="_blank" rel="noopener noreferrer">
@@ -193,7 +195,7 @@ const SilentPipePage = () => {
             </div>
           </motion.div>
         </div>
-        
+
         {/* Animated Background Elements */}
         <div className="absolute top-20 left-10 w-32 h-32 bg-purple-500/20 rounded-full blur-3xl animate-pulse" />
         <div className="absolute bottom-20 right-10 w-40 h-40 bg-pink-500/20 rounded-full blur-3xl animate-pulse [animation-delay:1s]" />
@@ -227,9 +229,8 @@ const SilentPipePage = () => {
                 viewport={{ once: true }}
                 className={`relative ${activeFeature === index ? 'scale-105' : ''} transition-transform duration-300`}
               >
-                <Card className={`h-full bg-white/10 backdrop-blur-md border-white/20 hover:bg-white/15 transition-all duration-300 ${
-                  activeFeature === index ? 'ring-2 ring-purple-500 shadow-2xl' : ''
-                }`}>
+                <Card className={`h-full bg-white/10 backdrop-blur-md border-white/20 hover:bg-white/15 transition-all duration-300 ${activeFeature === index ? 'ring-2 ring-purple-500 shadow-2xl' : ''
+                  }`}>
                   <CardHeader>
                     <div className="flex items-start justify-between">
                       <div className={`inline-flex p-3 rounded-lg bg-white/10 mb-4 ${feature.color}`}>
@@ -272,7 +273,7 @@ const SilentPipePage = () => {
               <p className="text-xl text-gray-300 mb-8 leading-relaxed">
                 Giao diện hiện đại, trực quan được thiết kế đặc biệt cho Android với tối ưu hóa hiệu năng và trải nghiệm người dùng.
               </p>
-              
+
               <div className="space-y-4">
                 <div className="flex items-center gap-3">
                   <div className="w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center">
@@ -283,7 +284,7 @@ const SilentPipePage = () => {
                     <p className="text-gray-400">Tương thích mọi kích thước màn hình</p>
                   </div>
                 </div>
-                
+
                 <div className="flex items-center gap-3">
                   <div className="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center">
                     <Zap className="w-6 h-6 text-blue-400" />
@@ -306,9 +307,9 @@ const SilentPipePage = () => {
               <div className="relative mx-auto w-80 h-[600px] bg-gradient-to-b from-gray-900 to-gray-800 rounded-[3rem] p-4 shadow-2xl">
                 <div className="absolute top-8 left-1/2 transform -translate-x-1/2 w-20 h-6 bg-black rounded-full" />
                 <div className="w-full h-[572px] bg-black rounded-[2.5rem] overflow-hidden relative">
-                  <img 
-                    src="/images/silentpipe/home.jpg" 
-                    alt="SilentPipe App Home Screen" 
+                  <img
+                    src="/images/silentpipe/home.jpg"
+                    alt="SilentPipe App Home Screen"
                     className="w-full h-full object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-b from-purple-900/30 to-pink-900/30" />
@@ -350,7 +351,7 @@ const SilentPipePage = () => {
               <p className="text-xl text-gray-300 mb-8 leading-relaxed">
                 Trải nghiệm âm thanh tuyệt vời với bộ equalizer tùy chỉnh mạnh mẽ, cho phép bạn điều chỉnh từng dải tần số để phù hợp với sở thích cá nhân.
               </p>
-              
+
               <div className="space-y-4">
                 <div className="flex items-center gap-3">
                   <div className="w-12 h-12 bg-purple-500/20 rounded-lg flex items-center justify-center">
@@ -361,7 +362,7 @@ const SilentPipePage = () => {
                     <p className="text-gray-400">Rock, Jazz, Classical, Pop và nhiều hơn nữa</p>
                   </div>
                 </div>
-                
+
                 <div className="flex items-center gap-3">
                   <div className="w-12 h-12 bg-pink-500/20 rounded-lg flex items-center justify-center">
                     <Settings className="w-6 h-6 text-pink-400" />
@@ -371,7 +372,7 @@ const SilentPipePage = () => {
                     <p className="text-gray-400">Điều chỉnh 5 dải tần số chi tiết</p>
                   </div>
                 </div>
-                
+
                 <div className="flex items-center gap-3">
                   <div className="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center">
                     <Save className="w-6 h-6 text-blue-400" />
@@ -392,9 +393,9 @@ const SilentPipePage = () => {
               className="relative"
             >
               <div className="relative mx-auto max-w-md">
-                <img 
-                  src="/images/silentpipe/equalizer.jpg" 
-                  alt="SilentPipe Equalizer" 
+                <img
+                  src="/images/silentpipe/equalizer.jpg"
+                  alt="SilentPipe Equalizer"
                   className="w-full rounded-2xl shadow-2xl object-contain"
                 />
               </div>
@@ -487,7 +488,7 @@ const SilentPipePage = () => {
                       </div>
                     </div>
                   </div>
-                  
+
                   <div className="text-left">
                     <h3 className="text-xl font-semibold text-white mb-4">Build từ source</h3>
                     <div className="space-y-3">
@@ -506,9 +507,9 @@ const SilentPipePage = () => {
                     </div>
                   </div>
                 </div>
-                
+
                 <Separator className="bg-white/20" />
-                
+
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <Button size="lg" className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-8 py-3 group" asChild>
                     <a href="https://github.com/thtcsec/SilentPipe/releases/" target="_blank" rel="noopener noreferrer">
@@ -537,7 +538,7 @@ const SilentPipePage = () => {
               <Music className="w-6 h-6 text-purple-400" />
               <span className="text-white font-bold text-lg">SilentPipe</span>
             </div>
-            
+
             <div className="flex items-center gap-6 mb-4 md:mb-0">
               <a href="https://github.com/thtcsec/SilentPipe" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
                 <Github className="w-5 h-5" />
@@ -549,7 +550,7 @@ const SilentPipePage = () => {
                 <Users className="w-5 h-5" />
               </a>
             </div>
-            
+
             <div className="text-center md:text-right">
               <div className="text-gray-400 text-sm mb-1">
                 © 2026 SilentPipe. GPLv3 License.

@@ -83,7 +83,7 @@ const ProjectCard = ({ project, imageLoaded, onImageLoad }: ProjectCardProps) =>
     <div
       className="group relative rounded-2xl overflow-hidden bg-card border border-border hover:border-primary/50 transition-all duration-500 hover:-translate-y-2 flex flex-col h-full"
     >
-      <Link to={`/projects/${project.id}`} className="block relative overflow-hidden bg-muted cursor-pointer">
+      <Link to={`/projects/${project.id}`} className="block relative overflow-hidden bg-muted cursor-pointer aspect-video">
         {/* Placeholder/skeleton while loading */}
         {!imageLoaded && (
           <div className="absolute inset-0 bg-gradient-to-br from-muted to-muted-foreground/10 animate-pulse" />
