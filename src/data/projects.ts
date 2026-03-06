@@ -15,6 +15,42 @@ export interface Project {
 
 export const projects: Project[] = [
     {
+        id: "gcp-soar",
+        title: "GCP Serverless SOAR",
+        description: "Fully automated, enterprise-grade Serverless Incident Response architecture on Google Cloud Platform. Detects malicious activity using Security Command Center and automatically isolates compromised resources while preserving state for forensics.",
+        category: "system",
+        technologies: ["GCP", "Terraform", "Python", "Serverless", "Security Command Center"],
+        github: "https://github.com/thtcsec/GCP-Serverless-SOAR",
+        demo: "",
+        image: "/images/preview/preview_gcp_soar.png",
+        featured: true,
+        highlights: [
+            "Detection via Security Command Center & Cloud Audit Logs",
+            "Pub/Sub event routing & Cloud Function automation",
+            "Automated VM isolation, disk snapshotting, & VM stopping",
+            "Cloud Storage Data Exfiltration Response playbook",
+            "Service Account Compromise Response playbook"
+        ]
+    },
+    {
+        id: "aws-soar",
+        title: "AWS Serverless SOAR",
+        description: "Fully automated, enterprise-grade Serverless Incident Response architecture on AWS. Detects malicious activity using Amazon GuardDuty and CloudTrail, automatically isolating compromised resources while preserving state for forensics.",
+        category: "system",
+        technologies: ["AWS", "Terraform", "Python", "Serverless", "Amazon GuardDuty"],
+        github: "https://github.com/thtcsec/AWS-Serverless-SOAR",
+        demo: "",
+        image: "/images/preview/preview_aws_soar.png",
+        featured: true,
+        highlights: [
+            "Detection via Amazon GuardDuty & CloudTrail",
+            "EventBridge event routing & Lambda automation",
+            "Automated EC2 isolation, IMDSv2 enforcement, & EBS snapshotting",
+            "S3 Data Exfiltration Response playbook",
+            "IAM Compromise Response playbook"
+        ]
+    },
+    {
         id: "pentest-lab",
         title: "Realistic Pentest Home Lab Series",
         description: "Realistic Penetration Testing lab environment spanning from Web and Active Directory to Cloud. Includes One-Click Setup via Docker and focuses on the mindset: Root Cause ➜ Attack Path ➜ Mitigation ➜ Detection.",

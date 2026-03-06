@@ -44,7 +44,7 @@ export const skillCategories: SkillCategory[] = [
         skills: [
             // Cloud & Infrastructure
             { name: "AWS", icon: "logos:aws" },
-            { name: "Google Antigravity", icon: "logos:google-icon" },
+            { name: "Google Cloud", icon: "logos:google-cloud" },
             { name: "Firebase", icon: "logos:firebase" },
             { name: "Nginx", icon: "logos:nginx" },
             { name: "Docker", icon: "logos:docker-icon" },
