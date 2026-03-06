@@ -22,7 +22,7 @@ export const projects: Project[] = [
         technologies: ["GCP", "Terraform", "Python", "Serverless", "Security Command Center"],
         github: "https://github.com/thtcsec/GCP-Serverless-SOAR",
         demo: "/cloudcomputing",
-        image: "/images/preview/preview_gcp_soar.png",
+        image: "https://raw.githubusercontent.com/thtcsec/GCP-Serverless-SOAR/main/images/gcp_soar.png",
         featured: true,
         highlights: [
             "Detection via Security Command Center & Cloud Audit Logs",
@@ -40,7 +40,7 @@ export const projects: Project[] = [
         technologies: ["AWS", "Terraform", "Python", "Serverless", "Amazon GuardDuty"],
         github: "https://github.com/thtcsec/AWS-Serverless-SOAR",
         demo: "/cloudcomputing",
-        image: "/images/preview/preview_aws_soar.png",
+        image: "https://raw.githubusercontent.com/thtcsec/AWS-Serverless-SOAR/main/images/aws_soar.png",
         featured: true,
         highlights: [
             "Detection via Amazon GuardDuty & CloudTrail",

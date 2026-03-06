@@ -103,7 +103,7 @@ const CloudComputingPage = () => {
                                     <span className="text-gray-400 font-mono text-sm">gcp_soar_architecture.png</span>
                                 </div>
                                 <div className="p-6 md:p-10 flex justify-center bg-white/5">
-                                    <img src="/images/preview/preview_gcp_soar.png" alt="GCP SOAR Architecture" className="max-w-full h-auto rounded-lg shadow-lg border border-gray-600/50" />
+                                    <img src="https://raw.githubusercontent.com/thtcsec/GCP-Serverless-SOAR/main/images/gcp_soar.png" alt="GCP SOAR Architecture" className="max-w-full h-auto rounded-lg shadow-lg border border-gray-600/50" />
                                 </div>
                             </motion.div>
 
@@ -201,7 +201,7 @@ const CloudComputingPage = () => {
                                     <span className="text-gray-400 font-mono text-sm">aws_soar_architecture.png</span>
                                 </div>
                                 <div className="p-6 md:p-10 flex justify-center bg-white/5">
-                                    <img src="/images/preview/preview_aws_soar.png" alt="AWS SOAR Architecture" className="max-w-full h-auto rounded-lg shadow-lg border border-gray-600/50" />
+                                    <img src="https://raw.githubusercontent.com/thtcsec/AWS-Serverless-SOAR/main/images/aws_soar.png" alt="AWS SOAR Architecture" className="max-w-full h-auto rounded-lg shadow-lg border border-gray-600/50" />
                                 </div>
                             </motion.div>
 
