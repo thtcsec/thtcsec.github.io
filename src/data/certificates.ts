@@ -6,6 +6,7 @@ export interface Certificate {
     image: string;
     type: 'certificate' | 'achievement';
     description?: string;
+    credlyBadgeId?: string;
 }
 
 export const certificates: Certificate[] = [
@@ -18,11 +19,12 @@ export const certificates: Certificate[] = [
         type: "certificate"
     },
     {
-        id: "project-management",
-        title: "Foundations of Project Management",
-        issuer: "Google",
-        image: "/images/certificates/foundations_of_project_management.jpg",
-        type: "certificate"
+        id: "google-cloud-foundation",
+        title: "Google Cloud Computing Foundation",
+        issuer: "Google Cloud",
+        image: "", // Not used since it's an embed
+        type: "certificate",
+        credlyBadgeId: "ad399ad3-8827-4b99-8221-8fd248047d4a"
     },
     {
         id: "ai",
@@ -38,13 +40,7 @@ export const certificates: Certificate[] = [
         image: "/images/certificates/technical_support_fundamentals.jpg",
         type: "certificate"
     },
-    {
-        id: "prompting-essentials",
-        title: "Google Prompting Essentials",
-        issuer: "Google",
-        image: "/images/certificates/google_prompting_essentials.jpg",
-        type: "certificate"
-    },
+
     {
         id: "network-architecture",
         title: "Network Architecture",

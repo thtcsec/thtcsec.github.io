@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { featuredCertificates, featuredAchievements } from "@/data/certificates";
 import { Link } from "react-router-dom";
 import ImageModal from "@/components/ImageModal";
+import CredlyBadge from "@/components/CredlyBadge";
 
 const Certificates = () => {
     const [modalImage, setModalImage] = useState<{ src: string; alt: string } | null>(null);
@@ -34,18 +35,26 @@ const Certificates = () => {
                             <div
                                 key={cert.id}
                                 className="group relative rounded-2xl overflow-hidden bg-card border border-border hover:border-primary/50 transition-all duration-500 hover:-translate-y-2 cursor-pointer"
-                                onClick={() => setModalImage({ src: cert.image, alt: cert.title })}
+                                onClick={() => {
+                                    if (!cert.credlyBadgeId) {
+                                        setModalImage({ src: cert.image, alt: cert.title });
+                                    }
+                                }}
                             >
-                                <div className="relative aspect-[4/3] overflow-hidden bg-muted">
-                                    <img
-                                        src={cert.image}
-                                        alt={cert.title}
-                                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                                        loading="lazy"
-                                        onError={(e) => {
-                                            (e.target as HTMLImageElement).src = "/placeholder.svg";
-                                        }}
-                                    />
+                                <div className={`relative overflow-hidden ${cert.credlyBadgeId ? 'py-6 min-h-[300px] bg-white flex items-center justify-center' : 'aspect-[4/3] bg-muted'}`}>
+                                    {cert.credlyBadgeId ? (
+                                        <CredlyBadge badgeId={cert.credlyBadgeId} />
+                                    ) : (
+                                        <img
+                                            src={cert.image}
+                                            alt={cert.title}
+                                            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                            loading="lazy"
+                                            onError={(e) => {
+                                                (e.target as HTMLImageElement).src = "/placeholder.svg";
+                                            }}
+                                        />
+                                    )}
                                 </div>
                                 <div className="p-4">
                                     <p className="text-xs text-primary font-medium mb-1">{cert.issuer}</p>
