@@ -13,6 +13,7 @@ import PricingPage from "./pages/PricingPage";
 import ResumePage from "./pages/ResumePage";
 import SilentPipePage from "./pages/SilentPipePage";
 import PentestLabPage from "./pages/PentestLabPage";
+import CloudComputingPage from "./pages/CloudComputingPage";
 import NotFound from "./pages/NotFound";
 import { initGA } from "./lib/ga4";
 import { useHumanActivity } from "./hooks/useHumanActivity";
@@ -48,6 +49,8 @@ const App = () => {
             <Route path="/silentpipe/" element={<SilentPipePage />} />
             <Route path="/pentestlab" element={<PentestLabPage />} />
             <Route path="/pentestlab/" element={<PentestLabPage />} />
+            <Route path="/cloudcomputing" element={<CloudComputingPage />} />
+            <Route path="/cloudcomputing/" element={<CloudComputingPage />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

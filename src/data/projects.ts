@@ -21,7 +21,7 @@ export const projects: Project[] = [
         category: "system",
         technologies: ["GCP", "Terraform", "Python", "Serverless", "Security Command Center"],
         github: "https://github.com/thtcsec/GCP-Serverless-SOAR",
-        demo: "",
+        demo: "/cloudcomputing",
         image: "/images/preview/preview_gcp_soar.png",
         featured: true,
         highlights: [
@@ -39,7 +39,7 @@ export const projects: Project[] = [
         category: "system",
         technologies: ["AWS", "Terraform", "Python", "Serverless", "Amazon GuardDuty"],
         github: "https://github.com/thtcsec/AWS-Serverless-SOAR",
-        demo: "",
+        demo: "/cloudcomputing",
         image: "/images/preview/preview_aws_soar.png",
         featured: true,
         highlights: [
