@@ -17,18 +17,18 @@ export const projects: Project[] = [
     {
         id: "pentest-lab",
         title: "Realistic Pentest Home Lab Series",
-        description: "Môi trường giả lập Kiểm Thử Xâm Nhập thực tế từ Web, Active Directory đến Cloud. One-Click Setup với Docker và tập trung vào tư duy: Root Cause ➜ Attack Path ➜ Mitigation ➜ Detection.",
+        description: "Realistic Penetration Testing lab environment spanning from Web and Active Directory to Cloud. Includes One-Click Setup via Docker and focuses on the mindset: Root Cause ➜ Attack Path ➜ Mitigation ➜ Detection.",
         category: "system",
         technologies: ["Docker", "Python", "Node.js", "PHP", "Active Directory"],
-        github: "https://github.com/thtcsec/",
+        github: "https://github.com/thtcsec/PentestLab",
         demo: "https://hoangtu.dev/pentestlab",
         image: "/images/preview/preview_pentest_lab.png",
         featured: true,
         highlights: [
             "100% Reproducible & One-Click Install",
-            "Môi trường phân tách theo từng Phase (Web, AD, Cloud...)",
-            "Ứng dụng lỗ hổng thực tế thay vì bài tập CTF khô khan",
-            "Focus vào Mitigation và Detection thay vì chỉ Exploit"
+            "Segregated environments based on Phases (Web, AD, Cloud...)",
+            "Real-world vulnerabilities over dry CTF exercises",
+            "Focus on Mitigation and Detection, not just Exploitation"
         ]
     },
     {
