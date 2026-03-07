@@ -20,6 +20,95 @@ import {
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import ProjectHeader from "@/components/portfolio/ProjectHeader";
+import { Mermaid } from "@/components/ui/mermaid";
+
+const gcpSequenceChart = `
+sequenceDiagram
+    participant Attacker
+    participant GCE as GCP Compute Engine
+    participant SCC as Security Command Center
+    participant PS as Pub/Sub Topic
+    participant CW as Cloud Workflows
+    participant CR as Cloud Run Workers
+    participant Sec as Security Admin
+
+    Attacker->>GCE: Exploits RCE vulnerability
+    Attacker->>GCE: Downloads Crypto Miner
+    GCE->>Internet: Makes unauthorized DNS queries (Mining Pool)
+    
+    rect rgba(255, 100, 100, 0.1)
+        Note over SCC,GCE: Detection Phase
+        SCC->>GCE: Analyzes Network Logs
+        SCC-->>PS: Generates High Severity Finding
+    end
+    
+    rect rgba(100, 150, 255, 0.1)
+        Note over PS,CW: Orchestration Phase
+        PS-->>CW: Triggers Incident Response
+        CW->>CW: Validates Finding
+    end
+    
+    rect rgba(255, 200, 100, 0.1)
+        Note over CW,CR: Automated Response Phase
+        CW->>GCE: Isolates VM Network
+        CW->>GCE: Blocks SSH Keys
+        CW->>IAM: Detaches Service Account
+        CW->>GCE: Snapshots Disk
+        CW->>GCE: Stops Instance
+    end
+    
+    rect rgba(100, 255, 100, 0.1)
+        Note over CW,Sec: Forensics Phase
+        CW->>CR: Dispatches Forensics Worker
+        CR->>CR: Mounts Snapshot
+        CR-->>CW: Forensic Report
+        CW->>Sec: Alert w/ Report
+    end
+`;
+
+const awsSequenceChart = `
+sequenceDiagram
+    participant Attacker
+    participant EC2 as AWS EC2
+    participant GD as GuardDuty
+    participant SQS as AWS SQS
+    participant SFN as Step Functions
+    participant ECS as Fargate Workers
+    participant Sec as Security Team
+
+    Attacker->>EC2: Exploits RCE vulnerability
+    Attacker->>EC2: Downloads Crypto Miner
+    EC2->>Internet: Makes unauthorized DNS queries (Mining Pool)
+    
+    rect rgba(255, 100, 100, 0.1)
+        Note over GD,EC2: Detection Phase
+        GD->>EC2: Analyzes VPC Flow Logs
+        GD-->>SQS: Generates High Severity Finding
+    end
+    
+    rect rgba(100, 150, 255, 0.1)
+        Note over SQS,SFN: Orchestration Phase
+        SQS-->>SFN: Triggers Incident Response
+        SFN->>SFN: Validates Finding
+    end
+    
+    rect rgba(255, 200, 100, 0.1)
+        Note over SFN,ECS: Automated Response Phase
+        SFN->>EC2: Isolates Security Group
+        SFN->>EC2: Enforces IMDSv2
+        SFN->>IAM: Detaches IAM Roles
+        SFN->>EC2: Snapshots EBS Volume
+        SFN->>EC2: Stops Instances
+    end
+    
+    rect rgba(100, 255, 100, 0.1)
+        Note over SFN,Sec: Forensics Phase
+        SFN->>ECS: Dispatches Forensics Worker
+        ECS->>ECS: Mounts Snapshot
+        ECS-->>SFN: Forensic Report
+        SFN->>Sec: Alert w/ Report
+    end
+`;
 
 const CloudComputingPage = () => {
     const [activeTab, setActiveTab] = useState("gcp");
@@ -53,7 +142,7 @@ const CloudComputingPage = () => {
                         </h1>
 
                         <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-4xl mx-auto leading-relaxed">
-                            Enterprise-grade Serverless Incident Response architectures on <span className="font-semibold text-blue-400">GCP</span> and <span className="font-semibold text-orange-400">AWS</span>.
+                            Automated Serverless Incident Response architectures natively built on <span className="font-semibold text-blue-400">GCP</span> and <span className="font-semibold text-orange-400">AWS</span>.
                         </p>
 
                         <p className="text-lg text-gray-400 mb-12 max-w-3xl mx-auto font-medium bg-gray-800/50 p-6 rounded-xl border border-gray-700">
@@ -106,6 +195,88 @@ const CloudComputingPage = () => {
                                     <img src="https://raw.githubusercontent.com/thtcsec/GCP-Serverless-SOAR/main/images/gcp_soar.png" alt="GCP SOAR Architecture" className="max-w-full h-auto rounded-lg shadow-lg border border-gray-600/50" />
                                 </div>
                             </motion.div>
+
+                            {/* Workflow Detailed Sequence Diagram */}
+                            <motion.div
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                className="bg-slate-800/50 backdrop-blur-sm border border-gray-700 rounded-2xl overflow-hidden shadow-xl mb-8"
+                            >
+                                <div className="p-4 bg-gray-900 border-b border-gray-700 flex items-center justify-between">
+                                    <h4 className="text-gray-300 font-semibold flex items-center gap-2">
+                                        <Activity className="w-5 h-5 text-blue-400" />
+                                        Logical Data Flow (Mermaid Sequence Diagram)
+                                    </h4>
+                                </div>
+                                <div className="p-6 md:p-8 flex justify-center bg-gray-900/60 w-full overflow-hidden">
+                                    <Mermaid chart={gcpSequenceChart} />
+                                </div>
+                            </motion.div>
+
+                            {/* Workflow & Threat Scenario */}
+                            <div className="grid lg:grid-cols-2 gap-8">
+                                <Card className="bg-slate-800/50 border-gray-700">
+                                    <CardHeader>
+                                        <CardTitle className="text-white flex items-center gap-2">
+                                            <Activity className="w-5 h-5 text-blue-400" />
+                                            Workflow Process
+                                        </CardTitle>
+                                    </CardHeader>
+                                    <CardContent className="space-y-4 pt-2">
+                                        {[
+                                            { step: "Detection", desc: "SCC detects threats (severity >= 7.0)" },
+                                            { step: "Event Routing", desc: "Eventarc routes to Pub/Sub queue" },
+                                            { step: "Orchestration", desc: "Cloud Workflows manages response logic" },
+                                            { step: "Container Workers", desc: "Cloud Run for long-running forensics" },
+                                            { step: "Human Approval", desc: "Manual checkpoints for critical actions" },
+                                            { step: "Integrations", desc: "Slack, Jira, SIEM automated notifications" }
+                                        ].map((item, i) => (
+                                            <div key={i} className="flex gap-4 items-start">
+                                                <div className="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 flex items-center justify-center shrink-0 text-xs font-bold mt-0.5">{i + 1}</div>
+                                                <div>
+                                                    <h4 className="text-gray-200 text-sm font-semibold">{item.step}</h4>
+                                                    <p className="text-gray-400 text-sm">{item.desc}</p>
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </CardContent>
+                                </Card>
+
+                                <Card className="bg-slate-800/50 border-gray-700">
+                                    <CardHeader>
+                                        <CardTitle className="text-white flex items-center gap-2">
+                                            <AlertTriangle className="w-5 h-5 text-red-400" />
+                                            Automated Response Flow
+                                        </CardTitle>
+                                    </CardHeader>
+                                    <CardContent>
+                                        <div className="p-3 bg-red-950/30 border border-red-900/50 rounded-lg mb-6">
+                                            <p className="text-sm text-gray-300">
+                                                <span className="text-red-400 font-bold">Scenario:</span> Attacker exploits RCE, installs Crypto Miner, and queries mining pools.
+                                                SCC flags High-Severity anomaly.
+                                            </p>
+                                        </div>
+                                        <div className="space-y-3 relative before:absolute before:inset-0 before:ml-[11px] before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-slate-700 before:to-transparent">
+                                            {[
+                                                { action: "Isolate Network Tags", icon: Network, color: "text-red-400" },
+                                                { action: "Revoke Service Account", icon: Shield, color: "text-purple-400" },
+                                                { action: "Block SSH Keys", icon: Lock, color: "text-orange-400" },
+                                                { action: "Snapshot Disk for Forensics", icon: Database, color: "text-blue-400" },
+                                                { action: "Halt Local Execution", icon: Zap, color: "text-yellow-400" },
+                                            ].map((item, i) => (
+                                                <div key={i} className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+                                                    <div className="flex items-center justify-center w-6 h-6 rounded-full border border-slate-700 bg-slate-800 text-slate-400 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
+                                                        <item.icon className={`w-3 h-3 ${item.color}`} />
+                                                    </div>
+                                                    <div className="w-[calc(100%-2.5rem)] md:w-[calc(50%-1.5rem)] p-3 rounded-lg bg-slate-800/80 border border-slate-700 shadow-sm">
+                                                        <p className="text-sm text-slate-300">{item.action}</p>
+                                                    </div>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </CardContent>
+                                </Card>
+                            </div>
 
                             {/* Playbooks Grid */}
                             <div>
@@ -204,6 +375,88 @@ const CloudComputingPage = () => {
                                     <img src="https://raw.githubusercontent.com/thtcsec/AWS-Serverless-SOAR/main/images/aws_soar.png" alt="AWS SOAR Architecture" className="max-w-full h-auto rounded-lg shadow-lg border border-gray-600/50" />
                                 </div>
                             </motion.div>
+
+                            {/* Workflow Detailed Sequence Diagram */}
+                            <motion.div
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                className="bg-slate-800/50 backdrop-blur-sm border border-gray-700 rounded-2xl overflow-hidden shadow-xl mb-8"
+                            >
+                                <div className="p-4 bg-gray-900 border-b border-gray-700 flex items-center justify-between">
+                                    <h4 className="text-gray-300 font-semibold flex items-center gap-2">
+                                        <Activity className="w-5 h-5 text-orange-400" />
+                                        Logical Data Flow (Mermaid Sequence Diagram)
+                                    </h4>
+                                </div>
+                                <div className="p-6 md:p-8 flex justify-center bg-gray-900/60 w-full overflow-hidden">
+                                    <Mermaid chart={awsSequenceChart} />
+                                </div>
+                            </motion.div>
+
+                            {/* Workflow & Threat Scenario */}
+                            <div className="grid lg:grid-cols-2 gap-8">
+                                <Card className="bg-slate-800/50 border-gray-700">
+                                    <CardHeader>
+                                        <CardTitle className="text-white flex items-center gap-2">
+                                            <Activity className="w-5 h-5 text-orange-400" />
+                                            Workflow Process
+                                        </CardTitle>
+                                    </CardHeader>
+                                    <CardContent className="space-y-4 pt-2">
+                                        {[
+                                            { step: "Detection", desc: "GuardDuty detects threats (severity >= 7.0)" },
+                                            { step: "Event Routing", desc: "EventBridge routes to SQS queue" },
+                                            { step: "Orchestration", desc: "Step Functions manages response logic" },
+                                            { step: "Container Workers", desc: "ECS Fargate for long-running forensics" },
+                                            { step: "Human Approval", desc: "Manual checkpoints for critical actions" },
+                                            { step: "Integrations", desc: "Slack, Jira, SIEM automated notifications" }
+                                        ].map((item, i) => (
+                                            <div key={i} className="flex gap-4 items-start">
+                                                <div className="w-6 h-6 rounded-full bg-orange-500/20 text-orange-400 flex items-center justify-center shrink-0 text-xs font-bold mt-0.5">{i + 1}</div>
+                                                <div>
+                                                    <h4 className="text-gray-200 text-sm font-semibold">{item.step}</h4>
+                                                    <p className="text-gray-400 text-sm">{item.desc}</p>
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </CardContent>
+                                </Card>
+
+                                <Card className="bg-slate-800/50 border-gray-700">
+                                    <CardHeader>
+                                        <CardTitle className="text-white flex items-center gap-2">
+                                            <AlertTriangle className="w-5 h-5 text-red-400" />
+                                            Automated Response Flow
+                                        </CardTitle>
+                                    </CardHeader>
+                                    <CardContent>
+                                        <div className="p-3 bg-red-950/30 border border-red-900/50 rounded-lg mb-6">
+                                            <p className="text-sm text-gray-300">
+                                                <span className="text-red-400 font-bold">Scenario:</span> Attacker exploits RCE, installs Crypto Miner, and queries mining pools.
+                                                GuardDuty generates High-Severity finding.
+                                            </p>
+                                        </div>
+                                        <div className="space-y-3 relative before:absolute before:inset-0 before:ml-[11px] before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-slate-700 before:to-transparent">
+                                            {[
+                                                { action: "Isolate Security Group", icon: Network, color: "text-red-400" },
+                                                { action: "Enforce IMDSv2", icon: Shield, color: "text-purple-400" },
+                                                { action: "Detach IAM Roles", icon: Lock, color: "text-orange-400" },
+                                                { action: "EBS Snapshot for Forensics", icon: Database, color: "text-blue-400" },
+                                                { action: "Halt Local Execution", icon: Zap, color: "text-yellow-400" },
+                                            ].map((item, i) => (
+                                                <div key={i} className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+                                                    <div className="flex items-center justify-center w-6 h-6 rounded-full border border-slate-700 bg-slate-800 text-slate-400 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
+                                                        <item.icon className={`w-3 h-3 ${item.color}`} />
+                                                    </div>
+                                                    <div className="w-[calc(100%-2.5rem)] md:w-[calc(50%-1.5rem)] p-3 rounded-lg bg-slate-800/80 border border-slate-700 shadow-sm">
+                                                        <p className="text-sm text-slate-300">{item.action}</p>
+                                                    </div>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </CardContent>
+                                </Card>
+                            </div>
 
                             {/* Playbooks Grid */}
                             <div>

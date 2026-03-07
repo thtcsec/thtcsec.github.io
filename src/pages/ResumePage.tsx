@@ -111,7 +111,7 @@ const ResumePage = () => {
                                     <span className="italic text-neutral-600 dark:text-neutral-400 text-xs print:text-neutral-600">Ho Chi Minh City</span>
                                 </div>
                                 <ul className="list-disc list-outside ml-5 space-y-2 text-neutral-700 dark:text-neutral-300 print:text-neutral-800 text-[14px] md:text-[15px] leading-relaxed">
-                                    <li>Designed and developed an AI-powered Camera Management System (CMS) for enterprise surveillance use cases.</li>
+                                    <li>Designed and developed an AI-powered Camera Management System (CMS) for city-wide surveillance use cases.</li>
                                     <li>Built secure backend services using ASP.NET Core (C#) with JWT authentication and internal service authorization.</li>
                                     <li>Implemented real-time monitoring and security event logging via SignalR.</li>
                                     <li>Integrated Python-based AI services for face recognition, license plate recognition, and object detection.</li>

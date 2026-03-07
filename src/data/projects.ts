@@ -17,37 +17,39 @@ export const projects: Project[] = [
     {
         id: "gcp-soar",
         title: "GCP Serverless SOAR",
-        description: "Fully automated, enterprise-grade Serverless Incident Response architecture on Google Cloud Platform. Detects malicious activity using Security Command Center and automatically isolates compromised resources while preserving state for forensics.",
+        description: "Automated security incident response platform that detects threats using Security Command Center and automatically isolates compromised resources while preserving forensic evidence.",
         category: "system",
-        technologies: ["GCP", "Terraform", "Python", "Serverless", "Security Command Center"],
+        technologies: ["GCP", "Terraform", "Python", "Serverless", "Eventarc", "Pub/Sub", "Cloud Workflows", "Cloud Run"],
         github: "https://github.com/thtcsec/GCP-Serverless-SOAR",
         demo: "/cloudcomputing",
         image: "https://raw.githubusercontent.com/thtcsec/GCP-Serverless-SOAR/main/images/gcp_soar.png",
         featured: true,
         highlights: [
-            "Detection via Security Command Center & Cloud Audit Logs",
-            "Pub/Sub event routing & Cloud Function automation",
-            "Automated VM isolation, disk snapshotting, & VM stopping",
-            "Cloud Storage Data Exfiltration Response playbook",
-            "Service Account Compromise Response playbook"
+            "Detection via Security Command Center & Eventarc routing",
+            "Cloud Workflows for orchestration & manual approvals",
+            "Container Workers (Cloud Run) for forensic malware scans",
+            "Automated VM isolation, SA detachment, & Disk Snapshotting",
+            "Multi-Project security with centralized Security Account",
+            "Slack/Jira/SIEM Real-time Integrations"
         ]
     },
     {
         id: "aws-soar",
         title: "AWS Serverless SOAR",
-        description: "Fully automated, enterprise-grade Serverless Incident Response architecture on AWS. Detects malicious activity using Amazon GuardDuty and CloudTrail, automatically isolating compromised resources while preserving state for forensics.",
+        description: "Automated security incident response platform that detects threats and automatically isolates compromised resources while preserving forensic evidence.",
         category: "system",
-        technologies: ["AWS", "Terraform", "Python", "Serverless", "Amazon GuardDuty"],
+        technologies: ["AWS", "Terraform", "Python", "Serverless", "EventBridge", "SQS", "Step Functions", "ECS Fargate"],
         github: "https://github.com/thtcsec/AWS-Serverless-SOAR",
         demo: "/cloudcomputing",
         image: "https://raw.githubusercontent.com/thtcsec/AWS-Serverless-SOAR/main/images/aws_soar.png",
         featured: true,
         highlights: [
-            "Detection via Amazon GuardDuty & CloudTrail",
-            "EventBridge event routing & Lambda automation",
+            "Detection via Amazon GuardDuty & EventBridge routing",
+            "Step Functions for orchestration & manual approvals",
+            "Container Workers (ECS Fargate) for forensic malware scans",
             "Automated EC2 isolation, IMDSv2 enforcement, & EBS snapshotting",
-            "S3 Data Exfiltration Response playbook",
-            "IAM Compromise Response playbook"
+            "Multi-Account security with Centralized Roles",
+            "Slack/Jira/SIEM Real-time Integrations"
         ]
     },
     {
