@@ -5,6 +5,7 @@ import Skills from "@/components/portfolio/Skills";
 import Projects from "@/components/portfolio/Projects";
 import Certificates from "@/components/portfolio/Certificates";
 import Community from "@/components/portfolio/Community";
+import RecentBlogs from "@/components/portfolio/RecentBlogs";
 import Contact from "@/components/portfolio/Contact";
 import Footer from "@/components/portfolio/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
@@ -20,6 +21,7 @@ const Index = () => {
         <Projects />
         <Certificates />
         <Community />
+        <RecentBlogs />
         <Contact />
       </main>
       <Footer />

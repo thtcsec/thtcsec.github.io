@@ -11,6 +11,7 @@ const navItems = [
   { label: "Projects", href: "#projects" },
   { label: "Certificates", href: "#certificates" },
   { label: "Community", href: "#community" },
+  { label: "Research", href: "#research" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -25,23 +26,39 @@ const Header = () => {
 
       // Update active section based on scroll position
       const sections = navItems.map(item => item.href.substring(1));
+      let found = false;
       for (const section of sections.reverse()) {
         const element = document.getElementById(section);
         if (element) {
           const rect = element.getBoundingClientRect();
           if (rect.top <= 100) {
             setActiveSection(section);
+            found = true;
             break;
           }
         }
       }
+      if (!found && window.scrollY < 100) {
+        setActiveSection("home");
+      }
     };
+    
+    // Check initial scroll position on mount
+    handleScroll();
+    
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const handleNavClick = (href: string) => {
     setIsMobileMenuOpen(false);
+
+    // If we're not on the home page, and trying to navigate to a hash link, go home first
+    if (window.location.pathname !== "/" && href.startsWith("#")) {
+      window.location.href = `/${href}`;
+      return;
+    }
+
     const element = document.querySelector(href);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
@@ -51,7 +68,7 @@ const Header = () => {
   return (
     <header
       className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 transition-all duration-500 ${isScrolled
-        ? "w-[90%] md:w-[700px]"
+        ? "w-[95%] md:w-max min-w-[300px]"
         : "w-[95%] md:w-[90%] max-w-7xl"
         }`}
     >
