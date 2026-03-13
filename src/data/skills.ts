@@ -84,18 +84,6 @@ export const skillCategories: SkillCategory[] = [
             { name: "x64dbg", icon: "mdi:bug-outline" },
             { name: "FFmpeg", icon: "logos:ffmpeg-icon" },
         ]
-    },
-    {
-        id: "ai",
-        name: "AI Tools",
-        skills: [
-            { name: "ChatGPT", icon: "simple-icons:openai" },
-            { name: "Claude", icon: "simple-icons:anthropic" },
-            { name: "Gemini", icon: "logos:google-bard-icon" },
-            { name: "DeepSeek", icon: "mdi:chart-bubble" },
-            { name: "Perplexity", icon: "simple-icons:perplexity" },
-            { name: "GitHub Copilot", icon: "logos:github-octocat" },
-        ]
     }
 ];
 

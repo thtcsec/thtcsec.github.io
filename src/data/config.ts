@@ -41,23 +41,16 @@ export const siteConfig = {
     },
 } as const;
 
-// Calculate academic progress dynamically based on dates
-// Calculate academic progress dynamically based on credits
+// Calculate academic progress dynamically based on time
 export const getAcademicProgress = (): number => {
-    const completed = siteConfig.academic.creditsCompleted;
-    const total = siteConfig.academic.totalCredits;
-
-    // Fallback to time-based if credits are missing
-    if (!completed || !total) {
-        const start = new Date(siteConfig.academic.startDate).getTime();
-        const end = new Date(siteConfig.academic.endDate).getTime();
-        const now = Date.now();
-        const totalTime = end - start;
-        const elapsed = now - start;
-        return Math.min(Math.max((elapsed / totalTime) * 100, 0), 100);
-    }
-
-    const progress = Math.min(Math.max((completed / total) * 100, 0), 100);
+    const start = new Date(siteConfig.academic.startDate).getTime();
+    const end = new Date(siteConfig.academic.endDate).getTime();
+    const now = Date.now();
+    
+    const totalTime = end - start;
+    const elapsed = now - start;
+    
+    const progress = Math.min(Math.max((elapsed / totalTime) * 100, 0), 100);
     return Math.round(progress * 10) / 10;
 };
 

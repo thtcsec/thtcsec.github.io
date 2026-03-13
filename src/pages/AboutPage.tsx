@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import ProjectHeader from "@/components/portfolio/ProjectHeader";
 import Footer from "@/components/portfolio/Footer";
+import ScrollToTop from "@/components/ScrollToTop";
 import { 
   Trophy, 
   Code, 
@@ -228,6 +229,7 @@ const AboutPage = () => {
       </main>
       
       <Footer />
+      <ScrollToTop />
     </div>
   );
 };

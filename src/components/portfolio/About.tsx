@@ -32,17 +32,27 @@ const About = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
             </div>
 
-            {/* University badge - Moved below image */}
-            <div className="mt-4 flex items-center gap-3 p-4 rounded-xl bg-card/50 border border-border">
-              <img
-                src="/images/huflit.png"
-                alt="HUFLIT"
-                className="w-12 h-12 object-contain"
-                loading="lazy"
-              />
-              <div>
-                <p className="text-sm font-medium text-foreground">{siteConfig.university}</p>
-                <p className="text-xs text-muted-foreground">{siteConfig.major}</p>
+            <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="flex items-center gap-3 p-4 rounded-xl bg-card/50 border border-border">
+                <img
+                  src="/images/huflit.png"
+                  alt="HUFLIT"
+                  className="w-12 h-12 object-contain"
+                  loading="lazy"
+                />
+                <div>
+                  <p className="text-sm font-medium text-foreground">{siteConfig.university}</p>
+                  <p className="text-xs text-muted-foreground">{siteConfig.major}</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-3 p-4 rounded-xl bg-card/50 border border-border">
+                <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-primary"><path d="m5 8 6 6"/><path d="m4 14 6-6 2-3"/><path d="M2 5h12"/><path d="M7 2h1"/><path d="m22 22-5-10-5 10"/><path d="M14 18h6"/></svg>
+                </div>
+                <div>
+                  <p className="text-sm font-medium text-foreground">English Proficiency</p>
+                  <p className="text-xs text-muted-foreground">B1 Level</p>
+                </div>
               </div>
             </div>
           </div>
