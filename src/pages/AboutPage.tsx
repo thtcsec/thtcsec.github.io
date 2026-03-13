@@ -1,6 +1,170 @@
 import { useEffect } from "react";
 import ProjectHeader from "@/components/portfolio/ProjectHeader";
 import Footer from "@/components/portfolio/Footer";
+import { 
+  Trophy, 
+  Code, 
+  Cpu, 
+  Globe, 
+  Shield, 
+  Terminal, 
+  Rocket,
+  Award,
+  Zap,
+  Database,
+  Brain,
+  BarChart,
+  Lightbulb,
+  HeartPulse,
+  LineChart
+} from "lucide-react";
+
+const competitions = [
+  {
+    name: "Fintech - Blockchain Hackathon HUFLIT",
+    date: "July 2026",
+    role: "Participant",
+    icon: <Database className="w-5 h-5 text-indigo-400 group-hover:animate-pulse" />,
+    bgGradient: "from-indigo-500/10 to-transparent",
+    borderClass: "border-indigo-500/20 group-hover:border-indigo-500/50 group-hover:shadow-[0_0_15px_rgba(99,102,241,0.3)]",
+    textClass: "group-hover:text-indigo-400 transition-colors text-foreground"
+  },
+  {
+    name: "AI Ready ASEAN Youth Challenge",
+    date: "May 2026",
+    role: "Participant",
+    icon: <Globe className="w-5 h-5 text-blue-400 group-hover:animate-pulse" />,
+    bgGradient: "from-blue-500/10 to-transparent",
+    borderClass: "border-blue-500/20 group-hover:border-blue-500/50 group-hover:shadow-[0_0_15px_rgba(59,130,246,0.3)]",
+    textClass: "group-hover:text-blue-400 transition-colors text-foreground"
+  },
+  {
+    name: "Kaggle - AI Mathematical Olympiad",
+    date: "Nov 2025 - Apr 2026",
+    role: "Competitor",
+    icon: <Brain className="w-5 h-5 text-amber-400 group-hover:animate-pulse" />,
+    bgGradient: "from-amber-500/10 to-transparent",
+    borderClass: "border-amber-500/20 group-hover:border-amber-500/50 group-hover:shadow-[0_0_15px_rgba(251,191,36,0.3)]",
+    textClass: "group-hover:text-amber-400 transition-colors text-foreground"
+  },
+  {
+    name: "Kaggle - March Machine Learning Mania",
+    date: "March 2026",
+    role: "Competitor",
+    icon: <BarChart className="w-5 h-5 text-sky-400 group-hover:animate-pulse" />,
+    bgGradient: "from-sky-500/10 to-transparent",
+    borderClass: "border-sky-500/20 group-hover:border-sky-500/50 group-hover:shadow-[0_0_15px_rgba(56,189,248,0.3)]",
+    textClass: "group-hover:text-sky-400 transition-colors text-foreground"
+  },
+  {
+    name: "LotusHack Hackathon",
+    date: "March 2026",
+    role: "Participant",
+    icon: <Code className="w-5 h-5 text-green-400 group-hover:animate-pulse" />,
+    bgGradient: "from-green-500/10 to-transparent",
+    borderClass: "border-green-500/20 group-hover:border-green-500/50 group-hover:shadow-[0_0_15px_rgba(34,197,94,0.3)]",
+    textClass: "group-hover:text-green-400 transition-colors text-foreground"
+  },
+  {
+    name: "Innovate4FinLit (Hack2Skill, India)",
+    date: "Jan - Mar 2026",
+    role: "Participant",
+    icon: <Lightbulb className="w-5 h-5 text-lime-400 group-hover:animate-pulse" />,
+    bgGradient: "from-lime-500/10 to-transparent",
+    borderClass: "border-lime-500/20 group-hover:border-lime-500/50 group-hover:shadow-[0_0_15px_rgba(163,230,53,0.3)]",
+    textClass: "group-hover:text-lime-400 transition-colors text-foreground"
+  },
+  {
+    name: "Kaggle - Predicting Heart Disease",
+    date: "February 2026",
+    role: "Competitor",
+    icon: <HeartPulse className="w-5 h-5 text-rose-400 group-hover:animate-pulse" />,
+    bgGradient: "from-rose-500/10 to-transparent",
+    borderClass: "border-rose-500/20 group-hover:border-rose-500/50 group-hover:shadow-[0_0_15px_rgba(244,63,94,0.3)]",
+    textClass: "group-hover:text-rose-400 transition-colors text-foreground"
+  },
+  {
+    name: "Google DeepMind - Vibe Code with Gemini 3 Pro (Kaggle)",
+    date: "December 2025",
+    role: "Competitor",
+    icon: <LineChart className="w-5 h-5 text-teal-400 group-hover:animate-pulse" />,
+    bgGradient: "from-teal-500/10 to-transparent",
+    borderClass: "border-teal-500/20 group-hover:border-teal-500/50 group-hover:shadow-[0_0_15px_rgba(45,212,191,0.3)]",
+    textClass: "group-hover:text-teal-400 transition-colors text-foreground"
+  },
+  {
+    name: "WannaGame Championship – UIT CTF",
+    date: "December 2025",
+    role: "Participant",
+    icon: <Shield className="w-5 h-5 text-emerald-400 group-hover:animate-pulse" />,
+    bgGradient: "from-emerald-500/10 to-transparent",
+    borderClass: "border-emerald-500/20 group-hover:border-emerald-500/50 group-hover:shadow-[0_0_15px_rgba(16,185,129,0.3)]",
+    textClass: "group-hover:text-emerald-400 transition-colors text-foreground"
+  },
+  {
+    name: "Viettel AI Race",
+    date: "December 2025",
+    role: "Participant",
+    icon: <Rocket className="w-5 h-5 text-orange-400 group-hover:animate-pulse" />,
+    bgGradient: "from-orange-500/10 to-transparent",
+    borderClass: "border-orange-500/20 group-hover:border-orange-500/50 group-hover:shadow-[0_0_15px_rgba(249,115,22,0.3)]",
+    textClass: "group-hover:text-orange-400 transition-colors text-foreground"
+  },
+  {
+    name: "VNPT AI Hackathon",
+    date: "December 2025",
+    role: "Participant",
+    icon: <Cpu className="w-5 h-5 text-red-400 group-hover:animate-pulse" />,
+    bgGradient: "from-red-500/10 to-transparent",
+    borderClass: "border-red-500/20 group-hover:border-red-500/50 group-hover:shadow-[0_0_15px_rgba(239,68,68,0.3)]",
+    textClass: "group-hover:text-red-400 transition-colors text-foreground"
+  },
+  {
+    name: "Cursor Hackathon",
+    date: "December 2025",
+    role: "Participant",
+    icon: <Terminal className="w-5 h-5 text-purple-400 group-hover:animate-pulse" />,
+    bgGradient: "from-purple-500/10 to-transparent",
+    borderClass: "border-purple-500/20 group-hover:border-purple-500/50 group-hover:shadow-[0_0_15px_rgba(168,85,247,0.3)]",
+    textClass: "group-hover:text-purple-400 transition-colors text-foreground"
+  },
+  {
+    name: "AI For Good Hackathon (Hack2Skill, India)",
+    date: "November 2025",
+    role: "Participant",
+    icon: <Code className="w-5 h-5 text-blue-300 group-hover:animate-pulse" />,
+    bgGradient: "from-blue-400/10 to-transparent",
+    borderClass: "border-blue-400/20 group-hover:border-blue-400/50 group-hover:shadow-[0_0_15px_rgba(96,165,250,0.3)]",
+    textClass: "group-hover:text-blue-300 transition-colors text-foreground"
+  },
+  {
+    name: "VNG Code Tour",
+    date: "October 2025",
+    role: "Participant",
+    icon: <Award className="w-5 h-5 text-pink-400 group-hover:animate-pulse" />,
+    bgGradient: "from-pink-500/10 to-transparent",
+    borderClass: "border-pink-500/20 group-hover:border-pink-500/50 group-hover:shadow-[0_0_15px_rgba(236,72,153,0.3)]",
+    textClass: "group-hover:text-pink-400 transition-colors text-foreground"
+  },
+  {
+    name: "HSU Vibe Coding Talent",
+    date: "October 2025",
+    role: "Participant",
+    icon: <Zap className="w-5 h-5 text-yellow-400 group-hover:animate-pulse" />,
+    bgGradient: "from-yellow-500/10 to-transparent",
+    borderClass: "border-yellow-500/20 group-hover:border-yellow-500/50 group-hover:shadow-[0_0_15px_rgba(234,179,8,0.3)]",
+    textClass: "group-hover:text-yellow-400 transition-colors text-foreground"
+  },
+  {
+    name: "VPBank Technology Hackathon",
+    date: "May - Nov 2025",
+    role: "Participant",
+    icon: <Trophy className="w-5 h-5 text-cyan-400 group-hover:animate-pulse" />,
+    bgGradient: "from-cyan-500/10 to-transparent",
+    borderClass: "border-cyan-500/20 group-hover:border-cyan-500/50 group-hover:shadow-[0_0_15px_rgba(6,182,212,0.3)]",
+    textClass: "group-hover:text-cyan-400 transition-colors text-foreground"
+  }
+];
 
 const AboutPage = () => {
   useEffect(() => {
@@ -13,29 +177,52 @@ const AboutPage = () => {
       
       <main className="flex-grow pt-32 pb-20">
         <div className="container mx-auto px-4 max-w-4xl">
-          <h1 className="text-4xl md:text-5xl font-bold mb-8 text-foreground animate-fade-in">
+          <h1 className="text-4xl md:text-5xl font-bold mb-8 animate-fade-in animate-text-glow text-transparent bg-clip-text bg-gradient-to-r from-primary via-purple-400 to-primary">
             My Journey
           </h1>
           
           <div className="prose prose-invert prose-lg md:prose-xl max-w-none animate-fade-in" style={{ animationDelay: "0.2s", animationFillMode: "forwards" }}>
-            <p>
-              I'm a passionate cybersecurity enthusiast and developer. My journey began with a deep curiosity about how systems work and, more importantly, how they can be secured against evolving threats.
+            <p className="animate-text-glow text-transparent bg-clip-text bg-gradient-to-r from-gray-200 via-gray-400 to-gray-200 font-medium leading-relaxed">
+              I am a passionate cybersecurity enthusiast and developer. My continuous drive focuses on pushing beyond my boundaries and breaking my own limits. I actively seek out and participate in various hackathons and intensive coding challenges to constantly test my skills, adapt to new technologies under pressure, and build innovative solutions.
             </p>
+          </div>
+
+          <div className="mt-28 animate-fade-in" style={{ animationDelay: "0.4s", animationFillMode: "forwards", opacity: 0 }}>
+            <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center animate-text-glow text-transparent bg-clip-text bg-gradient-to-r from-primary via-purple-400 to-primary">Hackathons & Competitions</h2>
             
-            <h2>Education & Background</h2>
-            <p>
-              Currently pursuing my degree in Information Technology at HUFLIT. Throughout my academic career, I've focused heavily on practical security applications, DevSecOps pipelines, and robust software architecture.
-            </p>
-            
-            <h2>Core Philosophy</h2>
-            <p>
-              I believe that security should never be an afterthought but rather an integral part of the development lifecycle. My goal is to bridge the gap between rapid software development and rigorous security standards.
-            </p>
-            
-            <h2>Looking Ahead</h2>
-            <p>
-              I am constantly exploring new technologies, from advanced deep learning architectures to the latest in cloud infrastructure. I'm actively seeking opportunities to apply my skills in real-world environments and contribute to impactful projects.
-            </p>
+            <div className="relative max-w-4xl mx-auto">
+              <div className="absolute left-0 md:left-1/2 top-4 bottom-4 w-px bg-gradient-to-b from-primary/50 via-purple-500/50 to-transparent -translate-x-1/2 hidden md:block"></div>
+              
+              <div className="space-y-8 relative">
+                {competitions.map((comp, index) => (
+                  <div key={index} className={`relative flex flex-col md:flex-row items-start md:items-center ${index % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
+                    
+                    <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-background border-2 border-primary items-center justify-center z-10 shadow-[0_0_15px_rgba(var(--primary),0.5)]">
+                      <div className="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
+                    </div>
+                    
+                    <div className={`w-full md:w-[calc(50%-2rem)] md:px-8 mt-4 md:mt-0`}>
+                      <div className={`glass relative overflow-hidden rounded-xl p-6 border ${comp.borderClass} hover:-translate-y-1 transition-all duration-300 group`}>
+                        <div className={`absolute inset-0 bg-gradient-to-br ${comp.bgGradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
+                        
+                        <div className="relative z-10">
+                          <div className="flex items-center justify-between mb-3">
+                            <span className="text-sm font-semibold text-primary/80 bg-primary/10 px-3 py-1 rounded-full border border-primary/20 shadow-sm shadow-primary/10">
+                              {comp.date}
+                            </span>
+                            <div className={`p-2 rounded-lg bg-background/50 backdrop-blur-sm border border-border/50 transition-colors`}>
+                              {comp.icon}
+                            </div>
+                          </div>
+                          <h3 className={`text-xl font-bold mb-1 ${comp.textClass}`}>{comp.name}</h3>
+                          <p className="text-muted-foreground text-sm font-medium">{comp.role}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </main>
