@@ -60,7 +60,7 @@ export const projects: Project[] = [
         technologies: ["Docker", "Python", "Node.js", "PHP", "Active Directory"],
         github: "https://github.com/thtcsec/PentestLab",
         demo: "https://hoangtu.dev/pentestlab",
-        image: "/images/preview/preview_pentest_lab.png",
+        image: "/images/preview/pentest_lab_minimalist.png",
         featured: true,
         highlights: [
             "100% Reproducible & One-Click Install",
