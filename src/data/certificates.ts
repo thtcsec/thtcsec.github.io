@@ -132,6 +132,14 @@ export const certificates: Certificate[] = [
 
 export const achievements: Certificate[] = [
     {
+        id: "vinuni-ai-practical-talent",
+        title: "AI Practical Talent Training Program (VinUni) – Selected Participant",
+        issuer: "VinUniversity",
+        image: "/images/achievements/vinuni_ai.png",
+        type: "achievement",
+        description: "Selected to participate in the prestigious AI Practical Talent Training Program at VinUniversity. Successfully passed the rigorous application screening process and participated in technical assessments for placement."
+    },
+    {
         id: "google-student-ambassador",
         title: "Google Student Ambassador (GSA) - HUFLIT Representative",
         issuer: "#TeamGoogle Vietnam",
