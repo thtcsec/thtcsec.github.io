@@ -142,7 +142,7 @@ export const achievements: Certificate[] = [
     {
         id: "google-student-ambassador",
         title: "Google Student Ambassador (GSA) - HUFLIT Representative",
-        issuer: "#TeamGoogle Vietnam",
+        issuer: "Google Vietnam",
         image: "/images/forums/gsa.png",
         type: "achievement",
         description: "Selected to represent HUFLIT in the national Google Student Ambassador program, leading Google AI initiatives and connecting the student community with Google's technologies."
@@ -158,7 +158,7 @@ export const achievements: Certificate[] = [
     {
         id: "digital-talent-scholarship",
         title: "Google Digital Talent Scholarship",
-        issuer: "Google",
+        issuer: "Google x NIC",
         image: "/images/achievements/digital_talent_scholarship.jpg",
         type: "achievement",
         description: "Recipient of the prestigious Google Digital Talent Scholarship, recognizing excellence in technology and innovation."
