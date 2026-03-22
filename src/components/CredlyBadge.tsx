@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 interface CredlyBadgeProps {
     badgeId: string;
@@ -7,34 +7,23 @@ interface CredlyBadgeProps {
 const CredlyBadge = ({ badgeId }: CredlyBadgeProps) => {
     const [isLoaded, setIsLoaded] = useState(false);
 
-    useEffect(() => {
-        // Check if script already exists to avoid duplicates
-        const scriptId = 'credly-embed-script';
-        let script = document.getElementById(scriptId) as HTMLScriptElement;
-
-        if (!script) {
-            script = document.createElement('script');
-            script.id = scriptId;
-            script.src = '//cdn.credly.com/assets/utilities/embed.js';
-            script.async = true;
-            document.body.appendChild(script);
-        }
-
-        script.onload = () => setIsLoaded(true);
-
-        return () => {
-            // Optional: Cleanup but generally we leave the script there
-        };
-    }, []);
-
     return (
-        <div className="w-full h-full flex items-center justify-center">
-            <div
-                data-iframe-width="150"
-                data-iframe-height="270"
-                data-share-badge-id={badgeId}
-                data-share-badge-host="https://www.credly.com"
-            ></div>
+        <div className="w-full h-full flex items-center justify-center relative bg-white">
+            {!isLoaded && (
+                <div className="absolute inset-0 flex items-center justify-center bg-white z-10 rounded-xl">
+                    <div className="w-8 h-8 border-4 border-primary/20 border-t-primary rounded-full animate-spin"></div>
+                </div>
+            )}
+            <iframe 
+                src={`https://www.credly.com/embedded_badge/${badgeId}`}
+                width="150" 
+                height="270" 
+                frameBorder="0" 
+                scrolling="no"
+                title="Credly Badge"
+                onLoad={() => setIsLoaded(true)}
+                className={`transition-opacity duration-300 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
+            ></iframe>
         </div>
     );
 };

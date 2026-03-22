@@ -10,6 +10,14 @@ export interface Community {
 
 export const communities: Community[] = [
     {
+        id: "agora-ambassador",
+        title: "Agora Ambassador",
+        description: "Officially selected as an Agora Ambassador. Engaging with the developer community and promoting Agora's Real-Time Engagement (RTE) technologies.",
+        image: "/images/forums/agora.png",
+        tags: ["Agora", "Community", "Ambassador", "RTE", "WebRTC"],
+        link: "https://www.agora.io/en/community/"
+    },
+    {
         id: "gsa-huflit",
         title: "Google Student Ambassador - HUFLIT",
         description: "Officially selected as Google Student Ambassador representing HUFLIT. Leading the adoption of Google AI technologies on campus through leadership, community engagement, creative thinking, and digital communication.",

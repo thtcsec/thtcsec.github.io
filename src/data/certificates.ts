@@ -132,6 +132,14 @@ export const certificates: Certificate[] = [
 
 export const achievements: Certificate[] = [
     {
+        id: "agora-ambassador",
+        title: "Agora Ambassador",
+        issuer: "Agora",
+        image: "/images/forums/agora.png",
+        type: "achievement",
+        description: "Selected as an Agora Ambassador to represent and build the developer community around Agora's real-time communication technologies."
+    },
+    {
         id: "vinuni-ai-practical-talent",
         title: "AI Practical Talent Training Program (VinUni) – Selected Participant",
         issuer: "VinUniversity",
@@ -195,6 +203,6 @@ export const featuredCertificates = [
     certificates.find(c => c.id === "aws-security-fundamentals")!
 ];
 export const featuredAchievements = [
-    achievements.find(a => a.id === "google-student-ambassador")!,
-    achievements.find(a => a.id === "hsu-vibe-coding")!
+    achievements.find(a => a.id === "agora-ambassador")!,
+    achievements.find(a => a.id === "google-student-ambassador")!
 ];
