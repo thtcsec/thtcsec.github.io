@@ -132,6 +132,14 @@ export const certificates: Certificate[] = [
 
 export const achievements: Certificate[] = [
     {
+        id: "iede-tsinghua-2026",
+        title: "AI-Driven Digital Economy & Innovation Program - Tsinghua University",
+        issuer: "Tsinghua University",
+        image: "/images/achievements/tsinghua.jpg",
+        type: "achievement",
+        description: "Selected as a Core Member (top applicant out of 3,700+) for a specialized program focusing on artificial intelligence innovation and entrepreneurship in the modern digital economy."
+    },
+    {
         id: "agora-ambassador",
         title: "Agora Ambassador",
         issuer: "Agora",
@@ -203,6 +211,6 @@ export const featuredCertificates = [
     certificates.find(c => c.id === "aws-security-fundamentals")!
 ];
 export const featuredAchievements = [
-    achievements.find(a => a.id === "agora-ambassador")!,
-    achievements.find(a => a.id === "google-student-ambassador")!
+    achievements.find(a => a.id === "iede-tsinghua-2026")!,
+    achievements.find(a => a.id === "agora-ambassador")!
 ];

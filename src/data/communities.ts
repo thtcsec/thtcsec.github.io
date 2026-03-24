@@ -10,6 +10,14 @@ export interface Community {
 
 export const communities: Community[] = [
     {
+        id: "iede-community",
+        title: "AI & Innovation Digital Economy - Tsinghua University",
+        description: "Member of a specialized cohort at Tsinghua University, focusing on AI innovation and entrepreneurship in the digital economy. Selected from over 3,700 global applicants.",
+        image: "/images/achievements/tsinghua.jpg",
+        tags: ["AI", "Entrepreneurship", "Digital Economy", "Tsinghua"],
+        link: ""
+    },
+    {
         id: "agora-ambassador",
         title: "Agora Ambassador",
         description: "Officially selected as an Agora Ambassador. Engaging with the developer community and promoting Agora's Real-Time Engagement (RTE) technologies.",
