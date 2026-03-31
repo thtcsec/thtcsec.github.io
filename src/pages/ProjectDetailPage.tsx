@@ -3,13 +3,50 @@ import { allProjects } from "@/data/projects";
 import { Button } from "@/components/ui/button";
 import { ExternalLink, Github, ArrowLeft, Home } from "lucide-react";
 import { Icon } from "@iconify/react";
-import { useEffect } from "react";
+import { useEffect, useState, useRef } from "react";
 import ThemeToggle from "@/components/ThemeToggle";
 import NotFound from "@/pages/NotFound";
+import ImageModal from "@/components/ImageModal";
+
+const LazyImage = ({ src, alt }: { src: string; alt: string }) => {
+    const [isLoaded, setIsLoaded] = useState(false);
+    const [isInView, setIsInView] = useState(false);
+    const imgRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setIsInView(true);
+                    observer.disconnect();
+                }
+            },
+            { rootMargin: "200px" }
+        );
+        if (imgRef.current) observer.observe(imgRef.current);
+        return () => observer.disconnect();
+    }, []);
+
+    return (
+        <div ref={imgRef} className={`w-full h-full bg-muted ${isLoaded ? "" : "animate-pulse"}`}>
+            {isInView && (
+                <img
+                    src={src}
+                    alt={alt}
+                    loading="lazy"
+                    decoding="async"
+                    onLoad={() => setIsLoaded(true)}
+                    className={`w-full h-full object-cover transition-opacity duration-300 ${isLoaded ? "opacity-100" : "opacity-0"}`}
+                />
+            )}
+        </div>
+    );
+};
 
 const ProjectDetailPage = () => {
     const { id } = useParams<{ id: string }>();
     const project = allProjects.find(p => p.id === id);
+    const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -101,8 +138,28 @@ const ProjectDetailPage = () => {
                                 </div>
                             )}
 
-                            {/* Gallery Placeholder - In a real app, this would be a carousel or grid of more images */}
-                            {/* For now, reusing the main image as a lightbox trigger or similar could be done, but simpler is fine for V1 */}
+                            {project.images && project.images.length > 0 && (
+                                <div>
+                                    <h2 className="text-2xl font-bold mb-6">Gallery</h2>
+                                    <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                                        {project.images.map((img, i) => (
+                                            <div
+                                                key={i}
+                                                onClick={() => setSelectedImage(img)}
+                                                className="relative aspect-[4/3] overflow-hidden rounded-xl border border-border bg-muted cursor-pointer group hover:border-primary/50 transition-all"
+                                            >
+                                                <LazyImage src={img} alt={`${project.title} - ${i + 1}`} />
+                                                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                                                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                                                    <div className="p-2 rounded-full bg-black/50 backdrop-blur-sm">
+                                                        <Icon icon="mdi:fullscreen" className="w-5 h-5 text-white" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            )}
                         </div>
 
                         {/* Sidebar */}
@@ -174,6 +231,13 @@ const ProjectDetailPage = () => {
                     </p>
                 </div>
             </footer>
+
+            <ImageModal
+                isOpen={selectedImage !== null}
+                imageSrc={selectedImage || ""}
+                imageAlt={project.title}
+                onClose={() => setSelectedImage(null)}
+            />
         </div>
     );
 };

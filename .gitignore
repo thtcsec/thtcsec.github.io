@@ -127,3 +127,7 @@ public/images/gallery/*
 !public/images/gallery/shot_on_vivo_new/
 
 .research/
+.vscode/
+# Logs
+logs/
+.project_image/

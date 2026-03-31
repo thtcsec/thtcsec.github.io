@@ -8,6 +8,7 @@ export interface Project {
     github?: string;
     demo?: string;
     image: string;
+    images?: string[];
     featured: boolean;
     highlights?: string[];
     isPrivate?: boolean;
@@ -78,6 +79,9 @@ export const projects: Project[] = [
         github: "",
         demo: "",
         image: "/images/preview/preview_lingfilm.png",
+        images: [
+            "/images/project_image/lingfilm/01_frontend.png",
+        ],
         featured: true,
         highlights: [
             "Dual-subtitle system for language learning",
@@ -97,6 +101,14 @@ export const projects: Project[] = [
         github: "",
         demo: "",
         image: "/images/preview/preview_ctsmartcam.png",
+        images: [
+            "/images/project_image/ctsmartcam/01_overview.png",
+            "/images/project_image/ctsmartcam/02_dashboard.png",
+            "/images/project_image/ctsmartcam/03_detection.png",
+            "/images/project_image/ctsmartcam/04_alerts.png",
+            "/images/project_image/ctsmartcam/05_settings.png",
+            "/images/project_image/ctsmartcam/06_stats.png",
+        ],
         featured: true,
         highlights: [
             "SOTA License Plate Recognition (99.2% Accuracy) using YOLOv11-OBB & STN-LPRNet [cite: 574, 553]",
@@ -225,10 +237,10 @@ export const projects: Project[] = [
         description: "Modern responsive portfolio with React, TypeScript, and TailwindCSS. Features dark/light theme, animations, and SEO optimization.",
         category: "web",
         technologies: ["React", "TypeScript", "TailwindCSS", "Vite"],
-        github: "https://github.com/thtcsec/thtcsec.github.io",
         demo: "https://thtcsec.github.io",
         image: "/images/preview/preview_portfolio.png",
-        featured: true
+        featured: true,
+        isPrivate: true
     }
 ];
 
