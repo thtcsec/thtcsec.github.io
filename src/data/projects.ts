@@ -90,20 +90,20 @@ export const projects: Project[] = [
     },
     {
         id: "ct-smartcam",
-        title: "CT-SmartCam - Smart Security System",
-        description: "AI-powered camera management system for Can Tho City with real-time monitoring, license plate recognition, face detection, and microservices architecture.",
+        title: "CTSmartCam AI - Intelligent City Surveillance",
+        description: "A high-performance, SOTA security ecosystem featuring multi-stage AI pipelines, spatial-temporal fusion, and event-driven architecture optimized for NVIDIA RTX 50-series.",
         category: "ai",
-        technologies: ["ASP.NET Core 9", "React", "YOLOv11", "Docker", "PostgreSQL", "SignalR"],
+        technologies: ["ASP.NET Core 9", "Python (PyTorch)", "YOLOv11-OBB", "Redis Streams", "MinIO", "SignalR"],
         github: "",
         demo: "",
         image: "/images/preview/preview_ctsmartcam.png",
         featured: true,
         highlights: [
-            "Real-time AI detection (People, Vehicles, LPR)",
-            "Microservices architecture with Docker",
-            "Live streaming via HLS (H.265 support)",
-            "Security honeypot & intrusion detection",
-            "SignalR real-time alerts & monitoring"
+            "SOTA License Plate Recognition (99.2% Accuracy) using YOLOv11-OBB & STN-LPRNet [cite: 574, 553]",
+            "Spatial-Temporal Fusion logic to link Driver Identities with Vehicle Plates",
+            "Event-Driven Microservices processing 100+ FPS via Redis Streams",
+            "Robustness against IR Glare, Rain, and Perspective Distortion via TPS Rectification",
+            "Security Honeypot & Intrusion Detection for critical surveillance endpoints"
         ],
         isPrivate: true
     },
