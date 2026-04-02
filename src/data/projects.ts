@@ -24,6 +24,10 @@ export const projects: Project[] = [
         github: "https://github.com/thtcsec/GCP-Serverless-SOAR",
         demo: "",
         image: "https://raw.githubusercontent.com/thtcsec/GCP-Serverless-SOAR/main/images/gcp_soar.png",
+        images: [
+            "https://raw.githubusercontent.com/thtcsec/GCP-Serverless-SOAR/main/images/gcp_soar.png",
+            "https://raw.githubusercontent.com/thtcsec/AWS-Serverless-SOAR/main/images/aws_soar.png"
+        ],
         featured: true,
         highlights: [
             "Built event-driven incident response pipelines using GuardDuty / Security Command Center, EventBridge / Eventarc, and SQS / Pub/Sub",
