@@ -13,7 +13,6 @@ import PricingPage from "./pages/PricingPage";
 import ResumePage from "./pages/ResumePage";
 import SilentPipePage from "./pages/SilentPipePage";
 import PentestLabPage from "./pages/PentestLabPage";
-import CloudComputingPage from "./pages/CloudComputingPage";
 import BlogPage from "./pages/BlogPage";
 import BlogDetailPage from "./pages/BlogDetailPage";
 import AboutPage from "./pages/AboutPage";
@@ -52,8 +51,6 @@ const App = () => {
             <Route path="/silentpipe/" element={<SilentPipePage />} />
             <Route path="/pentestlab" element={<PentestLabPage />} />
             <Route path="/pentestlab/" element={<PentestLabPage />} />
-            <Route path="/cloudcomputing" element={<CloudComputingPage />} />
-            <Route path="/cloudcomputing/" element={<CloudComputingPage />} />
             <Route path="/research" element={<BlogPage />} />
             <Route path="/research/:id" element={<BlogDetailPage />} />
             <Route path="/about" element={<AboutPage />} />

@@ -16,41 +16,25 @@ export interface Project {
 
 export const projects: Project[] = [
     {
-        id: "gcp-soar",
-        title: "GCP Serverless SOAR",
-        description: "Automated security incident response platform that detects threats using Security Command Center and automatically isolates compromised resources while preserving forensic evidence.",
+        id: "multi-cloud-soar",
+        title: "Multi-Cloud Serverless SOAR Platform (AWS & GCP)",
+        description: "Designed and implemented a multi-cloud Security Orchestration, Automation, and Response (SOAR) platform across AWS and GCP. Built event-driven incident response pipelines using GuardDuty / Security Command Center, EventBridge / Eventarc, and SQS / Pub/Sub.",
         category: "system",
-        technologies: ["GCP", "Terraform", "Python", "Serverless", "Eventarc", "Pub/Sub", "Cloud Workflows", "Cloud Run"],
+        technologies: ["GCP", "AWS", "Terraform", "Python", "Serverless", "Eventarc", "Pub/Sub", "Step Functions", "Cloud Workflows", "Cloud Run", "ECS Fargate"],
         github: "https://github.com/thtcsec/GCP-Serverless-SOAR",
-        demo: "/cloudcomputing",
+        demo: "",
         image: "https://raw.githubusercontent.com/thtcsec/GCP-Serverless-SOAR/main/images/gcp_soar.png",
         featured: true,
         highlights: [
-            "Detection via Security Command Center & Eventarc routing",
-            "Cloud Workflows for orchestration & manual approvals",
-            "Container Workers (Cloud Run) for forensic malware scans",
-            "Automated VM isolation, SA detachment, & Disk Snapshotting",
-            "Multi-Project security with centralized Security Account",
-            "Slack/Jira/SIEM Real-time Integrations"
-        ]
-    },
-    {
-        id: "aws-soar",
-        title: "AWS Serverless SOAR",
-        description: "Automated security incident response platform that detects threats and automatically isolates compromised resources while preserving forensic evidence.",
-        category: "system",
-        technologies: ["AWS", "Terraform", "Python", "Serverless", "EventBridge", "SQS", "Step Functions", "ECS Fargate"],
-        github: "https://github.com/thtcsec/AWS-Serverless-SOAR",
-        demo: "/cloudcomputing",
-        image: "https://raw.githubusercontent.com/thtcsec/AWS-Serverless-SOAR/main/images/aws_soar.png",
-        featured: true,
-        highlights: [
-            "Detection via Amazon GuardDuty & EventBridge routing",
-            "Step Functions for orchestration & manual approvals",
-            "Container Workers (ECS Fargate) for forensic malware scans",
-            "Automated EC2 isolation, IMDSv2 enforcement, & EBS snapshotting",
-            "Multi-Account security with Centralized Roles",
-            "Slack/Jira/SIEM Real-time Integrations"
+            "Built event-driven incident response pipelines using GuardDuty / Security Command Center, EventBridge / Eventarc, and SQS / Pub/Sub",
+            "Implemented workflow orchestration using AWS Step Functions and GCP Cloud Workflows for automated containment and forensics",
+            "Developed container-based worker services (ECS Fargate / Cloud Run) for long-running malware analysis and incident processing",
+            "Designed a unified event normalization and correlation layer to standardize cross-cloud security events",
+            "Automated response actions including resource isolation, IAM privilege revocation, SSH blocking, and disk snapshot for forensic analysis",
+            "Integrated threat intelligence (VirusTotal, AbuseIPDB) and SIEM/Slack/Jira for real-time alerting",
+            "Built anomaly detection and risk scoring modules (Isolation Forest + rule-based fallback) for adaptive incident prioritization",
+            "Implemented audit logging, secret rotation, and compliance-ready monitoring across cloud environments",
+            "Provisioned full infrastructure using Terraform with modular multi-environment deployment (dev/staging/prod)"
         ]
     },
     {
