@@ -167,17 +167,17 @@ const ProjectCard = ({ project, imageLoaded, onImageLoad }: ProjectCardProps) =>
                         {project.title}
                     </h3>
                 </Link>
-                <p className="text-muted-foreground text-sm mb-4">
+                <p className="text-muted-foreground text-sm mb-4 line-clamp-3">
                     {project.description}
                 </p>
 
                 {/* Highlights */}
                 {project.highlights && project.highlights.length > 0 && (
                     <ul className="mb-4 space-y-1">
-                        {project.highlights.map((highlight, i) => (
+                        {project.highlights.slice(0, 3).map((highlight, i) => (
                             <li key={i} className="text-xs text-muted-foreground flex items-start gap-2">
                                 <span className="text-primary mt-0.5">•</span>
-                                <span>{highlight}</span>
+                                <span className="line-clamp-1">{highlight}</span>
                             </li>
                         ))}
                     </ul>
@@ -185,7 +185,7 @@ const ProjectCard = ({ project, imageLoaded, onImageLoad }: ProjectCardProps) =>
 
                 {/* Tech Stack */}
                 <div className="flex flex-wrap gap-2 mb-4">
-                    {project.technologies.map((tech) => (
+                    {project.technologies.slice(0, 5).map((tech) => (
                         <span
                             key={tech}
                             className="px-2 py-1 rounded-md bg-muted text-xs font-medium text-muted-foreground"
@@ -193,6 +193,11 @@ const ProjectCard = ({ project, imageLoaded, onImageLoad }: ProjectCardProps) =>
                             {tech}
                         </span>
                     ))}
+                    {project.technologies.length > 5 && (
+                        <span className="px-2 py-1 rounded-md bg-muted text-xs font-medium text-muted-foreground">
+                            +{project.technologies.length - 5}
+                        </span>
+                    )}
                 </div>
 
                 {/* Actions - Stop propagation */}
