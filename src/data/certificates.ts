@@ -214,7 +214,7 @@ export const achievements: Certificate[] = [
 ];
 
 export const featuredCertificates = [
-    certificates[0],
+    certificates.find(c => c.id === "google-cloud-foundation")!,
     certificates.find(c => c.id === "hack2skill-devops")!,
     certificates.find(c => c.id === "aws-security-fundamentals")!
 ];
