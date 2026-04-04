@@ -132,6 +132,14 @@ export const certificates: Certificate[] = [
 
 export const achievements: Certificate[] = [
     {
+        id: "threatlens-gdgoc-2026",
+        title: "Second Runner Up - GDGOC SGU 2026",
+        issuer: "Google Developer Group on Campus - Sai Gon University",
+        image: "/images/achievements/threatlens.png",
+        type: "achievement",
+        description: "Awarded for 'ThreatLens - AI Security Copilot', an AI companion ecosystem helping developers detect vulnerabilities early using Gemini 3 and RAG techniques."
+    },
+    {
         id: "iede-tsinghua-2026",
         title: "AI-Driven Digital Economy & Innovation Program - Tsinghua University",
         issuer: "Tsinghua University",

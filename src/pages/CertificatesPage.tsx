@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import ThemeToggle from "@/components/ThemeToggle";
 import ImageModal from "@/components/ImageModal";
 import CredlyBadge from "@/components/CredlyBadge";
+import ScrollToTop from "@/components/ScrollToTop";
 
 const CertificatesPage = () => {
     const [modalImage, setModalImage] = useState<{ src: string; alt: string } | null>(null);
@@ -150,6 +151,7 @@ const CertificatesPage = () => {
                 imageAlt={modalImage?.alt || ""}
                 onClose={() => setModalImage(null)}
             />
+            <ScrollToTop />
         </div>
     );
 };
