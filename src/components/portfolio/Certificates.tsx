@@ -34,16 +34,25 @@ const Certificates = () => {
                         {featuredCertificates.map((cert) => (
                             <div
                                 key={cert.id}
-                                className="group relative rounded-2xl overflow-hidden bg-card border border-border hover:border-primary/50 transition-all duration-500 hover:-translate-y-2 cursor-pointer"
+                                className="group relative rounded-xl overflow-hidden bg-card border border-border hover:border-primary/50 transition-all duration-500 hover:-translate-y-2 cursor-pointer"
                                 onClick={() => {
                                     if (!cert.credlyBadgeId) {
                                         setModalImage({ src: cert.image, alt: cert.title });
                                     }
                                 }}
                             >
-                                <div className={`relative overflow-hidden ${cert.credlyBadgeId ? 'py-6 min-h-[300px] bg-white flex items-center justify-center' : 'aspect-[4/3] bg-muted'}`}>
+                                <div 
+                                    className="relative overflow-hidden aspect-[4/3] flex items-center justify-center"
+                                    style={cert.credlyBadgeId ? { 
+                                        backgroundImage: 'url(/images/certificates/credly_frame.png)', 
+                                        backgroundSize: 'cover', 
+                                        backgroundPosition: 'center' 
+                                    } : {}}
+                                >
                                     {cert.credlyBadgeId ? (
-                                        <CredlyBadge badgeId={cert.credlyBadgeId} />
+                                        <div className="relative z-10 scale-90 md:scale-110">
+                                            <CredlyBadge badgeId={cert.credlyBadgeId} />
+                                        </div>
                                     ) : (
                                         <img
                                             src={cert.image}
@@ -76,7 +85,7 @@ const Certificates = () => {
                         {featuredAchievements.map((achievement) => (
                             <div
                                 key={achievement.id}
-                                className="group flex flex-col md:flex-row gap-4 rounded-2xl overflow-hidden bg-card border border-border hover:border-primary/50 transition-all duration-500 hover:-translate-y-2 cursor-pointer"
+                                className="group flex flex-col md:flex-row gap-4 rounded-xl overflow-hidden bg-card border border-border hover:border-primary/50 transition-all duration-500 hover:-translate-y-2 cursor-pointer"
                                 onClick={() => setModalImage({ src: achievement.image, alt: achievement.title })}
                             >
                                 <div className="md:w-48 aspect-video md:aspect-square overflow-hidden bg-muted flex-shrink-0">

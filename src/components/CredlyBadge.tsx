@@ -8,9 +8,9 @@ const CredlyBadge = ({ badgeId }: CredlyBadgeProps) => {
     const [isLoaded, setIsLoaded] = useState(false);
 
     return (
-        <div className="w-full h-full flex items-center justify-center relative bg-white">
+        <div className="w-full h-full flex items-center justify-center relative bg-transparent text-transparent">
             {!isLoaded && (
-                <div className="absolute inset-0 flex items-center justify-center bg-white z-10 rounded-xl">
+                <div className="absolute inset-0 flex items-center justify-center bg-transparent z-10 rounded-xl">
                     <div className="w-8 h-8 border-4 border-primary/20 border-t-primary rounded-full animate-spin"></div>
                 </div>
             )}
