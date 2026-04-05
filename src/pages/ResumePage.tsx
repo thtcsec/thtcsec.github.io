@@ -75,11 +75,9 @@ const ResumePage = () => {
                         <section>
                             <h2 className="text-base font-bold uppercase border-b border-neutral-900 dark:border-neutral-100 mb-2 pb-0.5 print:border-black text-neutral-900 dark:text-white print:text-black">Summary</h2>
                             <p className="text-neutral-700 dark:text-neutral-300 leading-relaxed print:text-neutral-800 font-sans text-[15px] md:text-base text-justify">
-                                Third-year Cybersecurity student with hands-on experience in building secure software systems and automated deployment environments. Strong focus on <strong className="text-neutral-900 dark:text-white print:text-black">DevOps, System Reliability, and Cloud-Native Infrastructure</strong>.
+                                Interested in building secure and scalable systems, with hands-on experience in containerized deployments, event-driven architectures, and security monitoring.
                                 <br /><br />
-                                Proficient in containerized deployments using <strong className="text-neutral-900 dark:text-white print:text-black">Docker</strong>, reverse proxy configuration with <strong className="text-neutral-900 dark:text-white print:text-black">Nginx</strong>, and integrating security monitoring pipelines such as IDS and centralized log analysis.
-                                <br /><br />
-                                Passionate about automating deployment workflows, developing scalable infrastructure, and integrating robust security controls into the modern software delivery lifecycle.
+                                Focused on learning how real-world systems are built, deployed, and secured in production-like environments through personal and project-based experimentation.
                             </p>
                         </section>
 
@@ -115,11 +113,11 @@ const ResumePage = () => {
                                     <span className="italic text-neutral-600 dark:text-neutral-400 text-xs print:text-neutral-600">Ho Chi Minh City</span>
                                 </div>
                                 <ul className="list-disc list-outside ml-5 space-y-2 text-neutral-700 dark:text-neutral-300 print:text-neutral-800 text-[14px] md:text-[15px] leading-relaxed">
-                                    <li>Led the development of a high-performance <strong className="text-neutral-900 dark:text-white print:text-black">AI-powered Camera Management System (CMS)</strong> for enterprise surveillance.</li>
-                                    <li>Architected backend services using <strong className="text-neutral-900 dark:text-white print:text-black">ASP.NET Core (C#)</strong> and implemented secure, real-time telemetry via <strong className="text-neutral-900 dark:text-white print:text-black">SignalR</strong>.</li>
-                                    <li>Engineered seamless integration with <strong className="text-neutral-900 dark:text-white print:text-black">Python AI microservices</strong> for facial, license plate, and object recognition.</li>
-                                    <li>Managed cloud-ready deployment using <strong className="text-neutral-900 dark:text-white print:text-black">Docker</strong> and <strong className="text-neutral-900 dark:text-white print:text-black">Nginx</strong>, optimizing for reliability and traffic handling.</li>
-                                    <li>Implemented robust security controls including <strong className="text-neutral-900 dark:text-white print:text-black">Suricata IDS</strong>, rate limiting, and automated attack pattern detection.</li>
+                                    <li>Designed and developed an AI-powered Camera Management System (CMS) using an event-driven microservices architecture.</li>
+                                    <li>Built backend services using <strong className="text-neutral-900 dark:text-white print:text-black">ASP.NET Core (C#)</strong> and implemented secure, real-time telemetry via <strong className="text-neutral-900 dark:text-white print:text-black">SignalR</strong>.</li>
+                                    <li>Orchestrated <strong className="text-neutral-900 dark:text-white print:text-black">~10+ containerized services</strong> including AI inference pipelines (FRS, LPR), media processing, and event streaming with <strong className="text-neutral-900 dark:text-white print:text-black">Redis Streams</strong>.</li>
+                                    <li>Supports concurrent monitoring of multiple camera streams (<strong className="text-neutral-900 dark:text-white print:text-black">tested with 1--6 cameras</strong>) with real-time event visualization.</li>
+                                    <li>Implemented application-layer security including rate limiting, honeypot endpoints, and integrated IDS monitoring (<strong className="text-neutral-900 dark:text-white print:text-black">Suricata, Wazuh</strong>).</li>
                                 </ul>
                             </div>
                         </section>
@@ -134,11 +132,11 @@ const ResumePage = () => {
                                         <h3 className="font-bold text-neutral-900 dark:text-white print:text-black">Smart Camera Surveillance System (AI Fullstack Developer)</h3>
                                     </div>
                                     <ul className="list-disc list-outside ml-5 space-y-1 text-neutral-700 dark:text-neutral-300 print:text-neutral-800 text-[14px] md:text-[15px] leading-relaxed">
-                                        <li><strong className="text-neutral-900 dark:text-white print:text-black">Tech Stack:</strong> React, TypeScript, ASP.NET Core (C#), Python, Docker, Nginx, Suricata</li>
-                                        <li>Designed and implemented an AI-powered Camera Management System using a modular microservice-style architecture.</li>
+                                        <li><strong className="text-neutral-900 dark:text-white print:text-black">Tech Stack:</strong> React, TypeScript, ASP.NET Core (C#), Python, Docker, Nginx, Suricata, Wazuh</li>
+                                        <li>Design and implement an AI-powered Camera Management System using an <strong>event-driven microservices architecture</strong> with Redis Streams.</li>
                                         <li>Containerized backend services with Docker and orchestrated service communication behind an Nginx reverse proxy.</li>
-                                        <li>Integrated security telemetry and event monitoring using IDS alerts and centralized logging.</li>
-                                        <li>Implemented application-layer protections including request throttling, honeypot endpoints, and attack pattern detection.</li>
+                                        <li>Supports concurrent monitoring of multiple camera streams (<strong>tested with 1--6 cameras</strong>) with real-time event visualization.</li>
+                                        <li>Implemented application-layer protections including request throttling, honeypot endpoints, and integrated IDS alerts.</li>
                                     </ul>
                                 </div>
 
@@ -149,7 +147,7 @@ const ResumePage = () => {
                                     </div>
                                     <ul className="list-disc list-outside ml-5 space-y-1 text-neutral-700 dark:text-neutral-300 print:text-neutral-800 text-[14px] md:text-[15px] leading-relaxed">
                                         <li><strong className="text-neutral-900 dark:text-white print:text-black">Tech Stack:</strong> React, Vite, TypeScript, Supabase, PostgreSQL, Vercel</li>
-                                        <li>Designed and deployed a production LMS serving 100+ active users with automated AI-assisted exam generation.</li>
+                                        <li>Designed and deployed a production LMS supporting <strong className="text-neutral-900 dark:text-white print:text-black">~20--30 concurrent users</strong> in a classroom environment.</li>
                                         <li>Applied defense-in-depth security including server-side rate limiting, input validation, and strict Supabase Row-Level Security (RLS).</li>
                                         <li>Optimized performance with serverless deployment achieving sub-100ms response times.</li>
                                     </ul>
@@ -162,9 +160,9 @@ const ResumePage = () => {
                                     </div>
                                     <ul className="list-disc list-outside ml-5 space-y-1 text-neutral-700 dark:text-neutral-300 print:text-neutral-800 text-[14px] md:text-[15px] leading-relaxed">
                                         <li><strong className="text-neutral-900 dark:text-white print:text-black">Tech Stack:</strong> GCP, AWS, Terraform, Python, Serverless, Eventarc, Pub/Sub, Step Functions</li>
-                                        <li>Designed and implemented a multi-cloud SOAR platform building event-driven incident response pipelines using GuardDuty, SCC, EventBridge, and Pub/Sub.</li>
-                                        <li>Automated response actions including resource isolation, IAM privilege revocation, and disk snapshots for forensic analysis.</li>
-                                        <li>Integrated threat intelligence and built anomaly detection modules for adaptive incident prioritization.</li>
+                                        <li>Designed a serverless SOAR platform using AWS and GCP with <strong>event-driven incident response workflows</strong>.</li>
+                                        <li>Implemented automated response playbooks including resource isolation, IAM privilege revocation, and disk snapshots for forensic analysis.</li>
+                                        <li>Integrated threat intelligence and built <strong>cross-cloud event normalization</strong> and correlation pipelines for unified incident handling.</li>
                                     </ul>
                                 </div>
                             </div>
@@ -211,32 +209,20 @@ const ResumePage = () => {
                             <h2 className="text-base font-bold uppercase border-b border-neutral-900 dark:border-neutral-100 mb-2 pb-0.5 print:border-black text-neutral-900 dark:text-white print:text-black">Certificates</h2>
                             <ul className="list-disc list-outside ml-5 space-y-2 text-neutral-700 dark:text-neutral-300 print:text-neutral-800 text-[14px] md:text-[15px] font-sans leading-relaxed">
                                 <li className="flex justify-between">
-                                    <span>Certified Cybersecurity Educator Professional (CCEP) – <span className="italic">Red Team Leaders</span></span>
-                                    <span className="text-neutral-500 dark:text-neutral-400 italic text-xs print:text-neutral-600">Dec 2025</span>
-                                </li>
-                                <li className="flex justify-between">
-                                    <span>Networking Track – <span className="italic">Google Cloud x Hack2Skill</span> <a href="https://certificate.hack2skill.com/user/academy2networking/2025H2S10GENAI-NE300623" target="_blank" className="ml-1 text-primary hover:underline font-medium text-xs print:hidden">(Verify)</a></span>
-                                    <span className="text-neutral-500 dark:text-neutral-400 italic text-xs print:text-neutral-600">Jan 2026</span>
+                                    <span>Google Cloud Computing Foundations – <span className="italic">Google Cloud</span> <a href="https://www.credly.com/badges/ad399ad3-8827-4b99-8221-8fd248047d4a/linked_in?t=tarma7" target="_blank" className="ml-1 text-primary hover:underline font-medium text-xs print:hidden">(Verify)</a></span>
+                                    <span className="text-neutral-500 dark:text-neutral-400 italic text-xs print:text-neutral-600">Feb 2026</span>
                                 </li>
                                 <li className="flex justify-between">
                                     <span>DevOps Track – <span className="italic">Google Cloud x Hack2Skill</span> <a href="https://certificate.hack2skill.com/user/academy2devops/2025H2S10GENAI-DE300881" target="_blank" className="ml-1 text-primary hover:underline font-medium text-xs print:hidden">(Verify)</a></span>
                                     <span className="text-neutral-500 dark:text-neutral-400 italic text-xs print:text-neutral-600">Jan 2026</span>
                                 </li>
                                 <li className="flex justify-between">
+                                    <span>Networking Track – <span className="italic">Google Cloud x Hack2Skill</span> <a href="https://certificate.hack2skill.com/user/academy2networking/2025H2S10GENAI-NE300623" target="_blank" className="ml-1 text-primary hover:underline font-medium text-xs print:hidden">(Verify)</a></span>
+                                    <span className="text-neutral-500 dark:text-neutral-400 italic text-xs print:text-neutral-600">Jan 2026</span>
+                                </li>
+                                <li className="flex justify-between">
                                     <span>Foundations of Cybersecurity – <span className="italic">Google x Coursera</span> <a href="https://www.coursera.org/verify/XP102V7M0CQC" target="_blank" className="ml-1 text-primary hover:underline font-medium text-xs print:hidden">(Verify)</a></span>
                                     <span className="text-neutral-500 dark:text-neutral-400 italic text-xs print:text-neutral-600">May 2025</span>
-                                </li>
-                                <li className="flex justify-between">
-                                    <span>Google AI – <span className="italic">Google</span> <a href="https://coursera.org/share/c7724fa55611f8ebb8c0340ddb9664aa" target="_blank" className="ml-1 text-primary hover:underline font-medium text-xs print:hidden">(Verify)</a></span>
-                                    <span className="text-neutral-500 dark:text-neutral-400 italic text-xs print:text-neutral-600">Feb 2026</span>
-                                </li>
-                                <li className="flex justify-between">
-                                    <span>Google Cloud Computing Foundations – <span className="italic">Google Cloud</span> <a href="https://www.credly.com/badges/ad399ad3-8827-4b99-8221-8fd248047d4a/linked_in?t=tarma7" target="_blank" className="ml-1 text-primary hover:underline font-medium text-xs print:hidden">(Verify)</a></span>
-                                    <span className="text-neutral-500 dark:text-neutral-400 italic text-xs print:text-neutral-600">Feb 2026</span>
-                                </li>
-                                <li className="flex justify-between">
-                                    <span>Network Architecture – <span className="italic">Google x Coursera</span> <a href="https://www.coursera.org/verify/8V8QIIML1RAX" target="_blank" className="ml-1 text-primary hover:underline font-medium text-xs print:hidden">(Verify)</a></span>
-                                    <span className="text-neutral-500 dark:text-neutral-400 italic text-xs print:text-neutral-600">Dec 2025</span>
                                 </li>
                             </ul>
                         </section>
