@@ -75,11 +75,11 @@ const ResumePage = () => {
                         <section>
                             <h2 className="text-base font-bold uppercase border-b border-neutral-900 dark:border-neutral-100 mb-2 pb-0.5 print:border-black text-neutral-900 dark:text-white print:text-black">Summary</h2>
                             <p className="text-neutral-700 dark:text-neutral-300 leading-relaxed print:text-neutral-800 font-sans text-[15px] md:text-base text-justify">
-                                Third-year Cybersecurity student with hands-on experience in building secure software systems and automated deployment environments. Strong focus on <strong className="text-neutral-900 dark:text-white print:text-black">DevOps, System Reliability, and Cloud-Native Infrastructure</strong>.
+                                Third-year Cybersecurity student interested in exploring the fields of <strong className="text-neutral-900 dark:text-white print:text-black">DevOps, System Reliability, and Cloud-Native Infrastructure</strong>.
                                 <br /><br />
-                                Proficient in containerized deployments using <strong className="text-neutral-900 dark:text-white print:text-black">Docker</strong>, reverse proxy configuration with <strong className="text-neutral-900 dark:text-white print:text-black">Nginx</strong>, and integrating security monitoring pipelines such as IDS and centralized log analysis.
+                                Currently learning and experimenting with containerized deployments using <strong className="text-neutral-900 dark:text-white print:text-black">Docker</strong>, reverse proxy configuration with <strong className="text-neutral-900 dark:text-white print:text-black">Nginx</strong>, and security monitoring through IDS and centralized log analysis.
                                 <br /><br />
-                                Focused on learning how real-world systems are built, deployed, and operated with practical trade-offs between performance, scalability, and resource constraints.
+                                Passionate about understanding how real-world systems are built, deployed, and operated with practical trade-offs between performance, scalability, and resource constraints.
                             </p>
                         </section>
 
