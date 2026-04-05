@@ -77,7 +77,7 @@ const ResumePage = () => {
                             <p className="text-neutral-700 dark:text-neutral-300 leading-relaxed print:text-neutral-800 font-sans text-[15px] md:text-base text-justify">
                                 Interested in building secure and scalable systems, with hands-on experience in containerized deployments, event-driven architectures, and security monitoring.
                                 <br /><br />
-                                Focused on learning how real-world systems are built, deployed, and secured in production-like environments through personal and project-based experimentation.
+                                Focused on learning how real-world systems are built, deployed, and operated with practical trade-offs between performance, scalability, and resource constraints.
                             </p>
                         </section>
 
@@ -113,11 +113,13 @@ const ResumePage = () => {
                                     <span className="italic text-neutral-600 dark:text-neutral-400 text-xs print:text-neutral-600">Ho Chi Minh City</span>
                                 </div>
                                 <ul className="list-disc list-outside ml-5 space-y-2 text-neutral-700 dark:text-neutral-300 print:text-neutral-800 text-[14px] md:text-[15px] leading-relaxed">
-                                    <li>Designed and developed an AI-powered Camera Management System (CMS) using an event-driven microservices architecture.</li>
+                                    <li>Designed and developed an AI-powered Camera Management System (CMS) for enterprise surveillance use cases.</li>
                                     <li>Built backend services using <strong className="text-neutral-900 dark:text-white print:text-black">ASP.NET Core (C#)</strong> and implemented secure, real-time telemetry via <strong className="text-neutral-900 dark:text-white print:text-black">SignalR</strong>.</li>
-                                    <li>Orchestrated <strong className="text-neutral-900 dark:text-white print:text-black">~10+ containerized services</strong> including AI inference pipelines (FRS, LPR), media processing, and event streaming with <strong className="text-neutral-900 dark:text-white print:text-black">Redis Streams</strong>.</li>
-                                    <li>Supports concurrent monitoring of multiple camera streams (<strong className="text-neutral-900 dark:text-white print:text-black">tested with 1--6 cameras</strong>) with real-time event visualization.</li>
-                                    <li>Implemented application-layer security including rate limiting, honeypot endpoints, and integrated IDS monitoring (<strong className="text-neutral-900 dark:text-white print:text-black">Suricata, Wazuh</strong>).</li>
+                                    <li>Collaborated in deploying and operating a microservice-based system (<strong className="text-neutral-900 dark:text-white print:text-black">~10+ services</strong>) using <strong className="text-neutral-900 dark:text-white print:text-black">Docker</strong> and <strong className="text-neutral-900 dark:text-white print:text-black">Nginx</strong>.</li>
+                                    <li>Configured system processing pipelines with controlled frame rates to balance detection accuracy and infrastructure resource usage.</li>
+                                    <li>Supported multi-camera monitoring (<strong className="text-neutral-900 dark:text-white print:text-black">tested with 1--6 streams</strong>) with real-time event visualization.</li>
+                                    <li>Implemented application-layer security including rate limiting, honeypot endpoints, and IDS integration (<strong className="text-neutral-900 dark:text-white print:text-black">Suricata, Wazuh</strong>).</li>
+                                    <li>Monitored system resource usage (CPU, GPU, memory) and adjusted processing configurations to optimize stability.</li>
                                 </ul>
                             </div>
                         </section>
@@ -133,10 +135,11 @@ const ResumePage = () => {
                                     </div>
                                     <ul className="list-disc list-outside ml-5 space-y-1 text-neutral-700 dark:text-neutral-300 print:text-neutral-800 text-[14px] md:text-[15px] leading-relaxed">
                                         <li><strong className="text-neutral-900 dark:text-white print:text-black">Tech Stack:</strong> React, TypeScript, ASP.NET Core (C#), Python, Docker, Nginx, Suricata, Wazuh</li>
-                                        <li>Design and implement an AI-powered Camera Management System using an <strong>event-driven microservices architecture</strong> with Redis Streams.</li>
-                                        <li>Containerized backend services with Docker and orchestrated service communication behind an Nginx reverse proxy.</li>
+                                        <li>Designed and implemented an AI-powered Camera Management System using an <strong>event-driven microservices architecture</strong> with Redis Streams.</li>
+                                        <li>Orchestrated <strong className="text-neutral-900 dark:text-white print:text-black">~10+ containerized services</strong> including AI inference pipelines (FRS, LPR), media processing, and event streaming.</li>
+                                        <li>Built a pipeline that performs <strong>detection once</strong> and reuses metadata across downstream services to reduce redundant computation.</li>
+                                        <li>Implemented controlled processing via <strong>configurable frame rates and batching</strong> to balance latency, accuracy, and resource usage.</li>
                                         <li>Supports concurrent monitoring of multiple camera streams (<strong>tested with 1--6 cameras</strong>) with real-time event visualization.</li>
-                                        <li>Implemented application-layer protections including request throttling, honeypot endpoints, and integrated IDS alerts.</li>
                                     </ul>
                                 </div>
 
@@ -162,7 +165,8 @@ const ResumePage = () => {
                                         <li><strong className="text-neutral-900 dark:text-white print:text-black">Tech Stack:</strong> GCP, AWS, Terraform, Python, Serverless, Eventarc, Pub/Sub, Step Functions</li>
                                         <li>Designed a serverless SOAR platform using AWS and GCP with <strong>event-driven incident response workflows</strong>.</li>
                                         <li>Implemented automated response playbooks including resource isolation, IAM privilege revocation, and disk snapshots for forensic analysis.</li>
-                                        <li>Integrated threat intelligence and built <strong>cross-cloud event normalization</strong> and correlation pipelines for unified incident handling.</li>
+                                        <li>Built <strong>cross-cloud event normalization and correlation pipelines</strong> for unified incident handling.</li>
+                                        <li>Designed the system with <strong>queue-based buffering</strong> and workflow orchestration to handle burst traffic without overwhelming infrastructure.</li>
                                     </ul>
                                 </div>
                             </div>
