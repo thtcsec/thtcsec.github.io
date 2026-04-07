@@ -158,17 +158,29 @@ const ResumePage = () => {
                                     </ul>
                                 </div>
 
-                                {/* Multi-Cloud SOAR */}
+                                {/* Yodobashi Sniper */}
                                 <div>
                                     <div className="flex justify-between items-baseline mb-0.5">
-                                        <h3 className="font-bold text-neutral-900 dark:text-white print:text-black">Multi-Cloud Serverless SOAR Platform <span className="font-normal text-neutral-500">(AWS & GCP)</span></h3>
+                                        <h3 className="font-bold text-neutral-900 dark:text-white print:text-black">Yodobashi Sniper V2 <span className="font-normal text-neutral-500">(Browser Extension – Manifest V3)</span></h3>
                                     </div>
                                     <ul className="list-disc list-outside ml-5 space-y-1 text-neutral-700 dark:text-neutral-300 print:text-neutral-800 text-[14px] md:text-[15px] leading-relaxed">
-                                        <li><strong className="text-neutral-900 dark:text-white print:text-black">Tech Stack:</strong> GCP, AWS, Terraform, Python, Serverless, Eventarc, Pub/Sub, Step Functions</li>
-                                        <li>Designed a serverless SOAR platform using AWS and GCP with <strong>event-driven incident response workflows</strong>.</li>
-                                        <li>Implemented automated response playbooks including resource isolation, IAM privilege revocation, and disk snapshots for forensic analysis.</li>
-                                        <li>Built <strong>cross-cloud event normalization and correlation pipelines</strong> for unified incident handling.</li>
-                                        <li>Designed the system with <strong>queue-based buffering</strong> and workflow orchestration to handle burst traffic without overwhelming infrastructure.</li>
+                                        <li><strong className="text-neutral-900 dark:text-white print:text-black">Tech Stack:</strong> JavaScript (ES6+), Node.js, Chrome Extension APIs</li>
+                                        <li>Developed automation logic for online purchasing workflows using modern JavaScript and browser APIs.</li>
+                                        <li>Implemented asynchronous control flow, DOM automation, and cross-origin messaging.</li>
+                                        <li>Used Node.js and Playwright for dependency management and automated testing.</li>
+                                    </ul>
+                                </div>
+
+                                {/* Face Recognition */}
+                                <div>
+                                    <div className="flex justify-between items-baseline mb-0.5">
+                                        <h3 className="font-bold text-neutral-900 dark:text-white print:text-black">Face / Object Recognition <span className="font-normal text-neutral-500">(Java Client and Server)</span></h3>
+                                    </div>
+                                    <ul className="list-disc list-outside ml-5 space-y-1 text-neutral-700 dark:text-neutral-300 print:text-neutral-800 text-[14px] md:text-[15px] leading-relaxed">
+                                        <li><strong className="text-neutral-900 dark:text-white print:text-black">Tech Stack:</strong> Java (Socket Programming), Python, REST API, Gemini AI</li>
+                                        <li>Built a multi-threaded Java server communicating with Python AI inference services via REST APIs.</li>
+                                        <li>Implemented encrypted socket communication between Java clients and server components.</li>
+                                        <li>Integrated Gemini AI to perform face and object recognition tasks.</li>
                                     </ul>
                                 </div>
                             </div>
@@ -178,23 +190,20 @@ const ResumePage = () => {
                         <section>
                             <h2 className="text-base font-bold uppercase border-b border-neutral-900 dark:border-neutral-100 mb-2 pb-0.5 print:border-black text-neutral-900 dark:text-white print:text-black">Technical Skills</h2>
                             <div className="grid grid-cols-[120px_1fr] gap-y-3 gap-x-6 text-[14px] md:text-[15px] font-sans">
-                                <div className="font-bold text-neutral-900 dark:text-white print:text-black">Security</div>
-                                <div className="text-neutral-700 dark:text-neutral-300 print:text-neutral-800">Kali Linux, Wireshark, Nmap, Burp Suite, Metasploit</div>
+                                <div className="font-bold text-neutral-900 dark:text-white print:text-black">Backend</div>
+                                <div className="text-neutral-700 dark:text-neutral-300 print:text-neutral-800">ASP.NET Core, Node.js, REST APIs, SignalR, Java</div>
 
-                                <div className="font-bold text-neutral-900 dark:text-white print:text-black">Analysis</div>
-                                <div className="text-neutral-700 dark:text-neutral-300 print:text-neutral-800">Postman, Hex Editor, Process Monitor, Elastic Stack (Kibana, Winlogbeat)</div>
+                                <div className="font-bold text-neutral-900 dark:text-white print:text-black">Frontend</div>
+                                <div className="text-neutral-700 dark:text-neutral-300 print:text-neutral-800">React, Vite, TypeScript, Tailwind CSS</div>
 
-                                <div className="font-bold text-neutral-900 dark:text-white print:text-black">Languages</div>
-                                <div className="text-neutral-700 dark:text-neutral-300 print:text-neutral-800">C#, Java, Python</div>
-
-                                <div className="font-bold text-neutral-900 dark:text-white print:text-black">Framework</div>
-                                <div className="text-neutral-700 dark:text-neutral-300 print:text-neutral-800">ASP.NET MVC</div>
+                                <div className="font-bold text-neutral-900 dark:text-white print:text-black">Cloud / DevOps</div>
+                                <div className="text-neutral-700 dark:text-neutral-300 print:text-neutral-800">Docker, Nginx, AWS, GCP, Terraform</div>
 
                                 <div className="font-bold text-neutral-900 dark:text-white print:text-black">Databases</div>
-                                <div className="text-neutral-700 dark:text-neutral-300 print:text-neutral-800">MSSQL Server, PostgreSQL, Firebase, Supabase</div>
+                                <div className="text-neutral-700 dark:text-neutral-300 print:text-neutral-800">MSSQL Server, PostgreSQL, Supabase, Firebase</div>
 
-                                <div className="font-bold text-neutral-900 dark:text-white print:text-black">Tools</div>
-                                <div className="text-neutral-700 dark:text-neutral-300 print:text-neutral-800">Git, Docker</div>
+                                <div className="font-bold text-neutral-900 dark:text-white print:text-black">Security</div>
+                                <div className="text-neutral-700 dark:text-neutral-300 print:text-neutral-800">Suricata IDS, Wazuh, SOC/SOAR workflows, JWT</div>
                             </div>
                         </section>
 

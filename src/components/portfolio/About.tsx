@@ -28,8 +28,6 @@ const About = () => {
                 className="w-full h-full object-cover"
                 loading="lazy"
               />
-              {/* Overlay gradient */}
-              <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
             </div>
 
             <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
