@@ -140,36 +140,12 @@ export const achievements: Certificate[] = [
         description: "Awarded for 'ThreatLens - AI Security Copilot', an AI companion ecosystem helping developers detect vulnerabilities early using Gemini 3 and RAG techniques."
     },
     {
-        id: "iede-tsinghua-2026",
-        title: "AI-Driven Digital Economy & Innovation Program - Tsinghua University",
-        issuer: "Tsinghua University",
-        image: "/images/achievements/tsinghua.jpg",
-        type: "achievement",
-        description: "Selected as a Core Member (top applicant out of 3,700+) for a specialized program focusing on artificial intelligence innovation and entrepreneurship in the modern digital economy."
-    },
-    {
-        id: "agora-ambassador",
-        title: "Agora Ambassador",
-        issuer: "Agora",
-        image: "/images/forums/agora.png",
-        type: "achievement",
-        description: "Selected as an Agora Ambassador to represent and build the developer community around Agora's real-time communication technologies."
-    },
-    {
         id: "vinuni-ai-practical-talent",
         title: "AI Practical Talent Training Program (VinUni) – Selected Participant",
         issuer: "VinUniversity",
         image: "/images/achievements/vinuni_ai.png",
         type: "achievement",
         description: "Selected to participate in the prestigious AI Practical Talent Training Program at VinUniversity. Successfully passed the rigorous application screening process and participated in technical assessments for placement."
-    },
-    {
-        id: "google-student-ambassador",
-        title: "Google Student Ambassador (GSA) - HUFLIT Representative",
-        issuer: "Google Vietnam",
-        image: "/images/forums/gsa.png",
-        type: "achievement",
-        description: "Selected to represent HUFLIT in the national Google Student Ambassador program, leading Google AI initiatives and connecting the student community with Google's technologies."
     },
     {
         id: "outstanding-student-2023",
@@ -219,6 +195,6 @@ export const featuredCertificates = [
     certificates.find(c => c.id === "aws-security-fundamentals")!
 ];
 export const featuredAchievements = [
-    achievements.find(a => a.id === "iede-tsinghua-2026")!,
-    achievements.find(a => a.id === "agora-ambassador")!
+    achievements.find(a => a.id === "threatlens-gdgoc-2026")!,
+    achievements.find(a => a.id === "hsu-vibe-coding")!
 ];

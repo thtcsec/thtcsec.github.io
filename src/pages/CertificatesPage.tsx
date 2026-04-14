@@ -45,7 +45,7 @@ const CertificatesPage = () => {
                             Credentials
                         </span>
                         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-foreground">
-                            Certificates & Achievements
+                            Certificates & Awards
                         </h1>
                         <p className="text-muted-foreground max-w-2xl mx-auto">
                             Professional certifications and recognition demonstrating continuous learning and growth
@@ -106,7 +106,7 @@ const CertificatesPage = () => {
                     {/* Achievements Section */}
                     <div>
                         <h2 className="text-2xl font-bold mb-8 text-foreground flex items-center gap-3">
-                            <span className="text-3xl">🏆</span> Achievements
+                            <span className="text-3xl">🏆</span> Awards & Prizes
                         </h2>
                         <div className="space-y-6">
                             {achievements.map((achievement) => (

@@ -18,10 +18,10 @@ const Certificates = () => {
                         Credentials
                     </span>
                     <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-foreground">
-                        Certificates & Achievements
+                        Certificates & Awards
                     </h2>
                     <p className="text-muted-foreground max-w-2xl mx-auto">
-                        Professional certifications and recognition for continuous learning
+                        Professional certifications and competitive recognition for excellence
                     </p>
                 </div>
 
@@ -79,7 +79,7 @@ const Certificates = () => {
                 {/* Achievements Grid */}
                 <div className="mb-12">
                     <h3 className="text-xl font-bold mb-6 text-foreground flex items-center gap-2">
-                        <span className="text-2xl">🏆</span> Achievements
+                        <span className="text-2xl">🏆</span> Awards & Prizes
                     </h3>
                     <div className="grid md:grid-cols-2 gap-6">
                         {featuredAchievements.map((achievement) => (
@@ -119,7 +119,7 @@ const Certificates = () => {
                 <div className="text-center">
                     <Button size="lg" variant="outline" asChild className="group">
                         <Link to="/certificates">
-                            View All Certificates & Achievements
+                            View All Certificates & Awards
                             <ExternalLink size={18} className="ml-2 group-hover:translate-x-1 transition-transform" />
                         </Link>
                     </Button>
