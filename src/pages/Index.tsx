@@ -4,7 +4,6 @@ import About from "@/components/portfolio/About";
 import Skills from "@/components/portfolio/Skills";
 import Projects from "@/components/portfolio/Projects";
 import Certificates from "@/components/portfolio/Certificates";
-import Community from "@/components/portfolio/Community";
 import RecentBlogs from "@/components/portfolio/RecentBlogs";
 import Contact from "@/components/portfolio/Contact";
 import Footer from "@/components/portfolio/Footer";
@@ -20,7 +19,6 @@ const Index = () => {
         <Skills />
         <Projects />
         <Certificates />
-        <Community />
         <RecentBlogs />
         <Contact />
       </main>

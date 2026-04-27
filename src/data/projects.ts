@@ -60,32 +60,38 @@ export const projects: Project[] = [
     },
     {
         id: "lingfilm",
-        title: "LingFilm - Language Learning Platform",
-        description: "Full-stack movie streaming platform for language learning with subtitle support. Features dual subtitles, instant dictionary, and vocab tracking.",
-        category: "web",
-        technologies: [".NET 8", "PostgreSQL", "React", "TypeScript", "Docker", "TailwindCSS"],
+        title: "LingFilm - AI Language Learning",
+        description: "Learn languages through movies with AI-powered dual subtitles, instant vocabulary tracking, and SRS-based spaced repetition review.",
+        category: "ai",
+        technologies: ["React 18", "TypeScript", ".NET 8", "PostgreSQL", "Python", "FastAPI", "Whisper", "spaCy", "Supabase", "Redis", "Hangfire", "TailwindCSS"],
         github: "",
         demo: "",
         image: "/images/preview/preview_lingfilm.png",
         images: [
             "/images/project_image/lingfilm/01_frontend.png",
+            "/images/project_image/lingfilm/02_login.png",
+            "/images/project_image/lingfilm/03_admin_systemhealth.png",
+            "/images/project_image/lingfilm/04_studio.png",
+            "/images/project_image/lingfilm/05_transcribe.png"
         ],
         featured: true,
         highlights: [
-            "Dual-subtitle system for language learning",
-            "Instant dictionary lookup & save vocabulary",
-            "JWT Authentication & Role-based Access",
-            "Microservices-ready architecture with Docker",
-            "AI Integration (Gemini/Groq) for content analysis"
+            "AI-powered auto-transcription for YouTube/URLs using Whisper",
+            "Dual-language subtitles with IPA phonetic transcription",
+            "Click-to-lookup dictionary with context-aware transcripts",
+            "SRS vocabulary review using SM-2 spaced repetition algorithm",
+            "Smart Clipper for creating and downloading video clips",
+            "Full admin dashboard for monitoring video processing pipelines",
+            "Multi-language support: English, Vietnamese, Japanese, Korean, Chinese"
         ],
         isPrivate: true
     },
     {
-        id: "ct-smartcam",
-        title: "CTSmartCam AI - Intelligent City Surveillance",
-        description: "A high-performance, SOTA security ecosystem featuring multi-stage AI pipelines, spatial-temporal fusion, and event-driven architecture optimized for NVIDIA RTX 50-series.",
+        id: "ctsmartcam",
+        title: "CTSmartCam",
+        description: "An intelligent surveillance ecosystem for Cần Thơ City, utilizing an event-driven AI pipeline for real-time monitoring and security.",
         category: "ai",
-        technologies: ["ASP.NET Core 9", "Python (PyTorch)", "YOLOv11-OBB", "Redis Streams", "MinIO", "SignalR"],
+        technologies: ["ASP.NET Core 9", "SignalR", "Python", "Redis Streams", "YOLOv11", "PostgreSQL", "pgvector", "Nginx", "Docker"],
         github: "",
         demo: "",
         image: "/images/preview/preview_ctsmartcam.png",
@@ -99,11 +105,11 @@ export const projects: Project[] = [
         ],
         featured: true,
         highlights: [
-            "SOTA License Plate Recognition (99.2% Accuracy) using YOLOv11-OBB & STN-LPRNet [cite: 574, 553]",
-            "Spatial-Temporal Fusion logic to link Driver Identities with Vehicle Plates",
-            "Event-Driven Microservices processing 100+ FPS via Redis Streams",
-            "Robustness against IR Glare, Rain, and Perspective Distortion via TPS Rectification",
-            "Security Honeypot & Intrusion Detection for critical surveillance endpoints"
+            "Event-driven architecture optimizing hardware resources for multi-camera processing",
+            "Integrated Identity Fusion linking vehicle license plates with driver facial recognition",
+            "Advanced LPR system with Super Resolution support for low-quality captures",
+            "Multi-layer security featuring application honeypots and real-time security logging",
+            "Interactive CMS dashboard for centralized camera management and analytics"
         ],
         isPrivate: true
     },

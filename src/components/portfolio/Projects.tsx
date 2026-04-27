@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ExternalLink, Github, ChevronRight, ArrowRight } from "lucide-react";
+import { ExternalLink, Github, ChevronRight, ChevronLeft, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { featuredProjects, type Project } from "@/data/projects";
 import { Link } from "react-router-dom";
@@ -79,31 +79,78 @@ interface ProjectCardProps {
 }
 
 const ProjectCard = ({ project, imageLoaded, onImageLoad }: ProjectCardProps) => {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const images = project.images && project.images.length > 0 ? project.images : [project.image];
+
+  const nextImage = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setCurrentImageIndex((prev) => (prev + 1) % images.length);
+  };
+
+  const prevImage = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setCurrentImageIndex((prev) => (prev - 1 + images.length) % images.length);
+  };
+
   return (
     <div
       className="group relative rounded-2xl overflow-hidden bg-card border border-border hover:border-primary/50 transition-all duration-500 hover:-translate-y-2 flex flex-col h-full"
     >
-      <Link to={`/projects/${project.id}`} className="block relative overflow-hidden bg-muted cursor-pointer aspect-video">
-        {/* Placeholder/skeleton while loading */}
-        {!imageLoaded && (
-          <div className="absolute inset-0 bg-gradient-to-br from-muted to-muted-foreground/10 animate-pulse" />
+      <div className="relative overflow-hidden bg-muted aspect-video">
+        <Link to={`/projects/${project.id}`} className="block absolute inset-0 z-10 cursor-pointer">
+          {/* Placeholder/skeleton while loading */}
+          {!imageLoaded && (
+            <div className="absolute inset-0 bg-gradient-to-br from-muted to-muted-foreground/10 animate-pulse" />
+          )}
+          <img
+            src={images[currentImageIndex]}
+            alt={`${project.title} - Image ${currentImageIndex + 1}`}
+            className={`w-full h-full transition-all duration-500 group-hover:scale-105 ${imageLoaded ? "opacity-100" : "opacity-0"
+              } ${project.category === 'mobile' ? 'object-contain bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-800 dark:to-slate-900' : 'object-cover'}`}
+            loading="lazy"
+            onLoad={onImageLoad}
+          />
+          {/* Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent opacity-60 group-hover:opacity-80 transition-opacity" />
+        </Link>
+
+        {/* Carousel Controls */}
+        {images.length > 1 && (
+          <div className="absolute inset-0 flex items-center justify-between px-2 opacity-0 group-hover:opacity-100 transition-opacity z-20 pointer-events-none">
+            <button 
+              onClick={prevImage}
+              className="p-1 rounded-full bg-background/80 text-foreground hover:bg-primary hover:text-primary-foreground transition-colors border border-border pointer-events-auto"
+            >
+              <ChevronLeft size={16} />
+            </button>
+            <button 
+              onClick={nextImage}
+              className="p-1 rounded-full bg-background/80 text-foreground hover:bg-primary hover:text-primary-foreground transition-colors border border-border pointer-events-auto"
+            >
+              <ChevronRight size={16} />
+            </button>
+          </div>
         )}
-        <img
-          src={project.image}
-          alt={project.title}
-          className={`w-full h-full transition-all duration-500 group-hover:scale-110 ${imageLoaded ? "opacity-100" : "opacity-0"
-            } ${project.category === 'mobile' ? 'object-contain bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-800 dark:to-slate-900' : 'object-cover'}`}
-          loading="lazy"
-          onLoad={onImageLoad}
-        />
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent opacity-60 group-hover:opacity-80 transition-opacity" />
+
+        {/* Image Indicators */}
+        {images.length > 1 && (
+          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-1 z-20 pointer-events-none">
+            {images.map((_, idx) => (
+              <div 
+                key={idx} 
+                className={`h-1.5 rounded-full transition-all duration-300 ${idx === currentImageIndex ? "w-4 bg-primary" : "w-1.5 bg-white/50"}`}
+              />
+            ))}
+          </div>
+        )}
 
         {/* Category Badge */}
-        <div className="absolute top-4 left-4 px-3 py-1 rounded-full bg-primary/20 backdrop-blur-sm border border-primary/30 text-xs font-medium text-primary">
+        <div className="absolute top-4 left-4 px-3 py-1 rounded-full bg-primary/20 backdrop-blur-sm border border-primary/30 text-xs font-medium text-primary z-20 pointer-events-none">
           {categoryEmoji[project.category]} {categoryLabels[project.category]}
         </div>
-      </Link>
+      </div>
 
       {/* Content */}
       <div className="p-6">
