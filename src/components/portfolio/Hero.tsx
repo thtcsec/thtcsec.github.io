@@ -2,6 +2,7 @@ import { ArrowDown, Github, Linkedin, Mail, Terminal, FileText, Facebook } from 
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { siteConfig, getAcademicProgress, getDaysRemaining } from "@/data/config";
+import { ScrollArea } from "@/components/ui/scroll-area";
 import {
   Dialog,
   DialogContent,
@@ -121,97 +122,105 @@ const Hero = () => {
                       View Transcript
                     </button>
                   </DialogTrigger>
-                  <DialogContent className="max-w-2xl max-h-[85vh] overflow-y-auto">
-                    <DialogHeader>
-                      <DialogTitle>Academic Performance - Year 3</DialogTitle>
-                      <DialogDescription>
-                        Detailed results for the 2025-2026 academic year.
-                      </DialogDescription>
-                    </DialogHeader>
-                    
-                    <div className="space-y-6 mt-4">
-                      {/* HK01 */}
-                      <div className="rounded-xl border border-border bg-muted/30 overflow-hidden">
-                        <div className="bg-muted px-4 py-2 text-xs font-bold uppercase tracking-wider text-muted-foreground">
-                          Năm học: 2025-2026 - Học kỳ: HK01
-                        </div>
-                        <Table>
-                          <TableHeader>
-                            <TableRow>
-                              <TableHead className="w-[100px]">Mã HP</TableHead>
-                              <TableHead>Tên học phần</TableHead>
-                              <TableHead className="text-center">Tín chỉ</TableHead>
-                              <TableHead className="text-center">Điểm</TableHead>
-                              <TableHead className="text-right">Kết quả</TableHead>
-                            </TableRow>
-                          </TableHeader>
-                          <TableBody>
-                            {[
-                              { code: "1010762", name: "Giáo dục thể chất 1 (Bóng bàn 1)", credits: "2.0", grade: "8.8", letter: "A" },
-                              { code: "1210164", name: "Blockchain và ứng dụng", credits: "4.0", grade: "9.9", letter: "A+" },
-                              { code: "1230274", name: "Quản trị mạng", credits: "4.0", grade: "9.3", letter: "A+" },
-                              { code: "1250013", name: "Tiếng Anh chuyên ngành 1", credits: "3.0", grade: "9.3", letter: "A+" },
-                              { code: "1250114", name: "Điều tra tấn công", credits: "4.0", grade: "8.9", letter: "A" },
-                            ].map((item) => (
-                              <TableRow key={item.code} className="text-xs">
-                                <TableCell className="font-mono text-muted-foreground">{item.code}</TableCell>
-                                <TableCell className="font-medium">{item.name}</TableCell>
-                                <TableCell className="text-center">{item.credits}</TableCell>
-                                <TableCell className="text-center font-bold text-primary">{item.grade}</TableCell>
-                                <TableCell className="text-right font-bold">{item.letter}</TableCell>
-                              </TableRow>
-                            ))}
-                          </TableBody>
-                        </Table>
-                        <div className="p-3 bg-muted/20 border-t border-border flex flex-wrap gap-x-4 gap-y-1 text-[10px] text-muted-foreground uppercase font-bold">
-                          <span>TC Đạt: 15</span>
-                          <span>GPA HK: 4.00</span>
-                          <span>GPA Tích lũy: 3.44</span>
-                          <span className="text-primary">DRL: 85.00 (Tốt)</span>
-                        </div>
-                      </div>
-
-                      {/* HK02 */}
-                      <div className="rounded-xl border border-border bg-muted/30 overflow-hidden">
-                        <div className="bg-muted px-4 py-2 text-xs font-bold uppercase tracking-wider text-muted-foreground">
-                          Năm học: 2025-2026 - Học kỳ: HK02
-                        </div>
-                        <Table>
-                          <TableHeader>
-                            <TableRow>
-                              <TableHead className="w-[100px]">Mã HP</TableHead>
-                              <TableHead>Tên học phần</TableHead>
-                              <TableHead className="text-center">Tín chỉ</TableHead>
-                              <TableHead className="text-center">Điểm</TableHead>
-                              <TableHead className="text-right">Kết quả</TableHead>
-                            </TableRow>
-                          </TableHeader>
-                          <TableBody>
-                            {[
-                              { code: "1010873", name: "Giáo dục thể chất 2 (Bóng bàn 2)", credits: "3.0", grade: "9.2", letter: "A+" },
-                              { code: "1250023", name: "Tiếng Anh chuyên ngành 2", credits: "3.0", grade: "-", letter: "-" },
-                              { code: "1250244", name: "Mạng không dây", credits: "4.0", grade: "9.3", letter: "A+" },
-                              { code: "1250254", name: "Penetration testing", credits: "4.0", grade: "-", letter: "-" },
-                              { code: "1250264", name: "Quản trị hệ thống bảo mật", credits: "4.0", grade: "9.4", letter: "A+" },
-                              { code: "1250374", name: "Dịch ngược", credits: "4.0", grade: "-", letter: "-" },
-                            ].map((item) => (
-                              <TableRow key={item.code} className="text-xs">
-                                <TableCell className="font-mono text-muted-foreground">{item.code}</TableCell>
-                                <TableCell className="font-medium">{item.name}</TableCell>
-                                <TableCell className="text-center">{item.credits}</TableCell>
-                                <TableCell className="text-center font-bold text-primary">{item.grade}</TableCell>
-                                <TableCell className="text-right font-bold">{item.letter}</TableCell>
-                              </TableRow>
-                            ))}
-                          </TableBody>
-                        </Table>
-                        <div className="p-3 bg-muted/20 border-t border-border flex flex-wrap gap-x-4 gap-y-1 text-[10px] text-muted-foreground uppercase font-bold">
-                          <span>TC Đạt: 8</span>
-                          <span>GPA HK: 4.00</span>
-                          <span>GPA Tích lũy: 3.47</span>
-                        </div>
-                      </div>
+                  <DialogContent className="max-w-3xl h-[85vh] flex flex-col p-0 overflow-hidden">
+                    <div className="p-6 pb-2">
+                      <DialogHeader>
+                        <DialogTitle>Academic Performance - Year 3</DialogTitle>
+                        <DialogDescription>
+                          Detailed results for the 2025-2026 academic year. (Calculated based on available grades)
+                        </DialogDescription>
+                      </DialogHeader>
                     </div>
+                    
+                    <ScrollArea className="flex-1 px-6 pb-6">
+                      <div className="space-y-6">
+                        {/* HK01 */}
+                        <div className="rounded-xl border border-border bg-muted/30 overflow-hidden">
+                          <div className="bg-muted px-4 py-2 text-xs font-bold uppercase tracking-wider text-muted-foreground">
+                            Năm học: 2025-2026 - Học kỳ: HK01
+                          </div>
+                          <div className="overflow-x-auto">
+                            <Table className="min-w-[550px]">
+                              <TableHeader>
+                                <TableRow>
+                                  <TableHead className="w-[100px]">Mã HP</TableHead>
+                                  <TableHead>Tên học phần</TableHead>
+                                  <TableHead className="text-center">Tín chỉ</TableHead>
+                                  <TableHead className="text-center">Điểm</TableHead>
+                                  <TableHead className="text-right">Kết quả</TableHead>
+                                </TableRow>
+                              </TableHeader>
+                              <TableBody>
+                                {[
+                                  { code: "1010762", name: "Giáo dục thể chất 1 (Bóng bàn 1)", credits: "2.0", grade: "8.8", letter: "A" },
+                                  { code: "1210164", name: "Blockchain và ứng dụng", credits: "4.0", grade: "9.9", letter: "A+" },
+                                  { code: "1230274", name: "Quản trị mạng", credits: "4.0", grade: "9.3", letter: "A+" },
+                                  { code: "1250013", name: "Tiếng Anh chuyên ngành 1", credits: "3.0", grade: "9.3", letter: "A+" },
+                                  { code: "1250114", name: "Điều tra tấn công", credits: "4.0", grade: "8.9", letter: "A" },
+                                ].map((item) => (
+                                  <TableRow key={item.code} className="text-xs">
+                                    <TableCell className="font-mono text-muted-foreground">{item.code}</TableCell>
+                                    <TableCell className="font-medium">{item.name}</TableCell>
+                                    <TableCell className="text-center">{item.credits}</TableCell>
+                                    <TableCell className="text-center font-bold text-primary">{item.grade}</TableCell>
+                                    <TableCell className="text-right font-bold">{item.letter}</TableCell>
+                                  </TableRow>
+                                ))}
+                              </TableBody>
+                            </Table>
+                          </div>
+                          <div className="p-3 bg-muted/20 border-t border-border flex flex-wrap gap-x-4 gap-y-1 text-[10px] text-muted-foreground uppercase font-bold">
+                            <span>TC Đạt: 15</span>
+                            <span>GPA HK: 4.00</span>
+                            <span>GPA Tích lũy: 3.44</span>
+                            <span className="text-primary">DRL: 85.00 (Tốt)</span>
+                          </div>
+                        </div>
+
+                        {/* HK02 */}
+                        <div className="rounded-xl border border-border bg-muted/30 overflow-hidden">
+                          <div className="bg-muted px-4 py-2 text-xs font-bold uppercase tracking-wider text-muted-foreground">
+                            Năm học: 2025-2026 - Học kỳ: HK02
+                          </div>
+                          <div className="overflow-x-auto">
+                            <Table className="min-w-[550px]">
+                              <TableHeader>
+                                <TableRow>
+                                  <TableHead className="w-[100px]">Mã HP</TableHead>
+                                  <TableHead>Tên học phần</TableHead>
+                                  <TableHead className="text-center">Tín chỉ</TableHead>
+                                  <TableHead className="text-center">Điểm</TableHead>
+                                  <TableHead className="text-right">Kết quả</TableHead>
+                                </TableRow>
+                              </TableHeader>
+                              <TableBody>
+                                {[
+                                  { code: "1010873", name: "Giáo dục thể chất 2 (Bóng bàn 2)", credits: "3.0", grade: "9.2", letter: "A+" },
+                                  { code: "1250023", name: "Tiếng Anh chuyên ngành 2", credits: "3.0", grade: "9.5", letter: "A+" },
+                                  { code: "1250244", name: "Mạng không dây", credits: "4.0", grade: "9.3", letter: "A+" },
+                                  { code: "1250254", name: "Penetration testing", credits: "4.0", grade: "-", letter: "-" },
+                                  { code: "1250264", name: "Quản trị hệ thống bảo mật", credits: "4.0", grade: "9.4", letter: "A+" },
+                                  { code: "1250374", name: "Dịch ngược", credits: "4.0", grade: "-", letter: "-" },
+                                ].map((item) => (
+                                  <TableRow key={item.code} className="text-xs">
+                                    <TableCell className="font-mono text-muted-foreground">{item.code}</TableCell>
+                                    <TableCell className="font-medium">{item.name}</TableCell>
+                                    <TableCell className="text-center">{item.credits}</TableCell>
+                                    <TableCell className="text-center font-bold text-primary">{item.grade}</TableCell>
+                                    <TableCell className="text-right font-bold">{item.letter}</TableCell>
+                                  </TableRow>
+                                ))}
+                              </TableBody>
+                            </Table>
+                          </div>
+                          <div className="p-3 bg-muted/20 border-t border-border flex flex-wrap gap-x-4 gap-y-1 text-[10px] text-muted-foreground uppercase font-bold">
+                            <span>TC Đạt: 14</span>
+                            <span>GPA HK: 4.00</span>
+                            <span>GPA Tích lũy: 3.50</span>
+                          </div>
+                        </div>
+                      </div>
+                    </ScrollArea>
                   </DialogContent>
                 </Dialog>
               </div>
