@@ -27,7 +27,7 @@ const competitions = [
   {
     name: "VinUniversity - The Gridbreakers Datathon 2026",
     date: "May 2026",
-    role: "Top 50 Finalist (10% Nationwide)",
+    role: "Top 10 Finalist (Team GenCore)",
     icon: <BarChart className="w-5 h-5 text-purple-400 group-hover:animate-pulse" />,
     bgGradient: "from-purple-500/10 to-transparent",
     borderClass: "border-purple-500/20 group-hover:border-purple-500/50 group-hover:shadow-[0_0_15px_rgba(168,85,247,0.3)]",

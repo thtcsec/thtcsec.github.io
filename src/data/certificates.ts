@@ -132,6 +132,14 @@ export const certificates: Certificate[] = [
 
 export const achievements: Certificate[] = [
     {
+        id: "vinuni-datathon-2026",
+        title: "Top 10 Finalist - The Gridbreakers Datathon 2026",
+        issuer: "VinUniversity & Vintelligence",
+        image: "/images/achievements/datathon_top10.jpg",
+        type: "achievement",
+        description: "Ranked 10th (Team GenCore) in the nationwide Datathon organized by VinUniversity. Selected as one of the best performing teams among over 500 teams and 1,500 participants."
+    },
+    {
         id: "threatlens-gdgoc-2026",
         title: "Second Runner Up - GDGOC SGU 2026",
         issuer: "Google Developer Group on Campus - Sai Gon University",
@@ -195,6 +203,6 @@ export const featuredCertificates = [
     certificates.find(c => c.id === "aws-security-fundamentals")!
 ];
 export const featuredAchievements = [
-    achievements.find(a => a.id === "threatlens-gdgoc-2026")!,
-    achievements.find(a => a.id === "hsu-vibe-coding")!
+    achievements.find(a => a.id === "vinuni-datathon-2026")!,
+    achievements.find(a => a.id === "threatlens-gdgoc-2026")!
 ];
