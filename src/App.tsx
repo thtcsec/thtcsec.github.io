@@ -8,7 +8,7 @@ import Index from "./pages/Index";
 import ProjectsPage from "./pages/ProjectsPage";
 import ProjectDetailPage from "./pages/ProjectDetailPage";
 import CertificatesPage from "./pages/CertificatesPage";
-import PhonePage from "./pages/PhonePage";
+
 import PricingPage from "./pages/PricingPage";
 import ResumePage from "./pages/ResumePage";
 import SilentPipePage from "./pages/SilentPipePage";
@@ -16,6 +16,7 @@ import PentestLabPage from "./pages/PentestLabPage";
 import BlogPage from "./pages/BlogPage";
 import BlogDetailPage from "./pages/BlogDetailPage";
 import AboutPage from "./pages/AboutPage";
+import PrismaPage from "./pages/PrismaPage";
 import NotFound from "./pages/NotFound";
 import { initGA } from "./lib/ga4";
 import { useHumanActivity } from "./hooks/useHumanActivity";
@@ -44,7 +45,7 @@ const App = () => {
             <Route path="/projects" element={<ProjectsPage />} />
             <Route path="/projects/:id" element={<ProjectDetailPage />} />
             <Route path="/certificates" element={<CertificatesPage />} />
-            <Route path="/phone" element={<PhonePage />} />
+
             <Route path="/price" element={<PricingPage />} />
             <Route path="/resume" element={<ResumePage />} />
             <Route path="/silentpipe" element={<SilentPipePage />} />
@@ -54,6 +55,7 @@ const App = () => {
             <Route path="/research" element={<BlogPage />} />
             <Route path="/research/:id" element={<BlogDetailPage />} />
             <Route path="/about" element={<AboutPage />} />
+            <Route path="/prisma" element={<PrismaPage />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

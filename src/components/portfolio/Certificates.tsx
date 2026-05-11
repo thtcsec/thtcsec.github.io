@@ -10,31 +10,29 @@ const Certificates = () => {
     const [modalImage, setModalImage] = useState<{ src: string; alt: string } | null>(null);
 
     return (
-        <section id="certificates" className="py-20 relative">
+        <section id="certificates" className="cinema-section">
             <div className="container mx-auto px-4">
-                {/* Section Header */}
-                <div className="text-center mb-12">
-                    <span className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
+                <div className="cinema-reveal mb-12 text-center">
+                    <span className="cinema-kicker mb-4">
                         Credentials
                     </span>
-                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-foreground">
-                        Certificates & Awards
+                    <h2 className="cinema-title mb-4">
+                        Certificates and awards
                     </h2>
-                    <p className="text-muted-foreground max-w-2xl mx-auto">
-                        Professional certifications and competitive recognition for excellence
+                    <p className="cinema-subtitle">
+                        Verified learning paths and competition outcomes with practical impact.
                     </p>
                 </div>
 
-                {/* Certificates Grid */}
                 <div className="mb-12">
-                    <h3 className="text-xl font-bold mb-6 text-foreground flex items-center gap-2">
-                        <span className="text-2xl">📜</span> Certificates
+                    <h3 className="mb-6 text-xl font-bold text-foreground">
+                        Certificates
                     </h3>
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div className="cinema-stagger grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                         {featuredCertificates.map((cert) => (
                             <div
                                 key={cert.id}
-                                className="group relative rounded-xl overflow-hidden bg-card border border-border hover:border-primary/50 transition-all duration-500 hover:-translate-y-2 cursor-pointer"
+                                className="cinema-card group relative cursor-pointer overflow-hidden transition-colors hover:border-primary/50"
                                 onClick={() => {
                                     if (!cert.credlyBadgeId) {
                                         setModalImage({ src: cert.image, alt: cert.title });
@@ -50,7 +48,7 @@ const Certificates = () => {
                                     } : {}}
                                 >
                                     {cert.credlyBadgeId ? (
-                                        <div className="relative z-10 scale-90 md:scale-110">
+                                        <div className="relative z-10 scale-90 md:scale-105">
                                             <CredlyBadge badgeId={cert.credlyBadgeId} />
                                         </div>
                                     ) : (
@@ -66,8 +64,8 @@ const Certificates = () => {
                                     )}
                                 </div>
                                 <div className="p-4">
-                                    <p className="text-xs text-primary font-medium mb-1">{cert.issuer}</p>
-                                    <h4 className="text-base font-bold text-foreground group-hover:text-primary transition-colors">
+                                    <div className="mb-1 text-xs uppercase tracking-[0.16em] text-muted-foreground">{cert.issuer}</div>
+                                    <h4 className="text-base font-bold text-foreground transition-colors group-hover:text-primary">
                                         {cert.title}
                                     </h4>
                                 </div>
@@ -76,16 +74,15 @@ const Certificates = () => {
                     </div>
                 </div>
 
-                {/* Achievements Grid */}
                 <div className="mb-12">
-                    <h3 className="text-xl font-bold mb-6 text-foreground flex items-center gap-2">
-                        <span className="text-2xl">🏆</span> Awards & Prizes
+                    <h3 className="mb-6 text-xl font-bold text-foreground">
+                        Awards and prizes
                     </h3>
-                    <div className="grid md:grid-cols-2 gap-6">
+                    <div className="cinema-stagger grid md:grid-cols-2 gap-6">
                         {featuredAchievements.map((achievement) => (
                             <div
                                 key={achievement.id}
-                                className="group flex flex-col md:flex-row gap-4 rounded-xl overflow-hidden bg-card border border-border hover:border-primary/50 transition-all duration-500 hover:-translate-y-2 cursor-pointer"
+                                className="cinema-card group flex cursor-pointer flex-col gap-4 overflow-hidden transition-colors hover:border-primary/50 md:flex-row"
                                 onClick={() => setModalImage({ src: achievement.image, alt: achievement.title })}
                             >
                                 <div className="md:w-48 aspect-video md:aspect-square overflow-hidden bg-muted flex-shrink-0">
@@ -100,12 +97,12 @@ const Certificates = () => {
                                     />
                                 </div>
                                 <div className="p-4 flex flex-col justify-center">
-                                    <p className="text-xs text-primary font-medium mb-1">{achievement.issuer}</p>
-                                    <h4 className="text-lg font-bold text-foreground group-hover:text-primary transition-colors mb-2">
+                                    <div className="mb-1 text-xs uppercase tracking-[0.16em] text-muted-foreground">{achievement.issuer}</div>
+                                    <h4 className="mb-2 text-lg font-bold text-foreground transition-colors group-hover:text-primary">
                                         {achievement.title}
                                     </h4>
                                     {achievement.description && (
-                                        <p className="text-sm text-muted-foreground line-clamp-2">
+                                        <p className="line-clamp-2 text-sm leading-6 text-muted-foreground">
                                             {achievement.description}
                                         </p>
                                     )}
@@ -115,7 +112,6 @@ const Certificates = () => {
                     </div>
                 </div>
 
-                {/* View All Button */}
                 <div className="text-center">
                     <Button size="lg" variant="outline" asChild className="group">
                         <Link to="/certificates">

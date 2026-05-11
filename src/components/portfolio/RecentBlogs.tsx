@@ -7,20 +7,18 @@ const RecentBlogs = () => {
   const recentPosts = blogPosts.slice(0, 3);
 
   return (
-    <section id="research" className="py-20 bg-background relative overflow-hidden">
-      {/* Background decorations */}
-      <div className="absolute top-1/2 left-0 w-64 h-64 bg-primary/5 rounded-full blur-[100px] -translate-y-1/2 -translate-x-1/2 pointer-events-none" />
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-[120px] translate-y-1/2 translate-x-1/3 pointer-events-none" />
-
+    <section id="research" className="cinema-section bg-background overflow-hidden">
       <div className="container px-4 mx-auto relative z-10">
         <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
           <div className="max-w-2xl">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 font-mono tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/70">
-              <span className="text-primary mr-2">{"//"}</span>
-              Research & Articles
+            <div className="cinema-kicker mb-4">
+              Research
+            </div>
+            <h2 className="cinema-title mb-4 text-left md:text-4xl">
+              Articles and notes
             </h2>
             <p className="text-muted-foreground text-lg">
-              Explore my latest research, deep-dives into advanced technologies, and thought leadership in AI and cybersecurity.
+              Short write-ups on security, systems, and the technical work behind the portfolio.
             </p>
           </div>
           <Link
@@ -37,7 +35,7 @@ const RecentBlogs = () => {
             <Link
               key={post.id}
               to={`/research/${post.id}`}
-              className="group block h-full bg-card/50 border border-border/50 rounded-2xl overflow-hidden hover:border-primary/50 transition-all duration-300 shadow hover:shadow-lg hover:-translate-y-1"
+              className="cinema-card group block h-full overflow-hidden transition-colors hover:border-primary/50"
             >
               {post.imageUrl && (
                 <div className="relative h-48 overflow-hidden">

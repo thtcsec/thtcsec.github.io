@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
-import { Menu, X, Download, HelpCircle } from "lucide-react";
+import { useState, useEffect, useRef } from "react";
+import { Menu, X, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import ThemeToggle from "@/components/ThemeToggle";
 import { Link } from "react-router-dom";
@@ -7,7 +7,6 @@ import { Link } from "react-router-dom";
 const navItems = [
   { label: "Home", href: "#home" },
   { label: "About", href: "#about" },
-  { label: "Skills", href: "#skills" },
   { label: "Projects", href: "#projects" },
   { label: "Certificates", href: "#certificates" },
   { label: "Community", href: "#community" },
@@ -16,13 +15,32 @@ const navItems = [
 ];
 
 const Header = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isHeaderHidden, setIsHeaderHidden] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const lastScrollYRef = useRef(0);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      const currentScrollY = window.scrollY;
+      const lastScrollY = lastScrollYRef.current;
+
+      setIsScrolled(currentScrollY > 28);
+
+      // Hide header when reading downward, reveal on upward intent.
+      if (!isMobileMenuOpen) {
+        if (currentScrollY > 140 && currentScrollY > lastScrollY + 6) {
+          setIsHeaderHidden(true);
+        } else if (currentScrollY < lastScrollY - 6 || currentScrollY < 48) {
+          setIsHeaderHidden(false);
+        }
+      }
+
+      const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+      setScrollProgress(maxScroll > 0 ? Math.min(currentScrollY / maxScroll, 1) : 0);
+      lastScrollYRef.current = currentScrollY;
 
       // Update active section based on scroll position
       const sections = navItems.map(item => item.href.substring(1));
@@ -48,7 +66,13 @@ const Header = () => {
     
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [isMobileMenuOpen]);
+
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      setIsHeaderHidden(false);
+    }
+  }, [isMobileMenuOpen]);
 
   const handleNavClick = (href: string) => {
     setIsMobileMenuOpen(false);
@@ -67,23 +91,25 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 transition-all duration-500 ${isScrolled
-        ? "w-[95%] md:w-max min-w-[300px]"
-        : "w-[95%] md:w-[90%] max-w-7xl"
-        }`}
+      className={`fixed left-1/2 z-50 w-[96%] -translate-x-1/2 transition-all duration-400 ${
+        isScrolled
+          ? "top-3 max-w-6xl md:top-4"
+          : "top-4 max-w-7xl md:top-6"
+      } ${
+        isHeaderHidden ? "-translate-y-[120%]" : "translate-y-0"
+      }`}
     >
       <div
-        className={`transition-all duration-500 ${isScrolled
-          ? "bg-background/70 dark:bg-background/40 backdrop-blur-xl border border-border/50 dark:border-white/10 rounded-full shadow-xl dark:shadow-[0_0_30px_rgba(0,0,0,0.5)] py-2 px-4 md:px-6"
-          : "bg-background/30 dark:bg-background/20 backdrop-blur-sm border border-transparent rounded-full py-3 md:py-4 px-4 md:px-6"
-          }`}
+        className={`rounded-full px-4 py-3 backdrop-blur-xl transition-all duration-400 md:px-6 ${
+          isScrolled
+            ? "border border-border/80 bg-background/86 shadow-[0_20px_54px_-30px_hsl(var(--foreground)/0.8)]"
+            : "border border-border/65 bg-background/72 shadow-[0_14px_34px_-24px_hsl(var(--foreground)/0.65)]"
+        }`}
       >
         <div className="flex items-center justify-between">
-          {/* Logo - Hidden when scrolled on desktop, visible on mobile */}
           <a
             href="#home"
-            className={`font-bold text-gradient transition-all duration-300 ease-out whitespace-nowrap ${isScrolled ? "md:opacity-0 md:pointer-events-none text-base md:text-lg" : "text-lg md:text-xl"
-              }`}
+            className="whitespace-nowrap text-lg font-bold text-foreground transition-colors hover:text-primary md:text-xl"
             onClick={e => {
               e.preventDefault();
               handleNavClick("#home");
@@ -92,15 +118,9 @@ const Header = () => {
             hoangtu<span className="text-primary">.dev</span>
           </a>
 
-          {/* Desktop Navigation - Takes full space when scrolled */}
-          <nav className={`hidden md:flex items-center transition-all duration-500 ${isScrolled ? "mx-auto" : ""}`}>
-            <div
-              className={`flex items-center transition-all duration-500 ${isScrolled
-                ? "gap-0.5"
-                : "gap-1"
-                }`}
-            >
-              {navItems.map((item, index) => (
+          <nav className="hidden items-center md:flex">
+            <div className="flex items-center gap-1">
+              {navItems.map(item => (
                 <a
                   key={item.href}
                   href={item.href}
@@ -108,12 +128,9 @@ const Header = () => {
                     e.preventDefault();
                     handleNavClick(item.href);
                   }}
-                  className={`rounded-full font-medium transition-all duration-500 ease-out hover:scale-105 whitespace-nowrap ${activeSection === item.href.substring(1)
+                  className={`whitespace-nowrap rounded-full px-4 py-2 text-sm font-medium transition-colors ${activeSection === item.href.substring(1)
                     ? "text-primary bg-primary/10"
                     : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
-                    } ${isScrolled
-                      ? "px-3 py-1.5 text-xs"
-                      : "px-4 py-2 text-sm"
                     }`}
                 >
                   {item.label}
@@ -122,52 +139,14 @@ const Header = () => {
             </div>
           </nav>
 
-          {/* Right side - Pricing + Theme + Easter Egg */}
-          <div
-            className={`hidden md:flex items-center transition-all duration-500 ${isScrolled ? "gap-1" : "gap-2"
-              }`}
-          >
-            <Button
-              size={isScrolled ? "sm" : "default"}
-              variant="default"
-              className="transition-all duration-500 hover:scale-105"
-              asChild
-            >
-              <Link to="/price">Pricing</Link>
+          <div className="hidden items-center gap-2 md:flex">
+            <Button size="sm" variant="outline" asChild className="hidden lg:inline-flex">
+              <Link to="/resume">Resume</Link>
             </Button>
             <ThemeToggle />
-            <Button
-              size={isScrolled ? "sm" : "default"}
-              variant="ghost"
-              className="transition-all duration-500 hover:scale-105"
-              asChild
-            >
-              <Link to="/phone">
-                <HelpCircle size={isScrolled ? 18 : 22} />
-              </Link>
-            </Button>
           </div>
 
-          {/* Mobile: Pricing + Help + Theme Toggle + Menu Button */}
-          <div className="md:hidden flex items-center gap-2">
-            <Button
-              size="sm"
-              variant="default"
-              className="transition-all duration-300 hover:scale-105 text-xs px-3"
-              asChild
-            >
-              <Link to="/price">Pricing</Link>
-            </Button>
-            <Button
-              size="sm"
-              variant="ghost"
-              className="transition-all duration-300 hover:scale-105"
-              asChild
-            >
-              <Link to="/phone">
-                <HelpCircle size={20} />
-              </Link>
-            </Button>
+          <div className="flex items-center gap-2 md:hidden">
             <ThemeToggle />
             <button
               className="p-2 text-foreground hover:bg-muted/50 rounded-full transition-colors"
@@ -178,57 +157,46 @@ const Header = () => {
             </button>
           </div>
         </div>
+        <div className="pointer-events-none absolute inset-x-6 bottom-[2px] h-[2px] overflow-hidden rounded-full">
+          <div
+            className="h-full rounded-full bg-primary/70 transition-[width] duration-150"
+            style={{ width: `${Math.max(scrollProgress * 100, 4)}%` }}
+          />
+        </div>
       </div>
 
       {/* Mobile Navigation */}
       {isMobileMenuOpen && (
-        <div className="fixed inset-0 z-30 bg-background/98 dark:bg-background/98 backdrop-blur-xl pt-24 px-6 flex flex-col gap-6 animate-fade-in md:hidden text-center border-t border-border/20">
-          {/* Close button overlay for better visibility */}
-          <div className="absolute top-6 right-6">
-            <button
-              className="p-3 text-foreground bg-background/80 hover:bg-muted border border-border/50 rounded-full transition-all duration-200 hover:scale-105 shadow-lg"
-              onClick={() => setIsMobileMenuOpen(false)}
-              aria-label="Close menu"
+        <div className="mt-3 overflow-hidden rounded-3xl border border-border/70 bg-background/94 p-5 shadow-[0_22px_64px_-32px_hsl(var(--foreground)/0.85)] backdrop-blur-2xl md:hidden animate-fade-in">
+          <div className="flex flex-col gap-2 text-center">
+            {navItems.map((item, index) => (
+              <a
+                key={item.href}
+                href={item.href}
+                onClick={e => {
+                  e.preventDefault();
+                  handleNavClick(item.href);
+                }}
+                className={`rounded-2xl px-4 py-3 text-base font-semibold transition-colors ${activeSection === item.href.substring(1)
+                  ? "bg-primary/12 text-primary"
+                  : "text-foreground/80 hover:bg-muted/45 hover:text-foreground"
+                  }`}
+                style={{ animationDelay: `${index * 35}ms` }}
+              >
+                {item.label}
+              </a>
+            ))}
+            <Button
+              variant="outline"
+              className="mt-3 w-full py-6 text-base"
+              asChild
             >
-              <X size={24} />
-            </button>
+              <Link to="/resume" onClick={() => setIsMobileMenuOpen(false)}>
+                <Download size={18} className="mr-2" />
+                Resume
+              </Link>
+            </Button>
           </div>
-
-          {navItems.map((item, index) => (
-            <a
-              key={item.href}
-              href={item.href}
-              onClick={e => {
-                e.preventDefault();
-                handleNavClick(item.href);
-              }}
-              className={`text-2xl font-bold hover:text-primary py-4 border-b border-border/50 animate-slide-up transition-colors ${activeSection === item.href.substring(1)
-                ? "text-primary"
-                : "text-foreground/80"
-                }`}
-              style={{ animationDelay: `${index * 50}ms` }}
-            >
-              {item.label}
-            </a>
-          ))}
-          <Button
-            className="mt-4 w-full py-6 text-lg shadow-xl animate-slide-up"
-            onClick={() => handleNavClick("#contact")}
-            style={{ animationDelay: `${navItems.length * 50}ms` }}
-          >
-            Contact Me
-          </Button>
-          <Button
-            variant="outline"
-            className="w-full py-6 text-lg animate-slide-up"
-            asChild
-            style={{ animationDelay: `${(navItems.length + 1) * 50}ms` }}
-          >
-            <a href="/cv/mycv.pdf" target="_blank" download>
-              <Download size={20} className="mr-2" />
-              Download CV
-            </a>
-          </Button>
         </div>
       )}
     </header>

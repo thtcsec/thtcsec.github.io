@@ -173,20 +173,20 @@ export const projects: Project[] = [
     },
     {
         id: "ai-sentinel",
-        title: "AI Sentinel - Fall Detection",
-        description: "Privacy-first fall detection system for elderly that runs 100% on edge devices. Zero cloud costs, instant Telegram alerts, with optional Snowflake analytics.",
+        title: "Lumisight Core",
+        description: "Spatial & anomaly detection system running 100% on edge devices. Features zero-shot anomaly detection, real-time Telegram alerts, and Snowflake data lake integration.",
         category: "ai",
-        technologies: ["Python", "OpenCV", "Docker", "Telegram Bot", "Snowflake"],
-        github: "https://github.com/thtcsec/AI-Sentinel",
+        technologies: ["Python", "OpenCV", "Docker", "MediaPipe", "YOLOv8", "Snowflake"],
+        github: "https://github.com/thtcsec/Lumisight-Core",
         demo: "",
         image: "/images/preview/preview_ai_sentinel.jpg",
         featured: true,
         highlights: [
-            "100% edge processing - no cloud required",
-            "Frame-differencing AI for fall detection",
-            "Instant Telegram alerts with snapshot",
-            "Docker-ready deployment",
-            "Snowflake analytics integration"
+            "100% Privacy-First edge processing",
+            "Zero-shot frame-differencing & Hybrid AI engines",
+            "Multi-Camera RTSP streams support",
+            "Instant Telegram alerts with context",
+            "Snowflake Data Cloud telemetry export"
         ]
     },
     {

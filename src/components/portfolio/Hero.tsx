@@ -1,63 +1,11 @@
-import { useEffect, useState } from "react";
-import { ArrowDown, Github, Linkedin, Mail, Terminal, Code2, Sparkles, FileText, Facebook } from "lucide-react";
+import { ArrowDown, Github, Linkedin, Mail, Terminal, FileText, Facebook } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { siteConfig, getAcademicProgress, getDaysRemaining } from "@/data/config";
 
-const titles = ["Cybersecurity Enthusiast", "Full-Stack Developer", "HUFLIT Student", "Tech Explorer"];
-
-const codeLines = [
-  { text: "const developer = {", delay: 0 },
-  { text: `  name: "${siteConfig.author}",`, delay: 100 },
-  { text: '  role: "Cybersecurity Enthusiast",', delay: 200 },
-  { text: "  skills: ['C#', 'Java', 'Python', 'Security'],", delay: 300 },
-  { text: "  passion: 'Securing the digital world',", delay: 400 },
-  { text: "  available: true", delay: 500 },
-  { text: "};", delay: 600 },
-];
-
 const Hero = () => {
-  const [titleIndex, setTitleIndex] = useState(0);
-  const [displayedTitle, setDisplayedTitle] = useState("");
-  const [isDeleting, setIsDeleting] = useState(false);
-  const [visibleLines, setVisibleLines] = useState<number[]>([]);
-  const [progressPercentage, setProgressPercentage] = useState(0);
-  const [daysRemaining, setDaysRemaining] = useState(0);
-
-  useEffect(() => {
-    // Calculate dynamic progress
-    setProgressPercentage(getAcademicProgress());
-    setDaysRemaining(getDaysRemaining());
-  }, []);
-
-  useEffect(() => {
-    codeLines.forEach((_, index) => {
-      setTimeout(() => {
-        setVisibleLines(prev => [...prev, index]);
-      }, 800 + index * 150);
-    });
-  }, []);
-
-  useEffect(() => {
-    const currentTitle = titles[titleIndex];
-    const timeout = setTimeout(() => {
-      if (!isDeleting) {
-        if (displayedTitle.length < currentTitle.length) {
-          setDisplayedTitle(currentTitle.slice(0, displayedTitle.length + 1));
-        } else {
-          setTimeout(() => setIsDeleting(true), 2000);
-        }
-      } else {
-        if (displayedTitle.length > 0) {
-          setDisplayedTitle(currentTitle.slice(0, displayedTitle.length - 1));
-        } else {
-          setIsDeleting(false);
-          setTitleIndex(prev => (prev + 1) % titles.length);
-        }
-      }
-    }, isDeleting ? 50 : 100);
-    return () => clearTimeout(timeout);
-  }, [displayedTitle, isDeleting, titleIndex]);
+  const progressPercentage = getAcademicProgress();
+  const daysRemaining = getDaysRemaining();
 
   const handleScrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -67,96 +15,61 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
-      {/* Animated Background */}
-      <div className="absolute inset-0 -z-10">
-        {/* Gradient Orbs */}
-        <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-primary/30 rounded-full blur-[120px] animate-float" />
-        <div className="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-accent/25 rounded-full blur-[120px] animate-float" style={{ animationDelay: "2s" }} />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-primary/10 to-accent/10 rounded-full blur-[100px]" />
-
-        {/* Grid Pattern */}
-        <div className="absolute inset-0 opacity-[0.03]" style={{
-          backgroundImage: `linear-gradient(hsl(var(--primary)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary)) 1px, transparent 1px)`,
-          backgroundSize: '60px 60px'
-        }} />
-
-        {/* Floating Particles */}
-        <div className="absolute top-20 left-20 w-2 h-2 bg-primary rounded-full animate-float opacity-60" />
-        <div className="absolute top-40 right-32 w-3 h-3 bg-accent rounded-full animate-float opacity-40" style={{ animationDelay: "1s" }} />
-        <div className="absolute bottom-40 left-1/3 w-2 h-2 bg-primary rounded-full animate-float opacity-50" style={{ animationDelay: "1.5s" }} />
-        <div className="absolute top-1/3 right-20 w-4 h-4 bg-accent/50 rounded-full animate-float opacity-30" style={{ animationDelay: "2.5s" }} />
+    <section id="home" className="cinema-section cinema-stage min-h-screen pt-56 lg:pt-64 pb-16">
+      <div className="absolute inset-x-0 top-0 h-px bg-border/60" />
+      <div className="pointer-events-none absolute inset-0 -z-[1]">
+        <div className="absolute right-[-12%] top-[8%] h-[520px] w-[520px] rounded-full border-2 border-primary/40 bg-gradient-to-br from-primary/35 to-primary/8 blur-3xl animate-[spin_24s_linear_infinite] shadow-[0_0_120px_30px_hsl(var(--primary)/0.3)]" />
+        <div className="absolute left-[-8%] top-[38%] h-[400px] w-[400px] rounded-full border-2 border-accent/35 bg-gradient-to-br from-accent/32 to-accent/8 blur-3xl animate-[spin_32s_linear_infinite_reverse] shadow-[0_0_100px_25px_hsl(var(--accent)/0.28)]" />
+        <div className="absolute right-[5%] bottom-[20%] h-[280px] w-[280px] rounded-full border border-primary/25 bg-primary/12 blur-2xl animate-[pulse_6s_ease-in-out_infinite]" />
       </div>
-
-      <div className="container mx-auto px-4">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left Content */}
-          <div className="text-center lg:text-left">
-            <div className="opacity-0 animate-fade-in" style={{ animationDelay: "0.1s", animationFillMode: "forwards" }}>
-              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-primary/20 to-accent/20 border border-primary/30 text-primary text-sm font-medium mb-6">
-                <Sparkles size={16} className="animate-pulse" />
-                Cybersecurity & DevSecOps
-              </span>
-            </div>
-
-            <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 opacity-0 animate-fade-in leading-tight" style={{ animationDelay: "0.2s", animationFillMode: "forwards" }}>
-              Hi, I'm{" "}
-              <span className="text-gradient relative">
-                {siteConfig.authorEn}
-                <svg className="absolute -bottom-2 left-0 w-full" viewBox="0 0 200 8" fill="none">
-                  <path d="M2 6C50 2 150 2 198 6" stroke="url(#underline-gradient)" strokeWidth="3" strokeLinecap="round" />
-                  <defs>
-                    <linearGradient id="underline-gradient" x1="0" y1="0" x2="200" y2="0">
-                      <stop stopColor="hsl(var(--primary))" />
-                      <stop offset="1" stopColor="hsl(var(--accent))" />
-                    </linearGradient>
-                  </defs>
-                </svg>
+      <div className="container relative mx-auto px-4">
+        <div className="grid items-center gap-12 lg:grid-cols-[1.2fr_0.8fr]">
+          <div className="cinema-reveal" style={{ ["--reveal-delay" as string]: "60ms" }}>
+            <h1 className="max-w-3xl text-4xl font-bold leading-tight md:text-5xl lg:text-6xl">
+              Trinh Hoang Tu
+              <span className="mt-3 block text-foreground/80 text-xl font-medium md:text-2xl lg:text-3xl">
+                DevOps, Fullstack, Software Engineer.
               </span>
             </h1>
 
-            <div className="text-xl md:text-2xl lg:text-3xl text-muted-foreground mb-8 h-10 opacity-0 animate-fade-in flex items-center justify-center lg:justify-start" style={{ animationDelay: "0.3s", animationFillMode: "forwards" }}>
-              <Code2 size={28} className="text-primary mr-3" />
-              <span className="font-mono">
-                {displayedTitle}
-                <span className="inline-block w-0.5 h-7 bg-primary ml-1 animate-blink" />
-              </span>
-            </div>
-
-            <p className="text-lg text-muted-foreground max-w-xl mx-auto lg:mx-0 mb-10 opacity-0 animate-fade-in leading-relaxed" style={{ animationDelay: "0.4s", animationFillMode: "forwards" }}>
+            <p className="mt-6 max-w-2xl text-base leading-7 text-muted-foreground md:text-lg">
               {siteConfig.bio}
             </p>
 
-            {/* Academic Progress - Dynamic */}
-            <div className="mb-8 opacity-0 animate-fade-in max-w-md mx-auto lg:mx-0" style={{ animationDelay: "0.45s", animationFillMode: "forwards" }}>
-              <div className="flex justify-between text-sm mb-2">
-                <span className="text-muted-foreground">Academic Journey</span>
-                <span className="text-primary font-medium">{progressPercentage}%</span>
+            <div className="cinema-stagger mt-8 grid gap-3 sm:grid-cols-3">
+              <div className="cinema-card p-4">
+                <div className="cinema-meta">Focus</div>
+                <div className="mt-2 text-sm font-semibold text-foreground">Security + systems</div>
               </div>
-              <div className="h-2 bg-muted rounded-full overflow-hidden">
-                <div
-                  className="h-full bg-gradient-to-r from-primary to-accent rounded-full transition-all duration-1000"
-                  style={{ width: `${progressPercentage}%` }}
-                />
+              <div className="cinema-card p-4">
+                <div className="cinema-meta">Progress</div>
+                <div className="mt-2 text-sm font-semibold text-foreground">{progressPercentage}% to graduation</div>
               </div>
-              <p className="text-xs text-muted-foreground mt-2">
-                Semester {siteConfig.academic.currentSemester}/{siteConfig.academic.totalSemesters} • GPA {siteConfig.academic.gpa} • {daysRemaining} days to graduation
-              </p>
+              <div className="cinema-card p-4">
+                <div className="cinema-meta">Timeline</div>
+                <div className="mt-2 text-sm font-semibold text-foreground">{daysRemaining} days left</div>
+              </div>
             </div>
 
-            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mb-12 opacity-0 animate-fade-in" style={{ animationDelay: "0.5s", animationFillMode: "forwards" }}>
-              <Button size="lg" className="min-w-[180px] bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-opacity shadow-lg shadow-primary/25" onClick={() => handleScrollToSection("projects")}>
-                View My Work
+            <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+              <Button size="lg" className="min-w-[180px]" onClick={() => handleScrollToSection("projects")}>
+                View Projects
               </Button>
-              <Button variant="outline" size="lg" className="min-w-[180px] border-primary/50 hover:bg-primary/10 hover:border-primary" asChild>
+              <Button variant="outline" size="lg" className="min-w-[180px]" asChild>
                 <Link to="/resume">
                   <FileText size={18} className="mr-2" />
-                  View Resume
+                  Resume
                 </Link>
               </Button>
             </div>
 
-            <div className="flex items-center justify-center lg:justify-start gap-4 opacity-0 animate-fade-in" style={{ animationDelay: "0.6s", animationFillMode: "forwards" }}>
+            <div className="mt-8 flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
+              <span className="rounded-full border border-border px-3 py-1">HUFLIT</span>
+              <span className="rounded-full border border-border px-3 py-1">Cybersecurity</span>
+              <span className="rounded-full border border-border px-3 py-1">Cloud / DevSecOps</span>
+            </div>
+
+            <div className="cinema-stagger mt-8 flex items-center gap-3">
               {[
                 { icon: Github, href: siteConfig.social.github, label: "GitHub" },
                 { icon: Linkedin, href: siteConfig.social.linkedin, label: "LinkedIn" },
@@ -168,83 +81,65 @@ const Hero = () => {
                   href={href}
                   target={href.startsWith("mailto") ? undefined : "_blank"}
                   rel="noopener noreferrer"
-                  className="group p-3 rounded-xl bg-card/50 border border-border hover:border-primary hover:bg-primary/10 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-primary/10"
+                  className="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-border bg-card transition-colors hover:border-primary hover:bg-primary/5"
                   aria-label={label}
                 >
-                  <Icon size={22} className="text-muted-foreground group-hover:text-primary transition-colors" />
+                  <Icon size={18} className="text-muted-foreground" />
                 </a>
               ))}
             </div>
           </div>
 
-          {/* Right Content - Code Editor Mockup */}
-          <div className="hidden lg:block opacity-0 animate-fade-in" style={{ animationDelay: "0.4s", animationFillMode: "forwards" }}>
-            <div className="relative">
-              {/* Glow Effect */}
-              <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 to-accent/20 rounded-2xl blur-2xl" />
+          <div className="cinema-reveal lg:justify-self-end" style={{ ["--reveal-delay" as string]: "140ms" }}>
+            <div className="cinema-card rounded-3xl p-6">
+              <div className="flex items-center gap-2 text-sm font-medium text-muted-foreground">
+                <Terminal size={14} />
+                Profile snapshot
+              </div>
 
-              {/* Code Editor */}
-              <div className="relative rounded-2xl overflow-hidden border border-border/50 bg-card/80 backdrop-blur-xl shadow-2xl">
-                {/* Title Bar */}
-                <div className="flex items-center gap-2 px-4 py-3 border-b border-border/50 bg-muted/50">
-                  <div className="flex gap-2">
-                    <div className="w-3 h-3 rounded-full bg-destructive/80" />
-                    <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
-                    <div className="w-3 h-3 rounded-full bg-green-500/80" />
+              <div className="mt-6 space-y-4">
+                <div className="rounded-2xl border border-border/80 bg-muted/30 p-4">
+                  <div className="cinema-meta">What I build</div>
+                  <p className="mt-2 text-sm leading-6 text-foreground">
+                    Scalable backends, robust CI/CD pipelines, and high-performance full-stack applications.
+                  </p>
+                </div>
+
+                <div className="grid gap-3 sm:grid-cols-2">
+                  <div className="rounded-2xl border border-border p-4">
+                    <div className="cinema-meta">University</div>
+                    <div className="mt-2 text-sm font-semibold text-foreground">{siteConfig.university}</div>
                   </div>
-                  <div className="flex-1 flex justify-center">
-                    <div className="flex items-center gap-2 px-3 py-1 rounded-md bg-muted text-xs text-muted-foreground">
-                      <Terminal size={12} />
-                      developer.ts
-                    </div>
+                  <div className="rounded-2xl border border-border p-4">
+                    <div className="cinema-meta">Location</div>
+                    <div className="mt-2 text-sm font-semibold text-foreground">Ho Chi Minh City</div>
                   </div>
                 </div>
 
-                {/* Code Content */}
-                <div className="p-6 font-mono text-sm">
-                  {codeLines.map((line, index) => (
-                    <div
-                      key={index}
-                      className={`flex items-start gap-4 transition-all duration-500 ${visibleLines.includes(index) ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-4"
-                        }`}
-                    >
-                      <span className="text-muted-foreground/50 select-none w-4 text-right">
-                        {index + 1}
-                      </span>
-                      <span className="text-foreground">
-                        {line.text.includes(":") ? (
-                          <>
-                            <span className="text-accent">{line.text.split(":")[0]}</span>
-                            <span className="text-muted-foreground">:</span>
-                            <span className="text-primary">{line.text.split(":").slice(1).join(":")}</span>
-                          </>
-                        ) : (
-                          <span className="text-muted-foreground">{line.text}</span>
-                        )}
-                      </span>
-                    </div>
-                  ))}
+                <div className="rounded-2xl border border-border p-4">
+                  <div className="flex items-center justify-between cinema-meta">
+                    <span>Academic journey</span>
+                    <span>{progressPercentage}%</span>
+                  </div>
+                  <div className="mt-3 h-2 overflow-hidden rounded-full bg-muted">
+                    <div className="h-full rounded-full bg-primary" style={{ width: `${progressPercentage}%` }} />
+                  </div>
+                  <div className="mt-2 text-xs text-muted-foreground">
+                    Semester {siteConfig.academic.currentSemester}/{siteConfig.academic.totalSemesters} • GPA {siteConfig.academic.gpa}
+                  </div>
                 </div>
-              </div>
-
-              {/* Floating Elements */}
-              <div className="absolute -top-6 -right-6 p-3 rounded-xl bg-gradient-to-br from-primary to-accent shadow-lg animate-float">
-                <Code2 size={24} className="text-primary-foreground" />
-              </div>
-              <div className="absolute -bottom-4 -left-4 p-3 rounded-xl bg-card border border-border shadow-lg animate-float" style={{ animationDelay: "1s" }}>
-                <Terminal size={20} className="text-primary" />
               </div>
             </div>
           </div>
         </div>
 
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 opacity-0 animate-fade-in" style={{ animationDelay: "1s", animationFillMode: "forwards" }}>
-          <button onClick={() => handleScrollToSection("about")} className="flex flex-col items-center gap-2 text-muted-foreground hover:text-primary transition-colors group">
-            <span className="text-sm font-medium">Scroll Down</span>
-            <div className="p-2 rounded-full border border-border group-hover:border-primary transition-colors">
-              <ArrowDown size={16} className="animate-bounce-subtle" />
-            </div>
+        <div className="mt-12 flex justify-center lg:justify-start">
+          <button
+            onClick={() => handleScrollToSection("about")}
+            className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+          >
+            <ArrowDown size={16} />
+            Scroll to overview
           </button>
         </div>
       </div>

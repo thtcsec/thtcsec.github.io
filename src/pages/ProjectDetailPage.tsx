@@ -46,7 +46,9 @@ const LazyImage = ({ src, alt }: { src: string; alt: string }) => {
 const ProjectDetailPage = () => {
     const { id } = useParams<{ id: string }>();
     const project = allProjects.find(p => p.id === id);
-    const [selectedImage, setSelectedImage] = useState<string | null>(null);
+    const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
+    const hasImages = project?.images && project.images.length > 0;
+    const galleryImages = hasImages ? project.images! : (project ? [project.image] : []);
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -145,7 +147,7 @@ const ProjectDetailPage = () => {
                                         {project.images.map((img, i) => (
                                             <div
                                                 key={i}
-                                                onClick={() => setSelectedImage(img)}
+                                                onClick={() => setSelectedImageIndex(i)}
                                                 className="relative aspect-[4/3] overflow-hidden rounded-xl border border-border bg-muted cursor-pointer group hover:border-primary/50 transition-all"
                                             >
                                                 <LazyImage src={img} alt={`${project.title} - ${i + 1}`} />
@@ -233,10 +235,11 @@ const ProjectDetailPage = () => {
             </footer>
 
             <ImageModal
-                isOpen={selectedImage !== null}
-                imageSrc={selectedImage || ""}
+                isOpen={selectedImageIndex !== null}
+                images={galleryImages}
+                initialIndex={selectedImageIndex || 0}
                 imageAlt={project.title}
-                onClose={() => setSelectedImage(null)}
+                onClose={() => setSelectedImageIndex(null)}
             />
         </div>
     );

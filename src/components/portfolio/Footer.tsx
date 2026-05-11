@@ -4,10 +4,9 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="py-12 border-t border-border bg-card/30">
+    <footer className="border-t border-border/80 bg-card/15 py-12">
       <div className="container mx-auto px-4">
-        <div className="grid md:grid-cols-3 gap-8 mb-8">
-          {/* University Info */}
+        <div className="mb-8 grid gap-8 md:grid-cols-3">
           <div className="flex items-start gap-4">
             <img
               src="/images/huflit.png"
@@ -23,9 +22,8 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Quick Links */}
           <div>
-            <h4 className="font-bold mb-4 text-foreground">Quick Links</h4>
+            <h4 className="cinema-meta mb-4">Quick Links</h4>
             <ul className="space-y-2">
               {["Home", "About", "Skills", "Projects", "Contact"].map((link) => (
                 <li key={link}>
@@ -40,14 +38,13 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Tech Stack */}
           <div>
-            <h4 className="font-bold mb-4 text-foreground">Built With</h4>
+            <h4 className="cinema-meta mb-4">Built With</h4>
             <div className="flex flex-wrap gap-2">
               {["React", "TypeScript", "TailwindCSS", "Vite", "shadcn/ui"].map((tech) => (
                 <span
                   key={tech}
-                  className="px-2 py-1 rounded-md bg-muted text-xs font-medium text-muted-foreground"
+                  className="rounded-md border border-border bg-muted px-2 py-1 text-xs font-medium text-foreground/80"
                 >
                   {tech}
                 </span>
@@ -56,15 +53,13 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Bottom */}
-        <div className="pt-8 border-t border-border flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="flex flex-col items-center justify-between gap-4 border-t border-border pt-8 md:flex-row">
           <p className="text-sm text-muted-foreground">
             © {currentYear} {siteConfig.authorEn}. All rights reserved.
           </p>
 
-          {/* Visitor Counter */}
           <div className="flex items-center gap-2 text-sm text-muted-foreground">
-            <span>👁️</span>
+            <span className="text-xs uppercase tracking-[0.2em]">Profile views</span>
             <a
               href="https://github.com/thtcsec"
               target="_blank"

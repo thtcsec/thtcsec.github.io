@@ -1,0 +1,267 @@
+\documentclass[conference]{IEEEtran}
+\usepackage[utf8]{vietnam}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{url}
+\usepackage{cite}
+
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+
+\begin{document}
+
+\title{Phát hiện bất thường trong nhật ký hệ thống doanh nghiệp và giáo dục số dựa trên mô hình Transformer\\
+\large Anomaly Detection in Enterprise and Digital Education System Logs using Transformer-based Models}
+
+\author{\IEEEauthorblockN{Trịnh Hoàng Tú}
+\IEEEauthorblockA{\textit{Khoa Công nghệ thông tin} \\
+\textit{Trường Đại học Ngoại ngữ - Tin học TP.HCM (HUFLIT)}\\
+TP. Hồ Chí Minh, Việt Nam \\
+Email: tht.csec2005@gmail.com}
+}
+
+\maketitle
+
+\begin{abstract}
+Trong kỷ nguyên giáo dục số, tính sẵn sàng và an toàn của hạ tầng công nghệ thông tin như hệ thống quản lý học tập (LMS), cổng thông tin sinh viên, dịch vụ đám mây và hệ thống xác thực tập trung có vai trò then chốt. Nhật ký hệ thống (log) ghi lại trạng thái vận hành chi tiết nhưng thường có khối lượng lớn, không đồng nhất và khó phân tích thủ công. Bài báo này trình bày một hướng tiếp cận phát hiện bất thường tự động trong log dựa trên pipeline Drain3 và LogBERT, một kiến trúc Transformer hai chiều được huấn luyện theo cơ chế tự giám sát. Quy trình đề xuất sử dụng Drain3 để chuyển đổi log phi cấu trúc thành chuỗi sự kiện, sau đó dùng mô hình học ngữ cảnh chuỗi để tính điểm bất thường. Thực nghiệm bước đầu trên 500.000 dòng HDFS cho thấy Drain3 sinh 137 event template và các baseline nhẹ như PCA, Isolation Forest vẫn còn hạn chế khi phát hiện bất thường trên chuỗi event. Ngoài ra, bài báo phân tích cách ánh xạ pipeline này vào các kịch bản vận hành của hạ tầng giáo dục số như tấn công dò mật khẩu, khai thác API và lỗi quá tải dịch vụ. Kết quả nghiên cứu cung cấp một cơ sở kỹ thuật cho việc xây dựng hệ thống giám sát an toàn thông tin dựa trên log trong môi trường giáo dục số quy mô lớn.
+\end{abstract}
+
+\begin{IEEEkeywords}
+Log Anomaly Detection, LogBERT, Transformer, Drain3, Cybersecurity, AIOps, Digital Education.
+\end{IEEEkeywords}
+
+\section{Giới thiệu}
+Sự phát triển nhanh của các nền tảng giáo dục số và dịch vụ doanh nghiệp trực tuyến đã làm gia tăng độ phức tạp của hạ tầng công nghệ thông tin. Một hệ thống LMS hiện đại không chỉ bao gồm giao diện học tập mà còn liên kết với máy chủ web, cơ sở dữ liệu, hệ thống xác thực, kho nội dung, API tích hợp, dịch vụ đám mây và các công cụ giám sát. Mỗi thành phần đều sinh ra log với định dạng, tần suất và mức độ chi tiết khác nhau. Trong bối cảnh đó, việc phát hiện lỗi hoặc hành vi tấn công bằng luật thủ công trở nên khó mở rộng vì luật nhanh chóng lỗi thời khi hệ thống thay đổi.
+
+Log là nguồn dữ liệu quan trọng cho vận hành hệ thống, điều tra sự cố và an toàn thông tin \cite{b5}. Một chuỗi log bất thường có thể phản ánh lỗi phần cứng, lỗi phần mềm, quá tải dịch vụ, tấn công dò mật khẩu, khai thác lỗ hổng API hoặc hành vi di chuyển ngang trong mạng nội bộ. Tuy nhiên, log thường là dữ liệu phi cấu trúc, chứa nhiều tham số biến đổi như thời gian, địa chỉ IP, mã phiên, mã người dùng hoặc mã tiến trình. Nếu chỉ dựa vào từ khóa hoặc thống kê tần suất đơn giản, hệ thống có thể bỏ sót các bất thường phụ thuộc vào ngữ cảnh dài hạn.
+
+Bài báo này tập trung vào bài toán phát hiện bất thường trong chuỗi log bằng mô hình Transformer. Đóng góp chính của nghiên cứu gồm:
+\begin{itemize}
+    \item Trình bày pipeline phát hiện bất thường kết hợp Drain3 và LogBERT cho log hệ thống doanh nghiệp và hạ tầng giáo dục số.
+    \item Phân tích ưu điểm của cơ chế Self-Attention trong việc học quan hệ dài hạn giữa các sự kiện log so với PCA, Isolation Forest và LSTM.
+    \item Tổng hợp và so sánh các hướng nghiên cứu liên quan, bao gồm log parsing, học sâu, Transformer và các phương pháp mới dựa trên prompt/LLM.
+    \item Đề xuất cách ánh xạ kết quả phát hiện bất thường vào các kịch bản thực tế trong môi trường LMS và cổng thông tin giáo dục.
+\end{itemize}
+
+\section{Các nghiên cứu liên quan}
+\subsection{Phương pháp thống kê và học máy truyền thống}
+Các phương pháp đầu tiên trong phân tích bất thường log thường biểu diễn log dưới dạng vector tần suất sự kiện hoặc ma trận đặc trưng, sau đó áp dụng PCA, clustering hoặc Isolation Forest \cite{b10,b11}. PCA được sử dụng để tách không gian hành vi bình thường và phát hiện điểm lệch khỏi không gian con chính. Nhóm phương pháp này có ưu điểm là nhẹ, dễ triển khai và không yêu cầu tài nguyên tính toán lớn. Tuy nhiên, chúng thường bỏ qua thứ tự thời gian và quan hệ ngữ cảnh giữa các sự kiện, trong khi nhiều lỗi hệ thống chỉ có ý nghĩa khi xét theo chuỗi.
+
+\subsection{Mô hình chuỗi dựa trên RNN/LSTM}
+DeepLog là một trong những công trình tiêu biểu sử dụng LSTM để học chuỗi log và dự đoán sự kiện tiếp theo \cite{b1}. Nếu sự kiện thực tế nằm ngoài nhóm dự đoán có xác suất cao, chuỗi log được xem là bất thường. Cách tiếp cận này khai thác được quan hệ tuần tự tốt hơn các phương pháp thống kê. Tuy nhiên, LSTM xử lý chuỗi theo thứ tự tuần tự, khó song song hóa và có thể suy giảm khả năng ghi nhớ khi chuỗi log dài hoặc chứa phụ thuộc xa.
+
+\subsection{Log parsing và vai trò của Drain3}
+Trước khi đưa log vào mô hình học máy, log thô cần được chuyển thành mẫu sự kiện (event template). Drain đề xuất cây phân tích cú pháp có độ sâu cố định để parse log trực tuyến với tốc độ cao \cite{b3}. Drain3 kế thừa hướng tiếp cận này và được sử dụng rộng rãi trong các pipeline AIOps nhờ khả năng xử lý log streaming. Gần đây, các phương pháp như LogPPT khai thác prompt-based few-shot learning để cải thiện log parsing khi dữ liệu gán nhãn ít hoặc template thay đổi theo miền ứng dụng \cite{b7}. Điều này cho thấy chất lượng parsing vẫn là một yếu tố quyết định trong toàn bộ hệ thống phát hiện bất thường.
+
+\subsection{Transformer và tự giám sát trong log anomaly detection}
+Transformer sử dụng Self-Attention để học quan hệ giữa mọi vị trí trong chuỗi đầu vào \cite{b4}. LogBERT áp dụng ý tưởng BERT vào log anomaly detection bằng cách học biểu diễn chuỗi log bình thường thông qua các tác vụ tự giám sát như Masked Log Message Prediction và Volume of Hypersphere Minimization \cite{b2}. Khi một chuỗi log mới lệch khỏi phân bố hành vi bình thường, mô hình có thể gán điểm bất thường cao. Ưu điểm của LogBERT là khả năng học ngữ cảnh hai chiều và phụ thuộc dài hạn tốt hơn mô hình tuần tự truyền thống.
+
+\subsection{Hướng prompt/LLM cho phân tích log}
+Các nghiên cứu gần đây bắt đầu khai thác mô hình ngôn ngữ lớn và prompt learning cho bài toán log. LogPrompt sử dụng prompt để hỗ trợ phát hiện bất thường từ log \cite{b8}, trong khi LogGPT nghiên cứu khả năng áp dụng mô hình kiểu GPT cho log anomaly detection \cite{b9}. Các hướng này hứa hẹn cải thiện khả năng hiểu ngữ nghĩa và giải thích cảnh báo, nhưng cũng đặt ra thách thức về chi phí suy luận, độ ổn định, bảo mật dữ liệu log và khả năng triển khai trong hệ thống thời gian thực.
+
+\begin{table}[!t]
+\caption{So sánh các nhóm phương pháp phát hiện bất thường log}
+\begin{center}
+\scriptsize
+\begin{tabular}{p{1.35cm}p{1.55cm}p{3.1cm}}
+\toprule
+\textbf{Nhóm} & \textbf{Đại diện} & \textbf{Nhận xét} \\
+\midrule
+Thống kê & PCA, Isolation Forest & Nhẹ và dễ triển khai, nhưng yếu với phụ thuộc ngữ cảnh dài. \\
+Chuỗi & DeepLog, LSTM & Học thứ tự event tốt hơn, nhưng khó song song hóa và hạn chế với chuỗi dài. \\
+Transformer & LogBERT & Học ngữ cảnh hai chiều, phù hợp dữ liệu log ít nhãn; cần parsing tốt và chọn ngưỡng hợp lý. \\
+Prompt/LLM & LogPPT, LogPrompt, LogGPT & Có tiềm năng giải thích cảnh báo, nhưng chi phí cao và cần kiểm soát dữ liệu nhạy cảm. \\
+\bottomrule
+\end{tabular}
+\label{tab_related_work}
+\end{center}
+\end{table}
+
+\section{Phương pháp đề xuất}
+\subsection{Tổng quan pipeline}
+Pipeline đề xuất gồm bốn bước chính. Thứ nhất, log thô được tiền xử lý để chuẩn hóa thời gian, địa chỉ IP, mã người dùng, mã phiên và các tham số biến đổi. Thứ hai, Drain3 chuyển log phi cấu trúc thành các event template. Thứ ba, các event ID được gom thành chuỗi theo cửa sổ thời gian hoặc theo định danh phiên/block. Thứ tư, LogBERT học biểu diễn chuỗi log bình thường và tính điểm bất thường cho chuỗi mới.
+
+Trong hạ tầng giáo dục số, pipeline này có thể nhận log từ nhiều nguồn như LMS, API gateway, reverse proxy, hệ thống xác thực, cơ sở dữ liệu và máy chủ ứng dụng. Thay vì xây dựng luật riêng cho từng nguồn log, mô hình học trực tiếp pattern vận hành bình thường từ chuỗi sự kiện.
+
+\subsection{Phân tích cú pháp với Drain3}
+Drain3 được sử dụng để tách log phi cấu trúc thành các mẫu (templates). Ví dụ:
+\begin{itemize}
+    \item Log thô: \texttt{User student\_01 login failed from 192.168.1.10}
+    \item Template: \texttt{User <*> login failed from <*>}
+\end{itemize}
+
+Độ tương đồng giữa hai dòng log $T_1, T_2$ được tính theo công thức:
+\begin{equation}
+Sim(T_1, T_2) = \frac{\sum_{i=1}^{n} equ(t_{1,i}, t_{2,i})}{n}
+\label{eq_sim}
+\end{equation}
+Trong đó $n$ là số lượng token và $equ$ trả về 1 nếu hai token tương ứng giống nhau, ngược lại trả về 0. Trong thiết lập tham chiếu, ngưỡng tương đồng có thể đặt ở mức 0.5 và độ sâu cây ở mức 4 để cân bằng giữa khả năng phân biệt template và tốc độ xử lý. Các tham số này cần được tinh chỉnh lại khi chuyển sang log thực tế của LMS vì format log có thể khác đáng kể giữa Moodle, Canvas, hệ thống tự phát triển và dịch vụ đám mây.
+
+\subsection{Biểu diễn chuỗi log}
+Sau khi parsing, mỗi template được ánh xạ thành một event ID. Một phiên hoạt động hoặc cửa sổ thời gian được biểu diễn thành chuỗi:
+\begin{equation}
+S = [E_1, E_2, ..., E_m]
+\end{equation}
+Với dữ liệu HDFS, chuỗi có thể được gom theo Block ID. Với dữ liệu LMS, chuỗi có thể được gom theo session ID, user ID đã ẩn danh, địa chỉ dịch vụ hoặc cửa sổ thời gian cố định. Việc chọn chiến lược gom chuỗi ảnh hưởng trực tiếp tới khả năng phát hiện bất thường: cửa sổ quá ngắn có thể bỏ lỡ tấn công kéo dài, trong khi cửa sổ quá dài có thể làm nhiễu ngữ cảnh.
+
+\subsection{Kiến trúc mô hình LogBERT}
+LogBERT sử dụng Transformer Encoder để học biểu diễn hai chiều cho chuỗi event. Cơ chế Self-Attention được tính như sau:
+\begin{equation}
+Attention(Q,K,V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V
+\label{eq_att}
+\end{equation}
+Trong đó $Q$, $K$, $V$ lần lượt là ma trận truy vấn, khóa và giá trị. Cơ chế này cho phép mỗi event trong chuỗi tham chiếu tới toàn bộ event khác, nhờ đó mô hình có thể phát hiện những bất thường không biểu hiện bằng một dòng log đơn lẻ mà nằm ở quan hệ giữa nhiều sự kiện.
+
+Quá trình huấn luyện sử dụng cơ chế Masked Log Key Prediction. Một tỷ lệ event trong chuỗi được thay bằng token \texttt{[MASK]}, sau đó mô hình học cách khôi phục event bị che dựa trên ngữ cảnh:
+\begin{equation}
+L_{MLM} = -\sum_{i \in M} \log P(k_i | S_{masked})
+\label{eq_loss}
+\end{equation}
+Trong đó $M$ là tập vị trí bị mask, $k_i$ là event thực tại vị trí $i$. Khi inference, chuỗi có xác suất khôi phục thấp hoặc chứa event mới hiếm gặp sẽ được gán điểm bất thường cao.
+
+\subsection{Thuật toán huấn luyện}
+\begin{algorithmic}[1]
+\STATE Input: Chuỗi log events $S$ sau khi parsing bằng Drain3
+\STATE Khởi tạo Transformer Encoder và embedding cho event ID
+\FOR{mỗi epoch}
+    \STATE Chia dữ liệu thành các batch chuỗi log
+    \STATE Che ngẫu nhiên một tỷ lệ event bằng token \texttt{[MASK]}
+    \STATE Tính biểu diễn $H = Transformer(S_{masked})$
+    \STATE Dự đoán event bị che bằng lớp Softmax
+    \STATE Tính loss theo công thức (\ref{eq_loss})
+    \STATE Cập nhật tham số bằng Adam Optimizer
+\ENDFOR
+\STATE Output: Mô hình LogBERT đã huấn luyện
+\end{algorithmic}
+
+\section{Thiết lập thực nghiệm}
+\subsection{Bộ dữ liệu}
+Nghiên cứu sử dụng bộ dữ liệu chuẩn HDFS từ LogHub để đánh giá khả năng phát hiện bất thường trong môi trường hệ thống lớn \cite{b6,b12}. HDFS chứa log từ hệ thống Hadoop Distributed File System và được gán nhãn theo Block ID. Một block được xem là bất thường nếu chuỗi log liên quan tới block đó chứa sự kiện lỗi. Trong thực nghiệm tái lập, chúng tôi sử dụng 500.000 dòng đầu từ bản đóng gói HDFS\_v1 có nhãn trên HuggingFace nhằm kiểm tra pipeline tiền xử lý và các baseline trong điều kiện tài nguyên hạn chế.
+
+\begin{table}[!t]
+\caption{Thống kê dữ liệu HDFS sử dụng trong thực nghiệm}
+\begin{center}
+\begin{tabular}{lc}
+\toprule
+\textbf{Thông tin} & \textbf{Giá trị} \\
+\midrule
+Số dòng log đã parse & 500.000 \\
+Số block sau khi gom chuỗi & 36.305 \\
+Số block bình thường & 34.558 \\
+Số block bất thường & 1.747 \\
+Số event template sinh bởi Drain3 & 137 \\
+Độ dài chuỗi trung bình & 13.77 event \\
+Độ lệch chuẩn độ dài chuỗi & 3.45 \\
+Độ dài chuỗi nhỏ nhất/lớn nhất & 2 / 269 \\
+Similarity threshold & 0.5 \\
+Drain depth & 4 \\
+\bottomrule
+\end{tabular}
+\label{tab_dataset_stats}
+\end{center}
+\end{table}
+
+BGL chứa log từ siêu máy tính BlueGene/L, bao gồm nhiều loại lỗi phần cứng và phần mềm thực tế. Trong phạm vi bài báo này, BGL được xem là hướng mở rộng thực nghiệm để kiểm tra khả năng tổng quát hóa trên hệ thống khác HDFS. Hai bộ dữ liệu này không phải log giáo dục, nhưng phù hợp để đánh giá năng lực học pattern vận hành của mô hình trên log hệ thống quy mô lớn.
+
+Đối với định hướng giáo dục số, dữ liệu LMS thực tế nên được thu thập trong giai đoạn tiếp theo từ máy chủ web, API gateway, database, hệ thống xác thực và dịch vụ cloud. Do log giáo dục có thể chứa thông tin cá nhân, các trường như user ID, email, IP và session ID cần được ẩn danh trước khi huấn luyện.
+
+\subsection{Môi trường thực thi}
+Cấu hình tham chiếu cho thực nghiệm:
+\begin{itemize}
+    \item \textbf{Phần cứng:} CPU Intel Core i7-13620H, GPU NVIDIA RTX 4050 6GB, RAM 16GB.
+    \item \textbf{Phần mềm:} Ubuntu 22.04, Python 3.9, PyTorch 2.0.
+\end{itemize}
+
+\subsection{Quy trình tái lập thực nghiệm}
+Để bảo đảm khả năng tái lập, quy trình thực nghiệm được thiết kế theo các bước cố định và triển khai bằng Python trên Google Colab. Với HDFS, log được gom theo Block ID; một block được gán nhãn bất thường nếu có ít nhất một dòng log thuộc block đó được đánh dấu lỗi. Mỗi block được biểu diễn thành chuỗi định danh sự kiện dạng \texttt{E12 E7 E7 E19 E3}; các baseline PCA và TruncatedSVD sử dụng biểu diễn bag-of-events từ chuỗi này, trong khi Isolation Forest sử dụng đặc trưng TF-IDF. Tập huấn luyện ưu tiên sử dụng log bình thường để phù hợp với giả định thực tế: hệ thống thường có nhiều dữ liệu vận hành bình thường hơn dữ liệu tấn công đã gán nhãn.
+
+Các bước thực nghiệm gồm:
+\begin{itemize}
+    \item Parse log thô bằng Drain3 để sinh event template và event ID.
+    \item Gom event ID thành chuỗi theo Block ID hoặc cửa sổ thời gian.
+    \item Huấn luyện hoặc đánh giá mô hình phát hiện bất thường trên chuỗi event.
+    \item Tính điểm bất thường cho chuỗi kiểm thử và chọn ngưỡng cảnh báo.
+    \item So sánh các baseline gồm PCA reconstruction error, TruncatedSVD reconstruction error và Isolation Forest trên đặc trưng TF-IDF; LogBERT được phân tích như hướng mô hình Transformer chính cho giai đoạn mở rộng.
+\end{itemize}
+
+Trong trường hợp chưa có log LMS thực tế, kết quả trên HDFS đóng vai trò kiểm chứng bước đầu ở cấp hạ tầng hệ thống. Khi có dữ liệu giáo dục đã ẩn danh, cùng một quy trình có thể được áp dụng lại với chiến lược gom chuỗi theo session ID, user ID ẩn danh hoặc cửa sổ thời gian.
+
+\subsection{Độ đo đánh giá}
+Do dữ liệu log thường mất cân bằng, accuracy không đủ phản ánh chất lượng mô hình. Bài báo sử dụng Precision, Recall và F1-score:
+\begin{equation}
+Precision = \frac{TP}{TP + FP}
+\end{equation}
+\begin{equation}
+Recall = \frac{TP}{TP + FN}
+\end{equation}
+\begin{equation}
+F1 = \frac{2 \cdot Precision \cdot Recall}{Precision + Recall}
+\label{eq_f1}
+\end{equation}
+Trong vận hành thực tế, Precision thấp gây nhiều cảnh báo giả, còn Recall thấp dẫn đến bỏ sót sự cố. Vì vậy, F1-score được dùng làm chỉ số cân bằng giữa hai yêu cầu này.
+
+\section{Kết quả và thảo luận}
+\subsection{So sánh hiệu năng}
+Bảng \ref{tab_results} trình bày kết quả tái lập trên 500.000 dòng HDFS. Các baseline được lựa chọn để đại diện cho các hướng tiếp cận nhẹ: thống kê tuyến tính (PCA), phân rã ma trận thưa (TruncatedSVD) và học máy không giám sát (Isolation Forest). Để tránh rò rỉ dữ liệu đánh giá, ngưỡng bất thường của PCA và TruncatedSVD được chọn từ reconstruction error của tập huấn luyện bình thường thay vì từ tập kiểm thử.
+
+\begin{table}[htbp]
+\caption{Kết quả baseline tái lập trên HDFS}
+\begin{center}
+\begin{tabular}{lccc}
+\toprule
+\textbf{Phương pháp} & \textbf{Precision} & \textbf{Recall} & \textbf{F1} \\
+\midrule
+PCA & 0.7649 & 0.5401 & 0.6331 \\
+TruncatedSVD & 0.7608 & 0.5401 & 0.6317 \\
+Isolation Forest (TF-IDF) & 0.1875 & 0.1202 & 0.1465 \\
+\bottomrule
+\end{tabular}
+\label{tab_results}
+\end{center}
+\end{table}
+
+Kết quả baseline được dùng để đánh giá mức độ khó của bài toán trước khi tái lập LogBERT trên cùng pipeline Drain3. PCA đạt Precision 0.7649 và F1-score 0.6331, cho thấy reconstruction error có thể nhận diện một phần đáng kể các block bất thường nhưng vẫn bỏ sót nhiều trường hợp. TruncatedSVD đạt F1-score 0.6317, gần tương đương PCA, cho thấy nhóm phương pháp reconstruction hoạt động khá ổn định trên biểu diễn bag-of-events sau khi parse bằng Drain3. Isolation Forest trên đặc trưng TF-IDF chỉ đạt F1-score 0.1465, phản ánh hạn chế của phương pháp cô lập điểm bất thường khi đầu vào là pattern sự kiện rời rạc và thưa. Kết quả này củng cố nhận định rằng các mô hình học quan hệ tuần tự và ngữ cảnh dài hạn như DeepLog hoặc LogBERT là cần thiết cho bước mở rộng. Để khẳng định hiệu quả trong môi trường giáo dục số, cần bổ sung thực nghiệm trên log LMS hoặc log cổng thông tin sinh viên đã được ẩn danh.
+
+\subsection{Phân tích độ nhạy và chi phí triển khai}
+Bên cạnh F1-score, một hệ thống giám sát log thực tế cần quan tâm tới độ trễ cảnh báo và chi phí vận hành. Drain3 phù hợp cho log streaming vì không cần huấn luyện lại toàn bộ mô hình parsing khi có dòng log mới. Tuy nhiên, nếu ngưỡng tương đồng quá thấp, nhiều template khác nhau có thể bị gộp sai; nếu ngưỡng quá cao, hệ thống sinh quá nhiều template hiếm và làm tăng cảnh báo giả. Vì vậy, tham số ngưỡng tương đồng cần được chọn bằng tập validation thay vì cố định cho mọi hệ thống.
+
+Với LogBERT, các tham số có ảnh hưởng lớn gồm độ dài chuỗi đầu vào, tỷ lệ mask, số lớp Transformer và ngưỡng điểm bất thường. Trong môi trường LMS, độ dài chuỗi nên được chọn theo hành vi nghiệp vụ: phiên đăng nhập ngắn, truy cập tài liệu, nộp bài, làm bài kiểm tra hoặc hoạt động quản trị. Cách chọn cửa sổ này giúp cảnh báo dễ giải thích hơn cho quản trị viên so với việc chỉ dùng cửa sổ thời gian cố định.
+
+\subsection{Phân tích ứng dụng trong giáo dục số}
+Trong môi trường LMS, bất thường không chỉ là lỗi hệ thống mà còn có thể là dấu hiệu tấn công. Pipeline đề xuất có thể hỗ trợ các kịch bản sau:
+\begin{itemize}
+    \item \textbf{Tấn công dò mật khẩu:} Một chuỗi đăng nhập thất bại lặp lại từ nhiều IP hoặc nhiều tài khoản có thể tạo ra pattern khác biệt so với hành vi học tập bình thường.
+    \item \textbf{Khai thác API:} Các request chứa tham số lạ, truy cập endpoint hiếm gặp hoặc template mới sinh ra từ Drain3 có thể được xem là tín hiệu cần kiểm tra.
+    \item \textbf{Quá tải dịch vụ:} Chuỗi lỗi database timeout, HTTP 5xx và độ trễ tăng cao có thể phản ánh tình trạng quá tải vào thời điểm thi trực tuyến hoặc nộp bài tập.
+    \item \textbf{Bất thường phiên người dùng:} Một tài khoản sinh viên đăng nhập từ nhiều vị trí, đổi thiết bị liên tục hoặc truy cập tài nguyên với nhịp độ bất thường có thể được đưa vào phân tích chuỗi.
+\end{itemize}
+
+Các kịch bản trên là phân tích ứng dụng, không thay thế cho thực nghiệm trên dữ liệu LMS thật. Khi triển khai thực tế, hệ thống cần kết hợp thêm cơ chế ẩn danh dữ liệu, kiểm soát quyền truy cập log và quy trình xác minh cảnh báo bởi quản trị viên.
+
+\subsection{Hạn chế}
+Nghiên cứu hiện còn ba hạn chế chính. Thứ nhất, dữ liệu đánh giá là HDFS và BGL, chưa phản ánh đầy đủ đặc thù của log giáo dục. Thứ hai, chất lượng phát hiện phụ thuộc vào bước parsing; nếu Drain3 tạo template sai hoặc quá nhiều template hiếm, mô hình có thể sinh cảnh báo giả. Thứ ba, LogBERT cho biết chuỗi nào bất thường nhưng chưa tự động giải thích nguyên nhân theo ngôn ngữ dễ hiểu cho quản trị viên. Đây là lý do hướng tích hợp RAG/LLM có giá trị trong giai đoạn tiếp theo.
+
+\section{Kết luận}
+Bài báo đã trình bày một hướng tiếp cận phát hiện bất thường trong log dựa trên Drain3 và LogBERT. So với các phương pháp thống kê và mô hình tuần tự, Transformer có lợi thế trong việc học quan hệ ngữ cảnh hai chiều và phụ thuộc dài hạn giữa các sự kiện log. Trong bối cảnh giáo dục số, pipeline này có thể hỗ trợ giám sát LMS, cổng thông tin sinh viên, API và dịch vụ đám mây. Hướng phát triển tiếp theo là xây dựng bộ dữ liệu log giáo dục đã ẩn danh, đánh giá mô hình trên các kịch bản thực tế và tích hợp RAG/LLM để giải thích cảnh báo bằng tiếng Việt.
+
+\begin{thebibliography}{00}
+\bibitem{b1} M. Du, F. Li, G. Zheng, and V. Srikumar, ``DeepLog: Anomaly Detection and Diagnosis from System Logs through Deep Learning,'' in \textit{Proc. ACM CCS}, 2017.
+\bibitem{b2} H. Guo, S. Yuan, and X. Wu, ``LogBERT: Log Anomaly Detection via BERT,'' in \textit{Proc. International Joint Conference on Neural Networks (IJCNN)}, 2021.
+\bibitem{b3} P. He, J. Zhu, Z. Zheng, and M. R. Lyu, ``Drain: An Online Log Parsing Approach with Fixed Depth Tree,'' in \textit{Proc. IEEE International Conference on Web Services (ICWS)}, 2017.
+\bibitem{b4} A. Vaswani et al., ``Attention Is All You Need,'' in \textit{Proc. NeurIPS}, 2017.
+\bibitem{b5} S. He, J. Zhu, P. He, and M. R. Lyu, ``Experience Report: System Log Analysis for Anomaly Detection,'' in \textit{Proc. IEEE International Symposium on Software Reliability Engineering (ISSRE)}, 2016.
+\bibitem{b6} J. Zhu et al., ``Tools and Benchmarks for Automated Log Parsing,'' in \textit{Proc. IEEE/ACM International Conference on Software Engineering (ICSE)}, 2019.
+\bibitem{b7} V. H. Le and H. Zhang, ``Log Parsing with Prompt-based Few-shot Learning,'' in \textit{Proc. IEEE/ACM International Conference on Software Engineering (ICSE)}, 2023.
+\bibitem{b8} T. Zhang, X. Huang, W. Zhao, S. Bian, and P. Du, ``LogPrompt: A Log-based Anomaly Detection Framework Using Prompts,'' in \textit{Proc. International Joint Conference on Neural Networks (IJCNN)}, 2023.
+\bibitem{b9} X. Han, S. Yuan, and M. Trabelsi, ``LogGPT: Log Anomaly Detection via GPT,'' in \textit{Proc. IEEE International Conference on Big Data}, 2023.
+\bibitem{b10} V. Chandola, A. Banerjee, and V. Kumar, ``Anomaly Detection: A Survey,'' \textit{ACM Computing Surveys}, vol. 41, no. 3, pp. 1--58, 2009.
+\bibitem{b11} F. T. Liu, K. M. Ting, and Z.-H. Zhou, ``Isolation Forest,'' in \textit{Proc. IEEE International Conference on Data Mining (ICDM)}, 2008.
+\bibitem{b12} J. Zhu, S. He, J. Liu, M. R. Lyu, and P. He, ``Loghub: A Large Collection of System Log Datasets for AI-driven Log Analytics,'' in \textit{Proc. IEEE International Symposium on Software Reliability Engineering (ISSRE)}, pp. 355--366, 2023.
+\end{thebibliography}
+
+\end{document}

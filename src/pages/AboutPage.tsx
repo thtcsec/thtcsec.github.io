@@ -27,7 +27,7 @@ const competitions = [
   {
     name: "Datathon 2026 - The Gridbreakers (VinUniversity)",
     date: "May 2026",
-    role: "Finalist",
+    role: "Finalist (Top 50 / 10% Nationwide)",
     icon: <BarChart className="w-5 h-5 text-purple-400 group-hover:animate-pulse" />,
     bgGradient: "from-purple-500/10 to-transparent",
     borderClass: "border-purple-500/20 group-hover:border-purple-500/50 group-hover:shadow-[0_0_15px_rgba(168,85,247,0.3)]",
@@ -43,10 +43,10 @@ const competitions = [
     textClass: "group-hover:text-cyan-400 transition-colors text-foreground"
   },
   {
-    name: "Fintech - Blockchain Hackathon HUFLIT",
-    date: "July 2026",
-    role: "Participant",
-    icon: <Database className="w-5 h-5 text-indigo-400 group-hover:animate-pulse" />,
+    name: "Tasco Wash3000 Hackathon",
+    date: "May 2026",
+    role: "Top 10 Finalist",
+    icon: <Trophy className="w-5 h-5 text-indigo-400 group-hover:animate-pulse" />,
     bgGradient: "from-indigo-500/10 to-transparent",
     borderClass: "border-indigo-500/20 group-hover:border-indigo-500/50 group-hover:shadow-[0_0_15px_rgba(99,102,241,0.3)]",
     textClass: "group-hover:text-indigo-400 transition-colors text-foreground"

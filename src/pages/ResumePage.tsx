@@ -96,7 +96,7 @@ const ResumePage = () => {
                                     <span className="italic text-neutral-600 dark:text-neutral-400 text-xs print:text-neutral-600">Ho Chi Minh City</span>
                                 </div>
                                 <ul className="list-disc list-outside ml-5 space-y-2 text-neutral-700 dark:text-neutral-300 print:text-neutral-800 text-[14px] md:text-[15px] leading-relaxed">
-                                    <li>GPA: 3.44/4.0</li>
+                                    <li>GPA: 3.46/4.0</li>
                                     <li>Relevant Courses: Network Security, C#, Java, Web & Mobile Development, ASP.NET.</li>
                                 </ul>
                             </div>

@@ -27,7 +27,7 @@ export const siteConfig = {
         endDate: "2027-07-31",
         currentSemester: 7,
         totalSemesters: 9,
-        gpa: 3.44,
+        gpa: 3.46,
         creditsCompleted: 109,
         totalCredits: 135,
         expectedGraduation: 2027,

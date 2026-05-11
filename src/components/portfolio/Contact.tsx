@@ -36,28 +36,26 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-20 relative">
+    <section id="contact" className="cinema-section">
       <div className="container mx-auto px-4">
-        {/* Section Header */}
-        <div className="text-center mb-16">
-          <span className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
+        <div className="cinema-reveal mb-16 text-center">
+          <span className="cinema-kicker mb-4">
             Contact
           </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-foreground">
-            Get In Touch
+          <h2 className="cinema-title mb-4">
+            Contact and networks
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Feel free to reach out for opportunities or collaborations
+          <p className="cinema-subtitle">
+            Reach me for collaborations, engineering opportunities, or security-focused projects.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
-          {/* Contact Info */}
-          <div className="space-y-6">
+        <div className="mx-auto grid max-w-5xl gap-12 md:grid-cols-[0.9fr_1.1fr]">
+          <div className="cinema-stagger space-y-6">
             {contactItems.map((item) => (
               <div
                 key={item.title}
-                className="flex items-start gap-4 p-4 rounded-xl bg-card border border-border hover:border-primary/50 transition-all duration-300"
+                className="cinema-card flex items-start gap-4 p-4 transition-colors hover:border-primary/50"
               >
                 <div className="p-3 rounded-lg bg-primary/10 text-primary">
                   <Icon icon={item.icon} className="w-6 h-6" />
@@ -81,21 +79,20 @@ const Contact = () => {
             ))}
           </div>
 
-          {/* Social Links */}
           <div>
-            <h3 className="text-xl font-bold mb-4 text-foreground">Connect With Me</h3>
-            <p className="text-muted-foreground mb-6">
-              Find me on these platforms
+            <h3 className="mb-2 text-xl font-bold text-foreground">Connect with me</h3>
+            <p className="mb-6 text-muted-foreground">
+              Platforms where I share work, experiments, and long-term learning.
             </p>
 
-            <div className="grid grid-cols-3 gap-4">
+            <div className="cinema-stagger grid grid-cols-2 gap-4 sm:grid-cols-3">
               {socialLinks.map((social) => (
                 <a
                   key={social.label}
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`flex flex-col items-center gap-2 p-4 rounded-xl bg-card border border-border hover:border-primary/50 transition-all duration-300 hover:-translate-y-1 group`}
+                  className="cinema-card group flex flex-col items-center gap-2 rounded-xl p-4 transition-colors hover:border-primary/50"
                   aria-label={social.label}
                 >
                   <Icon icon={social.icon} className="w-6 h-6" />
@@ -105,8 +102,6 @@ const Contact = () => {
                 </a>
               ))}
             </div>
-
-
           </div>
         </div>
       </div>

@@ -14,15 +14,6 @@ const categoryLabels: Record<string, string> = {
   mobile: "Mobile",
 };
 
-const categoryEmoji: Record<string, string> = {
-  ai: "🤖",
-  web: "🌐",
-  extension: "🎯",
-  system: "🐧",
-  desktop: "📖",
-  mobile: "📱",
-};
-
 const Projects = () => {
   const [imageLoaded, setImageLoaded] = useState<Record<string, boolean>>({});
 
@@ -31,23 +22,21 @@ const Projects = () => {
   };
 
   return (
-    <section id="projects" className="py-20 relative">
+    <section id="projects" className="cinema-section">
       <div className="container mx-auto px-4">
-        {/* Section Header */}
-        <div className="text-center mb-12">
-          <span className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
+        <div className="cinema-reveal text-center mb-12">
+          <span className="cinema-kicker mb-4">
             Projects
           </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-foreground">
+          <h2 className="cinema-title mb-4">
             Featured Work
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <p className="cinema-subtitle">
             A selection of my best projects
           </p>
         </div>
 
-        {/* Projects Grid - Only Featured */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+        <div className="cinema-stagger grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
           {featuredProjects.map((project) => (
             <ProjectCard
               key={project.id}
@@ -58,7 +47,6 @@ const Projects = () => {
           ))}
         </div>
 
-        {/* View All Button */}
         <div className="text-center">
           <Button size="lg" variant="outline" asChild className="group">
             <Link to="/projects">
@@ -79,24 +67,9 @@ interface ProjectCardProps {
 }
 
 const ProjectCard = ({ project, imageLoaded, onImageLoad }: ProjectCardProps) => {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const images = project.images && project.images.length > 0 ? project.images : [project.image];
-
-  const nextImage = (e: React.MouseEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-    setCurrentImageIndex((prev) => (prev + 1) % images.length);
-  };
-
-  const prevImage = (e: React.MouseEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-    setCurrentImageIndex((prev) => (prev - 1 + images.length) % images.length);
-  };
-
   return (
     <div
-      className="group relative rounded-2xl overflow-hidden bg-card border border-border hover:border-primary/50 transition-all duration-500 hover:-translate-y-2 flex flex-col h-full"
+      className="cinema-card group relative flex h-full flex-col overflow-hidden transition-colors hover:border-primary/40"
     >
       <div className="relative overflow-hidden bg-muted aspect-video">
         <Link to={`/projects/${project.id}`} className="block absolute inset-0 z-10 cursor-pointer">
@@ -105,95 +78,72 @@ const ProjectCard = ({ project, imageLoaded, onImageLoad }: ProjectCardProps) =>
             <div className="absolute inset-0 bg-gradient-to-br from-muted to-muted-foreground/10 animate-pulse" />
           )}
           <img
-            src={images[currentImageIndex]}
-            alt={`${project.title} - Image ${currentImageIndex + 1}`}
+            src={project.image}
+            alt={`${project.title} Cover`}
             className={`w-full h-full transition-all duration-500 group-hover:scale-105 ${imageLoaded ? "opacity-100" : "opacity-0"
               } ${project.category === 'mobile' ? 'object-contain bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-800 dark:to-slate-900' : 'object-cover'}`}
             loading="lazy"
             onLoad={onImageLoad}
           />
-          {/* Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent opacity-60 group-hover:opacity-80 transition-opacity" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent opacity-70 transition-opacity group-hover:opacity-80" />
         </Link>
 
-        {/* Carousel Controls */}
-        {images.length > 1 && (
-          <div className="absolute inset-0 flex items-center justify-between px-2 opacity-0 group-hover:opacity-100 transition-opacity z-20 pointer-events-none">
-            <button 
-              onClick={prevImage}
-              className="p-1 rounded-full bg-background/80 text-foreground hover:bg-primary hover:text-primary-foreground transition-colors border border-border pointer-events-auto"
-            >
-              <ChevronLeft size={16} />
-            </button>
-            <button 
-              onClick={nextImage}
-              className="p-1 rounded-full bg-background/80 text-foreground hover:bg-primary hover:text-primary-foreground transition-colors border border-border pointer-events-auto"
-            >
-              <ChevronRight size={16} />
-            </button>
-          </div>
-        )}
-
-        {/* Image Indicators */}
-        {images.length > 1 && (
-          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-1 z-20 pointer-events-none">
-            {images.map((_, idx) => (
-              <div 
-                key={idx} 
-                className={`h-1.5 rounded-full transition-all duration-300 ${idx === currentImageIndex ? "w-4 bg-primary" : "w-1.5 bg-white/50"}`}
-              />
-            ))}
-          </div>
-        )}
-
-        {/* Category Badge */}
-        <div className="absolute top-4 left-4 px-3 py-1 rounded-full bg-primary/20 backdrop-blur-sm border border-primary/30 text-xs font-medium text-primary z-20 pointer-events-none">
-          {categoryEmoji[project.category]} {categoryLabels[project.category]}
+        <div className="absolute top-4 left-4 rounded-full border border-border/60 bg-background/85 px-3 py-1 text-xs font-medium text-foreground/80 backdrop-blur-sm pointer-events-none">
+          {categoryLabels[project.category]}
         </div>
       </div>
 
-      {/* Content */}
-      <div className="p-6">
+      <div className="flex flex-1 flex-col p-6">
+        <div className="cinema-meta flex items-center justify-between gap-3">
+          <span>{categoryLabels[project.category]}</span>
+          <span>{project.isPrivate ? "Private" : "Public"}</span>
+        </div>
+
         <Link to={`/projects/${project.id}`}>
-          <h3 className="text-xl font-bold mb-2 text-foreground group-hover:text-primary transition-colors">
+          <h3 className="mt-3 text-xl font-bold text-foreground transition-colors group-hover:text-primary">
             {project.title}
           </h3>
         </Link>
-        <p className="text-muted-foreground text-sm mb-4 line-clamp-2">
+        <p className="mt-3 text-sm leading-6 text-muted-foreground line-clamp-3">
           {project.description}
         </p>
 
         {/* Highlights if available */}
         {project.highlights && project.highlights.length > 0 && (
-          <ul className="mb-4 space-y-1">
+          <ul className="mt-4 space-y-2 border-t border-border pt-4">
             {project.highlights.slice(0, 2).map((highlight, i) => (
-              <li key={i} className="text-xs text-muted-foreground flex items-start gap-2">
-                <span className="text-primary mt-0.5">•</span>
-                <span className="line-clamp-1">{highlight}</span>
+              <li key={i} className="flex items-start gap-2 text-xs text-muted-foreground">
+                <span className="mt-1 h-1.5 w-1.5 rounded-full bg-primary" />
+                <span className="line-clamp-2 leading-5">{highlight}</span>
               </li>
             ))}
           </ul>
         )}
 
         {/* Tech Stack */}
-        <div className="flex flex-wrap gap-2 mb-4">
+        <div className="mt-4 flex flex-wrap gap-2">
           {project.technologies.slice(0, 4).map((tech) => (
             <span
               key={tech}
-              className="px-2 py-1 rounded-md bg-muted text-xs font-medium text-muted-foreground"
+              className="rounded-md border border-border bg-muted px-2 py-1 text-xs font-medium text-foreground/80"
             >
               {tech}
             </span>
           ))}
           {project.technologies.length > 4 && (
-            <span className="px-2 py-1 rounded-md bg-muted text-xs font-medium text-muted-foreground">
+            <span className="rounded-md border border-border bg-muted px-2 py-1 text-xs font-medium text-foreground/80">
               +{project.technologies.length - 4}
             </span>
           )}
         </div>
 
+        <div className="mt-4 flex items-center justify-between text-xs text-muted-foreground">
+          <span>{project.technologies.length} technologies listed</span>
+          <span>{project.github ? "Code available" : project.demo ? "Live demo" : "Private"}</span>
+        </div>
+
         {/* Actions - Stop propagation to prevent modal open when clicking buttons */}
-        <div className="flex items-center gap-3 mt-auto" onClick={(e) => e.stopPropagation()}>
+        <div className="mt-5 flex items-center gap-3" onClick={(e) => e.stopPropagation()}>
           {project.github && (
             <Button variant="outline" size="sm" asChild className="gap-2">
               <a href={project.github} target="_blank" rel="noopener noreferrer">
@@ -205,8 +155,7 @@ const ProjectCard = ({ project, imageLoaded, onImageLoad }: ProjectCardProps) =>
 
           {/* Private Badge - Left of Demo */}
           {project.isPrivate && (
-            <span className="text-xs text-muted-foreground flex items-center gap-1 border border-border px-2 py-1 rounded-md bg-muted/50">
-              <span className="text-xs">🔒</span>
+            <span className="flex items-center gap-1 rounded-md border border-border bg-muted/50 px-2 py-1 text-xs text-muted-foreground">
               Private Project
             </span>
           )}

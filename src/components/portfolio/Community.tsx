@@ -7,29 +7,26 @@ const Community = () => {
     const [modalImage, setModalImage] = useState<{ src: string; alt: string } | null>(null);
 
     return (
-        <section id="community" className="py-20 relative">
+        <section id="community" className="cinema-section">
             <div className="container mx-auto px-4">
-                {/* Section Header */}
-                <div className="text-center mb-16">
-                    <span className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
+                <div className="mb-16 text-center">
+                    <span className="cinema-kicker mb-4">
                         Community
                     </span>
-                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-foreground">
-                        Forums & Tech Communities
+                    <h2 className="cinema-title mb-4">
+                        Communities and ecosystem
                     </h2>
-                    <p className="text-muted-foreground max-w-2xl mx-auto">
-                        Active participation in developer communities and tech events
+                    <p className="cinema-subtitle">
+                        Collaboration, leadership, and active participation across developer programs.
                     </p>
                 </div>
 
-                {/* Community Cards */}
                 <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
                     {communities.map((community) => (
                         <div
                             key={community.id}
-                            className="group relative rounded-2xl overflow-hidden bg-card border border-border hover:border-primary/50 transition-all duration-500 hover:-translate-y-2"
+                            className="cinema-card group relative overflow-hidden transition-colors hover:border-primary/50"
                         >
-                            {/* Image - Click to open modal */}
                             <div
                                 className="relative aspect-video overflow-hidden bg-neutral-900 cursor-pointer"
                                 onClick={() => setModalImage({ src: community.image, alt: community.title })}
@@ -64,12 +61,11 @@ const Community = () => {
                                     {community.description}
                                 </p>
 
-                                {/* Tags */}
                                 <div className="flex flex-wrap gap-2">
                                     {community.tags.map((tag) => (
                                         <span
                                             key={tag}
-                                            className="px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-medium"
+                                            className="rounded-full border border-border bg-muted px-3 py-1 text-xs font-medium text-foreground/80"
                                         >
                                             {tag}
                                         </span>
@@ -82,7 +78,7 @@ const Community = () => {
 
                 {/* GitHub Contributions */}
                 <div className="mt-16 max-w-5xl mx-auto">
-                    <div className="rounded-2xl overflow-hidden bg-card border border-border p-6 md:p-8 hover:border-primary/50 transition-colors">
+                    <div className="cinema-card overflow-hidden p-6 transition-colors hover:border-primary/50 md:p-8">
                         <div className="flex items-center justify-between mb-6">
                             <div className="flex items-center gap-3">
                                 <span className="p-2 rounded-lg bg-primary/10 text-primary hover:bg-primary/20 transition-colors">
@@ -94,7 +90,7 @@ const Community = () => {
                                     <h3 className="text-xl font-bold text-foreground">
                                         GitHub Activity
                                     </h3>
-                                    <p className="text-sm text-muted-foreground">My open-source contributions</p>
+                                    <p className="text-sm text-muted-foreground">Open-source consistency over time</p>
                                 </div>
                             </div>
                             <a
