@@ -1,4 +1,5 @@
-import { ArrowDown, Github, Linkedin, Mail, Terminal, FileText, Facebook } from "lucide-react";
+import { useState } from "react";
+import { ArrowDown, Github, Linkedin, Mail, Terminal, FileText, Facebook, Globe, Trophy } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { siteConfig, getAcademicProgress, getDaysRemaining } from "@/data/config";
@@ -21,6 +22,7 @@ import {
 } from "@/components/ui/table";
 
 const Hero = () => {
+  const [isEnglish, setIsEnglish] = useState(true);
   const progressPercentage = getAcademicProgress();
   const daysRemaining = getDaysRemaining();
 
@@ -122,46 +124,60 @@ const Hero = () => {
                       View Transcript
                     </button>
                   </DialogTrigger>
-                  <DialogContent className="max-w-3xl h-[85vh] flex flex-col p-0 overflow-hidden">
-                    <div className="p-6 pb-2">
-                      <DialogHeader>
-                        <DialogTitle>Academic Performance - Year 3</DialogTitle>
-                        <DialogDescription>
-                          Detailed results for the 2025-2026 academic year. (Calculated based on available grades)
-                        </DialogDescription>
-                      </DialogHeader>
+                  <DialogContent className="max-w-4xl h-[85vh] flex flex-col p-0 overflow-hidden border-primary/20">
+                    <div className="p-6 pb-2 border-b border-border/50">
+                      <div className="flex items-center justify-between gap-4">
+                        <DialogHeader className="flex-1">
+                          <DialogTitle className="text-2xl font-bold flex items-center gap-2">
+                            <Trophy className="text-yellow-500 w-6 h-6" />
+                            Academic Performance - Year 3
+                          </DialogTitle>
+                          <DialogDescription className="text-sm">
+                            Detailed results for the 2025-2026 academic year. (Calculated based on available grades)
+                          </DialogDescription>
+                        </DialogHeader>
+                        <Button 
+                          variant="outline" 
+                          size="sm" 
+                          onClick={() => setIsEnglish(!isEnglish)}
+                          className="flex items-center gap-2 border-primary/30 hover:bg-primary/5"
+                        >
+                          <Globe size={14} className="text-primary" />
+                          {isEnglish ? "Tiếng Việt" : "English"}
+                        </Button>
+                      </div>
                     </div>
                     
                     <ScrollArea className="flex-1 px-6 pb-6">
-                      <div className="space-y-6">
+                      <div className="space-y-8 pt-6">
                         {/* HK01 */}
-                        <div className="rounded-xl border border-border bg-muted/30 overflow-hidden">
-                          <div className="bg-muted px-4 py-2 text-xs font-bold uppercase tracking-wider text-muted-foreground">
-                            Năm học: 2025-2026 - Học kỳ: HK01
+                        <div className="rounded-2xl border border-border bg-muted/20 overflow-hidden shadow-sm">
+                          <div className="bg-muted px-5 py-3 text-xs font-bold uppercase tracking-wider text-muted-foreground border-b border-border">
+                            {isEnglish ? "Academic Year: 2025-2026 - Semester: HK01" : "Năm học: 2025-2026 - Học kỳ: HK01"}
                           </div>
                           <div className="overflow-x-auto">
-                            <Table className="min-w-[550px]">
+                            <Table className="min-w-[700px]">
                               <TableHeader>
-                                <TableRow>
-                                  <TableHead className="w-[100px]">Mã HP</TableHead>
-                                  <TableHead>Tên học phần</TableHead>
-                                  <TableHead className="text-center">Tín chỉ</TableHead>
-                                  <TableHead className="text-center">Điểm</TableHead>
-                                  <TableHead className="text-right">Kết quả</TableHead>
+                                <TableRow className="hover:bg-transparent">
+                                  <TableHead className="w-[120px] font-bold">{isEnglish ? "Course ID" : "Mã HP"}</TableHead>
+                                  <TableHead className="font-bold">{isEnglish ? "Course Name" : "Tên học phần"}</TableHead>
+                                  <TableHead className="text-center font-bold">{isEnglish ? "Credits" : "Tín chỉ"}</TableHead>
+                                  <TableHead className="text-center font-bold">{isEnglish ? "Grade" : "Điểm"}</TableHead>
+                                  <TableHead className="text-right font-bold">{isEnglish ? "Result" : "Kết quả"}</TableHead>
                                 </TableRow>
                               </TableHeader>
                               <TableBody>
                                 {[
-                                  { code: "1010762", name: "Giáo dục thể chất 1 (Bóng bàn 1)", credits: "2.0", grade: "8.8", letter: "A" },
-                                  { code: "1210164", name: "Blockchain và ứng dụng", credits: "4.0", grade: "9.9", letter: "A+" },
-                                  { code: "1230274", name: "Quản trị mạng", credits: "4.0", grade: "9.3", letter: "A+" },
-                                  { code: "1250013", name: "Tiếng Anh chuyên ngành 1", credits: "3.0", grade: "9.3", letter: "A+" },
-                                  { code: "1250114", name: "Điều tra tấn công", credits: "4.0", grade: "8.9", letter: "A" },
+                                  { code: "1010762", vi: "Giáo dục thể chất 1 (Bóng bàn 1)", en: "Physical Education 1 (Table Tennis 1)", credits: "2.0", grade: "8.8", letter: "A" },
+                                  { code: "1210164", vi: "Blockchain và ứng dụng", en: "Blockchain and Applications", credits: "4.0", grade: "9.9", letter: "A+" },
+                                  { code: "1230274", vi: "Quản trị mạng", en: "Network Administration", credits: "4.0", grade: "9.3", letter: "A+" },
+                                  { code: "1250013", vi: "Tiếng Anh chuyên ngành 1", en: "Technical English 1", credits: "3.0", grade: "9.3", letter: "A+" },
+                                  { code: "1250114", vi: "Điều tra tấn công", en: "Attack Investigation", credits: "4.0", grade: "8.9", letter: "A" },
                                 ].map((item) => (
-                                  <TableRow key={item.code} className="text-xs">
+                                  <TableRow key={item.code} className="text-sm">
                                     <TableCell className="font-mono text-muted-foreground">{item.code}</TableCell>
-                                    <TableCell className="font-medium">{item.name}</TableCell>
-                                    <TableCell className="text-center">{item.credits}</TableCell>
+                                    <TableCell className="font-semibold">{isEnglish ? item.en : item.vi}</TableCell>
+                                    <TableCell className="text-center font-medium">{item.credits}</TableCell>
                                     <TableCell className="text-center font-bold text-primary">{item.grade}</TableCell>
                                     <TableCell className="text-right font-bold">{item.letter}</TableCell>
                                   </TableRow>
@@ -169,43 +185,55 @@ const Hero = () => {
                               </TableBody>
                             </Table>
                           </div>
-                          <div className="p-3 bg-muted/20 border-t border-border flex flex-wrap gap-x-4 gap-y-1 text-[10px] text-muted-foreground uppercase font-bold">
-                            <span>TC Đạt: 15</span>
-                            <span>GPA HK: 4.00</span>
-                            <span>GPA Tích lũy: 3.44</span>
-                            <span className="text-primary">DRL: 85.00 (Tốt)</span>
+                          <div className="p-4 bg-muted/40 border-t border-border flex flex-wrap gap-x-8 gap-y-2 text-sm text-muted-foreground font-semibold">
+                            <div className="flex items-center gap-2">
+                              <span className="text-xs uppercase opacity-70">{isEnglish ? "Credits Earned:" : "TC Đạt:"}</span>
+                              <span className="text-foreground text-base">15</span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                              <span className="text-xs uppercase opacity-70">{isEnglish ? "Semester GPA:" : "GPA HK:"}</span>
+                              <span className="text-primary text-base">4.00</span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                              <span className="text-xs uppercase opacity-70">{isEnglish ? "Cumulative GPA:" : "GPA Tích lũy:"}</span>
+                              <span className="text-foreground text-base">3.44</span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                              <span className="text-xs uppercase opacity-70">{isEnglish ? "Training Point:" : "DRL:"}</span>
+                              <span className="text-primary text-base">85.00 (Tốt)</span>
+                            </div>
                           </div>
                         </div>
 
                         {/* HK02 */}
-                        <div className="rounded-xl border border-border bg-muted/30 overflow-hidden">
-                          <div className="bg-muted px-4 py-2 text-xs font-bold uppercase tracking-wider text-muted-foreground">
-                            Năm học: 2025-2026 - Học kỳ: HK02
+                        <div className="rounded-2xl border border-border bg-muted/20 overflow-hidden shadow-sm">
+                          <div className="bg-muted px-5 py-3 text-xs font-bold uppercase tracking-wider text-muted-foreground border-b border-border">
+                            {isEnglish ? "Academic Year: 2025-2026 - Semester: HK02" : "Năm học: 2025-2026 - Học kỳ: HK02"}
                           </div>
                           <div className="overflow-x-auto">
-                            <Table className="min-w-[550px]">
+                            <Table className="min-w-[700px]">
                               <TableHeader>
-                                <TableRow>
-                                  <TableHead className="w-[100px]">Mã HP</TableHead>
-                                  <TableHead>Tên học phần</TableHead>
-                                  <TableHead className="text-center">Tín chỉ</TableHead>
-                                  <TableHead className="text-center">Điểm</TableHead>
-                                  <TableHead className="text-right">Kết quả</TableHead>
+                                <TableRow className="hover:bg-transparent">
+                                  <TableHead className="w-[120px] font-bold">{isEnglish ? "Course ID" : "Mã HP"}</TableHead>
+                                  <TableHead className="font-bold">{isEnglish ? "Course Name" : "Tên học phần"}</TableHead>
+                                  <TableHead className="text-center font-bold">{isEnglish ? "Credits" : "Tín chỉ"}</TableHead>
+                                  <TableHead className="text-center font-bold">{isEnglish ? "Grade" : "Điểm"}</TableHead>
+                                  <TableHead className="text-right font-bold">{isEnglish ? "Result" : "Kết quả"}</TableHead>
                                 </TableRow>
                               </TableHeader>
                               <TableBody>
                                 {[
-                                  { code: "1010873", name: "Giáo dục thể chất 2 (Bóng bàn 2)", credits: "3.0", grade: "9.2", letter: "A+" },
-                                  { code: "1250023", name: "Tiếng Anh chuyên ngành 2", credits: "3.0", grade: "9.5", letter: "A+" },
-                                  { code: "1250244", name: "Mạng không dây", credits: "4.0", grade: "9.3", letter: "A+" },
-                                  { code: "1250254", name: "Penetration testing", credits: "4.0", grade: "-", letter: "-" },
-                                  { code: "1250264", name: "Quản trị hệ thống bảo mật", credits: "4.0", grade: "9.4", letter: "A+" },
-                                  { code: "1250374", name: "Dịch ngược", credits: "4.0", grade: "-", letter: "-" },
+                                  { code: "1010873", vi: "Giáo dục thể chất 2 (Bóng bàn 2)", en: "Physical Education 2 (Table Tennis 2)", credits: "3.0", grade: "9.2", letter: "A+" },
+                                  { code: "1250023", vi: "Tiếng Anh chuyên ngành 2", en: "Technical English 2", credits: "3.0", grade: "9.5", letter: "A+" },
+                                  { code: "1250244", vi: "Mạng không dây", en: "Wireless Networking", credits: "4.0", grade: "9.3", letter: "A+" },
+                                  { code: "1250254", vi: "Kiểm thử xâm nhập", en: "Penetration Testing", credits: "4.0", grade: "-", letter: "-" },
+                                  { code: "1250264", vi: "Quản trị hệ thống bảo mật", en: "Security Systems Administration", credits: "4.0", grade: "9.4", letter: "A+" },
+                                  { code: "1250374", vi: "Dịch ngược", en: "Reverse Engineering", credits: "4.0", grade: "-", letter: "-" },
                                 ].map((item) => (
-                                  <TableRow key={item.code} className="text-xs">
+                                  <TableRow key={item.code} className="text-sm">
                                     <TableCell className="font-mono text-muted-foreground">{item.code}</TableCell>
-                                    <TableCell className="font-medium">{item.name}</TableCell>
-                                    <TableCell className="text-center">{item.credits}</TableCell>
+                                    <TableCell className="font-semibold">{isEnglish ? item.en : item.vi}</TableCell>
+                                    <TableCell className="text-center font-medium">{item.credits}</TableCell>
                                     <TableCell className="text-center font-bold text-primary">{item.grade}</TableCell>
                                     <TableCell className="text-right font-bold">{item.letter}</TableCell>
                                   </TableRow>
@@ -213,10 +241,19 @@ const Hero = () => {
                               </TableBody>
                             </Table>
                           </div>
-                          <div className="p-3 bg-muted/20 border-t border-border flex flex-wrap gap-x-4 gap-y-1 text-[10px] text-muted-foreground uppercase font-bold">
-                            <span>TC Đạt: 14</span>
-                            <span>GPA HK: 4.00</span>
-                            <span>GPA Tích lũy: 3.50</span>
+                          <div className="p-4 bg-muted/40 border-t border-border flex flex-wrap gap-x-8 gap-y-2 text-sm text-muted-foreground font-semibold">
+                            <div className="flex items-center gap-2">
+                              <span className="text-xs uppercase opacity-70">{isEnglish ? "Credits Earned:" : "TC Đạt:"}</span>
+                              <span className="text-foreground text-base">14</span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                              <span className="text-xs uppercase opacity-70">{isEnglish ? "Semester GPA:" : "GPA HK:"}</span>
+                              <span className="text-primary text-base">4.00</span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                              <span className="text-xs uppercase opacity-70">{isEnglish ? "Cumulative GPA:" : "GPA Tích lũy:"}</span>
+                              <span className="text-foreground text-base">3.50</span>
+                            </div>
                           </div>
                         </div>
                       </div>

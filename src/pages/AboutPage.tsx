@@ -27,7 +27,7 @@ const competitions = [
   {
     name: "VinUniversity - The Gridbreakers Datathon 2026",
     date: "May 2026",
-    role: "Top 50 finalist (10% Nationwide)",
+    role: "Top 50 Finalist (10% Nationwide)",
     icon: <BarChart className="w-5 h-5 text-purple-400 group-hover:animate-pulse" />,
     bgGradient: "from-purple-500/10 to-transparent",
     borderClass: "border-purple-500/20 group-hover:border-purple-500/50 group-hover:shadow-[0_0_15px_rgba(168,85,247,0.3)]",
@@ -36,7 +36,7 @@ const competitions = [
   {
     name: "Alibaba Cloud x GenAIFund - Qwen AI Build Day Vietnam",
     date: "April 2026",
-    role: "Top 10 finalist",
+    role: "Top 10 Finalist",
     icon: <Brain className="w-5 h-5 text-cyan-400 group-hover:animate-pulse" />,
     bgGradient: "from-cyan-500/10 to-transparent",
     borderClass: "border-cyan-500/20 group-hover:border-cyan-500/50 group-hover:shadow-[0_0_15px_rgba(6,182,212,0.3)]",
@@ -260,23 +260,24 @@ const AboutPage = () => {
         <div className="mt-28 animate-fade-in" style={{ animationDelay: "0.6s", animationFillMode: "forwards", opacity: 0 }}>
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center animate-text-glow text-transparent bg-clip-text bg-gradient-to-r from-primary via-purple-400 to-primary">Community & Impact</h2>
 
-          <div className="flex flex-col gap-6 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16 px-2">
             {communities.map((community) => (
               <div
                 key={community.id}
-                className="group relative rounded-2xl overflow-hidden bg-card border border-border hover:border-primary/50 transition-all duration-300 hover:-translate-y-1 flex flex-col sm:flex-row"
+                className="group relative rounded-2xl overflow-hidden bg-card border border-border hover:border-primary/50 transition-all duration-300 hover:-translate-y-1 flex flex-col h-full"
               >
-                <div className="relative sm:w-1/3 min-w-[250px] aspect-video sm:aspect-auto overflow-hidden bg-muted">
+                <div className="relative w-full aspect-video overflow-hidden bg-muted">
                   <img
                     src={community.image}
                     alt={community.title}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     loading="lazy"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                 </div>
-                <div className="p-6 flex flex-col flex-1 justify-center">
-                  <div className="flex items-center justify-between mb-2">
-                    <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
+                <div className="p-6 flex flex-col flex-1">
+                  <div className="flex items-start justify-between mb-3">
+                    <h3 className="text-lg font-bold text-foreground group-hover:text-primary transition-colors leading-tight">
                       {community.title}
                     </h3>
                     {community.link && (
@@ -284,18 +285,18 @@ const AboutPage = () => {
                         href={community.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="p-2 rounded-full text-muted-foreground hover:text-primary hover:bg-primary/10 transition-colors"
+                        className="p-1.5 rounded-full text-muted-foreground hover:text-primary hover:bg-primary/10 transition-colors shrink-0 ml-2"
                       >
-                        <ExternalLink size={18} />
+                        <ExternalLink size={16} />
                       </a>
                     )}
                   </div>
-                  <p className="text-muted-foreground text-sm mb-4 leading-relaxed line-clamp-2">
+                  <p className="text-muted-foreground text-xs mb-4 leading-relaxed line-clamp-3 flex-grow">
                     {community.description}
                   </p>
-                  <div className="flex flex-wrap gap-2">
-                    {community.tags.map((tag) => (
-                      <span key={tag} className="px-3 py-1 rounded-full bg-primary/10 text-primary text-[10px] font-medium uppercase tracking-wider">
+                  <div className="flex flex-wrap gap-1.5">
+                    {community.tags.slice(0, 4).map((tag) => (
+                      <span key={tag} className="px-2 py-0.5 rounded-md bg-primary/10 text-primary text-[9px] font-bold uppercase tracking-wider border border-primary/20">
                         {tag}
                       </span>
                     ))}
