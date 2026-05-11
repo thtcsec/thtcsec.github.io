@@ -25,7 +25,7 @@ export const siteConfig = {
     academic: {
         startDate: "2023-09-01",
         endDate: "2027-07-31",
-        currentSemester: 7,
+        currentSemester: 8,
         totalSemesters: 9,
         gpa: 3.46,
         creditsCompleted: 109,
