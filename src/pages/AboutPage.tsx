@@ -2,13 +2,13 @@ import { useEffect } from "react";
 import ProjectHeader from "@/components/portfolio/ProjectHeader";
 import Footer from "@/components/portfolio/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
-import { 
-  Trophy, 
-  Code, 
-  Cpu, 
-  Globe, 
-  Shield, 
-  Terminal, 
+import {
+  Trophy,
+  Code,
+  Cpu,
+  Globe,
+  Shield,
+  Terminal,
   Rocket,
   Award,
   Zap,
@@ -25,25 +25,25 @@ import { communities } from "@/data/communities";
 
 const competitions = [
   {
-    name: "Datathon 2026 - The Gridbreakers (VinUniversity)",
+    name: "VinUniversity - The Gridbreakers Datathon 2026",
     date: "May 2026",
-    role: "Finalist (Top 50 / 10% Nationwide)",
+    role: "Top 50 finalist (10% Nationwide)",
     icon: <BarChart className="w-5 h-5 text-purple-400 group-hover:animate-pulse" />,
     bgGradient: "from-purple-500/10 to-transparent",
     borderClass: "border-purple-500/20 group-hover:border-purple-500/50 group-hover:shadow-[0_0_15px_rgba(168,85,247,0.3)]",
     textClass: "group-hover:text-purple-400 transition-colors text-foreground"
   },
   {
-    name: "Qwen AI Build Day Vietnam",
+    name: "Alibaba Cloud x GenAIFund - Qwen AI Build Day Vietnam",
     date: "April 2026",
-    role: "Participant",
+    role: "Top 10 finalist",
     icon: <Brain className="w-5 h-5 text-cyan-400 group-hover:animate-pulse" />,
     bgGradient: "from-cyan-500/10 to-transparent",
     borderClass: "border-cyan-500/20 group-hover:border-cyan-500/50 group-hover:shadow-[0_0_15px_rgba(6,182,212,0.3)]",
     textClass: "group-hover:text-cyan-400 transition-colors text-foreground"
   },
   {
-    name: "Tasco Wash3000 Hackathon",
+    name: "Tasco x GenAIFund - Tasco Wash3000 Hackathon",
     date: "May 2026",
     role: "Top 10 Finalist",
     icon: <Trophy className="w-5 h-5 text-indigo-400 group-hover:animate-pulse" />,
@@ -79,7 +79,7 @@ const competitions = [
     textClass: "group-hover:text-sky-400 transition-colors text-foreground"
   },
   {
-    name: "LotusHack Hackathon",
+    name: "VNG - LotusHacks x HackHarvard x GenAI Fund Vietnam Hackathon",
     date: "March 2026",
     role: "Participant",
     icon: <Code className="w-5 h-5 text-green-400 group-hover:animate-pulse" />,
@@ -88,7 +88,7 @@ const competitions = [
     textClass: "group-hover:text-green-400 transition-colors text-foreground"
   },
   {
-    name: "Innovate4FinLit (Hack2Skill, India)",
+    name: "Hack2Skill India - Innovate4FinLit",
     date: "Jan - Mar 2026",
     role: "Participant",
     icon: <Lightbulb className="w-5 h-5 text-lime-400 group-hover:animate-pulse" />,
@@ -106,7 +106,7 @@ const competitions = [
     textClass: "group-hover:text-rose-400 transition-colors text-foreground"
   },
   {
-    name: "Google DeepMind - Vibe Code with Gemini 3 Pro (Kaggle)",
+    name: "Kaggle - Google DeepMind - Vibe Code with Gemini 3 Pro",
     date: "December 2025",
     role: "Competitor",
     icon: <LineChart className="w-5 h-5 text-teal-400 group-hover:animate-pulse" />,
@@ -115,7 +115,7 @@ const competitions = [
     textClass: "group-hover:text-teal-400 transition-colors text-foreground"
   },
   {
-    name: "WannaGame Championship – UIT CTF",
+    name: "VNUHCM UIT - WannaGame Championship CTF 2025",
     date: "December 2025",
     role: "Participant",
     icon: <Shield className="w-5 h-5 text-emerald-400 group-hover:animate-pulse" />,
@@ -124,7 +124,7 @@ const competitions = [
     textClass: "group-hover:text-emerald-400 transition-colors text-foreground"
   },
   {
-    name: "Viettel AI Race",
+    name: "Viettel - Viettel AI Race",
     date: "December 2025",
     role: "Participant",
     icon: <Rocket className="w-5 h-5 text-orange-400 group-hover:animate-pulse" />,
@@ -133,7 +133,7 @@ const competitions = [
     textClass: "group-hover:text-orange-400 transition-colors text-foreground"
   },
   {
-    name: "VNPT AI Hackathon",
+    name: "VNPT - VNPT AI Hackathon",
     date: "December 2025",
     role: "Participant",
     icon: <Cpu className="w-5 h-5 text-red-400 group-hover:animate-pulse" />,
@@ -142,7 +142,7 @@ const competitions = [
     textClass: "group-hover:text-red-400 transition-colors text-foreground"
   },
   {
-    name: "Cursor Hackathon",
+    name: "VNG - Cursor Hackathon",
     date: "December 2025",
     role: "Participant",
     icon: <Terminal className="w-5 h-5 text-purple-400 group-hover:animate-pulse" />,
@@ -151,7 +151,7 @@ const competitions = [
     textClass: "group-hover:text-purple-400 transition-colors text-foreground"
   },
   {
-    name: "AI For Good Hackathon (Hack2Skill, India)",
+    name: "Hack2Skill India - AI For Good Hackathon",
     date: "November 2025",
     role: "Participant",
     icon: <Code className="w-5 h-5 text-blue-300 group-hover:animate-pulse" />,
@@ -160,7 +160,7 @@ const competitions = [
     textClass: "group-hover:text-blue-300 transition-colors text-foreground"
   },
   {
-    name: "VNG Code Tour",
+    name: "VNG - VNG Code Tour 2025",
     date: "October 2025",
     role: "Participant",
     icon: <Award className="w-5 h-5 text-pink-400 group-hover:animate-pulse" />,
@@ -169,16 +169,16 @@ const competitions = [
     textClass: "group-hover:text-pink-400 transition-colors text-foreground"
   },
   {
-    name: "HSU Vibe Coding Talent",
+    name: "Hoa Sen University - HSU Vibe Coding Talent",
     date: "October 2025",
-    role: "Participant",
+    role: "Winner",
     icon: <Zap className="w-5 h-5 text-yellow-400 group-hover:animate-pulse" />,
     bgGradient: "from-yellow-500/10 to-transparent",
     borderClass: "border-yellow-500/20 group-hover:border-yellow-500/50 group-hover:shadow-[0_0_15px_rgba(234,179,8,0.3)]",
     textClass: "group-hover:text-yellow-400 transition-colors text-foreground"
   },
   {
-    name: "VPBank Technology Hackathon",
+    name: "VPBank - VPBank Technology Hackathon",
     date: "May - Nov 2025",
     role: "Participant",
     icon: <Trophy className="w-5 h-5 text-cyan-400 group-hover:animate-pulse" />,
@@ -196,13 +196,13 @@ const AboutPage = () => {
   return (
     <div className="min-h-screen bg-background text-foreground flex flex-col font-sans selection:bg-primary/30">
       <ProjectHeader />
-      
+
       <main className="flex-grow pt-32 pb-20">
         <div className="container mx-auto px-4 max-w-4xl">
           <h1 className="text-4xl md:text-5xl font-bold mb-8 animate-fade-in animate-text-glow text-transparent bg-clip-text bg-gradient-to-r from-primary via-purple-400 to-primary">
             My Journey
           </h1>
-          
+
           <div className="prose prose-invert prose-lg md:prose-xl max-w-none animate-fade-in" style={{ animationDelay: "0.2s", animationFillMode: "forwards" }}>
             <p className="animate-text-glow text-transparent bg-clip-text bg-gradient-to-r from-gray-200 via-gray-400 to-gray-200 font-medium leading-relaxed">
               I am a passionate cybersecurity enthusiast and developer. My continuous drive focuses on pushing beyond my boundaries and breaking my own limits. I actively seek out and participate in various hackathons and intensive coding challenges to constantly test my skills, adapt to new technologies under pressure, and build innovative solutions.
@@ -211,33 +211,43 @@ const AboutPage = () => {
 
           <div className="mt-28 animate-fade-in" style={{ animationDelay: "0.4s", animationFillMode: "forwards", opacity: 0 }}>
             <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center animate-text-glow text-transparent bg-clip-text bg-gradient-to-r from-primary via-purple-400 to-primary">Hackathons & Competitions</h2>
-            
+
             <div className="relative max-w-4xl mx-auto">
               <div className="absolute left-0 md:left-1/2 top-4 bottom-4 w-px bg-gradient-to-b from-primary/50 via-purple-500/50 to-transparent -translate-x-1/2 hidden md:block"></div>
-              
+
               <div className="space-y-8 relative">
                 {competitions.map((comp, index) => (
                   <div key={index} className={`relative flex flex-col md:flex-row items-start md:items-center ${index % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
-                    
+
                     <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-background border-2 border-primary items-center justify-center z-10 shadow-[0_0_15px_rgba(var(--primary),0.5)]">
                       <div className="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
                     </div>
-                    
+
                     <div className={`w-full md:w-[calc(50%-2rem)] md:px-8 mt-4 md:mt-0`}>
                       <div className={`glass relative overflow-hidden rounded-xl p-6 border ${comp.borderClass} hover:-translate-y-1 transition-all duration-300 group`}>
                         <div className={`absolute inset-0 bg-gradient-to-br ${comp.bgGradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
-                        
+
                         <div className="relative z-10">
                           <div className="flex items-center justify-between mb-3">
                             <span className="text-sm font-semibold text-primary/80 bg-primary/10 px-3 py-1 rounded-full border border-primary/20 shadow-sm shadow-primary/10">
                               {comp.date}
                             </span>
-                            <div className={`p-2 rounded-lg bg-background/50 backdrop-blur-sm border border-border/50 transition-colors`}>
-                              {comp.icon}
+                            <div className="flex items-center gap-3">
+                              {comp.role !== "Participant" && comp.role !== "Competitor" && (
+                                <div className="flex items-center gap-1 text-[10px] font-bold uppercase tracking-widest text-primary bg-primary/20 px-2 py-1 rounded-md border border-primary/40 animate-pulse shadow-[0_0_10px_rgba(var(--primary),0.3)]">
+                                  <Trophy size={10} />
+                                  Special
+                                </div>
+                              )}
+                              <div className={`p-2 rounded-lg bg-background/50 backdrop-blur-sm border border-border/50 transition-colors`}>
+                                {comp.icon}
+                              </div>
                             </div>
                           </div>
                           <h3 className={`text-xl font-bold mb-1 ${comp.textClass}`}>{comp.name}</h3>
-                          <p className="text-muted-foreground text-sm font-medium">{comp.role}</p>
+                          <p className={`text-sm font-medium ${comp.role !== "Participant" && comp.role !== "Competitor" ? 'text-primary animate-text-glow' : 'text-muted-foreground'}`}>
+                            {comp.role}
+                          </p>
                         </div>
                       </div>
                     </div>
@@ -247,88 +257,88 @@ const AboutPage = () => {
             </div>
           </div>
         </div>
-          <div className="mt-28 animate-fade-in" style={{ animationDelay: "0.6s", animationFillMode: "forwards", opacity: 0 }}>
-            <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center animate-text-glow text-transparent bg-clip-text bg-gradient-to-r from-primary via-purple-400 to-primary">Community & Impact</h2>
-            
-            <div className="flex flex-col gap-6 mb-16">
-              {communities.map((community) => (
-                <div
-                  key={community.id}
-                  className="group relative rounded-2xl overflow-hidden bg-card border border-border hover:border-primary/50 transition-all duration-300 hover:-translate-y-1 flex flex-col sm:flex-row"
-                >
-                  <div className="relative sm:w-1/3 min-w-[250px] aspect-video sm:aspect-auto overflow-hidden bg-muted">
-                    <img
-                      src={community.image}
-                      alt={community.title}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                      loading="lazy"
-                    />
-                  </div>
-                  <div className="p-6 flex flex-col flex-1 justify-center">
-                    <div className="flex items-center justify-between mb-2">
-                      <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
-                        {community.title}
-                      </h3>
-                      {community.link && (
-                        <a
-                          href={community.link}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="p-2 rounded-full text-muted-foreground hover:text-primary hover:bg-primary/10 transition-colors"
-                        >
-                          <ExternalLink size={18} />
-                        </a>
-                      )}
-                    </div>
-                    <p className="text-muted-foreground text-sm mb-4 leading-relaxed line-clamp-2">
-                      {community.description}
-                    </p>
-                    <div className="flex flex-wrap gap-2">
-                      {community.tags.map((tag) => (
-                        <span key={tag} className="px-3 py-1 rounded-full bg-primary/10 text-primary text-[10px] font-medium uppercase tracking-wider">
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
+        <div className="mt-28 animate-fade-in" style={{ animationDelay: "0.6s", animationFillMode: "forwards", opacity: 0 }}>
+          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center animate-text-glow text-transparent bg-clip-text bg-gradient-to-r from-primary via-purple-400 to-primary">Community & Impact</h2>
 
-            {/* GitHub Contributions */}
-            <div className="rounded-2xl overflow-hidden bg-card border border-border p-6 md:p-8 hover:border-primary/50 transition-all duration-300">
-              <div className="flex flex-col md:flex-row items-center justify-between gap-4 mb-8">
-                <div className="flex items-center gap-4">
-                  <div className="p-3 rounded-xl bg-primary/10 text-primary shadow-[0_0_15px_rgba(var(--primary),0.2)]">
-                    <Github size={28} />
+          <div className="flex flex-col gap-6 mb-16">
+            {communities.map((community) => (
+              <div
+                key={community.id}
+                className="group relative rounded-2xl overflow-hidden bg-card border border-border hover:border-primary/50 transition-all duration-300 hover:-translate-y-1 flex flex-col sm:flex-row"
+              >
+                <div className="relative sm:w-1/3 min-w-[250px] aspect-video sm:aspect-auto overflow-hidden bg-muted">
+                  <img
+                    src={community.image}
+                    alt={community.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="p-6 flex flex-col flex-1 justify-center">
+                  <div className="flex items-center justify-between mb-2">
+                    <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
+                      {community.title}
+                    </h3>
+                    {community.link && (
+                      <a
+                        href={community.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-2 rounded-full text-muted-foreground hover:text-primary hover:bg-primary/10 transition-colors"
+                      >
+                        <ExternalLink size={18} />
+                      </a>
+                    )}
                   </div>
-                  <div>
-                    <h3 className="text-2xl font-bold text-foreground">Open Source Activity</h3>
-                    <p className="text-muted-foreground">My contributions to the developer ecosystem</p>
+                  <p className="text-muted-foreground text-sm mb-4 leading-relaxed line-clamp-2">
+                    {community.description}
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {community.tags.map((tag) => (
+                      <span key={tag} className="px-3 py-1 rounded-full bg-primary/10 text-primary text-[10px] font-medium uppercase tracking-wider">
+                        {tag}
+                      </span>
+                    ))}
                   </div>
                 </div>
-                <a
-                  href="https://github.com/thtcsec"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex items-center gap-2 px-6 py-2 rounded-full bg-primary/10 text-primary border border-primary/20 hover:bg-primary hover:text-primary-foreground transition-all duration-300"
-                >
-                  <span className="font-bold uppercase tracking-widest text-xs">View Profile</span>
-                  <ExternalLink size={14} className="group-hover:translate-x-1 transition-transform" />
-                </a>
               </div>
-              <div className="w-full overflow-x-auto pb-2 custom-scrollbar">
-                <img
-                  src="https://ghchart.rshah.org/8A2BE2/thtcsec"
-                  alt="thtcsec's GitHub Contributions"
-                  className="min-w-[800px] w-full filter brightness-90 contrast-125 opacity-90 hover:opacity-100 transition-opacity"
-                  loading="lazy"
-                />
+            ))}
+          </div>
+
+          {/* GitHub Contributions */}
+          <div className="rounded-2xl overflow-hidden bg-card border border-border p-6 md:p-8 hover:border-primary/50 transition-all duration-300">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-4 mb-8">
+              <div className="flex items-center gap-4">
+                <div className="p-3 rounded-xl bg-primary/10 text-primary shadow-[0_0_15px_rgba(var(--primary),0.2)]">
+                  <Github size={28} />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-foreground">Open Source Activity</h3>
+                  <p className="text-muted-foreground">My contributions to the developer ecosystem</p>
+                </div>
               </div>
+              <a
+                href="https://github.com/thtcsec"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center gap-2 px-6 py-2 rounded-full bg-primary/10 text-primary border border-primary/20 hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+              >
+                <span className="font-bold uppercase tracking-widest text-xs">View Profile</span>
+                <ExternalLink size={14} className="group-hover:translate-x-1 transition-transform" />
+              </a>
+            </div>
+            <div className="w-full overflow-x-auto pb-2 custom-scrollbar">
+              <img
+                src="https://ghchart.rshah.org/8A2BE2/thtcsec"
+                alt="thtcsec's GitHub Contributions"
+                className="min-w-[800px] w-full filter brightness-90 contrast-125 opacity-90 hover:opacity-100 transition-opacity"
+                loading="lazy"
+              />
             </div>
           </div>
+        </div>
       </main>
-      
+
 
       <Footer />
       <ScrollToTop />
