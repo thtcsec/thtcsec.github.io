@@ -3,7 +3,6 @@ import { ArrowDown, Github, Linkedin, Mail, FileText, Facebook, Globe, Trophy, T
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { siteConfig, getAcademicProgress, getDaysRemaining } from "@/data/config";
-import { ScrollArea } from "@/components/ui/scroll-area";
 import {
   Dialog,
   DialogContent,
@@ -158,14 +157,14 @@ const Hero = () => {
                     </Button>
                   </div>
                 </div>
-                <ScrollArea className="flex-1 px-6 pb-6">
+                <div className="flex-1 overflow-y-auto overflow-x-hidden px-6 pb-6">
                   <div className="space-y-8 pt-6">
                     <div className="rounded-2xl border border-border bg-muted/20 overflow-hidden">
                       <div className="bg-muted px-5 py-3 text-xs font-bold uppercase tracking-wider text-muted-foreground border-b border-border">
                         {isEnglish ? "Semester: HK01 (2025-2026)" : "Học kỳ: HK01 (2025-2026)"}
                       </div>
-                      <div className="overflow-x-auto">
-                        <Table className="min-w-[700px]">
+                      <div className="overflow-x-auto touch-pan-x" style={{ WebkitOverflowScrolling: "touch" }}>
+                        <Table className="min-w-[580px]">
                           <TableHeader>
                             <TableRow className="hover:bg-transparent">
                               <TableHead className="w-[100px] font-bold">{isEnglish ? "Code" : "Mã HP"}</TableHead>
@@ -180,7 +179,7 @@ const Hero = () => {
                               { code: "1010762", vi: "Giáo dục thể chất 1", en: "Physical Education 1", credits: "2.0", grade: "8.8", letter: "A" },
                               { code: "1210164", vi: "Blockchain và ứng dụng", en: "Blockchain and Applications", credits: "4.0", grade: "9.9", letter: "A+" },
                               { code: "1230274", vi: "Quản trị mạng", en: "Network Administration", credits: "4.0", grade: "9.3", letter: "A+" },
-                              { code: "1250013", vi: "Tiếng Anh chuyên ngành 1", en: "Technical English 1", credits: "3.0", grade: "9.3", letter: "A+" },
+                              { code: "1250013", vi: "Tiếng Anh CN 1", en: "Technical English 1", credits: "3.0", grade: "9.3", letter: "A+" },
                               { code: "1250114", vi: "Điều tra tấn công", en: "Attack Investigation", credits: "4.0", grade: "8.9", letter: "A" },
                             ].map((item) => (
                               <TableRow key={item.code} className="text-sm">
@@ -205,8 +204,8 @@ const Hero = () => {
                       <div className="bg-muted px-5 py-3 text-xs font-bold uppercase tracking-wider text-muted-foreground border-b border-border">
                         {isEnglish ? "Semester: HK02 (2025-2026)" : "Học kỳ: HK02 (2025-2026)"}
                       </div>
-                      <div className="overflow-x-auto">
-                        <Table className="min-w-[700px]">
+                      <div className="overflow-x-auto touch-pan-x" style={{ WebkitOverflowScrolling: "touch" }}>
+                        <Table className="min-w-[580px]">
                           <TableHeader>
                             <TableRow className="hover:bg-transparent">
                               <TableHead className="w-[100px] font-bold">{isEnglish ? "Code" : "Mã HP"}</TableHead>
@@ -219,10 +218,10 @@ const Hero = () => {
                           <TableBody>
                             {[
                               { code: "1010873", vi: "Giáo dục thể chất 2", en: "Physical Education 2", credits: "3.0", grade: "9.2", letter: "A+" },
-                              { code: "1250023", vi: "Tiếng Anh chuyên ngành 2", en: "Technical English 2", credits: "3.0", grade: "9.5", letter: "A+" },
+                              { code: "1250023", vi: "Tiếng Anh CN 2", en: "Technical English 2", credits: "3.0", grade: "9.5", letter: "A+" },
                               { code: "1250244", vi: "Mạng không dây", en: "Wireless Networking", credits: "4.0", grade: "9.3", letter: "A+" },
                               { code: "1250254", vi: "Kiểm thử xâm nhập", en: "Penetration Testing", credits: "4.0", grade: "-", letter: "-" },
-                              { code: "1250264", vi: "Quản trị hệ thống bảo mật", en: "Security Systems Admin", credits: "4.0", grade: "9.4", letter: "A+" },
+                              { code: "1250264", vi: "QT hệ thống bảo mật", en: "Security Systems Admin", credits: "4.0", grade: "9.4", letter: "A+" },
                               { code: "1250374", vi: "Dịch ngược", en: "Reverse Engineering", credits: "4.0", grade: "-", letter: "-" },
                             ].map((item) => (
                               <TableRow key={item.code} className="text-sm">
@@ -243,7 +242,7 @@ const Hero = () => {
                       </div>
                     </div>
                   </div>
-                </ScrollArea>
+                </div>
               </DialogContent>
             </Dialog>
           </div>
