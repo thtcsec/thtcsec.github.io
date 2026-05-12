@@ -52,7 +52,10 @@ const Hero = () => {
             </h1>
 
             <p className="mt-6 max-w-2xl text-base leading-7 text-muted-foreground md:text-lg">
-              {siteConfig.bio}
+              {siteConfig.bio}{" "}
+              <Link to="/about" className="text-primary hover:underline font-medium inline-flex items-center gap-1">
+                Read full journey <ArrowDown size={14} className="-rotate-90" />
+              </Link>
             </p>
 
             <div className="cinema-stagger mt-8 grid gap-3 sm:grid-cols-3">
@@ -109,7 +112,18 @@ const Hero = () => {
             </div>
           </div>
 
-          <div className="cinema-reveal lg:justify-self-end" style={{ ["--reveal-delay" as string]: "140ms" }}>
+          <div className="cinema-reveal flex flex-col gap-8 lg:justify-self-end" style={{ ["--reveal-delay" as string]: "140ms" }}>
+            <div className="relative group max-w-[280px] self-center lg:self-end">
+              <div className="absolute -inset-1 bg-gradient-to-r from-primary to-accent rounded-[2rem] blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
+              <div className="relative aspect-square overflow-hidden rounded-[2rem] border border-border bg-card">
+                <img
+                  src="/images/avatar.jpg"
+                  alt={siteConfig.author}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+              </div>
+            </div>
+
             <div className="cinema-card rounded-3xl p-6">
               <div className="flex items-center justify-between gap-2 text-sm font-medium text-muted-foreground">
                 <div className="flex items-center gap-2">
@@ -284,13 +298,27 @@ const Hero = () => {
                 <div className="rounded-2xl border border-border p-4">
                   <div className="flex items-center justify-between cinema-meta">
                     <span>Academic journey</span>
-                    <span>68.8%</span>
+                    <span>{progressPercentage}%</span>
                   </div>
                   <div className="mt-3 h-2 overflow-hidden rounded-full bg-muted">
-                    <div className="h-full rounded-full bg-primary" style={{ width: `68.8%` }} />
+                    <div className="h-full rounded-full bg-primary" style={{ width: `${progressPercentage}%` }} />
                   </div>
                   <div className="mt-2 text-xs text-muted-foreground">
                     Semester {siteConfig.academic.currentSemester}/{siteConfig.academic.totalSemesters} • GPA {siteConfig.academic.gpa}
+                  </div>
+                </div>
+
+                <div className="rounded-2xl border border-border p-4 overflow-hidden">
+                  <div className="flex items-center gap-2 cinema-meta mb-3">
+                    <Github size={14} />
+                    <span>GitHub activity</span>
+                  </div>
+                  <div className="w-full overflow-x-auto custom-scrollbar">
+                    <img
+                      src="https://ghchart.rshah.org/8A2BE2/thtcsec"
+                      alt="GitHub Contributions"
+                      className="min-w-[400px] h-auto opacity-80"
+                    />
                   </div>
                 </div>
               </div>
@@ -300,11 +328,11 @@ const Hero = () => {
 
         <div className="mt-12 flex justify-center lg:justify-start">
           <button
-            onClick={() => handleScrollToSection("about")}
+            onClick={() => handleScrollToSection("projects")}
             className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
           >
             <ArrowDown size={16} />
-            Scroll to overview
+            Scroll to projects
           </button>
         </div>
       </div>

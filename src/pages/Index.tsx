@@ -81,21 +81,15 @@ const Index = () => {
           <Hero />
         </div>
         <div ref={el => (sectionRefs.current[1] = el)}>
-          <About />
-        </div>
-        <div ref={el => (sectionRefs.current[2] = el)}>
           <Projects />
         </div>
-        <div ref={el => (sectionRefs.current[3] = el)}>
+        <div ref={el => (sectionRefs.current[2] = el)}>
           <Certificates />
         </div>
-        <div ref={el => (sectionRefs.current[4] = el)}>
-          <Community />
-        </div>
-        <div ref={el => (sectionRefs.current[5] = el)}>
+        <div ref={el => (sectionRefs.current[3] = el)}>
           <RecentBlogs />
         </div>
-        <div ref={el => (sectionRefs.current[6] = el)}>
+        <div ref={el => (sectionRefs.current[4] = el)}>
           <Contact />
         </div>
       </main>
