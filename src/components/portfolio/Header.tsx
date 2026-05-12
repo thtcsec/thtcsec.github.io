@@ -6,10 +6,9 @@ import { Link } from "react-router-dom";
 
 const navItems = [
   { label: "Home", href: "#home" },
-  { label: "About", href: "#about" },
+  { label: "About", href: "/about" },
   { label: "Projects", href: "#projects" },
   { label: "Certificates", href: "#certificates" },
-  { label: "Community", href: "#community" },
   { label: "Research", href: "#research" },
   { label: "Contact", href: "#contact" },
 ];
@@ -140,8 +139,8 @@ const Header = () => {
           </nav>
 
           <div className="hidden items-center gap-2 md:flex">
-            <Button size="sm" variant="outline" asChild className="hidden lg:inline-flex">
-              <Link to="/resume">Resume</Link>
+            <Button size="sm" variant="outline" asChild className="hidden lg:inline-flex border-primary/30 hover:bg-primary/5 hover:text-primary">
+              <Link to="/pricing">Pricing</Link>
             </Button>
             <ThemeToggle />
           </div>
@@ -188,12 +187,11 @@ const Header = () => {
             ))}
             <Button
               variant="outline"
-              className="mt-3 w-full py-6 text-base"
+              className="mt-3 w-full py-6 text-base border-primary/30"
               asChild
             >
-              <Link to="/resume" onClick={() => setIsMobileMenuOpen(false)}>
-                <Download size={18} className="mr-2" />
-                Resume
+              <Link to="/pricing" onClick={() => setIsMobileMenuOpen(false)}>
+                Pricing
               </Link>
             </Button>
           </div>

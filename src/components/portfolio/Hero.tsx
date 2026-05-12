@@ -112,219 +112,151 @@ const Hero = () => {
             </div>
           </div>
 
-          <div className="cinema-reveal flex flex-col gap-8 lg:justify-self-end" style={{ ["--reveal-delay" as string]: "140ms" }}>
-            <div className="relative group max-w-[280px] self-center lg:self-end">
-              <div className="absolute -inset-1 bg-gradient-to-r from-primary to-accent rounded-[2rem] blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
-              <div className="relative aspect-square overflow-hidden rounded-[2rem] border border-border bg-card">
-                <img
-                  src="/images/avatar.jpg"
-                  alt={siteConfig.author}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-              </div>
-            </div>
-
-            <div className="cinema-card rounded-3xl p-6">
-              <div className="flex items-center justify-between gap-2 text-sm font-medium text-muted-foreground">
-                <div className="flex items-center gap-2">
-                  <Terminal size={14} />
-                  Profile snapshot
-                </div>
+          <div className="cinema-reveal relative lg:justify-self-end" style={{ ["--reveal-delay" as string]: "140ms" }}>
+            <div className="relative w-full max-w-[360px] perspective-1000">
+              {/* Premium Avatar Card */}
+              <div className="relative group transition-all duration-700 hover:scale-[1.02]">
+                <div className="absolute -inset-4 bg-gradient-to-tr from-primary/30 via-accent/20 to-primary/30 rounded-[3rem] blur-2xl opacity-20 group-hover:opacity-40 transition duration-1000"></div>
                 
-                <Dialog>
-                  <DialogTrigger asChild>
-                    <button className="flex items-center gap-1.5 text-xs font-semibold text-primary transition-colors hover:text-primary/80">
-                      <FileText size={12} />
-                      View Transcript
-                    </button>
-                  </DialogTrigger>
-                  <DialogContent className="w-[95vw] md:max-w-4xl h-[90vh] md:h-[85vh] flex flex-col p-0 overflow-hidden border-primary/20">
-                    <div className="p-6 pb-2 border-b border-border/50">
-                      <div className="flex items-center justify-between gap-4">
-                        <DialogHeader className="flex-1">
-                          <DialogTitle className="text-2xl font-bold flex items-center gap-2">
-                            <Trophy className="text-yellow-500 w-6 h-6" />
-                            Academic Performance - Year 3
-                          </DialogTitle>
-                          <DialogDescription className="text-sm">
-                            Detailed results for the 2025-2026 academic year. (Calculated based on available grades)
-                          </DialogDescription>
-                        </DialogHeader>
-                        <Button 
-                          variant="outline" 
-                          size="sm" 
-                          onClick={() => setIsEnglish(!isEnglish)}
-                          className="flex items-center gap-2 border-primary/30 hover:bg-primary/5"
-                        >
-                          <Globe size={14} className="text-primary" />
-                          {isEnglish ? "Tiếng Việt" : "English"}
-                        </Button>
+                <div className="glass relative overflow-hidden rounded-[2.5rem] border border-white/10 bg-white/5 backdrop-blur-2xl shadow-2xl flex flex-col">
+                  {/* Avatar Container */}
+                  <div className="relative aspect-square overflow-hidden">
+                    <img
+                      src="/images/avatar.jpg"
+                      alt={siteConfig.author}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-90"></div>
+                    
+                    {/* Floating Status Tag */}
+                    <div className="absolute top-4 right-4 flex items-center gap-2 rounded-full bg-black/40 backdrop-blur-md px-3 py-1.5 border border-white/10 shadow-lg">
+                      <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
+                      <span className="text-[10px] font-bold text-white uppercase tracking-wider">Available for Hire</span>
+                    </div>
+                  </div>
+
+                  {/* Info Section */}
+                  <div className="p-6 -mt-10 relative z-10">
+                    <div className="flex items-center justify-between mb-5">
+                      <div>
+                        <span className="text-[10px] uppercase tracking-[0.2em] text-primary font-bold">Student & Engineer</span>
+                        <h4 className="text-2xl font-bold text-white tracking-tight">{siteConfig.author}</h4>
+                      </div>
+                      
+                      <Dialog>
+                        <DialogTrigger asChild>
+                          <button className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/10 border border-white/10 text-white transition-all hover:bg-primary/20 hover:border-primary/40 group/btn shadow-inner">
+                            <FileText size={18} className="group-hover/btn:scale-110 transition-transform" />
+                          </button>
+                        </DialogTrigger>
+                        <DialogContent className="w-[95vw] md:max-w-4xl h-[90vh] md:h-[85vh] flex flex-col p-0 overflow-hidden border-primary/20">
+                          <div className="p-6 pb-2 border-b border-border/50">
+                            <div className="flex items-center justify-between gap-4">
+                              <DialogHeader className="flex-1">
+                                <DialogTitle className="text-2xl font-bold flex items-center gap-2">
+                                  <Trophy className="text-yellow-500 w-6 h-6" />
+                                  Academic Performance - Year 3
+                                </DialogTitle>
+                                <DialogDescription className="text-sm">
+                                  Detailed results for the 2025-2026 academic year. (Calculated based on available grades)
+                                </DialogDescription>
+                              </DialogHeader>
+                              <Button 
+                                variant="outline" 
+                                size="sm" 
+                                onClick={() => setIsEnglish(!isEnglish)}
+                                className="flex items-center gap-2 border-primary/30 hover:bg-primary/5"
+                              >
+                                <Globe size={14} className="text-primary" />
+                                {isEnglish ? "Tiếng Việt" : "English"}
+                              </Button>
+                            </div>
+                          </div>
+                          <ScrollArea className="flex-1 px-6 pb-6">
+                            <div className="space-y-8 pt-6">
+                              {/* HK01 content... (keeping table structure) */}
+                              <div className="rounded-2xl border border-border bg-muted/20 overflow-hidden shadow-sm">
+                                <div className="bg-muted px-5 py-3 text-xs font-bold uppercase tracking-wider text-muted-foreground border-b border-border">
+                                  {isEnglish ? "Academic Year: 2025-2026 - Semester: HK01" : "Năm học: 2025-2026 - Học kỳ: HK01"}
+                                </div>
+                                <div className="overflow-x-auto w-full relative touch-pan-x">
+                                  <Table className="min-w-[700px]">
+                                    <TableHeader>
+                                      <TableRow className="hover:bg-transparent">
+                                        <TableHead className="w-[120px] font-bold">{isEnglish ? "Course ID" : "Mã HP"}</TableHead>
+                                        <TableHead className="font-bold">{isEnglish ? "Course Name" : "Tên học phần"}</TableHead>
+                                        <TableHead className="text-center font-bold">{isEnglish ? "Credits" : "Tín chỉ"}</TableHead>
+                                        <TableHead className="text-center font-bold">{isEnglish ? "Grade" : "Điểm"}</TableHead>
+                                        <TableHead className="text-right font-bold">{isEnglish ? "Result" : "Kết quả"}</TableHead>
+                                      </TableRow>
+                                    </TableHeader>
+                                    <TableBody>
+                                      {[
+                                        { code: "1010762", vi: "Giáo dục thể chất 1 (Bóng bàn 1)", en: "Physical Education 1 (Table Tennis 1)", credits: "2.0", grade: "8.8", letter: "A" },
+                                        { code: "1210164", vi: "Blockchain và ứng dụng", en: "Blockchain and Applications", credits: "4.0", grade: "9.9", letter: "A+" },
+                                        { code: "1230274", vi: "Quản trị mạng", en: "Network Administration", credits: "4.0", grade: "9.3", letter: "A+" },
+                                        { code: "1250013", vi: "Tiếng Anh chuyên ngành 1", en: "Technical English 1", credits: "3.0", grade: "9.3", letter: "A+" },
+                                        { code: "1250114", vi: "Điều tra tấn công", en: "Attack Investigation", credits: "4.0", grade: "8.9", letter: "A" },
+                                      ].map((item) => (
+                                        <TableRow key={item.code} className="text-sm">
+                                          <TableCell className="font-mono text-muted-foreground">{item.code}</TableCell>
+                                          <TableCell className="font-semibold">{isEnglish ? item.en : item.vi}</TableCell>
+                                          <TableCell className="text-center font-medium">{item.credits}</TableCell>
+                                          <TableCell className="text-center font-bold text-primary">{item.grade}</TableCell>
+                                          <TableCell className="text-right font-bold">{item.letter}</TableCell>
+                                        </TableRow>
+                                      ))}
+                                    </TableBody>
+                                  </Table>
+                                </div>
+                                <div className="p-4 bg-muted/40 border-t border-border flex flex-wrap gap-x-8 gap-y-2 text-sm text-muted-foreground font-semibold">
+                                  <div className="flex items-center gap-2">
+                                    <span className="text-xs uppercase opacity-70">{isEnglish ? "Semester GPA:" : "GPA HK:"}</span>
+                                    <span className="text-primary text-base">4.00</span>
+                                  </div>
+                                  <div className="flex items-center gap-2">
+                                    <span className="text-xs uppercase opacity-70">{isEnglish ? "Cumulative GPA:" : "GPA Tích lũy:"}</span>
+                                    <span className="text-foreground text-base">3.44</span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </ScrollArea>
+                        </DialogContent>
+                      </Dialog>
+                    </div>
+
+                    {/* Quick Info Grid */}
+                    <div className="grid grid-cols-2 gap-3 mb-5">
+                      <div className="rounded-2xl border border-white/10 bg-white/5 p-3 backdrop-blur-md">
+                        <div className="text-[9px] uppercase tracking-[0.1em] text-primary font-bold mb-1 opacity-80">University</div>
+                        <div className="text-xs font-bold text-white truncate">HUFLIT</div>
+                      </div>
+                      <div className="rounded-2xl border border-white/10 bg-white/5 p-3 backdrop-blur-md">
+                        <div className="text-[9px] uppercase tracking-[0.1em] text-primary font-bold mb-1 opacity-80">Progress</div>
+                        <div className="text-xs font-bold text-white">{progressPercentage}% Complete</div>
                       </div>
                     </div>
-                    
-                    <ScrollArea className="flex-1 px-6 pb-6">
-                      <div className="space-y-8 pt-6">
-                        {/* HK01 */}
-                        <div className="rounded-2xl border border-border bg-muted/20 overflow-hidden shadow-sm">
-                          <div className="bg-muted px-5 py-3 text-xs font-bold uppercase tracking-wider text-muted-foreground border-b border-border">
-                            {isEnglish ? "Academic Year: 2025-2026 - Semester: HK01" : "Năm học: 2025-2026 - Học kỳ: HK01"}
-                          </div>
-                          <div className="overflow-x-auto w-full relative touch-pan-x">
-                            <Table className="min-w-[700px]">
-                              <TableHeader>
-                                <TableRow className="hover:bg-transparent">
-                                  <TableHead className="w-[120px] font-bold">{isEnglish ? "Course ID" : "Mã HP"}</TableHead>
-                                  <TableHead className="font-bold">{isEnglish ? "Course Name" : "Tên học phần"}</TableHead>
-                                  <TableHead className="text-center font-bold">{isEnglish ? "Credits" : "Tín chỉ"}</TableHead>
-                                  <TableHead className="text-center font-bold">{isEnglish ? "Grade" : "Điểm"}</TableHead>
-                                  <TableHead className="text-right font-bold">{isEnglish ? "Result" : "Kết quả"}</TableHead>
-                                </TableRow>
-                              </TableHeader>
-                              <TableBody>
-                                {[
-                                  { code: "1010762", vi: "Giáo dục thể chất 1 (Bóng bàn 1)", en: "Physical Education 1 (Table Tennis 1)", credits: "2.0", grade: "8.8", letter: "A" },
-                                  { code: "1210164", vi: "Blockchain và ứng dụng", en: "Blockchain and Applications", credits: "4.0", grade: "9.9", letter: "A+" },
-                                  { code: "1230274", vi: "Quản trị mạng", en: "Network Administration", credits: "4.0", grade: "9.3", letter: "A+" },
-                                  { code: "1250013", vi: "Tiếng Anh chuyên ngành 1", en: "Technical English 1", credits: "3.0", grade: "9.3", letter: "A+" },
-                                  { code: "1250114", vi: "Điều tra tấn công", en: "Attack Investigation", credits: "4.0", grade: "8.9", letter: "A" },
-                                ].map((item) => (
-                                  <TableRow key={item.code} className="text-sm">
-                                    <TableCell className="font-mono text-muted-foreground">{item.code}</TableCell>
-                                    <TableCell className="font-semibold">{isEnglish ? item.en : item.vi}</TableCell>
-                                    <TableCell className="text-center font-medium">{item.credits}</TableCell>
-                                    <TableCell className="text-center font-bold text-primary">{item.grade}</TableCell>
-                                    <TableCell className="text-right font-bold">{item.letter}</TableCell>
-                                  </TableRow>
-                                ))}
-                              </TableBody>
-                            </Table>
-                          </div>
-                          <div className="p-4 bg-muted/40 border-t border-border flex flex-wrap gap-x-8 gap-y-2 text-sm text-muted-foreground font-semibold">
-                            <div className="flex items-center gap-2">
-                              <span className="text-xs uppercase opacity-70">{isEnglish ? "Credits Earned:" : "TC Đạt:"}</span>
-                              <span className="text-foreground text-base">15</span>
-                            </div>
-                            <div className="flex items-center gap-2">
-                              <span className="text-xs uppercase opacity-70">{isEnglish ? "Semester GPA:" : "GPA HK:"}</span>
-                              <span className="text-primary text-base">4.00</span>
-                            </div>
-                            <div className="flex items-center gap-2">
-                              <span className="text-xs uppercase opacity-70">{isEnglish ? "Cumulative GPA:" : "GPA Tích lũy:"}</span>
-                              <span className="text-foreground text-base">3.44</span>
-                            </div>
-                            <div className="flex items-center gap-2">
-                              <span className="text-xs uppercase opacity-70">{isEnglish ? "Training Point:" : "DRL:"}</span>
-                              <span className="text-primary text-base">85.00 (Tốt)</span>
-                            </div>
-                          </div>
-                        </div>
 
-                        {/* HK02 */}
-                        <div className="rounded-2xl border border-border bg-muted/20 overflow-hidden shadow-sm">
-                          <div className="bg-muted px-5 py-3 text-xs font-bold uppercase tracking-wider text-muted-foreground border-b border-border">
-                            {isEnglish ? "Academic Year: 2025-2026 - Semester: HK02" : "Năm học: 2025-2026 - Học kỳ: HK02"}
-                          </div>
-                          <div className="overflow-x-auto w-full relative touch-pan-x">
-                            <Table className="min-w-[700px]">
-                              <TableHeader>
-                                <TableRow className="hover:bg-transparent">
-                                  <TableHead className="w-[120px] font-bold">{isEnglish ? "Course ID" : "Mã HP"}</TableHead>
-                                  <TableHead className="font-bold">{isEnglish ? "Course Name" : "Tên học phần"}</TableHead>
-                                  <TableHead className="text-center font-bold">{isEnglish ? "Credits" : "Tín chỉ"}</TableHead>
-                                  <TableHead className="text-center font-bold">{isEnglish ? "Grade" : "Điểm"}</TableHead>
-                                  <TableHead className="text-right font-bold">{isEnglish ? "Result" : "Kết quả"}</TableHead>
-                                </TableRow>
-                              </TableHeader>
-                              <TableBody>
-                                {[
-                                  { code: "1010873", vi: "Giáo dục thể chất 2 (Bóng bàn 2)", en: "Physical Education 2 (Table Tennis 2)", credits: "3.0", grade: "9.2", letter: "A+" },
-                                  { code: "1250023", vi: "Tiếng Anh chuyên ngành 2", en: "Technical English 2", credits: "3.0", grade: "9.5", letter: "A+" },
-                                  { code: "1250244", vi: "Mạng không dây", en: "Wireless Networking", credits: "4.0", grade: "9.3", letter: "A+" },
-                                  { code: "1250254", vi: "Kiểm thử xâm nhập", en: "Penetration Testing", credits: "4.0", grade: "-", letter: "-" },
-                                  { code: "1250264", vi: "Quản trị hệ thống bảo mật", en: "Security Systems Administration", credits: "4.0", grade: "9.4", letter: "A+" },
-                                  { code: "1250374", vi: "Dịch ngược", en: "Reverse Engineering", credits: "4.0", grade: "-", letter: "-" },
-                                ].map((item) => (
-                                  <TableRow key={item.code} className="text-sm">
-                                    <TableCell className="font-mono text-muted-foreground">{item.code}</TableCell>
-                                    <TableCell className="font-semibold">{isEnglish ? item.en : item.vi}</TableCell>
-                                    <TableCell className="text-center font-medium">{item.credits}</TableCell>
-                                    <TableCell className="text-center font-bold text-primary">{item.grade}</TableCell>
-                                    <TableCell className="text-right font-bold">{item.letter}</TableCell>
-                                  </TableRow>
-                                ))}
-                              </TableBody>
-                            </Table>
-                          </div>
-                          <div className="p-4 bg-muted/40 border-t border-border flex flex-wrap gap-x-8 gap-y-2 text-sm text-muted-foreground font-semibold">
-                            <div className="flex items-center gap-2">
-                              <span className="text-xs uppercase opacity-70">{isEnglish ? "Credits Earned:" : "TC Đạt:"}</span>
-                              <span className="text-foreground text-base">14</span>
-                            </div>
-                            <div className="flex items-center gap-2">
-                              <span className="text-xs uppercase opacity-70">{isEnglish ? "Semester GPA:" : "GPA HK:"}</span>
-                              <span className="text-primary text-base">4.00</span>
-                            </div>
-                            <div className="flex items-center gap-2">
-                              <span className="text-xs uppercase opacity-70">{isEnglish ? "Cumulative GPA:" : "GPA Tích lũy:"}</span>
-                              <span className="text-foreground text-base">3.50</span>
-                            </div>
-                          </div>
-                        </div>
+                    {/* GitHub activity (Integrated) */}
+                    <div className="rounded-2xl border border-white/10 bg-black/20 p-4 overflow-hidden">
+                      <div className="flex items-center gap-2 text-[10px] uppercase tracking-widest text-white/60 font-bold mb-3">
+                        <Github size={12} />
+                        <span>Code Activity</span>
                       </div>
-                    </ScrollArea>
-                  </DialogContent>
-                </Dialog>
-              </div>
-
-              <div className="mt-6 space-y-4">
-                <div className="rounded-2xl border border-border/80 bg-muted/30 p-4">
-                  <div className="cinema-meta">What I build</div>
-                  <p className="mt-2 text-sm leading-6 text-foreground">
-                    Scalable backends, robust CI/CD pipelines, and high-performance full-stack applications.
-                  </p>
-                </div>
-
-                <div className="grid gap-3 sm:grid-cols-2">
-                  <div className="rounded-2xl border border-border p-4">
-                    <div className="cinema-meta">University</div>
-                    <div className="mt-2 text-sm font-semibold text-foreground">{siteConfig.university}</div>
-                  </div>
-                  <div className="rounded-2xl border border-border p-4">
-                    <div className="cinema-meta">Location</div>
-                    <div className="mt-2 text-sm font-semibold text-foreground">Ho Chi Minh City</div>
-                  </div>
-                </div>
-
-                <div className="rounded-2xl border border-border p-4">
-                  <div className="flex items-center justify-between cinema-meta">
-                    <span>Academic journey</span>
-                    <span>{progressPercentage}%</span>
-                  </div>
-                  <div className="mt-3 h-2 overflow-hidden rounded-full bg-muted">
-                    <div className="h-full rounded-full bg-primary" style={{ width: `${progressPercentage}%` }} />
-                  </div>
-                  <div className="mt-2 text-xs text-muted-foreground">
-                    Semester {siteConfig.academic.currentSemester}/{siteConfig.academic.totalSemesters} • GPA {siteConfig.academic.gpa}
-                  </div>
-                </div>
-
-                <div className="rounded-2xl border border-border p-4 overflow-hidden">
-                  <div className="flex items-center gap-2 cinema-meta mb-3">
-                    <Github size={14} />
-                    <span>GitHub activity</span>
-                  </div>
-                  <div className="w-full overflow-x-auto custom-scrollbar">
-                    <img
-                      src="https://ghchart.rshah.org/8A2BE2/thtcsec"
-                      alt="GitHub Contributions"
-                      className="min-w-[400px] h-auto opacity-80"
-                    />
+                      <div className="w-full overflow-x-auto custom-scrollbar">
+                        <img
+                          src="https://ghchart.rshah.org/8A2BE2/thtcsec"
+                          alt="GitHub Contributions"
+                          className="min-w-[320px] h-auto filter brightness-110 contrast-125"
+                        />
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
 
         <div className="mt-12 flex justify-center lg:justify-start">
           <button
