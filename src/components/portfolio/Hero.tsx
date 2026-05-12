@@ -124,7 +124,7 @@ const Hero = () => {
                       View Transcript
                     </button>
                   </DialogTrigger>
-                  <DialogContent className="max-w-4xl h-[85vh] flex flex-col p-0 overflow-hidden border-primary/20">
+                  <DialogContent className="w-[95vw] md:max-w-4xl h-[90vh] md:h-[85vh] flex flex-col p-0 overflow-hidden border-primary/20">
                     <div className="p-6 pb-2 border-b border-border/50">
                       <div className="flex items-center justify-between gap-4">
                         <DialogHeader className="flex-1">
@@ -155,7 +155,7 @@ const Hero = () => {
                           <div className="bg-muted px-5 py-3 text-xs font-bold uppercase tracking-wider text-muted-foreground border-b border-border">
                             {isEnglish ? "Academic Year: 2025-2026 - Semester: HK01" : "Năm học: 2025-2026 - Học kỳ: HK01"}
                           </div>
-                          <div className="overflow-x-auto">
+                          <div className="overflow-x-auto w-full relative touch-pan-x">
                             <Table className="min-w-[700px]">
                               <TableHeader>
                                 <TableRow className="hover:bg-transparent">
@@ -210,7 +210,7 @@ const Hero = () => {
                           <div className="bg-muted px-5 py-3 text-xs font-bold uppercase tracking-wider text-muted-foreground border-b border-border">
                             {isEnglish ? "Academic Year: 2025-2026 - Semester: HK02" : "Năm học: 2025-2026 - Học kỳ: HK02"}
                           </div>
-                          <div className="overflow-x-auto">
+                          <div className="overflow-x-auto w-full relative touch-pan-x">
                             <Table className="min-w-[700px]">
                               <TableHeader>
                                 <TableRow className="hover:bg-transparent">
