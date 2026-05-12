@@ -59,10 +59,10 @@ const Header = () => {
         setActiveSection("home");
       }
     };
-    
+
     // Check initial scroll position on mount
     handleScroll();
-    
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [isMobileMenuOpen]);
@@ -90,20 +90,17 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed left-1/2 z-50 w-[96%] -translate-x-1/2 transition-all duration-400 ${
-        isScrolled
+      className={`fixed left-1/2 z-50 w-[96%] -translate-x-1/2 transition-all duration-400 ${isScrolled
           ? "top-3 max-w-6xl md:top-4"
           : "top-4 max-w-7xl md:top-6"
-      } ${
-        isHeaderHidden ? "-translate-y-[120%]" : "translate-y-0"
-      }`}
+        } ${isHeaderHidden ? "-translate-y-[120%]" : "translate-y-0"
+        }`}
     >
       <div
-        className={`rounded-full px-4 py-3 backdrop-blur-xl transition-all duration-400 md:px-6 ${
-          isScrolled
+        className={`rounded-full px-4 py-3 backdrop-blur-xl transition-all duration-400 md:px-6 ${isScrolled
             ? "border border-border/80 bg-background/86 shadow-[0_20px_54px_-30px_hsl(var(--foreground)/0.8)]"
             : "border border-border/65 bg-background/72 shadow-[0_14px_34px_-24px_hsl(var(--foreground)/0.65)]"
-        }`}
+          }`}
       >
         <div className="flex items-center justify-between">
           <a

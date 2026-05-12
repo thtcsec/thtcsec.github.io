@@ -191,27 +191,7 @@ const HeroSection = () => {
         </div>
       </motion.div>
 
-      {/* ── Right side: avatar peek (desktop) ── */}
-      <motion.div
-        initial={{ opacity: 0, x: 40 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ delay: 0.9, duration: 1, ease: [0.16, 1, 0.3, 1] }}
-        className="hidden lg:block absolute right-16 xl:right-24 bottom-16 z-10"
-      >
-        <div className="relative">
-          <div className="w-48 h-48 xl:w-56 xl:h-56 rounded-2xl overflow-hidden border border-white/[0.08] shadow-2xl shadow-black/50">
-            <img
-              src="/images/avatar.jpg"
-              alt={siteConfig.authorEn}
-              className="w-full h-full object-cover"
-            />
-          </div>
-          {/* Floating label */}
-          <div className="absolute -bottom-3 -left-3 px-3 py-1.5 rounded-lg bg-black/80 backdrop-blur-sm border border-white/[0.08]">
-            <p className="text-[10px] text-primary/70 font-mono">@thtcsec</p>
-          </div>
-        </div>
-      </motion.div>
+
 
       {/* ── Scroll indicator ── */}
       <motion.div

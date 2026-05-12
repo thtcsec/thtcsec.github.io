@@ -199,13 +199,13 @@ const AboutPage = () => {
 
       <main className="flex-grow pt-32 pb-20">
         <div className="container mx-auto px-4 max-w-4xl">
-          <h1 className="text-4xl md:text-5xl font-bold mb-8 animate-fade-in animate-text-glow text-transparent bg-clip-text bg-gradient-to-r from-primary via-purple-400 to-primary">
+          <h1 className="text-4xl md:text-5xl font-bold mb-6 animate-fade-in animate-text-glow text-transparent bg-clip-text bg-gradient-to-r from-primary via-purple-400 to-primary">
             My Journey
           </h1>
 
-          <div className="prose prose-invert prose-lg md:prose-xl max-w-none animate-fade-in" style={{ animationDelay: "0.2s", animationFillMode: "forwards" }}>
-            <p className="animate-text-glow text-transparent bg-clip-text bg-gradient-to-r from-gray-200 via-gray-400 to-gray-200 font-medium leading-relaxed">
-              I am a passionate cybersecurity enthusiast and developer. My continuous drive focuses on pushing beyond my boundaries and breaking my own limits. I actively seek out and participate in various hackathons and intensive coding challenges to constantly test my skills, adapt to new technologies under pressure, and build innovative solutions.
+          <div className="animate-fade-in" style={{ animationDelay: "0.2s", animationFillMode: "forwards" }}>
+            <p className="text-lg md:text-xl italic font-medium leading-relaxed text-muted-foreground border-l-2 border-primary/40 pl-4">
+              "Every day without a breakthrough is a day standing still — and standing still means falling behind."
             </p>
           </div>
 
@@ -260,24 +260,21 @@ const AboutPage = () => {
         <div className="mt-28 animate-fade-in" style={{ animationDelay: "0.6s", animationFillMode: "forwards", opacity: 0 }}>
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center animate-text-glow text-transparent bg-clip-text bg-gradient-to-r from-primary via-purple-400 to-primary">Community & Impact</h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16 px-2">
+          <div className="space-y-4 mb-16 max-w-4xl mx-auto px-2">
             {communities.map((community) => (
               <div
                 key={community.id}
-                className="group relative rounded-2xl overflow-hidden bg-card border border-border hover:border-primary/50 transition-all duration-300 hover:-translate-y-1 flex flex-col h-full"
+                className="group flex items-center gap-5 p-5 rounded-xl bg-card border border-border hover:border-primary/50 transition-all duration-300"
               >
-                <div className="relative w-full aspect-video overflow-hidden bg-muted">
-                  <img
-                    src={community.image}
-                    alt={community.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                </div>
-                <div className="p-6 flex flex-col flex-1">
-                  <div className="flex items-start justify-between mb-3">
-                    <h3 className="text-lg font-bold text-foreground group-hover:text-primary transition-colors leading-tight">
+                <img
+                  src={community.image}
+                  alt={community.title}
+                  className="w-16 h-16 rounded-xl object-cover flex-shrink-0"
+                  loading="lazy"
+                />
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center gap-2 mb-1">
+                    <h3 className="text-base font-bold text-foreground group-hover:text-primary transition-colors">
                       {community.title}
                     </h3>
                     {community.link && (
@@ -285,54 +282,54 @@ const AboutPage = () => {
                         href={community.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="p-1.5 rounded-full text-muted-foreground hover:text-primary hover:bg-primary/10 transition-colors shrink-0 ml-2"
+                        className="text-muted-foreground hover:text-primary transition-colors shrink-0"
                       >
-                        <ExternalLink size={16} />
+                        <ExternalLink size={14} />
                       </a>
                     )}
                   </div>
-                  <p className="text-muted-foreground text-xs mb-4 leading-relaxed line-clamp-3 flex-grow">
+                  <p className="text-muted-foreground text-sm line-clamp-2">
                     {community.description}
                   </p>
-                  <div className="flex flex-wrap gap-1.5">
-                    {community.tags.slice(0, 4).map((tag) => (
-                      <span key={tag} className="px-2 py-0.5 rounded-md bg-primary/10 text-primary text-[9px] font-bold uppercase tracking-wider border border-primary/20">
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
+                </div>
+                <div className="hidden sm:flex flex-wrap gap-1.5 shrink-0 max-w-[180px] justify-end">
+                  {community.tags.slice(0, 3).map((tag) => (
+                    <span key={tag} className="px-2.5 py-1 rounded-md bg-primary/10 text-primary text-[10px] font-bold uppercase tracking-wider">
+                      {tag}
+                    </span>
+                  ))}
                 </div>
               </div>
             ))}
           </div>
 
-          {/* GitHub Contributions */}
-          <div className="rounded-2xl overflow-hidden bg-card border border-border p-6 md:p-8 hover:border-primary/50 transition-all duration-300">
-            <div className="flex flex-col md:flex-row items-center justify-between gap-4 mb-8">
-              <div className="flex items-center gap-4">
-                <div className="p-3 rounded-xl bg-primary/10 text-primary shadow-[0_0_15px_rgba(var(--primary),0.2)]">
-                  <Github size={28} />
+          {/* GitHub Contributions — compact */}
+          <div className="rounded-2xl overflow-hidden bg-card border border-border p-5 md:p-6 hover:border-primary/50 transition-all duration-300 max-w-3xl mx-auto">
+            <div className="flex items-center justify-between gap-4 mb-4">
+              <div className="flex items-center gap-3">
+                <div className="p-2 rounded-lg bg-primary/10 text-primary">
+                  <Github size={20} />
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold text-foreground">Open Source Activity</h3>
-                  <p className="text-muted-foreground">My contributions to the developer ecosystem</p>
+                  <h3 className="text-base font-bold text-foreground">Open Source Activity</h3>
+                  <p className="text-muted-foreground text-xs">Contributions to the developer ecosystem</p>
                 </div>
               </div>
               <a
                 href="https://github.com/thtcsec"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-center gap-2 px-6 py-2 rounded-full bg-primary/10 text-primary border border-primary/20 hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+                className="group flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-primary/10 text-primary border border-primary/20 hover:bg-primary hover:text-primary-foreground transition-all duration-300 text-xs font-medium"
               >
-                <span className="font-bold uppercase tracking-widest text-xs">View Profile</span>
-                <ExternalLink size={14} className="group-hover:translate-x-1 transition-transform" />
+                Profile
+                <ExternalLink size={12} className="group-hover:translate-x-0.5 transition-transform" />
               </a>
             </div>
-            <div className="w-full overflow-x-auto pb-2 custom-scrollbar">
+            <div className="w-full overflow-x-auto">
               <img
                 src="https://ghchart.rshah.org/8A2BE2/thtcsec"
                 alt="thtcsec's GitHub Contributions"
-                className="min-w-[800px] w-full filter brightness-90 contrast-125 opacity-90 hover:opacity-100 transition-opacity"
+                className="min-w-[600px] w-full filter brightness-90 contrast-125 opacity-80 hover:opacity-100 transition-opacity"
                 loading="lazy"
               />
             </div>
