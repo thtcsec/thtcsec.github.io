@@ -7,6 +7,7 @@ export interface Certificate {
     type: 'certificate' | 'achievement';
     description?: string;
     credlyBadgeId?: string;
+    link?: string;
 }
 
 export const certificates: Certificate[] = [
@@ -140,6 +141,15 @@ export const achievements: Certificate[] = [
         description: "Ranked 10th (Team GenCore) in the nationwide Datathon organized by VinUniversity. Selected as one of the best performing teams among over 500 teams and 1,500 participants."
     },
     {
+        id: "tasco-foundry-2026",
+        title: "Top 10 Finalist - Tasco Foundry 2026",
+        issuer: "GenAIFund x Tasco",
+        image: "/images/achievements/tasco_top10.jpg",
+        type: "achievement",
+        description: "Recognized as a Top 10 Finalist in the Tasco Foundry 2026 venture build (Team CARO). Developed CARO: A digital infrastructure for automotive services featuring smart POS, vETC wallet integration, and AI-powered customer support.",
+        link: "https://veltrixvision.com"
+    },
+    {
         id: "threatlens-gdgoc-2026",
         title: "Second Runner Up - GDGOC SGU 2026",
         issuer: "Google Developer Group on Campus - Sai Gon University",
@@ -203,6 +213,6 @@ export const featuredCertificates = [
     certificates.find(c => c.id === "aws-security-fundamentals")!
 ];
 export const featuredAchievements = [
-    achievements.find(a => a.id === "vinuni-datathon-2026")!,
-    achievements.find(a => a.id === "threatlens-gdgoc-2026")!
-];
+    achievements.find(a => a.id === "vinuni-datathon-2026"),
+    achievements.find(a => a.id === "tasco-foundry-2026"),
+].filter(Boolean) as Certificate[];

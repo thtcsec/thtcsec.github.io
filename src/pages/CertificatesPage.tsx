@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { ArrowLeft, Home } from "lucide-react";
+import { ArrowLeft, Home, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { certificates, achievements } from "@/data/certificates";
 import { Link } from "react-router-dom";
@@ -127,7 +127,21 @@ const CertificatesPage = () => {
                                         />
                                     </div>
                                     <div className="p-6 flex flex-col justify-center">
-                                        <p className="text-sm text-primary font-medium mb-2">{achievement.issuer}</p>
+                                        <div className="flex items-center justify-between mb-2">
+                                            <p className="text-sm text-primary font-medium">{achievement.issuer}</p>
+                                            {achievement.link && (
+                                                <a 
+                                                    href={achievement.link} 
+                                                    target="_blank" 
+                                                    rel="noopener noreferrer"
+                                                    onClick={(e) => e.stopPropagation()}
+                                                    className="p-2 rounded-lg bg-primary/10 text-primary hover:bg-primary/20 transition-all hover:scale-110"
+                                                    title="Visit project website"
+                                                >
+                                                    <ExternalLink size={18} />
+                                                </a>
+                                            )}
+                                        </div>
                                         <h3 className="text-2xl font-bold text-foreground group-hover:text-primary transition-colors mb-3">
                                             {achievement.title}
                                         </h3>

@@ -97,7 +97,21 @@ const Certificates = () => {
                                     />
                                 </div>
                                 <div className="p-4 flex flex-col justify-center">
-                                    <div className="mb-1 text-xs uppercase tracking-[0.16em] text-muted-foreground">{achievement.issuer}</div>
+                                    <div className="flex items-center justify-between mb-1">
+                                        <div className="text-xs uppercase tracking-[0.16em] text-muted-foreground">{achievement.issuer}</div>
+                                        {achievement.link && (
+                                            <a 
+                                                href={achievement.link} 
+                                                target="_blank" 
+                                                rel="noopener noreferrer"
+                                                onClick={(e) => e.stopPropagation()}
+                                                className="p-1.5 rounded-lg bg-primary/10 text-primary hover:bg-primary/20 transition-all hover:scale-110"
+                                                title="Visit project website"
+                                            >
+                                                <ExternalLink size={14} />
+                                            </a>
+                                        )}
+                                    </div>
                                     <h4 className="mb-2 text-lg font-bold text-foreground transition-colors group-hover:text-primary">
                                         {achievement.title}
                                     </h4>
