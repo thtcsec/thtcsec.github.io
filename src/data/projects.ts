@@ -140,7 +140,7 @@ export const projects: Project[] = [
     },
     {
         id: "ai-lms",
-        title: "AI-Powered LMS - toanvotruongtoan.com",
+        title: "toanvotruongtoan.com - AI-Powered LMS",
         description: "Production-ready Learning Management System with Gemini AI integration for automated exam generation and intelligent tutoring, serving hundreds of students.",
         category: "web",
         technologies: ["React", "Supabase", "Vercel", "Gemini AI", "TypeScript"],
@@ -149,10 +149,9 @@ export const projects: Project[] = [
         image: "/images/preview/preview_toanvotruongtoan.png",
         featured: true,
         highlights: [
-            "Integrated Gemini AI for automated exam generation",
+            "Integrated Gemini for automated exam generation",
             "Server-side Rate Limiting (30 req/min)",
             "Strict Supabase Row-Level Security (RLS)",
-            "Serverless architecture with <100ms response times",
             "Serverless architecture with <100ms response times",
             "SSL A+ rating"
         ],
