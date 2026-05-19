@@ -20,6 +20,7 @@ export const siteConfig = {
         tiktok: "https://www.tiktok.com/@tuhocleetcode",
         discord: "https://discord.com/users/815074234241646592",
         gdg: "https://g.dev/thtcsec",
+        aws: "https://skillsprofile.skillbuilder.aws/user/thtcsec/",
     },
 
     academic: {

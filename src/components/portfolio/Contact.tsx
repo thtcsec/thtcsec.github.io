@@ -29,8 +29,9 @@ const Contact = () => {
     { id: "linkedin", icon: "logos:linkedin-icon", href: siteConfig.social.linkedin, label: "LinkedIn" },
     { id: "github", icon: "mdi:github", href: siteConfig.social.github, label: "GitHub" },
     { id: "leetcode", icon: "simple-icons:leetcode", href: siteConfig.social.leetcode, label: "LeetCode" },
-    { id: "tiktok", icon: "logos:tiktok-icon", href: siteConfig.social.tiktok, label: "TikTok" },
-    { id: "gdg", icon: "logos:google-developers", href: siteConfig.social.gdg, label: "Google for Developers" },
+    { id: "tiktok", icon: "simple-icons:tiktok", href: siteConfig.social.tiktok, label: "TikTok" },
+    { id: "gdg", icon: "simple-icons:google", href: siteConfig.social.gdg, label: "Google for Developers" },
+    { id: "aws", icon: "simple-icons:amazonaws", href: siteConfig.social.aws, label: "AWS Skill Builder" },
   ];
 
   return (
@@ -111,8 +112,10 @@ const SocialLinkWithPreview = ({ social }: { social: any }) => {
         className="cinema-card flex w-full h-full flex-col items-center gap-2 rounded-xl p-4 transition-colors hover:border-primary/50 relative z-10 bg-background/50 backdrop-blur-sm"
         aria-label={social.label}
       >
-        <Icon icon={social.icon} className="w-6 h-6" />
-        <span className="text-xs text-muted-foreground group-hover:text-foreground transition-colors text-center">
+        <div className="flex items-center justify-center">
+          <Icon icon={social.icon} className="w-6 h-6" />
+        </div>
+        <span className="text-xs text-muted-foreground group-hover:text-foreground transition-colors text-center mt-1">
           {social.label}
         </span>
       </a>
