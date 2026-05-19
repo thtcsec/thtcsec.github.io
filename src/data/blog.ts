@@ -115,72 +115,72 @@ By adopting this holistic technical strategy, researchers and engineers can buil
   },
   {
     id: "log-anomaly-detection",
-    title: "Phát hiện bất thường log bằng mô hình Transformer",
+    title: "Log Anomaly Detection using Transformer Models",
     date: "May 2026",
     readTime: "12 min read",
-    excerpt: "Nghiên cứu hướng tiếp cận phát hiện bất thường tự động trong nhật ký hệ thống (log) dựa trên pipeline Drain3 và LogBERT, áp dụng vào các kịch bản giáo dục số.",
+    excerpt: "Investigating an automated log anomaly detection approach based on the Drain3 pipeline and LogBERT, applied to digital education scenarios.",
     tags: ["Cybersecurity", "NLP", "LogBERT", "Transformers", "AIOps"],
     icon: Shield,
     imageUrl: "/images/log_anomaly_minimal.png",
     content: `
-## Tóm tắt (Abstract)
+## Abstract
 
-Trong kỷ nguyên giáo dục số, tính sẵn sàng và an toàn của hạ tầng CNTT như hệ thống quản lý học tập (LMS), cổng thông tin sinh viên, dịch vụ đám mây và hệ thống xác thực tập trung có vai trò then chốt. Nhật ký hệ thống (log) ghi lại trạng thái vận hành chi tiết nhưng thường có khối lượng lớn, không đồng nhất và khó phân tích thủ công. 
+In the era of digital education, the availability and security of IT infrastructure such as Learning Management Systems (LMS), student portals, cloud services, and centralized authentication systems play a pivotal role. System logs record detailed operational states but are typically massive in volume, heterogeneous, and difficult to analyze manually.
 
-Bài viết này trình bày một hướng tiếp cận phát hiện bất thường tự động trong log dựa trên pipeline **Drain3** và **LogBERT** - một kiến trúc Transformer hai chiều được huấn luyện theo cơ chế tự giám sát. Quy trình đề xuất sử dụng Drain3 để chuyển đổi log phi cấu trúc thành chuỗi sự kiện, sau đó dùng mô hình học ngữ cảnh chuỗi để tính điểm bất thường. Thực nghiệm trên 500.000 dòng HDFS cho thấy Drain3 sinh 137 event template và các baseline nhẹ như PCA, Isolation Forest vẫn còn hạn chế khi phát hiện bất thường trên chuỗi event. Kết quả nghiên cứu cung cấp cơ sở kỹ thuật cho việc xây dựng hệ thống giám sát an toàn thông tin dựa trên log trong môi trường giáo dục số quy mô lớn.
+This article presents an automated log anomaly detection approach based on the **Drain3** pipeline and **LogBERT**—a bidirectional Transformer architecture trained via self-supervision. The proposed workflow utilizes Drain3 to parse unstructured logs into event templates, and then employs a sequence context learning model to calculate anomaly scores. Experiments on 500,000 lines of HDFS log data show that Drain3 generated 137 event templates, and lightweight baselines such as PCA and Isolation Forest demonstrated significant limitations when detecting anomalies on event sequences. The research results provide a technical foundation for building log-based information security monitoring systems in large-scale digital education environments.
 
 ---
 
-## 1. Giới thiệu
+## 1. Introduction
 
-Sự phát triển nhanh của các nền tảng giáo dục số và dịch vụ doanh nghiệp trực tuyến đã làm gia tăng độ phức tạp của hạ tầng. Một hệ thống LMS hiện đại không chỉ bao gồm giao diện học tập mà còn liên kết với máy chủ web, cơ sở dữ liệu, hệ thống xác thực, kho nội dung, API và dịch vụ đám mây. Mỗi thành phần sinh ra log với định dạng và mức độ chi tiết khác nhau, khiến việc phát hiện lỗi bằng luật thủ công khó mở rộng.
+The rapid evolution of digital education platforms and online enterprise services has exponentially increased infrastructure complexity. A modern LMS encompasses not only the learning interface but also integrates with web servers, databases, authentication systems, content repositories, APIs, and cloud services. Each component generates logs with different formats and verbosity levels, rendering manual rule-based error detection highly unscalable.
 
-Một chuỗi log bất thường có thể phản ánh lỗi phần cứng, lỗi phần mềm, quá tải dịch vụ, tấn công dò mật khẩu, khai thác lỗ hổng API hoặc hành vi di chuyển ngang trong mạng nội bộ. Việc sử dụng mô hình học máy Transformer giúp học trực tiếp pattern bình thường từ chuỗi sự kiện mà không bị giới hạn bởi các tập luật cứng nhắc.
+An anomalous log sequence can indicate hardware failures, software bugs, service overloads, brute-force password attacks, API vulnerability exploitation, or lateral movement within an internal network. Employing a Transformer machine learning model enables the system to learn normal patterns directly from event sequences without being constrained by rigid rule sets.
 
-## 2. Phương pháp đề xuất
+## 2. Proposed Methodology
 
-### 2.1. Phân tích cú pháp với Drain3
-Drain3 được sử dụng để tách log phi cấu trúc thành các mẫu (templates). Dựa trên thuật toán cây phân tích cú pháp có độ sâu cố định, Drain3 có thể xử lý log streaming trực tuyến với tốc độ cao. 
-Ví dụ:
-* **Log thô:** \`User student_01 login failed from 192.168.1.10\`
+### 2.1. Log Parsing with Drain3
+Drain3 is utilized to parse unstructured logs into standardized templates. Based on a fixed-depth parse tree algorithm, Drain3 is capable of processing online streaming logs at high velocities.
+Example:
+* **Raw Log:** \`User student_01 login failed from 192.168.1.10\`
 * **Template:** \`User <*> login failed from <*>\`
 
-### 2.2. Biểu diễn chuỗi log
-Sau khi parsing, mỗi template được ánh xạ thành một Event ID. Một phiên hoạt động hoặc cửa sổ thời gian được biểu diễn thành chuỗi sự kiện: \`S = [E1, E2, ..., Em]\`
+### 2.2. Log Sequence Representation
+Following parsing, each template is mapped to a unique Event ID. A session or time window is then represented as a sequence of events: \`S = [E1, E2, ..., Em]\`
 
-### 2.3. Kiến trúc LogBERT
-LogBERT sử dụng Transformer Encoder để học biểu diễn hai chiều cho chuỗi event thông qua cơ chế **Self-Attention**. Khác với LSTM, Self-Attention cho phép mỗi event trong chuỗi tham chiếu trực tiếp tới toàn bộ các event khác. 
+### 2.3. LogBERT Architecture
+LogBERT leverages a Transformer Encoder to learn bidirectional representations for event sequences through the **Self-Attention** mechanism. Unlike LSTMs, Self-Attention allows each event in the sequence to directly attend to all other events simultaneously.
 
-Mô hình được huấn luyện bằng cơ chế **Masked Log Key Prediction**. Một tỷ lệ event trong chuỗi bị che ngẫu nhiên bằng token \`[MASK]\`, và mô hình phải học cách khôi phục lại dự đoán event bị che đó. Khi hoạt động thực tế, những chuỗi có xác suất khôi phục thấp hoặc chứa các event hiếm gặp sẽ bị gán điểm bất thường cao.
+The model is trained using a **Masked Log Key Prediction** objective. A random percentage of events in the sequence is masked with a \`[MASK]\` token, and the model must learn to recover the masked event predictions. During inference, sequences with low recovery probabilities or those containing rare events are assigned high anomaly scores.
 
 ---
 
-## 3. Thực nghiệm và So sánh hiệu năng
+## 3. Experiments and Performance Comparison
 
-Nghiên cứu sử dụng 500.000 dòng dữ liệu chuẩn HDFS từ LogHub để đánh giá và tái lập. Kết quả thực nghiệm của các baseline được sử dụng làm cơ sở đối chiếu:
+The study utilizes 500,000 lines of standard HDFS data from LogHub for evaluation and reproduction. The experimental results of the baselines used for comparison are as follows:
 
-| Phương pháp | Precision | Recall | F1-Score |
+| Method | Precision | Recall | F1-Score |
 | :--- | :--- | :--- | :--- |
 | **PCA** | 0.7649 | 0.5401 | 0.6331 |
 | **TruncatedSVD** | 0.7608 | 0.5401 | 0.6317 |
 | **Isolation Forest (TF-IDF)** | 0.1875 | 0.1202 | 0.1465 |
 
-> **Nhận xét:** Các baseline như PCA hay Isolation Forest chỉ đạt F1-Score thấp do chúng dựa trên đặc trưng TF-IDF hoặc túi sự kiện, bỏ qua thứ tự thời gian. Điều này củng cố sự cần thiết của các mô hình học quan hệ tuần tự và ngữ cảnh dài hạn như LogBERT.
+> **Observation:** Baselines such as PCA or Isolation Forest achieve low F1-Scores primarily because they rely on TF-IDF features or bag-of-events, discarding chronological order. This reinforces the necessity for models that learn sequential relationships and long-term context, such as LogBERT.
 
 ---
 
-## 4. Ứng dụng trong Giáo dục số (LMS)
+## 4. Application in Digital Education (LMS)
 
-Trong môi trường LMS, bất thường không chỉ là lỗi hệ thống mà còn có thể là dấu hiệu tấn công. Pipeline đề xuất hỗ trợ nhận diện các kịch bản:
+In an LMS environment, anomalies represent not just system faults but also potential indicators of compromise. The proposed pipeline facilitates the detection of several scenarios:
 
-* **Tấn công dò mật khẩu:** Pattern đăng nhập thất bại lặp lại từ nhiều IP khác biệt so với hành vi học tập bình thường.
-* **Khai thác API:** Request chứa tham số lạ hoặc truy cập endpoint hiếm tạo ra event template mới hoàn toàn qua quá trình phân tích của Drain3.
-* **Quá tải dịch vụ:** Chuỗi lỗi database timeout, HTTP 5xx và độ trễ tăng cao trong thời điểm thi trực tuyến.
-* **Bất thường phiên người dùng:** Sinh viên đăng nhập từ nhiều vị trí địa lý khác nhau liên tục hoặc có nhịp độ truy cập tài nguyên bất thường.
+* **Brute-Force Attacks:** Repeated failed login patterns originating from diverse IPs, deviating from normal academic behavior.
+* **API Exploitation:** Requests containing anomalous parameters or accessing rare endpoints that generate completely new event templates via Drain3 parsing.
+* **Service Overload:** Sequences of database timeouts, HTTP 5xx errors, and elevated latency during peak online examination periods.
+* **User Session Anomalies:** Students logging in from multiple distinct geographical locations consecutively or exhibiting abnormal resource access cadences.
 
-## 5. Kết luận
+## 5. Conclusion
 
-So với các phương pháp thống kê truyền thống, Transformer có lợi thế vượt trội trong việc học quan hệ ngữ cảnh hai chiều và phụ thuộc dài hạn của dữ liệu log. Trong bối cảnh giáo dục số, pipeline kết hợp Drain3 và LogBERT đóng vai trò nền tảng để xây dựng hệ thống giám sát an toàn thông tin toàn diện. Hướng đi tiếp theo của nghiên cứu là xây dựng bộ dữ liệu log giáo dục đã ẩn danh và tích hợp RAG/LLM để giải thích các cảnh báo bất thường trực tiếp cho quản trị viên bằng ngôn ngữ tự nhiên.
+Compared to traditional statistical methods, Transformers possess a distinct advantage in learning bidirectional contextual relationships and long-term dependencies within log data. In the context of digital education, the pipeline combining Drain3 and LogBERT serves as a foundational architecture for building comprehensive information security monitoring systems. Future research directions include constructing an anonymized educational log dataset and integrating RAG/LLM to explain anomaly alerts directly to administrators in natural language.
 `
   }
 ];
