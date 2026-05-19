@@ -16,6 +16,31 @@ export interface Project {
 
 export const projects: Project[] = [
     {
+        id: "dubify",
+        title: "Dubify - AI Video Localization & Studio",
+        description: "An AI-powered video localization and short-form creation platform. Dubs long-form videos, translates them, and converts scripts into narrated short-form videos with auto-cut, voice synthesis, and HTML scene rendering.",
+        category: "web",
+        technologies: ["React", "FastAPI", "FFmpeg", "faster-whisper", "Playwright", "Docker", "Python", "TypeScript", "TailwindCSS"],
+        github: "",
+        demo: "",
+        image: "/images/preview/preview_dubify.png",
+        images: [
+            "/images/project_image/dubify/dubify1.png",
+            "/images/project_image/dubify/dubify2.png",
+            "/images/project_image/dubify/dubify3.png"
+        ],
+        featured: true,
+        highlights: [
+            "AI Video Dubbing: extract audio, Whisper ASR transcribing, translate via NLLB/cloud, Edge-TTS synthesis, and subtitle muxing",
+            "Script-to-Video Engine: split scripts, generate TTS, render customizable HTML templates using Playwright/HyperFrames, and compile with FFmpeg",
+            "AI Research Video (Beta): generate research briefs, scripts, and videos directly from any topic prompt utilizing LLMs",
+            "Auto Shorts Generator: automatically dub, segment, and crop long-form videos into vertical 9:16 vertical clips for social media",
+            "Studio Editor: interactive dashboard for real-time subtitle cue editing and video re-burning",
+            "Flexible Processing Profiles: configure hybrid, fully-local (offline-only), or cloud-based processing profiles"
+        ],
+        isPrivate: true
+    },
+    {
         id: "multi-cloud-soar",
         title: "Multi-Cloud Serverless SOAR Platform (AWS & GCP)",
         description: "Designed and implemented a multi-cloud Security Orchestration, Automation, and Response (SOAR) platform across AWS and GCP. Built event-driven incident response pipelines using GuardDuty / Security Command Center, EventBridge / Eventarc, and SQS / Pub/Sub.",
