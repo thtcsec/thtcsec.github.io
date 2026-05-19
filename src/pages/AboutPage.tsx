@@ -25,7 +25,7 @@ import { communities } from "@/data/communities";
 
 const competitions = [
   {
-    name: "Agentic AI Build Week powered by GenAI Fund",
+    name: "GenAIFund - Agentic AI Build Week",
     date: "July 2026",
     role: "Founding Builder",
     icon: <Cpu className="w-5 h-5 text-rose-400 group-hover:animate-pulse" />,
@@ -43,16 +43,7 @@ const competitions = [
     textClass: "group-hover:text-purple-400 transition-colors text-foreground"
   },
   {
-    name: "Alibaba Cloud x GenAIFund - Qwen AI Build Day Vietnam",
-    date: "April 2026",
-    role: "Top 10 Finalist",
-    icon: <Brain className="w-5 h-5 text-cyan-400 group-hover:animate-pulse" />,
-    bgGradient: "from-cyan-500/10 to-transparent",
-    borderClass: "border-cyan-500/20 group-hover:border-cyan-500/50 group-hover:shadow-[0_0_15px_rgba(6,182,212,0.3)]",
-    textClass: "group-hover:text-cyan-400 transition-colors text-foreground"
-  },
-  {
-    name: "Tasco Foundry 2026",
+    name: "GenAIFund x Tasco - Tasco Foundry 2026",
     date: "May 2026",
     role: "Top 10 Finalist (Team CARO)",
     icon: <Trophy className="w-5 h-5 text-indigo-400 group-hover:animate-pulse" />,
@@ -68,6 +59,15 @@ const competitions = [
     bgGradient: "from-blue-500/10 to-transparent",
     borderClass: "border-blue-500/20 group-hover:border-blue-500/50 group-hover:shadow-[0_0_15px_rgba(59,130,246,0.3)]",
     textClass: "group-hover:text-blue-400 transition-colors text-foreground"
+  },
+  {
+    name: "Alibaba Cloud x GenAIFund - Qwen AI Build Day Vietnam",
+    date: "April 2026",
+    role: "Top 10 Finalist",
+    icon: <Brain className="w-5 h-5 text-cyan-400 group-hover:animate-pulse" />,
+    bgGradient: "from-cyan-500/10 to-transparent",
+    borderClass: "border-cyan-500/20 group-hover:border-cyan-500/50 group-hover:shadow-[0_0_15px_rgba(6,182,212,0.3)]",
+    textClass: "group-hover:text-cyan-400 transition-colors text-foreground"
   },
   {
     name: "Kaggle - AI Mathematical Olympiad",
