@@ -8,7 +8,7 @@ import Community from "@/components/portfolio/Community";
 import RecentBlogs from "@/components/portfolio/RecentBlogs";
 import Contact from "@/components/portfolio/Contact";
 import Footer from "@/components/portfolio/Footer";
-import ScrollToTop from "@/components/ScrollToTop";
+
 
 const Index = () => {
   const sectionRefs = useRef<(HTMLElement | null)[]>([]);
@@ -94,7 +94,6 @@ const Index = () => {
         </div>
       </main>
       <Footer />
-      <ScrollToTop />
     </div>
   );
 };
