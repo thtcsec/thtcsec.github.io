@@ -262,6 +262,10 @@ export const projects: Project[] = [
     }
 ];
 
-// Limit to 6 featured projects on homepage
-export const featuredProjects = projects.filter(p => p.featured).slice(0, 6);
+// Explicitly select and order the 3 top featured projects for the homepage
+const featuredOrder = ["ctsmartcam", "multi-cloud-soar", "dubify"];
+export const featuredProjects = featuredOrder
+    .map(id => projects.find(p => p.id === id))
+    .filter((p): p is Project => p !== undefined);
+
 export const allProjects = projects;

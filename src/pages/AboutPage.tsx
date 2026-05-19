@@ -240,7 +240,7 @@ const AboutPage = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background text-foreground flex flex-col font-sans selection:bg-primary/30">
+    <div className="min-h-screen bg-background text-foreground flex flex-col font-sans selection:bg-primary/30 overflow-x-hidden">
       <ProjectHeader />
 
       <main className="flex-grow pt-32 pb-20">
@@ -341,11 +341,11 @@ const AboutPage = () => {
               ) : (
                 <motion.div
                   key="horizontal"
-                  initial={{ opacity: 0, y: 15 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -15 }}
+                  initial={{ opacity: 0, y: 15, x: "-50%" }}
+                  animate={{ opacity: 1, y: 0, x: "-50%" }}
+                  exit={{ opacity: 0, y: -15, x: "-50%" }}
                   transition={{ duration: 0.3 }}
-                  className="relative w-[calc(100vw-2rem)] md:w-[calc(100vw-6rem)] left-1/2 -translate-x-1/2 overflow-hidden px-4 md:px-0 pb-10 group/timeline"
+                  className="relative w-[calc(100vw-2rem)] md:w-[calc(100vw-6rem)] left-1/2 overflow-hidden px-4 md:px-0 pb-10 group/timeline"
                 >
                   {/* Horizontal line running behind cards */}
                   <div className="absolute left-0 right-0 top-[60px] h-[2px] bg-gradient-to-r from-primary/30 via-purple-500/30 to-transparent z-0 hidden md:block"></div>
