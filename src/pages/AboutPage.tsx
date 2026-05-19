@@ -25,6 +25,15 @@ import { communities } from "@/data/communities";
 
 const competitions = [
   {
+    name: "Agentic AI Build Week powered by GenAI Fund",
+    date: "July 2026",
+    role: "Founding Builder",
+    icon: <Cpu className="w-5 h-5 text-rose-400 group-hover:animate-pulse" />,
+    bgGradient: "from-rose-500/10 to-transparent",
+    borderClass: "border-rose-500/20 group-hover:border-rose-500/50 group-hover:shadow-[0_0_15px_rgba(244,63,94,0.3)]",
+    textClass: "group-hover:text-rose-400 transition-colors text-foreground"
+  },
+  {
     name: "VinUniversity - The Gridbreakers Datathon 2026",
     date: "May 2026",
     role: "Top 10 Finalist (Team GenCore)",

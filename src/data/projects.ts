@@ -113,7 +113,7 @@ export const projects: Project[] = [
     },
     {
         id: "ctsmartcam",
-        title: "CTSmartCam",
+        title: "CTSmartCam - Intelligent Surveillance Ecosystem",
         description: "An intelligent surveillance ecosystem for Cần Thơ City, utilizing an event-driven AI pipeline for real-time monitoring and security.",
         category: "ai",
         technologies: ["ASP.NET Core 9", "SignalR", "Python", "Redis Streams", "YOLOv11", "PostgreSQL", "pgvector", "Nginx", "Docker"],
