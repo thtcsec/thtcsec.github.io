@@ -60,11 +60,14 @@ const Hero = () => {
               DevOps, Fullstack, Software Engineer.
             </p>
             <p className="mt-3 text-sm text-muted-foreground leading-relaxed max-w-xl">
-              {siteConfig.bio}{" "}
-              <Link to="/about" className="text-primary hover:underline font-medium inline-flex items-center gap-1">
-                Read full journey <ArrowDown size={12} className="-rotate-90" />
-              </Link>
+              {siteConfig.bio}
             </p>
+            <div className="mt-5 flex">
+              <Link to="/about" className="group inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 px-4 py-1.5 text-sm font-medium text-primary transition-all duration-300 hover:bg-primary/15 hover:border-primary/50 hover:shadow-[0_0_15px_-3px_hsl(var(--primary)/0.2)]">
+                Read my full journey
+                <ArrowDown size={14} className="-rotate-90 transition-transform group-hover:translate-x-0.5" />
+              </Link>
+            </div>
           </div>
         </div>
 

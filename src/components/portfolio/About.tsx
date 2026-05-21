@@ -68,8 +68,8 @@ const About = () => {
                 Cloud / DevSecOps
               </span>
             </div>
-            <a href="/about" className="group inline-flex items-center whitespace-nowrap rounded-md border border-input bg-background px-4 py-2 text-sm font-medium transition-colors hover:border-primary hover:bg-accent hover:text-accent-foreground">
-              <span className="mr-2">Read full journey</span>
+            <a href="/about" className="group inline-flex items-center whitespace-nowrap rounded-full border border-primary/30 bg-primary/5 px-5 py-2 text-sm font-medium text-primary transition-all duration-300 hover:bg-primary/15 hover:border-primary/50 hover:shadow-[0_0_15px_-3px_hsl(var(--primary)/0.2)]">
+              <span className="mr-2">Read my full journey</span>
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="group-hover:translate-x-1 transition-transform"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
             </a>
           </div>
