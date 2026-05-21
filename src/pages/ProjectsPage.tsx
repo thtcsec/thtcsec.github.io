@@ -211,6 +211,15 @@ const ProjectCard = ({ project, imageLoaded, onImageLoad }: ProjectCardProps) =>
                         </Button>
                     )}
 
+                    {project.githubLinks?.map((link, idx) => (
+                        <Button key={idx} variant="outline" size="sm" asChild className="gap-2">
+                            <a href={link.url} target="_blank" rel="noopener noreferrer">
+                                <Github size={16} />
+                                {link.label}
+                            </a>
+                        </Button>
+                    ))}
+
                     {/* Private Badge - Left of Demo */}
                     {project.isPrivate && (
                         <span className="text-xs text-muted-foreground flex items-center gap-1 border border-border px-2 py-1 rounded-md bg-muted/50">
@@ -228,7 +237,7 @@ const ProjectCard = ({ project, imageLoaded, onImageLoad }: ProjectCardProps) =>
                         </Button>
                     )}
 
-                    {!project.github && !project.demo && !project.isPrivate && (
+                    {!project.github && !(project.githubLinks && project.githubLinks.length > 0) && !project.demo && !project.isPrivate && (
                         <span className="text-xs text-muted-foreground flex items-center gap-1">
                             <ChevronRight size={14} />
                             Private Project

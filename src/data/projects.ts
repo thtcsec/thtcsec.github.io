@@ -6,6 +6,7 @@ export interface Project {
     category: 'ai' | 'web' | 'extension' | 'system' | 'desktop' | 'mobile';
     technologies: string[];
     github?: string;
+    githubLinks?: { url: string; label: string }[];
     demo?: string;
     image: string;
     images?: string[];
@@ -46,7 +47,11 @@ export const projects: Project[] = [
         description: "Designed and implemented a multi-cloud Security Orchestration, Automation, and Response (SOAR) platform across AWS and GCP. Built event-driven incident response pipelines using GuardDuty / Security Command Center, EventBridge / Eventarc, and SQS / Pub/Sub.",
         category: "system",
         technologies: ["GCP", "AWS", "Terraform", "Python", "Serverless", "Eventarc", "Pub/Sub", "Step Functions", "Cloud Workflows", "Cloud Run", "ECS Fargate"],
-        github: "https://github.com/thtcsec/GCP-Serverless-SOAR",
+        github: "",
+        githubLinks: [
+            { url: "https://github.com/thtcsec/AWS-Serverless-SOAR", label: "AWS" },
+            { url: "https://github.com/thtcsec/GCP-Serverless-SOAR", label: "GCP" }
+        ],
         demo: "",
         image: "https://raw.githubusercontent.com/thtcsec/GCP-Serverless-SOAR/main/images/gcp_soar.png",
         images: [

@@ -184,14 +184,25 @@ const ProjectDetailPage = () => {
                                         </Button>
                                     )}
 
-                                    {project.github ? (
+                                    {project.github && (
                                         <Button variant="outline" className="w-full gap-2 text-base h-12" asChild>
                                             <a href={project.github} target="_blank" rel="noopener noreferrer">
                                                 <Github size={18} />
                                                 View Source Code
                                             </a>
                                         </Button>
-                                    ) : (
+                                    )}
+
+                                    {project.githubLinks?.map((link, idx) => (
+                                        <Button key={idx} variant="outline" className="w-full gap-2 text-base h-12" asChild>
+                                            <a href={link.url} target="_blank" rel="noopener noreferrer">
+                                                <Github size={18} />
+                                                {link.label} Code
+                                            </a>
+                                        </Button>
+                                    ))}
+
+                                    {!project.github && !(project.githubLinks && project.githubLinks.length > 0) && (
                                         <Button variant="outline" className="w-full gap-2 text-base h-12" disabled>
                                             <Github size={18} />
                                             Source Code Private

@@ -139,7 +139,7 @@ const ProjectCard = ({ project, imageLoaded, onImageLoad }: ProjectCardProps) =>
 
         <div className="mt-4 flex items-center justify-between text-xs text-muted-foreground">
           <span>{project.technologies.length} technologies listed</span>
-          <span>{project.github ? "Code available" : project.demo ? "Live demo" : "Private"}</span>
+          <span>{(project.github || (project.githubLinks && project.githubLinks.length > 0)) ? "Code available" : project.demo ? "Live demo" : "Private"}</span>
         </div>
 
         {/* Actions - Stop propagation to prevent modal open when clicking buttons */}
@@ -152,6 +152,15 @@ const ProjectCard = ({ project, imageLoaded, onImageLoad }: ProjectCardProps) =>
               </a>
             </Button>
           )}
+
+          {project.githubLinks?.map((link, idx) => (
+            <Button key={idx} variant="outline" size="sm" asChild className="gap-2">
+              <a href={link.url} target="_blank" rel="noopener noreferrer">
+                <Github size={16} />
+                {link.label}
+              </a>
+            </Button>
+          ))}
 
           {/* Private Badge - Left of Demo */}
           {project.isPrivate && (
@@ -169,7 +178,7 @@ const ProjectCard = ({ project, imageLoaded, onImageLoad }: ProjectCardProps) =>
             </Button>
           )}
 
-          {!project.github && !project.demo && !project.isPrivate && (
+          {!project.github && !(project.githubLinks && project.githubLinks.length > 0) && !project.demo && !project.isPrivate && (
             <span className="text-xs text-muted-foreground flex items-center gap-1">
               <ChevronRight size={14} />
               Private Project
