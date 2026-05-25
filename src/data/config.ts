@@ -29,7 +29,7 @@ export const siteConfig = {
         currentSemester: 8,
         totalSemesters: 9,
         gpa: 3.50,
-        creditsCompleted: 123,
+        creditsCompleted: 131,
         totalCredits: 135,
         expectedGraduation: 2027,
     },

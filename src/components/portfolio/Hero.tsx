@@ -223,9 +223,9 @@ const Hero = () => {
                               { code: "1010873", vi: "Giáo dục thể chất 2", en: "Physical Education 2", credits: "3.0", grade: "9.2", letter: "A+" },
                               { code: "1250023", vi: "Tiếng Anh CN 2", en: "Technical English 2", credits: "3.0", grade: "9.5", letter: "A+" },
                               { code: "1250244", vi: "Mạng không dây", en: "Wireless Networking", credits: "4.0", grade: "9.3", letter: "A+" },
-                              { code: "1250254", vi: "Kiểm thử xâm nhập", en: "Penetration Testing", credits: "4.0", grade: "-", letter: "-" },
+                              { code: "1250254", vi: "Kiểm thử xâm nhập", en: "Penetration Testing", credits: "4.0", grade: "9.5", letter: "A+" },
                               { code: "1250264", vi: "QT hệ thống bảo mật", en: "Security Systems Admin", credits: "4.0", grade: "9.4", letter: "A+" },
-                              { code: "1250374", vi: "Dịch ngược", en: "Reverse Engineering", credits: "4.0", grade: "-", letter: "-" },
+                              { code: "1250374", vi: "Dịch ngược", en: "Reverse Engineering", credits: "4.0", grade: "8.4", letter: "B+" },
                             ].map((item) => (
                               <TableRow key={item.code} className="text-sm">
                                 <TableCell className="font-mono text-muted-foreground">{item.code}</TableCell>
@@ -239,8 +239,8 @@ const Hero = () => {
                         </Table>
                       </div>
                       <div className="p-4 bg-muted/40 border-t border-border flex flex-wrap gap-x-6 gap-y-2 text-sm">
-                        <span className="text-muted-foreground text-xs">Credits: <strong className="text-foreground">14</strong></span>
-                        <span className="text-muted-foreground text-xs">GPA: <strong className="text-primary">4.00</strong></span>
+                        <span className="text-muted-foreground text-xs">Credits: <strong className="text-foreground">22</strong></span>
+                        <span className="text-muted-foreground text-xs">GPA: <strong className="text-primary">3.91</strong></span>
                         <span className="text-muted-foreground text-xs">Cumulative: <strong className="text-foreground">3.50</strong></span>
                       </div>
                     </div>
