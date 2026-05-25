@@ -136,7 +136,7 @@ export const projects: Project[] = [
         ],
         videos: [
             "https://github.com/user-attachments/assets/35d2d595-7d66-4df0-8c1b-4a855888d564",
-            "/videos/CTSmartCam_honeypot.mp4"
+            "https://github.com/user-attachments/assets/e254fcf1-9cdf-4b40-8fcd-9dfd05e8aebc"
         ],
         featured: true,
         highlights: [
