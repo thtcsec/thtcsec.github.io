@@ -10,6 +10,7 @@ export interface Project {
     demo?: string;
     image: string;
     images?: string[];
+    videos?: string[];
     featured: boolean;
     highlights?: string[];
     isPrivate?: boolean;
@@ -132,6 +133,10 @@ export const projects: Project[] = [
             "/images/project_image/ctsmartcam/04_alerts.png",
             "/images/project_image/ctsmartcam/05_settings.png",
             "/images/project_image/ctsmartcam/06_stats.png",
+        ],
+        videos: [
+            "https://github.com/user-attachments/assets/35d2d595-7d66-4df0-8c1b-4a855888d564",
+            "/videos/CTSmartCam_honeypot.mp4"
         ],
         featured: true,
         highlights: [

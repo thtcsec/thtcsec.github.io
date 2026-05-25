@@ -140,6 +140,29 @@ const ProjectDetailPage = () => {
                                 </div>
                             )}
 
+                            {project.videos && project.videos.length > 0 && (
+                                <div className="mb-8">
+                                    <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
+                                        <Icon icon="mdi:play-circle" className="text-primary" />
+                                        Demo Videos
+                                    </h2>
+                                    <div className="grid gap-6 md:grid-cols-2">
+                                        {project.videos.map((videoUrl, i) => (
+                                            <div key={i} className="rounded-xl overflow-hidden border border-border bg-black shadow-md group relative">
+                                                <video 
+                                                    src={videoUrl} 
+                                                    controls 
+                                                    preload="metadata"
+                                                    className="w-full aspect-video object-contain"
+                                                >
+                                                    Your browser does not support the video tag.
+                                                </video>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            )}
+
                             {project.images && project.images.length > 0 && (
                                 <div>
                                     <h2 className="text-2xl font-bold mb-6">Gallery</h2>
