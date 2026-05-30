@@ -49,6 +49,15 @@ const competitions = [
     textClass: "group-hover:text-emerald-400 transition-colors text-foreground"
   },
   {
+    name: "ByteDance - Unbound Creativity with TRAE SOLO @ Vietnam",
+    date: "May 2026",
+    role: "Participant",
+    icon: <Code className="w-5 h-5 text-fuchsia-400 group-hover:animate-pulse" />,
+    bgGradient: "from-fuchsia-500/10 to-transparent",
+    borderClass: "border-fuchsia-500/20 group-hover:border-fuchsia-500/50 group-hover:shadow-[0_0_15px_rgba(217,70,239,0.3)]",
+    textClass: "group-hover:text-fuchsia-400 transition-colors text-foreground"
+  },
+  {
     name: "VinUniversity - The Gridbreakers Datathon 2026",
     date: "May 2026",
     role: "Top 10 Finalist (Team GenCore)",
@@ -260,26 +269,24 @@ const AboutPage = () => {
               <h2 className="text-3xl md:text-4xl font-bold animate-text-glow text-transparent bg-clip-text bg-gradient-to-r from-primary via-purple-400 to-primary text-center md:text-left">
                 Hackathons & Competitions
               </h2>
-              
+
               <div className="flex items-center justify-center gap-2 p-1 bg-muted/30 backdrop-blur-sm border border-border/50 rounded-xl max-w-fit mx-auto md:mx-0">
                 <button
                   onClick={() => setViewMode("vertical")}
-                  className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all duration-300 ${
-                    viewMode === "vertical"
+                  className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all duration-300 ${viewMode === "vertical"
                       ? "bg-primary text-primary-foreground shadow-[0_2px_10px_rgba(var(--primary),0.2)]"
                       : "text-muted-foreground hover:text-foreground"
-                  }`}
+                    }`}
                 >
                   <Rows3 size={14} />
                   Vertical
                 </button>
                 <button
                   onClick={() => setViewMode("horizontal")}
-                  className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all duration-300 ${
-                    viewMode === "horizontal"
+                  className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all duration-300 ${viewMode === "horizontal"
                       ? "bg-primary text-primary-foreground shadow-[0_2px_10px_rgba(var(--primary),0.2)]"
                       : "text-muted-foreground hover:text-foreground"
-                  }`}
+                    }`}
                 >
                   <Columns3 size={14} />
                   Horizontal
@@ -400,7 +407,7 @@ const AboutPage = () => {
                             </div>
                             <h3 className={`text-base font-bold mb-1 line-clamp-2 ${comp.textClass}`}>{comp.name}</h3>
                           </div>
-                          
+
                           <div className="relative z-10 mt-4 pt-3 border-t border-border/30">
                             <p className={`text-xs font-semibold ${comp.role !== "Participant" && comp.role !== "Competitor" ? 'text-primary animate-text-glow' : 'text-muted-foreground'}`}>
                               {comp.role}
@@ -413,7 +420,7 @@ const AboutPage = () => {
 
                   {/* Premium scroll progress track line indicator */}
                   <div className="max-w-xs mx-auto mt-4 h-[3px] bg-muted/40 rounded-full overflow-hidden relative">
-                    <div 
+                    <div
                       className="absolute top-0 bottom-0 left-0 bg-primary shadow-[0_0_8px_rgba(var(--primary),0.8)] transition-all duration-150 rounded-full"
                       style={{ width: `${scrollProgress}%` }}
                     ></div>
