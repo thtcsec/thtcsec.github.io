@@ -18,29 +18,32 @@ export interface Project {
 
 export const projects: Project[] = [
     {
-        id: "dubify",
-        title: "Dubify - AI Video Localization & Studio",
-        description: "An AI-powered video localization and short-form creation platform. Dubs long-form videos, translates them, and converts scripts into narrated short-form videos with auto-cut, voice synthesis, and HTML scene rendering.",
-        category: "web",
-        technologies: ["React", "FastAPI", "FFmpeg", "faster-whisper", "Playwright", "Docker", "Python", "TypeScript", "TailwindCSS"],
-        github: "",
+        id: "driftskills-ai",
+        title: "DriftSkills AI - Career Recommendation Engine",
+        description: "AI-powered career recommendation engine. Detects skill gaps and career drift, providing personalized learning paths using MongoDB Atlas Vector Search and Aggregation Pipelines.",
+        category: "ai",
+        technologies: ["Next.js 14", "FastAPI", "MongoDB Atlas", "Vector Search", "Python", "D3.js", "Docker", "TailwindCSS"],
+        github: "https://github.com/thtcsec/driftskills-ai",
         demo: "",
-        image: "/images/preview/preview_dubify.png",
+        image: "/images/preview/preview_driftskills.png",
         images: [
-            "/images/project_image/dubify/dubify1.png",
-            "/images/project_image/dubify/dubify2.png",
-            "/images/project_image/dubify/dubify3.png"
+            "/images/project_image/driftskills-ai/01.png",
+            "/images/project_image/driftskills-ai/02.png",
+            "/images/project_image/driftskills-ai/03.png",
+            "/images/project_image/driftskills-ai/04.png",
+            "/images/project_image/driftskills-ai/05.png",
+            "/images/project_image/driftskills-ai/06.png"
         ],
         featured: true,
         highlights: [
-            "AI Video Dubbing: extract audio, Whisper ASR transcribing, translate via NLLB/cloud, Edge-TTS synthesis, and subtitle muxing",
-            "Script-to-Video Engine: split scripts, generate TTS, render customizable HTML templates using Playwright/HyperFrames, and compile with FFmpeg",
-            "AI Research Video (Beta): generate research briefs, scripts, and videos directly from any topic prompt utilizing LLMs",
-            "Auto Shorts Generator: automatically dub, segment, and crop long-form videos into vertical 9:16 vertical clips for social media",
-            "Studio Editor: interactive dashboard for real-time subtitle cue editing and video re-burning",
-            "Flexible Processing Profiles: configure hybrid, fully-local (offline-only), or cloud-based processing profiles"
+            "Hackathon Project: MUGVN × MongoDB Mini Hackathon 2026 (Team Vector404)",
+            "Semantic Job Matching via $vectorSearch on 384-dim embeddings",
+            "Collaborative Filtering & Career Drift Score using complex multi-stage aggregation pipelines",
+            "Skill Gap Detection & Learning Path Generation with explainable AI (XAI)",
+            "MongoDB Live Engine Inspector (X-Ray) for real-time pipeline tracing and execution stats",
+            "Interactive Visualizations: Skill Galaxy (D3 force-directed graph) and Market Analytics ($facet)"
         ],
-        isPrivate: true
+        isPrivate: false
     },
     {
         id: "multi-cloud-soar",
@@ -273,7 +276,7 @@ export const projects: Project[] = [
 ];
 
 // Explicitly select and order the 3 top featured projects for the homepage
-const featuredOrder = ["ctsmartcam", "multi-cloud-soar", "dubify"];
+const featuredOrder = ["ctsmartcam", "multi-cloud-soar", "driftskills-ai"];
 export const featuredProjects = featuredOrder
     .map(id => projects.find(p => p.id === id))
     .filter((p): p is Project => p !== undefined);
