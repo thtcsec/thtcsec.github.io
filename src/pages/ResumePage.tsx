@@ -48,14 +48,6 @@ const ResumePage = () => {
                                 <MapPin size={13} className="print:text-black" />
                                 <span>Ho Chi Minh City</span>
                             </div>
-                            <div className="flex items-center gap-1.5">
-                                <Phone size={13} className="print:text-black" />
-                                <span>0983967098</span>
-                            </div>
-                            <div className="flex items-center gap-1.5">
-                                <Mail size={13} className="print:text-black" />
-                                <a href="mailto:tht.csec2005@gmail.com" className="hover:text-primary transition-colors print:text-black print:no-underline">tht.csec2005@gmail.com</a>
-                            </div>
                         </div>
 
                         <div className="flex flex-wrap justify-center gap-x-6 gap-y-1 mt-2 text-sm font-medium">
@@ -84,19 +76,35 @@ const ResumePage = () => {
                         {/* Education */}
                         <section>
                             <h2 className="text-base font-bold uppercase border-b border-neutral-900 dark:border-neutral-100 mb-2 pb-0.5 print:border-black text-neutral-900 dark:text-white print:text-black">Education</h2>
-                            <div className="font-sans">
-                                <div className="flex justify-between items-baseline mb-0.5">
-                                    <h3 className="font-bold text-neutral-900 dark:text-white print:text-black">Bachelor of Cybersecurity</h3>
-                                    <span className="text-neutral-600 dark:text-neutral-400 text-xs font-semibold print:text-neutral-600">Nov 2023 – Jul 2027 (Expected)</span>
+                            <div className="space-y-4 font-sans">
+                                <div>
+                                    <div className="flex justify-between items-baseline mb-0.5">
+                                        <h3 className="font-bold text-neutral-900 dark:text-white print:text-black">HCMC University of Foreign Languages and Information Technology</h3>
+                                        <span className="text-neutral-600 dark:text-neutral-400 text-xs font-semibold print:text-neutral-600">Nov 2023 – Jul 2027 (Expected)</span>
+                                    </div>
+                                    <div className="flex justify-between items-baseline mb-1">
+                                        <span className="italic text-neutral-700 dark:text-neutral-300 print:text-neutral-800">Bachelor of Cybersecurity</span>
+                                        <span className="italic text-neutral-600 dark:text-neutral-400 text-xs print:text-neutral-600">Ho Chi Minh City</span>
+                                    </div>
+                                    <ul className="list-disc list-outside ml-5 space-y-1 text-neutral-700 dark:text-neutral-300 print:text-neutral-800 text-[14px] md:text-[15px] leading-relaxed">
+                                        <li>GPA: 3.50/4.0</li>
+                                    </ul>
                                 </div>
-                                <div className="flex justify-between items-baseline mb-1">
-                                    <span className="italic text-neutral-700 dark:text-neutral-300 print:text-neutral-800">Ho Chi Minh City University of Foreign Languages and Information Technology</span>
-                                    <span className="italic text-neutral-600 dark:text-neutral-400 text-xs print:text-neutral-600">Ho Chi Minh City</span>
+
+                                <div>
+                                    <div className="flex justify-between items-baseline mb-0.5">
+                                        <h3 className="font-bold text-neutral-900 dark:text-white print:text-black">Tsinghua University</h3>
+                                        <span className="text-neutral-600 dark:text-neutral-400 text-xs font-semibold print:text-neutral-600">Mar 2026 – May 2026</span>
+                                    </div>
+                                    <div className="flex justify-between items-baseline mb-1">
+                                        <span className="italic text-neutral-700 dark:text-neutral-300 print:text-neutral-800">Global Program on Innovation and Entrepreneurship (IEDE)</span>
+                                        <span className="italic text-neutral-600 dark:text-neutral-400 text-xs print:text-neutral-600">Online</span>
+                                    </div>
+                                    <ul className="list-disc list-outside ml-5 space-y-1 text-neutral-700 dark:text-neutral-300 print:text-neutral-800 text-[14px] md:text-[15px] leading-relaxed">
+                                        <li>Completed a selective international program hosted by Tsinghua University, focusing on artificial intelligence, digital innovation, entrepreneurship, and emerging technologies.</li>
+                                        <li>Led a multidisciplinary team in developing practical technology solutions related to cybersecurity, cloud computing, and AI-driven systems.</li>
+                                    </ul>
                                 </div>
-                                <ul className="list-disc list-outside ml-5 space-y-1 text-neutral-700 dark:text-neutral-300 print:text-neutral-800 text-[14px] md:text-[15px] leading-relaxed">
-                                    <li>GPA: 3.46/4.0</li>
-                                    <li>Relevant Courses: Network Security, C#, Java, Web & Mobile Development, ASP.NET</li>
-                                </ul>
                             </div>
                         </section>
 
@@ -105,11 +113,11 @@ const ResumePage = () => {
                             <h2 className="text-base font-bold uppercase border-b border-neutral-900 dark:border-neutral-100 mb-2 pb-0.5 print:border-black text-neutral-900 dark:text-white print:text-black">Experience</h2>
                             <div className="font-sans">
                                 <div className="flex justify-between items-baseline mb-0.5">
-                                    <h3 className="font-bold text-neutral-900 dark:text-white print:text-black">Contract-Based Full-Stack Engineer</h3>
+                                    <h3 className="font-bold text-neutral-900 dark:text-white print:text-black">Independent Full-Stack Developer</h3>
                                     <span className="text-neutral-600 dark:text-neutral-400 text-xs font-semibold print:text-neutral-600">Dec 2025 – Apr 2026</span>
                                 </div>
                                 <div className="flex justify-between items-baseline mb-1">
-                                    <span className="italic text-neutral-700 dark:text-neutral-300 print:text-neutral-800">MVV Telecom Joint Stock Company (Subsidiary of MobiFone)</span>
+                                    <span className="italic text-neutral-700 dark:text-neutral-300 print:text-neutral-800">Client Project for MVV Telecom</span>
                                     <span className="italic text-neutral-600 dark:text-neutral-400 text-xs print:text-neutral-600">Ho Chi Minh City</span>
                                 </div>
                                 <ul className="list-disc list-outside ml-5 space-y-1.5 text-neutral-700 dark:text-neutral-300 print:text-neutral-800 text-[14px] md:text-[15px] leading-relaxed">
@@ -207,14 +215,6 @@ const ResumePage = () => {
                             </ul>
                         </section>
 
-                        {/* Leadership */}
-                        <section>
-                            <h2 className="text-base font-bold uppercase border-b border-neutral-900 dark:border-neutral-100 mb-2 pb-0.5 print:border-black text-neutral-900 dark:text-white print:text-black">Leadership & Activities</h2>
-                            <ul className="list-disc list-outside ml-5 space-y-1.5 text-neutral-700 dark:text-neutral-300 print:text-neutral-800 text-[14px] md:text-[15px] font-sans leading-relaxed">
-                                <li>Agora Developer Ambassador, 2026</li>
-                                <li>Google Student Ambassador, 2026 – HUFLIT</li>
-                            </ul>
-                        </section>
 
                         {/* Certificates */}
                         <section>
