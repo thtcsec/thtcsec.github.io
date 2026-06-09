@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import Header from "@/components/portfolio/Header";
 import Hero from "@/components/portfolio/Hero";
+import Experience from "@/components/portfolio/Experience";
 import About from "@/components/portfolio/About";
 import Projects from "@/components/portfolio/Projects";
 import Certificates from "@/components/portfolio/Certificates";
@@ -81,15 +82,18 @@ const Index = () => {
           <Hero />
         </div>
         <div ref={el => (sectionRefs.current[1] = el)}>
-          <Projects />
+          <Experience />
         </div>
         <div ref={el => (sectionRefs.current[2] = el)}>
-          <Certificates />
+          <Projects />
         </div>
         <div ref={el => (sectionRefs.current[3] = el)}>
-          <RecentBlogs />
+          <Certificates />
         </div>
         <div ref={el => (sectionRefs.current[4] = el)}>
+          <RecentBlogs />
+        </div>
+        <div ref={el => (sectionRefs.current[5] = el)}>
           <Contact />
         </div>
       </main>
