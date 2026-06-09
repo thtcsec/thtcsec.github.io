@@ -14,9 +14,8 @@ const Experience = () => {
         {
           title: "Cloud Solutions Research Intern",
           period: "Jun 2026 – Present",
-          description: "Researched Cloudflare's global network products and developer platform to design, prototype, and build secure cloud-native architectures.",
           highlights: [
-            "Researched Cloudflare security and developer products to design secure, cloud-native proof-of-concept applications.",
+            "Researched Cloudflare's global network products and developer platform to design, prototype, and build secure cloud-native architectures.",
             "Evaluated and configured cloud security configurations including WAF, Zero Trust access policies, and DNS.",
             "Built functional web application prototypes using Cloudflare Workers, Pages, and storage solutions (R2/D1).",
             "Collaborated on brainstorming technical architectures, system scaling, and cloud product use cases."
@@ -36,9 +35,8 @@ const Experience = () => {
         {
           title: "Software Engineer",
           period: "Dec 2025 – Apr 2026",
-          description: "Delivered real-time event monitoring features for multi-camera systems, improving system observability, security, and resource allocation in production environments.",
           highlights: [
-            "Delivered real-time event monitoring features for multi-camera systems, improving system observability and responsiveness.",
+            "Delivered real-time event monitoring features for multi-camera systems, improving system observability, security, and resource allocation in production environments.",
             "Integrated AI inference services into the system to support automated detection and event generation workflows.",
             "Configured system processing pipelines with controlled frame rates to balance detection accuracy and infrastructure resource usage.",
             "Monitored system resource usage (CPU, GPU, memory) and adjusted processing configurations to optimize stability.",
@@ -117,12 +115,6 @@ const Experience = () => {
                           {role.period}
                         </span>
                       </div>
-
-                      {role.description && (
-                        <p className="mt-3 text-sm sm:text-base text-muted-foreground leading-relaxed">
-                          {role.description}
-                        </p>
-                      )}
 
                       <ul className="mt-4 space-y-2.5">
                         {role.highlights.map((highlight, hIdx) => (
