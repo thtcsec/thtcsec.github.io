@@ -74,7 +74,7 @@ const ImageModal = ({ isOpen, imageSrc, images, initialIndex = 0, imageAlt, onCl
                     src={validImages[currentIndex]}
                     alt={`${imageAlt} - ${currentIndex + 1}`}
                     className="max-w-full max-h-full object-contain select-none"
-                    style={{ imageRendering: 'high-quality' }}
+                    style={{ imageRendering: 'auto' }}
                 />
 
                 {validImages.length > 1 && (
