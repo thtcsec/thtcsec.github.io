@@ -12,7 +12,7 @@ const Experience = () => {
       period: "Jun 2026 – Present",
       roles: [
         {
-          title: "Cloud Solutions Research Intern",
+          title: "Cloud Solutions Engineering Intern",
           period: "Jun 2026 – Present",
           highlights: [
             "Researched Cloudflare's global network products and developer platform to design, prototype, and build secure cloud-native architectures.",
