@@ -8,4 +8,4 @@ compatibility_date = "2026-06-14"
 # And then replace the id below with the generated ID.
 [[kv_namespaces]]
 binding = "PORTFOLIO_DB"
-id = "YOUR_KV_NAMESPACE_ID_HERE"
+id = "ff1c475558f54740b1402a4edb7fa780"
