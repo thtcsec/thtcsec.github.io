@@ -242,6 +242,7 @@ const ResumePage = () => {
                   <li>Evaluated and configured cloud security configurations including WAF, Zero Trust access policies, and DNS.</li>
                   <li>Built functional web application prototypes using Cloudflare Workers, Pages, and storage solutions (R2/D1).</li>
                   <li>Collaborated on brainstorming technical architectures, system scaling, and cloud product use cases.</li>
+                  <li>Operated within a Cloudflare workspace managing multiple public domains, Workers/Pages services, DNS, analytics, Zero Trust components, and multi-country traffic at the edge.</li>
                 </ul>
 
                 <div className="mt-3 flex flex-wrap gap-1.5 print:hidden">
