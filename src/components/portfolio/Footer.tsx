@@ -13,7 +13,7 @@ const Footer = () => {
     const fetchStats = async () => {
       try {
         // Fetch from Cloudflare Worker counter endpoint
-        const res = await fetch("https://portfolio-counter.thtcsec.workers.dev/visit", {
+        const res = await fetch("https://portfolio-counter.sycu-lee.workers.dev/visit", {
           credentials: "include"
         });
         if (res.ok) {
