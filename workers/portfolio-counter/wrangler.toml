@@ -7,5 +7,5 @@ compatibility_date = "2026-06-14"
 # npx wrangler kv:namespace create PORTFOLIO_DB
 # And then replace the id below with the generated ID.
 [[kv_namespaces]]
-binding = "PORTFOLIO_DB"
+binding = "TU_PORTFOLIO_DB"
 id = "ff1c475558f54740b1402a4edb7fa780"

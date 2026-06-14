@@ -23,10 +23,10 @@ export default {
       return new Response("Not Found", { status: 404, headers: corsHeaders });
     }
 
-    const kv = env.PORTFOLIO_DB;
+    const kv = env.TU_PORTFOLIO_DB;
     if (!kv) {
       return new Response(
-        JSON.stringify({ error: "KV namespace PORTFOLIO_DB not bound." }), 
+        JSON.stringify({ error: "KV namespace TU_PORTFOLIO_DB not bound." }), 
         { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
       );
     }
