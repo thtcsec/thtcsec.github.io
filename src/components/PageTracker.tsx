@@ -15,10 +15,10 @@ const PageTracker = () => {
             '/projects': 'Projects - Trinh Hoang Tu',
             '/certificates': 'Certificates - Trinh Hoang Tu',
             '/contact': 'Contact - Trinh Hoang Tu',
-            '/': 'Trinh Hoang Tu - Cybersecurity & DevSecOps'
+            '/': 'Trinh Hoang Tu | Portfolio'
         };
 
-        const title = titles[location.pathname] || 'Trinh Hoang Tu - Cybersecurity & DevSecOps';
+        const title = titles[location.pathname] || 'Trinh Hoang Tu | Portfolio';
         document.title = title;
     }, [location]);
 
