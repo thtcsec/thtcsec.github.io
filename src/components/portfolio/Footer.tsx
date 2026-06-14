@@ -99,17 +99,35 @@ const Footer = () => {
             </a>
           </div>
 
-          <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
-            <div className="flex items-center gap-1.5 hover:text-foreground transition-colors duration-200" title="Total page views">
-              <Eye size={15} className="text-primary" />
-              <span className="text-xs uppercase tracking-wider">Views:</span>
-              <span className="font-semibold text-foreground/90">{stats.views}</span>
+          <div className="flex flex-wrap items-center gap-6 text-sm text-muted-foreground">
+            <div className="flex items-center gap-4">
+              <div className="flex items-center gap-1.5 hover:text-foreground transition-colors duration-200" title="Total page views">
+                <Eye size={15} className="text-primary" />
+                <span className="text-xs uppercase tracking-wider">Views:</span>
+                <span className="font-semibold text-foreground/90">{stats.views}</span>
+              </div>
+              <span className="text-muted-foreground/30">|</span>
+              <div className="flex items-center gap-1.5 hover:text-foreground transition-colors duration-200" title="Unique visitors">
+                <Users size={15} className="text-primary" />
+                <span className="text-xs uppercase tracking-wider">Visitors:</span>
+                <span className="font-semibold text-foreground/90">{stats.visitors}</span>
+              </div>
             </div>
-            <span className="text-muted-foreground/30">|</span>
-            <div className="flex items-center gap-1.5 hover:text-foreground transition-colors duration-200" title="Unique visitors">
-              <Users size={15} className="text-primary" />
-              <span className="text-xs uppercase tracking-wider">Visitors:</span>
-              <span className="font-semibold text-foreground/90">{stats.visitors}</span>
+
+            <div className="flex items-center gap-2 border-l border-border/80 pl-6 h-5">
+              <a
+                href="https://github.com/thtcsec"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-primary transition-colors flex items-center"
+              >
+                <img
+                  src="https://komarev.com/ghpvc/?username=thtcsec&label=Profile%20Views&color=3b82f6&style=flat"
+                  alt="Profile Views"
+                  className="h-5"
+                  loading="lazy"
+                />
+              </a>
             </div>
           </div>
         </div>
