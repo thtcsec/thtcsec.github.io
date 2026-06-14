@@ -1,6 +1,6 @@
 import { siteConfig } from "@/data/config";
 import { useState, useEffect } from "react";
-import { Eye, Users } from "lucide-react";
+import { Eye, Users, ExternalLink } from "lucide-react";
 import { Icon } from "@iconify/react";
 
 const Footer = () => {
@@ -39,7 +39,7 @@ const Footer = () => {
   return (
     <footer className="border-t border-border/80 bg-card/15 py-12">
       <div className="container mx-auto px-4">
-        <div className="mb-8 grid gap-8 md:grid-cols-3">
+        <div className="mb-8 grid gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
           <div className="flex items-start gap-4">
             <img
               src="/images/huflit.png"
@@ -72,18 +72,33 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="cinema-meta mb-4">Built With</h4>
-            <div className="flex flex-wrap gap-2">
-              {["React", "TypeScript", "TailwindCSS", "Vite", "shadcn/ui"].map((tech) => (
-                <span
-                  key={tech}
-                  className="rounded-md border border-border bg-muted px-2 py-1 text-xs font-medium text-foreground/80"
+            <h4 className="cinema-meta mb-4">OrangeCloud VN</h4>
+            <ul className="space-y-2">
+              <li>
+                <a
+                  href="https://onboarding.orangecloud.vn"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors inline-flex items-center gap-1 group/link"
                 >
-                  {tech}
-                </span>
-              ))}
-            </div>
+                  <span>Học Cloudflare từ con số 0</span>
+                  <ExternalLink size={12} className="opacity-40 group-hover/link:opacity-80 transition-opacity" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://blog.orangecloud.vn"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors inline-flex items-center gap-1 group/link"
+                >
+                  <span>Tin tức Cloudflare</span>
+                  <ExternalLink size={12} className="opacity-40 group-hover/link:opacity-80 transition-opacity" />
+                </a>
+              </li>
+            </ul>
           </div>
+
         </div>
 
         <div className="flex flex-col items-center justify-between gap-4 border-t border-border pt-8 md:flex-row">
