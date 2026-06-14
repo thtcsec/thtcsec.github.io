@@ -1,0 +1,11 @@
+name = "portfolio-counter"
+main = "src/index.js"
+compatibility_date = "2026-06-14"
+
+# Bind a KV namespace to store views and unique visitor metrics
+# You will need to create a KV namespace in Cloudflare dashboard or via CLI:
+# npx wrangler kv:namespace create PORTFOLIO_DB
+# And then replace the id below with the generated ID.
+[[kv_namespaces]]
+binding = "PORTFOLIO_DB"
+id = "YOUR_KV_NAMESPACE_ID_HERE"
