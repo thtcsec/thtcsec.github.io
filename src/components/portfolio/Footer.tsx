@@ -13,22 +13,36 @@ const Footer = () => {
   useEffect(() => {
     const fetchStats = async () => {
       try {
-        // Fetch from Cloudflare Worker counter endpoint
-        const res = await fetch("https://portfolio-counter.sycu-lee.workers.dev/visit", {
-          credentials: "include"
-        });
+        // 1. Get or generate persistent visitor ID in localStorage (survives incognito F5)
+        let visitorId = localStorage.getItem("portfolio_visitor_id");
+        if (!visitorId) {
+          visitorId = "v-" + Date.now().toString(36) + "-" + Math.random().toString(36).substring(2, 9);
+          localStorage.setItem("portfolio_visitor_id", visitorId);
+        }
+
+        // 2. Prevent view inflation on SPA routing and F5 (sessionStorage persists on F5)
+        const hasCountedSession = sessionStorage.getItem("portfolio_view_counted");
+        
+        const endpoint = hasCountedSession 
+          ? "https://portfolio-counter.sycu-lee.workers.dev/stats"
+          : `https://portfolio-counter.sycu-lee.workers.dev/visit?visitorId=${visitorId}`;
+
+        const res = await fetch(endpoint);
         if (res.ok) {
           const data = await res.json();
           setStats({
             views: data.views,
             visitors: data.visitors
           });
+          
+          if (!hasCountedSession) {
+            sessionStorage.setItem("portfolio_view_counted", "true");
+          }
         } else {
           throw new Error("Worker returned error status");
         }
       } catch (err) {
         console.error("Counter API error:", err);
-        // Fallback placeholder if worker is not yet deployed
         setStats({ views: "--", visitors: "--" });
       }
     };

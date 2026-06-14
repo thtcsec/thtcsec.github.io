@@ -40,18 +40,17 @@ export default {
       totalViews += 1;
       await kv.put("total_views", totalViews.toString());
 
-      // 2. Identify unique visitors using a cookie
-      const cookieHeader = request.headers.get("Cookie") || "";
-      const cookies = Object.fromEntries(
-        cookieHeader.split(";").map(c => c.trim().split("=")).filter(([k]) => k)
-      );
-
+      // 2. Identify unique visitors using the client-side visitorId query parameter
+      const visitorId = url.searchParams.get("visitorId");
       let isNewVisitor = false;
-      let visitorId = cookies["cf_visitor_id"];
 
-      if (!visitorId) {
-        visitorId = crypto.randomUUID();
-        isNewVisitor = true;
+      if (visitorId) {
+        const hasVisited = await kv.get(`visitor:${visitorId}`);
+        if (!hasVisited) {
+          isNewVisitor = true;
+          // Store visitor key permanently to prevent duplicate counting
+          await kv.put(`visitor:${visitorId}`, "true");
+        }
       }
 
       if (isNewVisitor) {
@@ -64,19 +63,11 @@ export default {
         visitors: uniqueVisitors
       };
 
-      const responseHeaders = {
-        ...corsHeaders,
-        "Content-Type": "application/json",
-      };
-
-      // Set cookie in response for unique visitors
-      if (isNewVisitor) {
-        // SameSite=None; Secure is required for cross-site cookies between the worker domain and portfolio domain
-        responseHeaders["Set-Cookie"] = `cf_visitor_id=${visitorId}; Max-Age=31536000; Path=/; SameSite=None; Secure; HttpOnly`;
-      }
-
       return new Response(JSON.stringify(responseData), {
-        headers: responseHeaders
+        headers: {
+          ...corsHeaders,
+          "Content-Type": "application/json"
+        }
       });
     }
 
