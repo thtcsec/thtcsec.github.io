@@ -1,6 +1,7 @@
 import { siteConfig } from "@/data/config";
 import { useState, useEffect } from "react";
 import { Eye, Users } from "lucide-react";
+import { Icon } from "@iconify/react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -93,9 +94,13 @@ const Footer = () => {
               href="https://www.cloudflare.com/"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-primary transition-colors font-medium"
+              className="group hover:text-primary transition-colors font-medium flex items-center gap-1.5"
             >
-              Protected by Cloudflare
+              <Icon 
+                icon="simple-icons:cloudflare" 
+                className="w-3.5 h-3.5 text-muted-foreground group-hover:text-[#F38020] transition-colors duration-300 shrink-0" 
+              />
+              <span>Protected by Cloudflare</span>
             </a>
           </div>
 
