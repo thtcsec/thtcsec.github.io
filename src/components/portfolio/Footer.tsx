@@ -22,8 +22,8 @@ const Footer = () => {
 
         // 2. Prevent view inflation on SPA routing and F5 (sessionStorage persists on F5)
         const hasCountedSession = sessionStorage.getItem("portfolio_view_counted");
-        
-        const endpoint = hasCountedSession 
+
+        const endpoint = hasCountedSession
           ? "https://portfolio-counter.sycu-lee.workers.dev/stats"
           : `https://portfolio-counter.sycu-lee.workers.dev/visit?visitorId=${visitorId}`;
 
@@ -34,7 +34,7 @@ const Footer = () => {
             views: data.views,
             visitors: data.visitors
           });
-          
+
           if (!hasCountedSession) {
             sessionStorage.setItem("portfolio_view_counted", "true");
           }
@@ -86,7 +86,7 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="cinema-meta mb-4">OrangeCloud VN</h4>
+            <h4 className="cinema-meta mb-4">OrangeCloud VN(Cloudflare)</h4>
             <ul className="space-y-2">
               <li>
                 <a
@@ -95,7 +95,7 @@ const Footer = () => {
                   rel="noopener noreferrer"
                   className="text-sm text-muted-foreground hover:text-primary transition-colors inline-flex items-center gap-1 group/link"
                 >
-                  <span>Học Cloudflare từ con số 0</span>
+                  <span>Cloudflare for Beginners</span>
                   <ExternalLink size={12} className="opacity-40 group-hover/link:opacity-80 transition-opacity" />
                 </a>
               </li>
@@ -106,7 +106,7 @@ const Footer = () => {
                   rel="noopener noreferrer"
                   className="text-sm text-muted-foreground hover:text-primary transition-colors inline-flex items-center gap-1 group/link"
                 >
-                  <span>Tin tức Cloudflare</span>
+                  <span>Cloudflare News & Blog</span>
                   <ExternalLink size={12} className="opacity-40 group-hover/link:opacity-80 transition-opacity" />
                 </a>
               </li>
@@ -125,9 +125,9 @@ const Footer = () => {
               rel="noopener noreferrer"
               className="group hover:text-primary transition-colors font-medium flex items-center gap-1.5"
             >
-              <Icon 
-                icon="simple-icons:cloudflare" 
-                className="w-3.5 h-3.5 text-muted-foreground group-hover:text-[#F38020] transition-colors duration-300 shrink-0" 
+              <Icon
+                icon="simple-icons:cloudflare"
+                className="w-3.5 h-3.5 text-muted-foreground group-hover:text-[#F38020] transition-colors duration-300 shrink-0"
               />
               <span>Protected by Cloudflare</span>
             </a>
