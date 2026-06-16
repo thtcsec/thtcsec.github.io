@@ -18,6 +18,31 @@ export interface Project {
 
 export const projects: Project[] = [
     {
+        id: "orangecloud-insights",
+        title: "OrangeCloud Insights — AI-Powered Tech Intelligence Platform",
+        description: "Serverless tech intelligence and RSS crawling platform. Automatically crawls RSS feeds, parses content, uses OpenAI models to summarize and rewrite tech articles in neutral, professional Vietnamese, generates embeddings with Workers AI, and saves semantic vectors into Cloudflare Vectorize.",
+        category: "web",
+        technologies: ["Next.js 15", "Cloudflare Workflows", "Cloudflare D1", "Cloudflare R2", "Cloudflare Vectorize", "Workers AI", "OpenAI API", "Drizzle ORM", "TypeScript"],
+        github: "",
+        demo: "https://blog.orangecloud.vn",
+        image: "/images/preview/preview_orangecloud_insights.png",
+        images: [
+            "/images/preview/preview_orangecloud_insights.png",
+            "/images/project_image/orangecloud-insights/article_detail.png",
+            "/images/project_image/orangecloud-insights/search_results.png"
+        ],
+        featured: true,
+        highlights: [
+            "Serverless Cloudflare-Native architecture using Next.js 15 deployed on Cloudflare Pages (@cloudflare/next-on-pages)",
+            "Automated multi-stage processing pipeline orchestrated by Cloudflare Workflows (Beta) with built-in checkpointing and retries",
+            "Split-storage design: relational data on Cloudflare D1 SQL database and raw/cleaned content on Cloudflare R2 object storage",
+            "Semantic search and similar articles suggestions powered by Workers AI (@cf/baai/bge-small-en-v1.5) and Cloudflare Vectorize",
+            "OpenAI Model Router with auto-fallback that dynamically queries OpenAI API capabilities and handles fallback models gracefully",
+            "Rich interactive admin control panel with RSS source CRUD, manual/batch AI review and re-processing flow, auto-publish rules, and custom Telegram daily digests"
+        ],
+        isPrivate: true
+    },
+    {
         id: "driftskills-ai",
         title: "DriftSkills AI - Career Recommendation Engine",
         description: "AI-powered career recommendation engine. Detects skill gaps and career drift, providing personalized learning paths using MongoDB Atlas Vector Search and Aggregation Pipelines.",
@@ -276,7 +301,7 @@ export const projects: Project[] = [
 ];
 
 // Explicitly select and order the 3 top featured projects for the homepage
-const featuredOrder = ["ctsmartcam", "multi-cloud-soar", "driftskills-ai"];
+const featuredOrder = ["orangecloud-insights", "ctsmartcam", "multi-cloud-soar"];
 export const featuredProjects = featuredOrder
     .map(id => projects.find(p => p.id === id))
     .filter((p): p is Project => p !== undefined);

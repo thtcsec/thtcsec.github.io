@@ -35,7 +35,7 @@ export const siteConfig = {
     },
 
     stats: {
-        projectsBuilt: 11,
+        projectsBuilt: 12,
         technologiesUsed: 30,
         gdgEvents: 15,
         gdgConnections: 200,
