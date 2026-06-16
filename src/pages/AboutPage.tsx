@@ -28,6 +28,7 @@ import {
   Atom
 } from "lucide-react";
 import { communities } from "@/data/communities";
+import { Icon } from "@iconify/react";
 
 const competitions = [
   {
@@ -271,6 +272,47 @@ const AboutPage = () => {
             <p className="text-lg md:text-xl italic font-medium leading-relaxed text-muted-foreground border-l-2 border-primary/40 pl-4">
               "Every day without a breakthrough is a day standing still — and standing still means falling behind."
             </p>
+          </div>
+
+          {/* Current Roles / Professional Focus */}
+          <div className="mt-12 grid gap-6 md:grid-cols-2 animate-fade-in" style={{ animationDelay: "0.3s", animationFillMode: "forwards", opacity: 0 }}>
+            <div className="glass p-6 rounded-2xl border border-primary/10 hover:border-primary/30 transition-colors group">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 rounded-lg bg-[#F38020]/10 flex items-center justify-center border border-[#F38020]/20 group-hover:scale-105 transition-transform duration-300">
+                  <Icon icon="simple-icons:cloudflare" className="w-6 h-6 text-[#F38020]" />
+                </div>
+                <div>
+                  <h3 className="font-bold text-foreground text-sm leading-tight">Cloud Solutions Engineering</h3>
+                  <p className="text-xs text-[#F38020] font-semibold">Cloudflare</p>
+                </div>
+              </div>
+              <p className="text-[13px] text-muted-foreground leading-relaxed">
+                Researching Cloudflare's global edge network, Zero Trust security, WAF configurations, and building secure cloud-native prototypes using Workers, Pages, and serverless storage.
+              </p>
+            </div>
+
+            <div className="glass p-6 rounded-2xl border border-primary/10 hover:border-primary/30 transition-colors group">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 rounded-lg bg-[#0051FF]/10 flex items-center justify-center border border-[#0051FF]/20 group-hover:scale-105 transition-transform duration-300">
+                  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-6 h-6">
+                    <path d="M4 19V5H8V9H12V14H16V5H20V19H16V14H12V9H8V19H4Z" fill="url(#nextStepGrad-about)" />
+                    <defs>
+                      <linearGradient id="nextStepGrad-about" x1="4" y1="19" x2="20" y2="5" gradientUnits="userSpaceOnUse">
+                        <stop stopColor="#0051FF" />
+                        <stop offset="1" stopColor="#00D2FF" />
+                      </linearGradient>
+                    </defs>
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="font-bold text-foreground text-sm leading-tight">Cloud & AI Infrastructure Research</h3>
+                  <p className="text-xs text-primary font-semibold">Next Step Technology Solutions</p>
+                </div>
+              </div>
+              <p className="text-[13px] text-muted-foreground leading-relaxed">
+                Researching serverless integration pipelines (Workers, D1, R2, Vectorize, Workers AI), designing RAG workflows, and exploring multi-tenant storage via Redis Streams.
+              </p>
+            </div>
           </div>
 
           <div className="mt-28 animate-fade-in" style={{ animationDelay: "0.4s", animationFillMode: "forwards", opacity: 0 }}>

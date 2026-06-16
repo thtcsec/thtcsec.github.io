@@ -26,6 +26,26 @@ const Experience = () => {
       ]
     },
     {
+      company: "Next Step Technology",
+      imageLogo: "/images/next-step.png",
+      isBrandLogo: false,
+      location: "Ho Chi Minh City (Hybrid)",
+      period: "Jun 2026 – Present",
+      roles: [
+        {
+          title: "Cloud & AI Infrastructure Research Intern",
+          period: "Jun 2026 – Present",
+          highlights: [
+            "Research and prototype serverless integration pipelines using Cloudflare Workers, D1, R2, Vectorize, and Workers AI.",
+            "Design RAG-based knowledge retrieval workflows for internal documentation and cloud/security use cases.",
+            "Explore multi-tenant storage patterns, API routing strategies, and event-driven orchestration using Redis Streams.",
+            "Document cloud architecture options and technical trade-offs for Cloudflare-based solution proposals."
+          ],
+          technologies: ["Cloudflare Workers", "Cloudflare D1", "Cloudflare R2", "Cloudflare Vectorize", "Workers AI", "Redis Streams", "Serverless", "RAG"]
+        }
+      ]
+    },
+    {
       company: "MVV Telecom",
       logo: "mdi:server-network-outline",
       logoColor: "text-primary",
@@ -64,7 +84,7 @@ const Experience = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto items-stretch">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto items-stretch">
           {experiences.map((exp, idx) => (
             <div key={idx} className="flex flex-col h-full">
               <div
@@ -75,7 +95,11 @@ const Experience = () => {
                   <div className="flex items-center gap-4">
                     {/* Logo Container */}
                     <div className="w-12 h-12 rounded-xl bg-muted/50 border border-border flex items-center justify-center flex-shrink-0">
-                      {exp.isBrandLogo ? (
+                      {exp.imageLogo ? (
+                        <img src={exp.imageLogo} alt={exp.company} className="w-8 h-8 object-contain" />
+                      ) : exp.customLogo ? (
+                        exp.customLogo
+                      ) : exp.isBrandLogo ? (
                         <Icon icon={exp.logo} className={`w-8 h-8 ${exp.logoColor}`} />
                       ) : (
                         <Icon icon={exp.logo} className={`w-7 h-7 ${exp.logoColor}`} />
