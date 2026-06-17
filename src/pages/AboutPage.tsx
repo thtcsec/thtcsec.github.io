@@ -43,11 +43,29 @@ const competitions = [
   {
     name: "QC4SG 2026 - International Quantum Computing Hackathon",
     date: "Feb - July 2026",
-    role: "Participant",
+    role: "Finalist",
     icon: <Atom className="w-5 h-5 text-emerald-400 group-hover:animate-spin" style={{ animationDuration: '6s' }} />,
     bgGradient: "from-emerald-500/10 to-transparent",
     borderClass: "border-emerald-500/20 group-hover:border-emerald-500/50 group-hover:shadow-[0_0_15px_rgba(16,185,129,0.3)]",
     textClass: "group-hover:text-emerald-400 transition-colors text-foreground"
+  },
+  {
+    name: "UNDP x Grab Vietnam - GRAB the Future Hackathon",
+    date: "May - June 2026",
+    role: "Selected Participant",
+    icon: <Globe className="w-5 h-5 text-green-400 group-hover:animate-pulse" />,
+    bgGradient: "from-green-500/10 to-transparent",
+    borderClass: "border-green-500/20 group-hover:border-green-500/50 group-hover:shadow-[0_0_15px_rgba(34,197,94,0.3)]",
+    textClass: "group-hover:text-green-400 transition-colors text-foreground"
+  },
+  {
+    name: "Tsinghua University - 全球AI+材料创新应用大赛 (Global AI + Materials Innovation Competition)",
+    date: "June 2026",
+    role: "Participant",
+    icon: <Atom className="w-5 h-5 text-violet-400 group-hover:animate-pulse" />,
+    bgGradient: "from-violet-500/10 to-transparent",
+    borderClass: "border-violet-500/20 group-hover:border-violet-500/50 group-hover:shadow-[0_0_15px_rgba(139,92,246,0.3)]",
+    textClass: "group-hover:text-violet-400 transition-colors text-foreground"
   },
   {
     name: "MUGVN × MongoDB Mini Hackathon 2026",
