@@ -59,6 +59,24 @@ const competitions = [
     textClass: "group-hover:text-green-400 transition-colors text-foreground"
   },
   {
+    name: "Ho Chi Minh City AI Challenge 2026",
+    date: "May - Oct 2026",
+    role: "Participant",
+    icon: <Brain className="w-5 h-5 text-sky-400 group-hover:animate-pulse" />,
+    bgGradient: "from-sky-500/10 to-transparent",
+    borderClass: "border-sky-500/20 group-hover:border-sky-500/50 group-hover:shadow-[0_0_15px_rgba(56,189,248,0.3)]",
+    textClass: "group-hover:text-sky-400 transition-colors text-foreground"
+  },
+  {
+    name: "Vietnamese Student HackAIthon 2026",
+    date: "May - July 2026",
+    role: "Participant",
+    icon: <Cpu className="w-5 h-5 text-orange-400 group-hover:animate-pulse" />,
+    bgGradient: "from-orange-500/10 to-transparent",
+    borderClass: "border-orange-500/20 group-hover:border-orange-500/50 group-hover:shadow-[0_0_15px_rgba(249,115,22,0.3)]",
+    textClass: "group-hover:text-orange-400 transition-colors text-foreground"
+  },
+  {
     name: "Tsinghua University - 全球AI+材料创新应用大赛 (Global AI + Materials Innovation Competition)",
     date: "June 2026",
     role: "Participant",
