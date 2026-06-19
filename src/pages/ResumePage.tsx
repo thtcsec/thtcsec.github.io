@@ -179,7 +179,7 @@ const ResumePage = () => {
 
             <ul className="space-y-2.5 text-xs text-muted-foreground print:text-neutral-800 list-disc pl-4 leading-relaxed print:text-[12px] print:space-y-1">
               <li>
-                <strong className="text-foreground print:text-black">Top 7 Finalist</strong> – MUGVN × MongoDB Mini Hackathon 2026 (Team: Vector404)
+                <strong className="text-foreground print:text-black">Finalist (Top 7)</strong> – MUGVN & MongoDB Mini Hackathon 2026 (Team Vector404)
               </li>
               <li>
                 <strong className="text-foreground print:text-black">Top 10 Finalist</strong> – VinUniversity Datathon "The Gridbreaker" 2026 (Team: GenCore)

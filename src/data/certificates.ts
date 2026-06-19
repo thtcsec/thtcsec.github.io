@@ -133,6 +133,14 @@ export const certificates: Certificate[] = [
 
 export const achievements: Certificate[] = [
     {
+        id: "mongodb-hackathon-2026",
+        title: "Finalist — MUGVN & MongoDB Mini Hackathon 2026",
+        issuer: "MongoDB User Group Vietnam (MUGVN) & MongoDB",
+        image: "/images/achievements/mongodb.jpg",
+        type: "achievement",
+        description: "Advanced to the National Finals of the MUGVN & MongoDB Mini Hackathon 2026 as a solo engineer (Team Vector404) in June 2026."
+    },
+    {
         id: "vinuni-datathon-2026",
         title: "Top 10 Finalist - The Gridbreakers Datathon 2026",
         issuer: "VinUniversity & Vintelligence",
@@ -213,6 +221,6 @@ export const featuredCertificates = [
     certificates.find(c => c.id === "aws-security-fundamentals")!
 ];
 export const featuredAchievements = [
+    achievements.find(a => a.id === "mongodb-hackathon-2026"),
     achievements.find(a => a.id === "vinuni-datathon-2026"),
-    achievements.find(a => a.id === "tasco-foundry-2026"),
 ].filter(Boolean) as Certificate[];
