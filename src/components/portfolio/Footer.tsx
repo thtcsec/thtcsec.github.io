@@ -137,18 +137,19 @@ const Footer = () => {
             <div className="flex items-center gap-4">
               <div className="flex items-center gap-1.5 hover:text-foreground transition-colors duration-200" title="Total page views">
                 <Eye size={15} className="text-primary" />
-                <span className="text-xs uppercase tracking-wider">Views:</span>
+                <span className="text-xs uppercase tracking-wider">Page Views:</span>
                 <span className="font-semibold text-foreground/90">{stats.views}</span>
               </div>
               <span className="text-muted-foreground/30">|</span>
               <div className="flex items-center gap-1.5 hover:text-foreground transition-colors duration-200" title="Unique visitors">
                 <Users size={15} className="text-primary" />
-                <span className="text-xs uppercase tracking-wider">Visitors:</span>
+                <span className="text-xs uppercase tracking-wider">Page Visitors:</span>
                 <span className="font-semibold text-foreground/90">{stats.visitors}</span>
               </div>
             </div>
 
-            <div className="flex items-center gap-2 border-l border-border/80 pl-6 h-5">
+            <div className="flex items-center gap-2.5 border-l border-border/80 pl-6 h-5">
+              <span className="text-xs uppercase tracking-wider">GitHub Viewers:</span>
               <a
                 href="https://github.com/thtcsec"
                 target="_blank"
