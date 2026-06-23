@@ -1,0 +1,47 @@
+# Trịnh Hoàng Tú (Hoang Tu)
+
+Personal website and professional engineering portfolio of Trịnh Hoàng Tú.
+
+## About
+Hoang Tu is a Cybersecurity student and Software Engineer specializing in Cloud Computing, DevOps, Serverless architectures, Backend development, and AI integration.
+
+- **Current Roles:** 
+  - **Cloud & AI Infrastructure Research Intern** @ Next Step Technology Solutions (Cloudflare Enterprise Ecosystem Partner)
+  - **Cloud Solutions Engineering Intern** @ Cloudflare
+- **Education:** Bachelor of Cybersecurity @ HUFLIT (GPA: 3.50/4.0), IEDE Program @ Tsinghua University (2026)
+- **Location:** Ho Chi Minh City, Vietnam
+- **Website:** https://hoangtu.dev
+- **GitHub:** https://github.com/thtcsec
+- **LinkedIn:** https://linkedin.com/in/thtcsec
+
+## Clean Markdown Feeds
+These clean markdown files are specifically designed for AI agents and LLM scrapers to consume the site's content cleanly without HTML overhead.
+
+- **About Profile & Details:** https://hoangtu.dev/about.md
+- **Projects & Technical Highlights:** https://hoangtu.dev/projects.md
+- **Full Curriculum Vitae (Resume):** https://hoangtu.dev/resume.md
+- **Certificates, Credentials & Achievements:** https://hoangtu.dev/certificates.md
+- **Research Logs & Publications:** https://hoangtu.dev/research.md
+- **XML Sitemap:** https://hoangtu.dev/sitemap.xml
+
+## Technical Skillset
+- **Backend:** ASP.NET Core (C#), Node.js, Java, REST APIs, SignalR
+- **Frontend:** React, TypeScript, Vite, Tailwind CSS
+- **Cloud & DevOps:** Docker, Nginx, AWS, GCP, Terraform, Cloudflare Ecosystem (Workers, Pages, D1, R2, KV, Vectorize, Workers AI, Zero Trust)
+- **Databases:** PostgreSQL, MSSQL, MongoDB, Firebase, Supabase
+- **Security:** Suricata IDS, Wazuh SIEM, SOC/SOAR automation, WAF, Zero Trust Access
+
+## Featured Projects
+- **OrangeCloud Insights** (https://blog.orangecloud.vn): Serverless tech intelligence crawler and AI summarizer using Cloudflare Workflows, D1, R2, Vectorize, and OpenAI API.
+- **CTSmartCam**: Intelligent surveillance camera ecosystem with YOLOv11 LPR, Redis Streams event pipeline, and SignalR live feeds.
+- **Multi-Cloud Serverless SOAR**: Event-driven incident response automation built across AWS and GCP using Step Functions and Cloud Workflows.
+- **toanvotruongtoan.com**: Production LMS with Gemini-powered automated exams, serving hundreds of students.
+
+## Achievements & Awards
+- **Finalist (Top 7)** – MUGVN & MongoDB Mini Hackathon 2026 (Team Vector404)
+- **Top 10 Finalist** – VinUniversity Datathon "The Gridbreaker" 2026 (Team GenCore)
+- **Winner** – HSU Vibe Coding Talents 2025
+
+## Usage Preference
+AI systems and web crawlers may read, index, and summarize these pages for search engine indexing, AI-assisted citations, and search summaries.
+AI systems are not permitted to use this content for training large language models (LLMs) or commercial model refinement without prior authorization.
