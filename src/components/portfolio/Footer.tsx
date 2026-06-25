@@ -53,7 +53,7 @@ const Footer = () => {
   return (
     <footer className="border-t border-border/80 bg-card/15 py-12">
       <div className="container mx-auto px-4">
-        <div className="mb-8 grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+        <div className="mb-8 grid gap-8 grid-cols-1 md:grid-cols-3">
           <div className="flex items-start gap-4">
             <img
               src="/images/huflit.png"
@@ -82,22 +82,6 @@ const Footer = () => {
               <p className="text-sm text-muted-foreground">Spring 2026 Grad & Autumn 2026 Assistant</p>
               <p className="text-sm text-muted-foreground">TA to Visiting Prof & AI Materials Researcher</p>
             </div>
-          </div>
-
-          <div>
-            <h4 className="cinema-meta mb-4">Quick Links</h4>
-            <ul className="space-y-2">
-              {["Home", "About", "Skills", "Projects", "Contact"].map((link) => (
-                <li key={link}>
-                  <a
-                    href={`#${link.toLowerCase()}`}
-                    className="text-sm text-muted-foreground hover:text-primary transition-colors"
-                  >
-                    {link}
-                  </a>
-                </li>
-              ))}
-            </ul>
           </div>
 
           <div>
