@@ -6,12 +6,6 @@ import { siteConfig } from "@/data/config";
 const Contact = () => {
   const contactItems = [
     {
-      icon: "mdi:email",
-      title: "Email",
-      value: siteConfig.email,
-      href: `mailto:${siteConfig.email}`,
-    },
-    {
       icon: "mdi:map-marker",
       title: "Location",
       value: siteConfig.location,
