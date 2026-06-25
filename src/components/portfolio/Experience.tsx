@@ -1,4 +1,5 @@
-import { Calendar, MapPin } from "lucide-react";
+import { useState } from "react";
+import { Calendar, MapPin, ChevronDown, ChevronUp } from "lucide-react";
 import { Icon } from "@iconify/react";
 
 const Experience = () => {
@@ -46,6 +47,26 @@ const Experience = () => {
       ]
     },
     {
+      company: "AWS Study Group VN",
+      imageLogo: "/images/forums/aws-fcaj.png",
+      isBrandLogo: false,
+      location: "Ho Chi Minh City (Hybrid)",
+      period: "Sep 2025 – Present",
+      roles: [
+        {
+          title: "FCAJ Cloud Trainee - Cloud Security Builder",
+          period: "Sep 2025 – Present",
+          highlights: [
+            "Designed and implemented a Serverless Security Orchestration, Automation, and Response (SOAR) architecture using AWS native services.",
+            "Orchestrated automated incident containment workflows using AWS Step Functions, AWS Lambda, EventBridge, and SQS.",
+            "Built event-driven security pipelines integrating AWS GuardDuty for continuous threat detection and real-time response.",
+            "Developed automated playbooks for resource isolation, security group updates, and IAM privilege containment."
+          ],
+          technologies: ["AWS", "Terraform", "Serverless", "Step Functions", "Lambda", "GuardDuty", "EventBridge"]
+        }
+      ]
+    },
+    {
       company: "MVV Telecom",
       logo: "mdi:server-network-outline",
       logoColor: "text-primary",
@@ -69,10 +90,20 @@ const Experience = () => {
     }
   ];
 
+  // State to track expanded cards. By default, all cards are collapsed.
+  const [expandedCards, setExpandedCards] = useState<Record<number, boolean>>({});
+
+  const toggleExpand = (idx: number) => {
+    setExpandedCards(prev => ({
+      ...prev,
+      [idx]: !prev[idx]
+    }));
+  };
+
   return (
-    <section id="experience" className="cinema-section">
+    <section id="experience" className="cinema-section py-20">
       <div className="container mx-auto px-4">
-        <div className="cinema-reveal text-center mb-12">
+        <div className="cinema-reveal text-center mb-16">
           <span className="cinema-kicker mb-4">
             Journey
           </span>
@@ -84,88 +115,102 @@ const Experience = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto items-stretch">
-          {experiences.map((exp, idx) => (
-            <div key={idx} className="flex flex-col h-full">
-              <div
-                className="cinema-card cinema-reveal group relative flex flex-col overflow-hidden p-6 md:p-8 transition-colors hover:border-primary/40 h-full flex-grow"
-              >
-                {/* Company Header */}
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-border/50 pb-5 mb-6">
-                  <div className="flex items-center gap-4">
-                    {/* Logo Container */}
-                    <div className="w-12 h-12 rounded-xl bg-muted/50 border border-border flex items-center justify-center flex-shrink-0">
-                      {exp.imageLogo ? (
-                        <img src={exp.imageLogo} alt={exp.company} className="w-8 h-8 object-contain" />
-                      ) : exp.customLogo ? (
-                        exp.customLogo
-                      ) : exp.isBrandLogo ? (
-                        <Icon icon={exp.logo} className={`w-8 h-8 ${exp.logoColor}`} />
-                      ) : (
-                        <Icon icon={exp.logo} className={`w-7 h-7 ${exp.logoColor}`} />
-                      )}
-                    </div>
-                    <div>
-                      <h3 className="text-2xl font-extrabold text-foreground tracking-tight">
-                        {exp.company}
-                      </h3>
-                      <div className="flex items-center gap-1.5 text-sm text-muted-foreground mt-0.5">
-                        <MapPin className="w-4 h-4" />
-                        <span>{exp.location}</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="text-right shrink-0">
-                    <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-primary/5 border border-primary/20 text-xs font-semibold text-primary">
-                      <Calendar className="w-3.5 h-3.5" />
-                      {exp.period}
-                    </span>
-                  </div>
+        {/* Unified Vertical Timeline Layout */}
+        <div className="max-w-4xl mx-auto relative border-l-2 border-border/80 pl-6 md:pl-10 ml-4 md:ml-auto space-y-12">
+          {experiences.map((exp, idx) => {
+            const isExpanded = expandedCards[idx];
+            return (
+              <div key={idx} className="relative cinema-reveal">
+                {/* Timeline marker */}
+                <div className="absolute -left-[35px] md:-left-[51px] top-1.5 w-6 h-6 rounded-full border-4 border-primary bg-background flex items-center justify-center shadow-lg">
+                  <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
                 </div>
 
-                {/* Roles List */}
-                <div className="relative pl-4 sm:pl-6 border-l-2 border-border/60 ml-3 sm:ml-6 space-y-10 flex-grow">
-                  {exp.roles.map((role, rIdx) => (
-                    <div key={rIdx} className="relative">
-                      {/* Timeline dot */}
-                      <div className="absolute -left-[25px] sm:-left-[33px] top-1.5 w-4 h-4 rounded-full border-2 border-primary bg-background flex items-center justify-center shadow-[0_0_8px_rgba(var(--primary),0.3)]">
-                        <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+                {/* Card Container */}
+                <div 
+                  onClick={() => toggleExpand(idx)}
+                  className="cinema-card p-6 md:p-8 hover:border-primary/40 transition-colors duration-300 cursor-pointer group"
+                >
+                  {/* Company Header */}
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-border/50 pb-5 mb-6">
+                    <div className="flex items-center gap-4">
+                      {/* Logo Container */}
+                      <div className="w-12 h-12 rounded-xl bg-muted/50 border border-border flex items-center justify-center flex-shrink-0">
+                        {exp.imageLogo ? (
+                          <img src={exp.imageLogo} alt={exp.company} className="w-8 h-8 object-contain" />
+                        ) : exp.isBrandLogo ? (
+                          <Icon icon={exp.logo} className={`w-8 h-8 ${exp.logoColor}`} />
+                        ) : (
+                          <Icon icon={exp.logo} className={`w-7 h-7 ${exp.logoColor}`} />
+                        )}
                       </div>
-
-                      <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2">
-                        <h4 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
-                          {role.title}
-                        </h4>
-                        <span className="text-sm text-muted-foreground italic font-medium">
-                          {role.period}
-                        </span>
-                      </div>
-
-                      <ul className="mt-4 space-y-2.5">
-                        {role.highlights.map((highlight, hIdx) => (
-                          <li key={hIdx} className="flex items-start gap-2.5 text-sm sm:text-[15px] text-muted-foreground">
-                            <span className="mt-2 h-1.5 w-1.5 rounded-full bg-primary shrink-0" />
-                            <span className="leading-relaxed">{highlight}</span>
-                          </li>
-                        ))}
-                      </ul>
-
-                      <div className="mt-5 flex flex-wrap gap-2">
-                        {role.technologies.map((tech) => (
-                          <span
-                            key={tech}
-                            className="rounded-md border border-border/80 bg-muted/40 px-2.5 py-1 text-xs font-semibold text-foreground/80"
-                          >
-                            {tech}
-                          </span>
-                        ))}
+                      <div>
+                        <h3 className="text-xl md:text-2xl font-extrabold text-foreground tracking-tight group-hover:text-primary transition-colors">
+                          {exp.company}
+                        </h3>
+                        <div className="flex items-center gap-1.5 text-sm text-muted-foreground mt-0.5">
+                          <MapPin className="w-4 h-4" />
+                          <span>{exp.location}</span>
+                        </div>
                       </div>
                     </div>
-                  ))}
+                    <div className="flex items-center justify-between sm:justify-end gap-3 shrink-0">
+                      <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-primary/5 border border-primary/20 text-xs font-semibold text-primary">
+                        <Calendar className="w-3.5 h-3.5" />
+                        {exp.period}
+                      </span>
+                      <div className="text-muted-foreground group-hover:text-primary transition-colors">
+                        {isExpanded ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Roles List */}
+                  <div className="space-y-8">
+                    {exp.roles.map((role, rIdx) => (
+                      <div key={rIdx} className="relative">
+                        <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2">
+                          <h4 className="text-lg md:text-xl font-bold text-foreground">
+                            {role.title}
+                          </h4>
+                          <span className="text-xs md:text-sm text-muted-foreground italic font-medium">
+                            {role.period}
+                          </span>
+                        </div>
+
+                        {/* Collapsible bullet highlights */}
+                        <div className={`grid transition-all duration-300 ease-in-out ${
+                          isExpanded ? "grid-rows-[1fr] opacity-100 mt-4" : "grid-rows-[0fr] opacity-0"
+                        }`}>
+                          <div className="overflow-hidden">
+                            <ul className="space-y-2.5">
+                              {role.highlights.map((highlight, hIdx) => (
+                                <li key={hIdx} className="flex items-start gap-2.5 text-sm sm:text-[15px] text-muted-foreground">
+                                  <span className="mt-2 h-1.5 w-1.5 rounded-full bg-primary shrink-0" />
+                                  <span className="leading-relaxed">{highlight}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        </div>
+
+                        <div className="mt-5 flex flex-wrap gap-2" onClick={(e) => e.stopPropagation()}>
+                          {role.technologies.map((tech) => (
+                            <span
+                              key={tech}
+                              className="rounded-md border border-border/80 bg-muted/40 px-2.5 py-1 text-xs font-semibold text-foreground/80"
+                            >
+                              {tech}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

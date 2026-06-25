@@ -34,7 +34,16 @@ Cybersecurity Student & Software Engineer specializing in C# Backend, Fullstack 
 - Document cloud architecture options and technical trade-offs for Cloudflare-based solution proposals.
 - **Skills:** Cloudflare Workers, Cloudflare D1, Cloudflare R2, Cloudflare Vectorize, Workers AI, Redis Streams, Serverless, RAG.
 
-### 3. Software Engineer
+### 3. FCAJ Cloud Trainee - Cloud Security Builder
+**AWS Study Group VN**
+*Timeline: Sep 2025 – Present | Hybrid*
+- Designed and implemented a Serverless Security Orchestration, Automation, and Response (SOAR) architecture using AWS native services.
+- Orchestrated automated incident containment workflows using AWS Step Functions, AWS Lambda, EventBridge, and SQS.
+- Built event-driven security pipelines integrating AWS GuardDuty for continuous threat detection and real-time response.
+- Developed automated playbooks for resource isolation, security group updates, and IAM privilege containment.
+- **Skills:** AWS, Terraform, Serverless, Step Functions, Lambda, GuardDuty, EventBridge.
+
+### 4. Software Engineer
 **MVV Telecom**
 *Timeline: Dec 2025 – Apr 2026 | Can Tho*
 - Delivered real-time event monitoring features for multi-camera systems, improving system observability, security, and resource allocation in production environments.
