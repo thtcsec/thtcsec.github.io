@@ -4,21 +4,6 @@ import { Icon } from "@iconify/react";
 import { siteConfig } from "@/data/config";
 
 const Contact = () => {
-  const contactItems = [
-    {
-      icon: "mdi:map-marker",
-      title: "Location",
-      value: siteConfig.location,
-      href: "",
-    },
-    {
-      icon: "mdi:school",
-      title: "University",
-      value: siteConfig.university,
-      href: "https://huflit.edu.vn/",
-    },
-  ];
-
   const socialLinks = [
     { id: "linkedin", icon: "logos:linkedin-icon", href: siteConfig.social.linkedin, label: "LinkedIn" },
     { id: "github", icon: "mdi:github", href: siteConfig.social.github, label: "GitHub" },
@@ -29,60 +14,25 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="cinema-section">
+    <section id="contact" className="cinema-section py-20">
       <div className="container mx-auto px-4">
-        <div className="cinema-reveal mb-16 text-center">
+        <div className="cinema-reveal mb-12 text-center">
           <span className="cinema-kicker mb-4">
             Contact
           </span>
           <h2 className="cinema-title mb-4">
-            Contact and networks
+            Connect and collaborate
           </h2>
-          <p className="cinema-subtitle">
-            Reach me for collaborations, engineering opportunities, or security-focused projects.
+          <p className="cinema-subtitle max-w-xl mx-auto">
+            Platforms where I share my codebase repositories, cloud solutions architectures, and long-term learning journeys.
           </p>
         </div>
 
-        <div className="mx-auto grid max-w-5xl gap-12 md:grid-cols-[0.9fr_1.1fr]">
-          <div className="cinema-stagger space-y-6">
-            {contactItems.map((item) => (
-              <div
-                key={item.title}
-                className="cinema-card flex items-start gap-4 p-4 transition-colors hover:border-primary/50"
-              >
-                <div className="p-3 rounded-lg bg-primary/10 text-primary">
-                  <Icon icon={item.icon} className="w-6 h-6" />
-                </div>
-                <div>
-                  <h4 className="font-medium mb-1 text-foreground">{item.title}</h4>
-                  {item.href ? (
-                    <a
-                      href={item.href}
-                      target={item.href.startsWith("mailto") ? undefined : "_blank"}
-                      rel="noopener noreferrer"
-                      className="text-muted-foreground hover:text-primary transition-colors"
-                    >
-                      {item.value}
-                    </a>
-                  ) : (
-                    <p className="text-muted-foreground">{item.value}</p>
-                  )}
-                </div>
-              </div>
+        <div className="mx-auto max-w-3xl">
+          <div className="cinema-stagger grid grid-cols-2 gap-4 sm:grid-cols-3">
+            {socialLinks.map((social) => (
+              <SocialLinkWithPreview key={social.id} social={social} />
             ))}
-          </div>
-
-          <div>
-            <h3 className="mb-2 text-xl font-bold text-foreground">Connect with me</h3>
-            <p className="mb-6 text-muted-foreground">
-              Platforms where I share work, experiments, and long-term learning.
-            </p>
-
-            <div className="cinema-stagger grid grid-cols-2 gap-4 sm:grid-cols-3">
-              {socialLinks.map((social) => (
-                <SocialLinkWithPreview key={social.id} social={social} />
-              ))}
-            </div>
           </div>
         </div>
       </div>
