@@ -45,7 +45,7 @@ Cybersecurity Student & Software Engineer specializing in C# Backend, Fullstack 
 
 ### 4. Software Engineer
 **MVV Telecom**
-*Timeline: Dec 2025 – Apr 2026 | Can Tho*
+*Timeline: Dec 2025 – Apr 2026 | Can Tho (Remote)*
 - Delivered real-time event monitoring features for multi-camera systems, improving system observability, security, and resource allocation in production environments.
 - Integrated AI inference services into the system to support automated detection and event generation workflows.
 - Configured system processing pipelines with controlled frame rates to balance detection accuracy and infrastructure resource usage.

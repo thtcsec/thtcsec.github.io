@@ -304,7 +304,7 @@ const ResumePage = () => {
                     </div>
                   </div>
                   <div className="text-xs text-muted-foreground print:text-neutral-700 italic font-medium">
-                    Dec 2025 – Apr 2026 | Can Tho
+                    Dec 2025 – Apr 2026 | Can Tho (Remote)
                   </div>
                 </div>
 

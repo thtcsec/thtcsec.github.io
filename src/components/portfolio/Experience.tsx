@@ -2,6 +2,55 @@ import { useState } from "react";
 import { Calendar, MapPin, ChevronDown, ChevronUp } from "lucide-react";
 import { Icon } from "@iconify/react";
 
+const calculateDuration = (period: string): string => {
+  const normalizedPeriod = period.replace(/[\u2013\u2014]/g, "-");
+  const parts = normalizedPeriod.split("-").map(p => p.trim());
+  if (parts.length < 2) return "";
+
+  const startPart = parts[0];
+  const endPart = parts[1];
+
+  const parseMonthYear = (str: string) => {
+    if (str.toLowerCase() === "present") {
+      return new Date();
+    }
+    const tokens = str.split(/\s+/);
+    if (tokens.length < 2) return new Date();
+    const months: Record<string, number> = {
+      Jan: 0, Feb: 1, Mar: 2, Apr: 3, May: 4, Jun: 5,
+      Jul: 6, Aug: 7, Sep: 8, Oct: 9, Nov: 10, Dec: 11
+    };
+    const monthStr = tokens[0].substring(0, 3);
+    const month = months[monthStr] !== undefined ? months[monthStr] : 0;
+    const year = parseInt(tokens[1], 10);
+    return new Date(year, month, 1);
+  };
+
+  try {
+    const start = parseMonthYear(startPart);
+    const end = parseMonthYear(endPart);
+    const yearDiff = end.getFullYear() - start.getFullYear();
+    const monthDiff = end.getMonth() - start.getMonth();
+    const totalMonths = yearDiff * 12 + monthDiff + 1;
+
+    if (totalMonths <= 0) return "1 mo";
+
+    const years = Math.floor(totalMonths / 12);
+    const remainingMonths = totalMonths % 12;
+
+    const result: string[] = [];
+    if (years > 0) {
+      result.push(`${years} ${years === 1 ? "yr" : "yrs"}`);
+    }
+    if (remainingMonths > 0) {
+      result.push(`${remainingMonths} ${remainingMonths === 1 ? "mo" : "mos"}`);
+    }
+    return result.length > 0 ? result.join(" ") : "1 mo";
+  } catch (e) {
+    return "";
+  }
+};
+
 const Experience = () => {
   const experiences = [
     {
@@ -71,7 +120,7 @@ const Experience = () => {
       logo: "mdi:server-network-outline",
       logoColor: "text-primary",
       isBrandLogo: false,
-      location: "Can Tho",
+      location: "Can Tho (Remote)",
       period: "Dec 2025 – Apr 2026",
       roles: [
         {
@@ -174,7 +223,7 @@ const Experience = () => {
                             {role.title}
                           </h4>
                           <span className="text-xs md:text-sm text-muted-foreground italic font-medium">
-                            {role.period}
+                            {calculateDuration(role.period)}
                           </span>
                         </div>
 
