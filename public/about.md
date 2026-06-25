@@ -21,10 +21,12 @@ My focus lies at the intersection of serverless deployment pipelines, Zero Trust
 - **Progress:** 8th Semester (131/135 credits completed)
 - **Core Coursework:** Network Security, Cryptography, System Administration, Penetration Testing, Software Architecture.
 
-### AI & Innovation Digital Economy (IEDE) Program
+### AI & Innovation Digital Economy Program - Student
 **Tsinghua University (Beijing, China / Remote)**
 *Timeline: 2026*
-- Selected from over 3,700 global applicants for a specialized cohort focusing on AI innovation, digital economics, and tech entrepreneurship.
+- **Spring 2026 Grad:** Completed the global program on AI, digital economics, and tech entrepreneurship, selected from over 3,700 global applicants.
+- **Autumn 2026 Cohort:** Acting as a Technical Assistant to a visiting professor while working on collaborative projects.
+- **Research Focus:** Participating in the Global AI + Materials Innovation Competition.
 
 ---
 

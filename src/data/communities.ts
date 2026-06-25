@@ -13,7 +13,7 @@ export const communities: Community[] = [
         id: "iede-community",
         title: "AI & Innovation Digital Economy - Tsinghua University",
         description: "Member of a specialized cohort at Tsinghua University, focusing on AI innovation and entrepreneurship in the digital economy. Selected from over 3,700 global applicants.",
-        image: "/images/achievements/tsinghua.jpg",
+        image: "/images/tsinghua.png",
         tags: ["AI", "Entrepreneurship", "Digital Economy", "Tsinghua"],
         link: ""
     },

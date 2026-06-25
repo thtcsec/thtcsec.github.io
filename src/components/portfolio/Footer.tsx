@@ -53,7 +53,7 @@ const Footer = () => {
   return (
     <footer className="border-t border-border/80 bg-card/15 py-12">
       <div className="container mx-auto px-4">
-        <div className="mb-8 grid gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
+        <div className="mb-8 grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
           <div className="flex items-start gap-4">
             <img
               src="/images/huflit.png"
@@ -66,6 +66,21 @@ const Footer = () => {
               <p className="text-sm text-muted-foreground">Faculty of Information Technology</p>
               <p className="text-sm text-muted-foreground">Major: {siteConfig.major}</p>
               <p className="text-sm text-muted-foreground">Expected: {siteConfig.academic.expectedGraduation}</p>
+            </div>
+          </div>
+
+          <div className="flex items-start gap-4">
+            <img
+              src="/images/tsinghua.png"
+              alt="Tsinghua University"
+              className="w-16 h-16 object-contain rounded-md border border-border/50"
+              loading="lazy"
+            />
+            <div>
+              <h4 className="font-bold mb-1 text-foreground">Tsinghua University</h4>
+              <p className="text-sm text-muted-foreground">AI & Innovation Digital Economy Program - Student</p>
+              <p className="text-sm text-muted-foreground">Spring 2026 Grad & Autumn 2026 Assistant</p>
+              <p className="text-sm text-muted-foreground">TA to Visiting Prof & AI Materials Researcher</p>
             </div>
           </div>
 

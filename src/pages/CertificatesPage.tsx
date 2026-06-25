@@ -23,14 +23,14 @@ const CertificatesPage = () => {
                 <div className="container mx-auto px-4 flex items-center justify-between">
                     <Link to="/" className="flex items-center gap-2 text-foreground hover:text-primary transition-colors">
                         <ArrowLeft size={20} />
-                        <span className="font-medium">Back to Home</span>
+                        <span className="font-medium">Trang chủ</span>
                     </Link>
                     <div className="flex items-center gap-4">
                         <ThemeToggle />
                         <Button variant="outline" size="sm" asChild>
                             <Link to="/">
                                 <Home size={16} className="mr-2" />
-                                Home
+                                Trang chủ
                             </Link>
                         </Button>
                     </div>
