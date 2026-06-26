@@ -15,18 +15,8 @@ Cybersecurity Student & Software Engineer specializing in C# Backend, Fullstack 
 
 ## 💼 Work Experience
 
-### 1. Cloud Solutions Engineering Intern
-**Cloudflare**
-*Timeline: Jun 2026 – Present | Remote*
-- Researched Cloudflare's global network products and developer platform to design, prototype, and build secure cloud-native architectures.
-- Evaluated and configured cloud security configurations including WAF, Zero Trust access policies, and DNS.
-- Built functional web application prototypes using Cloudflare Workers, Pages, and storage solutions (R2/D1).
-- Collaborated on brainstorming technical architectures, system scaling, and cloud product use cases.
-- Operated within a Cloudflare workspace managing multiple public domains, Workers/Pages services, DNS, analytics, Zero Trust components, and multi-country traffic at the edge.
-- **Skills:** Zero Trust, DNS, CDN, WAF, Workers, Pages, Cloud Security.
-
-### 2. Cloud & AI Infrastructure Research Intern
-**Next Step Technology Solutions (Cloudflare Enterprise Ecosystem Partner)**
+### 1. Cloud & AI Infrastructure Research Intern
+**Next Step Technology Solutions**
 *Timeline: Jun 2026 – Present | Hybrid*
 - Research and prototype serverless integration pipelines using Cloudflare Workers, D1, R2, Vectorize, and Workers AI.
 - Design RAG-based knowledge retrieval workflows for internal documentation and cloud/security use cases.
@@ -34,7 +24,7 @@ Cybersecurity Student & Software Engineer specializing in C# Backend, Fullstack 
 - Document cloud architecture options and technical trade-offs for Cloudflare-based solution proposals.
 - **Skills:** Cloudflare Workers, Cloudflare D1, Cloudflare R2, Cloudflare Vectorize, Workers AI, Redis Streams, Serverless, RAG.
 
-### 3. FCAJ Cloud Trainee - Cloud Security Builder
+### 2. FCAJ Cloud Trainee - Cloud Security Builder
 **AWS Study Group VN**
 *Timeline: Sep 2025 – Present | Hybrid*
 - Designed and implemented a Serverless Security Orchestration, Automation, and Response (SOAR) architecture using AWS native services.
@@ -43,7 +33,7 @@ Cybersecurity Student & Software Engineer specializing in C# Backend, Fullstack 
 - Developed automated playbooks for resource isolation, security group updates, and IAM privilege containment.
 - **Skills:** AWS, Terraform, Serverless, Step Functions, Lambda, GuardDuty, EventBridge.
 
-### 4. Software Engineer
+### 3. Software Engineer
 **MVV Telecom**
 *Timeline: Dec 2025 – Apr 2026 | Can Tho (Remote)*
 - Delivered real-time event monitoring features for multi-camera systems, improving system observability, security, and resource allocation in production environments.

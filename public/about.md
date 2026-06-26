@@ -5,9 +5,8 @@ I am a Cybersecurity student and Software Engineer specializing in Cloud Computi
 ---
 
 ## 👨‍💻 Professional Summary
-I build robust, secure, and highly scalable cloud-native architectures. Currently, I hold concurrent roles:
-- **Cloud & AI Infrastructure Research Intern** @ Next Step Technology Solutions (Cloudflare Enterprise Ecosystem Partner)
-- **Cloud Solutions Engineering Intern** @ Cloudflare
+I build robust, secure, and highly scalable cloud-native architectures. Currently, I hold the role:
+- **Cloud & AI Infrastructure Research Intern** @ Next Step Technology Solutions
 
 My focus lies at the intersection of serverless deployment pipelines, Zero Trust security frameworks, AI agent orchestration, and system security.
 

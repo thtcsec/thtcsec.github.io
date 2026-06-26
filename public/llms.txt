@@ -5,9 +5,7 @@ Personal website and professional engineering portfolio of Trịnh Hoàng Tú.
 ## About
 Hoang Tu is a Cybersecurity student and Software Engineer specializing in Cloud Computing, DevOps, Serverless architectures, Backend development, and AI integration.
 
-- **Current Roles:** 
-  - **Cloud & AI Infrastructure Research Intern** @ Next Step Technology Solutions (Cloudflare Enterprise Ecosystem Partner)
-  - **Cloud Solutions Engineering Intern** @ Cloudflare
+- **Current Role:** **Cloud & AI Infrastructure Research Intern** @ Next Step Technology Solutions
 - **Education:** Bachelor of Cybersecurity @ HUFLIT (GPA: 3.50/4.0), AI & Innovation Digital Economy Program - Student @ Tsinghua University (Spring 2026 Grad & Autumn 2026 TA/Researcher)
 - **Location:** Ho Chi Minh City, Vietnam
 - **Website:** https://hoangtu.dev

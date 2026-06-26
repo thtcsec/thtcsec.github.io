@@ -217,43 +217,6 @@ const ResumePage = () => {
             </div>
 
             <div className="relative border-l border-border/70 ml-2 pl-6 space-y-8 print:border-l print:border-black/20 print:ml-2 print:pl-4 print:space-y-4">
-
-              {/* Cloudflare */}
-              <div className="relative">
-                {/* Timeline dot */}
-                <div className="absolute -left-[31px] top-1.5 w-2.5 h-2.5 rounded-full border border-primary bg-background shadow-sm print:bg-black print:border-black" />
-
-                <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 mb-2">
-                  <div>
-                    <h3 className="text-base md:text-lg font-bold text-foreground print:text-black">
-                      Cloud Solutions Engineering Intern
-                    </h3>
-                    <div className="text-sm text-primary font-semibold print:text-neutral-900">
-                      Cloudflare
-                    </div>
-                  </div>
-                  <div className="text-xs text-muted-foreground print:text-neutral-700 italic font-medium">
-                    Jun 2026 – Present | Remote
-                  </div>
-                </div>
-
-                <ul className="list-disc pl-4 space-y-1.5 text-xs md:text-sm text-muted-foreground print:text-neutral-800 leading-relaxed print:text-[13px] print:space-y-0.5">
-                  <li>Researched Cloudflare's global network products and developer platform to design, prototype, and build secure cloud-native architectures.</li>
-                  <li>Evaluated and configured cloud security configurations including WAF, Zero Trust access policies, and DNS.</li>
-                  <li>Built functional web application prototypes using Cloudflare Workers, Pages, and storage solutions (R2/D1).</li>
-                  <li>Collaborated on brainstorming technical architectures, system scaling, and cloud product use cases.</li>
-                  <li>Operated within a Cloudflare workspace managing multiple public domains, Workers/Pages services, DNS, analytics, Zero Trust components, and multi-country traffic at the edge.</li>
-                </ul>
-
-                <div className="mt-3 flex flex-wrap gap-1.5 print:hidden">
-                  {["Zero Trust", "DNS", "CDN", "WAF", "Workers", "Pages"].map((t) => (
-                    <span key={t} className="px-2 py-0.5 text-[10px] rounded bg-muted text-muted-foreground border border-border/80">
-                      {t}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
               {/* Next Step Technology */}
               <div className="relative">
                 {/* Timeline dot */}
@@ -265,7 +228,7 @@ const ResumePage = () => {
                       Cloud & AI Infrastructure Research Intern
                     </h3>
                     <div className="text-sm text-primary font-semibold print:text-neutral-900">
-                      Next Step Technology Solutions (Cloudflare Enterprise Ecosystem Partner)
+                      Next Step Technology Solutions
                     </div>
                   </div>
                   <div className="text-xs text-muted-foreground print:text-neutral-700 italic font-medium">

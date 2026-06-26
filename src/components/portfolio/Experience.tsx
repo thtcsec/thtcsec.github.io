@@ -54,28 +54,6 @@ const calculateDuration = (period: string): string => {
 const Experience = () => {
   const experiences = [
     {
-      company: "Cloudflare",
-      logo: "simple-icons:cloudflare",
-      logoColor: "text-[#F38020]",
-      isBrandLogo: true,
-      location: "Ho Chi Minh City (Remote)",
-      period: "Jun 2026 – Present",
-      roles: [
-        {
-          title: "Cloud Solutions Engineering Intern",
-          period: "Jun 2026 – Present",
-          highlights: [
-            "Researched Cloudflare's global network products and developer platform to design, prototype, and build secure cloud-native architectures.",
-            "Evaluated and configured cloud security configurations including WAF, Zero Trust access policies, and DNS.",
-            "Built functional web application prototypes using Cloudflare Workers, Pages, and storage solutions (R2/D1).",
-            "Collaborated on brainstorming technical architectures, system scaling, and cloud product use cases.",
-            "Operated within a Cloudflare workspace managing multiple public domains, Workers/Pages services, DNS, analytics, Zero Trust components, and multi-country traffic at the edge."
-          ],
-          technologies: ["Zero Trust", "DNS", "CDN", "WAF", "Cloudflare Workers", "Cloudflare Pages"]
-        }
-      ]
-    },
-    {
       company: "Next Step Technology",
       imageLogo: "/images/next-step.png",
       isBrandLogo: false,
