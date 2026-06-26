@@ -20,12 +20,11 @@ My focus lies at the intersection of serverless deployment pipelines, Zero Trust
 - **Progress:** 8th Semester (131/135 credits completed)
 - **Core Coursework:** Network Security, Cryptography, System Administration, Penetration Testing, Software Architecture.
 
-### AI & Innovation Digital Economy Program - Student
+### AI & Innovation Digital Economy Certificate Program
 **Tsinghua University (Beijing, China / Remote)**
 *Timeline: 2026*
-- **Spring 2026 Grad:** Completed the global program on AI, digital economics, and tech entrepreneurship, selected from over 3,700 global applicants.
-- **Autumn 2026 Cohort:** Acting as a Technical Assistant to a visiting professor while working on collaborative projects.
-- **Research Focus:** Participating in the Global AI + Materials Innovation Competition.
+- **Spring 2026 Certificate:** Completed specialized global program on AI, digital economics, and tech entrepreneurship, selected from over 3,700 global applicants.
+- **Autumn 2026 Roles:** Serving as a Teaching Assistant to a visiting professor and Research Participant in the Global AI + Materials Innovation Competition.
 
 ---
 

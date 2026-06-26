@@ -161,10 +161,10 @@ const ResumePage = () => {
                   <span className="text-[11px] font-semibold text-muted-foreground print:text-neutral-600">Mar – May 2026</span>
                 </div>
                 <div className="text-xs text-muted-foreground print:text-neutral-800 italic mb-1.5">
-                  Global Program on Innovation and Entrepreneurship (IEDE)
+                  AI & Innovation Digital Economy - Certificate Program (Completed)
                 </div>
                 <p className="text-xs text-muted-foreground print:text-neutral-700 leading-relaxed print:text-[12px]">
-                  Completed program on AI, digital innovation, and led team in developing cloud & security proof-of-concepts.
+                  Completed specialized certificate coursework on AI, digital economics, and led team in developing cloud & security proof-of-concepts.
                 </p>
               </div>
             </div>

@@ -137,7 +137,7 @@ const Header = () => {
 
           <div className="hidden items-center gap-2 md:flex">
             <Button size="sm" variant="outline" asChild className="hidden lg:inline-flex border-primary/30 hover:bg-primary/5 hover:text-primary">
-              <Link to="/price">Pricing</Link>
+              <Link to="/services">Services</Link>
             </Button>
             <ThemeToggle />
           </div>
@@ -187,8 +187,8 @@ const Header = () => {
               className="mt-3 w-full py-6 text-base border-primary/30"
               asChild
             >
-              <Link to="/price" onClick={() => setIsMobileMenuOpen(false)}>
-                Pricing
+              <Link to="/services" onClick={() => setIsMobileMenuOpen(false)}>
+                Services
               </Link>
             </Button>
           </div>

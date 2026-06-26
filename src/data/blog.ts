@@ -16,7 +16,7 @@ export const blogPosts: BlogPost[] = [
   {
     id: "lpr-vietnamese-context",
     title: "Advanced Deep Learning Architectures for Vietnamese License Plate Recognition",
-    date: "Mars 2026",
+    date: "March 2026",
     readTime: "15 min read",
     excerpt: "A deep technical audit of the current state-of-the-art methodologies for Automatic License Plate Recognition (ALPR), calibrated to the unique constraints of the Vietnamese vehicular landscape.",
     tags: ["Deep Learning", "Computer Vision", "YOLOv11", "ITS", "Edge Computing"],

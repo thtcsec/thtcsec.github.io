@@ -277,12 +277,12 @@ const PricingPage = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <span className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
-              Bảng giá
+              Dịch vụ & Chi phí
             </span>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-              Giá cả minh bạch
+              Chi phí tham khảo
             </h2>
-            <p className="text-muted-foreground text-lg">Giá cụ thể phụ thuộc vào yêu cầu và độ phức tạp của dự án</p>
+            <p className="text-muted-foreground text-lg">Chi phí thực tế sẽ được thỏa thuận dựa trên yêu cầu và độ phức tạp của từng hệ thống</p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 max-w-7xl mx-auto mb-8">
@@ -316,12 +316,12 @@ const PricingPage = () => {
           </div>
 
           <p className="text-center text-sm text-muted-foreground">
-            * Báo giá chi tiết sau khi trao đổi yêu cầu cụ thể
+            * Báo giá chi tiết sau khi trao đổi yêu cầu cụ thể và tư vấn giải pháp
           </p>
 
           <div className="text-center mt-8">
             <Button size="lg" onClick={() => handleScrollToSection("contact")} className="group">
-              Nhận báo giá
+              Nhận tư vấn giải pháp
               <ChevronRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
             </Button>
           </div>

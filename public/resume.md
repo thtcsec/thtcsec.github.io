@@ -47,7 +47,7 @@ Cybersecurity Student & Software Engineer specializing in C# Backend, Fullstack 
 
 ## 🎓 Education & Programs
 - **HUFLIT University:** Bachelor of Cybersecurity (2023 – 2027 Expected) | GPA: 3.50/4.00
-- **Tsinghua University:** AI & Innovation Digital Economy Program - Student (2026). Spring 2026 Grad (completed coursework on AI and digital innovation; led team projects) & Autumn 2026 Cohort (Technical Assistant to visiting professor; research participant in the Global AI + Materials Innovation Competition).
+- **Tsinghua University:** AI & Innovation Digital Economy (2026). Completed specialized Spring 2026 Certificate program (coursework on AI and digital innovation; led team projects). Serving as Teaching Assistant to a visiting professor and Research Participant in the Global AI + Materials Innovation Competition for Autumn 2026.
 
 ---
 

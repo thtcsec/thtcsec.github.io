@@ -1,6 +1,6 @@
 export const pricingData = {
   hero: {
-    badge: "Nhận dự án Freelance & Outsource",
+    badge: "Technical Services & Systems Development",
     title: "Thiết kế Website, Phát triển\nHệ thống & Bảo trì Code",
     subtitle: "Giải pháp công nghệ toàn diện cho cá nhân, startup và doanh nghiệp — từ ý tưởng đến production với cam kết chất lượng và hỗ trợ dài hạn.",
   },

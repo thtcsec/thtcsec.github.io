@@ -58,7 +58,7 @@ const App = () => {
             <Route path="/projects/:id" element={<ProjectDetailPage />} />
             <Route path="/certificates" element={<CertificatesPage />} />
 
-            <Route path="/price" element={<PricingPage />} />
+            <Route path="/services" element={<PricingPage />} />
             <Route path="/resume" element={<ResumePage />} />
             <Route path="/silentpipe" element={<SilentPipePage />} />
             <Route path="/silentpipe/" element={<SilentPipePage />} />

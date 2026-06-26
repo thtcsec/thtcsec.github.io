@@ -78,9 +78,9 @@ const Footer = () => {
             />
             <div>
               <h4 className="font-bold mb-1 text-foreground">Tsinghua University</h4>
-              <p className="text-sm text-muted-foreground">AI & Innovation Digital Economy Program - Student</p>
-              <p className="text-sm text-muted-foreground">Spring 2026 Grad & Autumn 2026 Assistant</p>
-              <p className="text-sm text-muted-foreground">TA to Visiting Prof & AI Materials Researcher</p>
+              <p className="text-sm text-muted-foreground">AI & Innovation Digital Economy Program</p>
+              <p className="text-sm text-muted-foreground">Spring 2026: Certificate Program (Completed)</p>
+              <p className="text-sm text-muted-foreground">Autumn 2026: Teaching Assistant & Researcher</p>
             </div>
           </div>
 
