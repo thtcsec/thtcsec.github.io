@@ -144,7 +144,7 @@ export const achievements: Certificate[] = [
         id: "vinuni-datathon-2026",
         title: "Top 10 Finalist - The Gridbreakers Datathon 2026",
         issuer: "VinUniversity & Vintelligence",
-        image: "/images/achievements/datathon_top10.jpg",
+        image: "/images/achievements/datathon_top10.png",
         type: "achievement",
         description: "Ranked 10th (Team GenCore) in the nationwide Datathon organized by VinUniversity. Selected as one of the best performing teams among over 500 teams and 1,500 participants."
     },
