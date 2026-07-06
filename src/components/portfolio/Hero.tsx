@@ -71,24 +71,8 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* Info cards row */}
-        <div className="cinema-reveal cinema-stagger grid gap-3 sm:grid-cols-3 mb-6" style={{ ["--reveal-delay" as string]: "120ms" }}>
-          <div className="cinema-card p-4">
-            <div className="cinema-meta">Focus</div>
-            <div className="mt-1.5 text-sm font-semibold text-foreground">Security + Systems</div>
-          </div>
-          <div className="cinema-card p-4">
-            <div className="cinema-meta">Progress</div>
-            <div className="mt-1.5 text-sm font-semibold text-foreground">{progressPercentage}% to graduation</div>
-          </div>
-          <div className="cinema-card p-4">
-            <div className="cinema-meta">Timeline</div>
-            <div className="mt-1.5 text-sm font-semibold text-foreground">{daysRemaining} days left</div>
-          </div>
-        </div>
-
         {/* Actions + Tags */}
-        <div className="cinema-reveal flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-6" style={{ ["--reveal-delay" as string]: "180ms" }}>
+        <div className="cinema-reveal flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-6" style={{ ["--reveal-delay" as string]: "120ms" }}>
           <div className="flex gap-3">
             <Button size="default" onClick={() => handleScrollToSection("projects")}>
               View Projects
@@ -108,7 +92,7 @@ const Hero = () => {
         </div>
 
         {/* Socials */}
-        <div className="cinema-reveal cinema-stagger flex items-center gap-3 mb-10" style={{ ["--reveal-delay" as string]: "220ms" }}>
+        <div className="cinema-reveal cinema-stagger flex items-center gap-3 mb-10" style={{ ["--reveal-delay" as string]: "180ms" }}>
           {[
             { icon: Github, href: siteConfig.social.github, label: "GitHub" },
             { icon: Linkedin, href: siteConfig.social.linkedin, label: "LinkedIn" },
@@ -129,7 +113,7 @@ const Hero = () => {
         </div>
 
         {/* Profile snapshot — horizontal card */}
-        <div className="cinema-reveal cinema-card rounded-2xl p-5 md:p-6" style={{ ["--reveal-delay" as string]: "280ms" }}>
+        <div className="cinema-reveal cinema-card rounded-2xl p-5 md:p-6" style={{ ["--reveal-delay" as string]: "220ms" }}>
           <div className="flex items-center justify-between gap-2 text-sm font-medium text-muted-foreground mb-4">
             <div className="flex items-center gap-2">
               <Terminal size={14} />

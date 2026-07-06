@@ -3,13 +3,13 @@ import { Link } from "react-router-dom";
 import { blogPosts } from "@/data/blog";
 
 const RecentBlogs = () => {
-  // Get the 3 most recent posts
-  const recentPosts = blogPosts.slice(0, 3);
+  // Get the 2 most recent posts
+  const recentPosts = blogPosts.slice(0, 2);
 
   return (
-    <section id="research" className="cinema-section bg-background overflow-hidden">
+    <section id="research" className="cinema-section bg-background overflow-hidden py-20">
       <div className="container px-4 mx-auto relative z-10">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+        <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6 max-w-5xl mx-auto">
           <div className="max-w-2xl">
             <div className="cinema-kicker mb-4">
               Research
@@ -30,15 +30,15 @@ const RecentBlogs = () => {
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           {recentPosts.map((post) => (
             <Link
               key={post.id}
               to={`/research/${post.id}`}
-              className="cinema-card group block h-full overflow-hidden transition-colors hover:border-primary/50"
+              className="cinema-card group flex flex-col h-full overflow-hidden transition-colors hover:border-primary/50"
             >
               {post.imageUrl && (
-                <div className="relative h-48 overflow-hidden">
+                <div className="relative h-44 overflow-hidden">
                   <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors z-10" />
                   <img
                     src={post.imageUrl}
@@ -58,12 +58,12 @@ const RecentBlogs = () => {
               <div className="p-6 flex flex-col flex-grow">
                 <div className="flex items-center gap-4 text-xs text-muted-foreground mb-4 font-medium">
                   <div className="flex items-center gap-1.5">
-                    <Calendar size={14} />
-                    {post.date}
+                     <Calendar size={14} />
+                     {post.date}
                   </div>
                   <div className="flex items-center gap-1.5">
-                    <Clock size={14} />
-                    {post.readTime}
+                     <Clock size={14} />
+                     {post.readTime}
                   </div>
                 </div>
                 
@@ -71,7 +71,7 @@ const RecentBlogs = () => {
                   {post.title}
                 </h3>
                 
-                <p className="text-muted-foreground mb-6 line-clamp-3 text-sm flex-grow">
+                <p className="text-muted-foreground mb-6 line-clamp-2 text-sm flex-grow">
                   {post.excerpt}
                 </p>
                 

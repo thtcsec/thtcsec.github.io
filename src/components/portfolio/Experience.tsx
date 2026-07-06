@@ -117,15 +117,8 @@ const Experience = () => {
     }
   ];
 
-  // State to track expanded cards. By default, all cards are collapsed.
-  const [expandedCards, setExpandedCards] = useState<Record<number, boolean>>({});
-
-  const toggleExpand = (idx: number) => {
-    setExpandedCards(prev => ({
-      ...prev,
-      [idx]: !prev[idx]
-    }));
-  };
+  const [activeTab, setActiveTab] = useState(0);
+  const activeExp = experiences[activeTab];
 
   return (
     <section id="experience" className="cinema-section py-20">
@@ -142,102 +135,84 @@ const Experience = () => {
           </p>
         </div>
 
-        {/* Unified Vertical Timeline Layout */}
-        <div className="max-w-4xl mx-auto relative border-l-2 border-border/80 pl-6 md:pl-10 ml-4 md:ml-auto space-y-12">
-          {experiences.map((exp, idx) => {
-            const isExpanded = expandedCards[idx];
-            return (
-              <div key={idx} className="relative cinema-reveal">
-                {/* Timeline marker */}
-                <div className="absolute -left-[35px] md:-left-[51px] top-1.5 w-6 h-6 rounded-full border-4 border-primary bg-background flex items-center justify-center shadow-lg">
-                  <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+        <div className="max-w-4xl mx-auto flex flex-col md:flex-row gap-8 items-start min-h-[400px]">
+          {/* Tabs Column */}
+          <div className="flex md:flex-col overflow-x-auto md:overflow-x-visible w-full md:w-64 border-b md:border-b-0 md:border-l border-border/50 pb-3 md:pb-0 md:pl-2 shrink-0 scrollbar-none gap-2">
+            {experiences.map((exp, idx) => (
+              <button
+                key={idx}
+                onClick={() => setActiveTab(idx)}
+                className={`flex items-center gap-3 px-4 py-3 text-sm font-semibold rounded-xl transition-all duration-300 whitespace-nowrap text-left border-l-2 md:border-l-2 -ml-px w-full
+                  ${activeTab === idx 
+                    ? "border-primary text-primary bg-primary/5 md:border-l-primary" 
+                    : "border-transparent text-muted-foreground hover:text-foreground hover:bg-muted/40"
+                  }`}
+              >
+                <div className="w-8 h-8 rounded-lg bg-muted border border-border flex items-center justify-center flex-shrink-0">
+                  {exp.imageLogo ? (
+                    <img src={exp.imageLogo} alt={exp.company} className="w-5 h-5 object-contain" />
+                  ) : (
+                    <Icon icon={exp.logo || "mdi:server-network-outline"} className={`w-5 h-5 ${exp.logoColor}`} />
+                  )}
                 </div>
+                <span>{exp.company}</span>
+              </button>
+            ))}
+          </div>
 
-                {/* Card Container */}
-                <div 
-                  onClick={() => toggleExpand(idx)}
-                  className="cinema-card p-6 md:p-8 hover:border-primary/40 transition-colors duration-300 cursor-pointer group"
-                >
-                  {/* Company Header */}
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-border/50 pb-5 mb-6">
-                    <div className="flex items-center gap-4">
-                      {/* Logo Container */}
-                      <div className="w-12 h-12 rounded-xl bg-muted/50 border border-border flex items-center justify-center flex-shrink-0">
-                        {exp.imageLogo ? (
-                          <img src={exp.imageLogo} alt={exp.company} className="w-8 h-8 object-contain" />
-                        ) : exp.isBrandLogo ? (
-                          <Icon icon={exp.logo} className={`w-8 h-8 ${exp.logoColor}`} />
-                        ) : (
-                          <Icon icon={exp.logo} className={`w-7 h-7 ${exp.logoColor}`} />
-                        )}
-                      </div>
-                      <div>
-                        <h3 className="text-xl md:text-2xl font-extrabold text-foreground tracking-tight group-hover:text-primary transition-colors">
-                          {exp.company}
-                        </h3>
-                        <div className="flex items-center gap-1.5 text-sm text-muted-foreground mt-0.5">
-                          <MapPin className="w-4 h-4" />
-                          <span>{exp.location}</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="flex items-center justify-between sm:justify-end gap-3 shrink-0">
-                      <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-primary/5 border border-primary/20 text-xs font-semibold text-primary">
-                        <Calendar className="w-3.5 h-3.5" />
-                        {exp.period}
-                      </span>
-                      <div className="text-muted-foreground group-hover:text-primary transition-colors">
-                        {isExpanded ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
-                      </div>
-                    </div>
+          {/* Details Card */}
+          <div className="flex-1 w-full cinema-card p-6 md:p-8 transition-all duration-300">
+            <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 border-b border-border/50 pb-6 mb-6">
+              <div>
+                <h3 className="text-2xl font-extrabold text-foreground tracking-tight">
+                  {activeExp.company}
+                </h3>
+                <div className="flex items-center gap-1.5 text-sm text-muted-foreground mt-1">
+                  <MapPin className="w-4 h-4" />
+                  <span>{activeExp.location}</span>
+                </div>
+              </div>
+              <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-primary/5 border border-primary/20 text-xs font-semibold text-primary self-start">
+                <Calendar className="w-3.5 h-3.5" />
+                {activeExp.period}
+              </span>
+            </div>
+
+            <div className="space-y-8">
+              {activeExp.roles.map((role, rIdx) => (
+                <div key={rIdx} className="space-y-4">
+                  <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2">
+                    <h4 className="text-xl font-bold text-foreground">
+                      {role.title}
+                    </h4>
+                    <span className="text-xs md:text-sm text-muted-foreground italic font-medium">
+                      {calculateDuration(role.period)}
+                    </span>
                   </div>
 
-                  {/* Roles List */}
-                  <div className="space-y-8">
-                    {exp.roles.map((role, rIdx) => (
-                      <div key={rIdx} className="relative">
-                        <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2">
-                          <h4 className="text-lg md:text-xl font-bold text-foreground">
-                            {role.title}
-                          </h4>
-                          <span className="text-xs md:text-sm text-muted-foreground italic font-medium">
-                            {calculateDuration(role.period)}
-                          </span>
-                        </div>
+                  <ul className="space-y-3">
+                    {role.highlights.map((highlight, hIdx) => (
+                      <li key={hIdx} className="flex items-start gap-3 text-sm sm:text-[15px] text-muted-foreground">
+                        <span className="mt-2 h-1.5 w-1.5 rounded-full bg-primary shrink-0" />
+                        <span className="leading-relaxed">{highlight}</span>
+                      </li>
+                    ))}
+                  </ul>
 
-                        {/* Collapsible bullet highlights */}
-                        <div className={`grid transition-all duration-300 ease-in-out ${
-                          isExpanded ? "grid-rows-[1fr] opacity-100 mt-4" : "grid-rows-[0fr] opacity-0"
-                        }`}>
-                          <div className="overflow-hidden">
-                            <ul className="space-y-2.5">
-                              {role.highlights.map((highlight, hIdx) => (
-                                <li key={hIdx} className="flex items-start gap-2.5 text-sm sm:text-[15px] text-muted-foreground">
-                                  <span className="mt-2 h-1.5 w-1.5 rounded-full bg-primary shrink-0" />
-                                  <span className="leading-relaxed">{highlight}</span>
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                        </div>
-
-                        <div className="mt-5 flex flex-wrap gap-2" onClick={(e) => e.stopPropagation()}>
-                          {role.technologies.map((tech) => (
-                            <span
-                              key={tech}
-                              className="rounded-md border border-border/80 bg-muted/40 px-2.5 py-1 text-xs font-semibold text-foreground/80"
-                            >
-                              {tech}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
+                  <div className="pt-3 flex flex-wrap gap-2">
+                    {role.technologies.map((tech) => (
+                      <span
+                        key={tech}
+                        className="rounded-md border border-border/80 bg-muted/40 px-2.5 py-1 text-xs font-semibold text-foreground/80"
+                      >
+                        {tech}
+                      </span>
                     ))}
                   </div>
                 </div>
-              </div>
-            );
-          })}
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>

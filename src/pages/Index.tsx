@@ -3,8 +3,7 @@ import Header from "@/components/portfolio/Header";
 import Hero from "@/components/portfolio/Hero";
 import Experience from "@/components/portfolio/Experience";
 import About from "@/components/portfolio/About";
-import Projects from "@/components/portfolio/Projects";
-import Certificates from "@/components/portfolio/Certificates";
+import Showcase from "@/components/portfolio/Showcase";
 import Community from "@/components/portfolio/Community";
 import RecentBlogs from "@/components/portfolio/RecentBlogs";
 import Contact from "@/components/portfolio/Contact";
@@ -85,15 +84,12 @@ const Index = () => {
           <Experience />
         </div>
         <div ref={el => (sectionRefs.current[2] = el)}>
-          <Projects />
+          <Showcase />
         </div>
         <div ref={el => (sectionRefs.current[3] = el)}>
-          <Certificates />
-        </div>
-        <div ref={el => (sectionRefs.current[4] = el)}>
           <RecentBlogs />
         </div>
-        <div ref={el => (sectionRefs.current[5] = el)}>
+        <div ref={el => (sectionRefs.current[4] = el)}>
           <Contact />
         </div>
       </main>

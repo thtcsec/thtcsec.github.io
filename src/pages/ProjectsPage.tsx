@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
-import { ExternalLink, Github, ChevronRight, ArrowLeft, Home } from "lucide-react";
+import { ExternalLink, Github, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { allProjects, type Project } from "@/data/projects";
 import { Link } from "react-router-dom";
-import ThemeToggle from "@/components/ThemeToggle";
+import ProjectHeader from "@/components/portfolio/ProjectHeader";
 
 const categoryLabels: Record<string, string> = {
     all: "All",
@@ -45,24 +45,7 @@ const ProjectsPage = () => {
 
     return (
         <div className="min-h-screen bg-background">
-            {/* Header */}
-            <header className="fixed top-0 left-0 right-0 z-50 glass py-4">
-                <div className="container mx-auto px-4 flex items-center justify-between">
-                    <Link to="/" className="flex items-center gap-2 text-foreground hover:text-primary transition-colors">
-                        <ArrowLeft size={20} />
-                        <span className="font-medium">Trang chủ</span>
-                    </Link>
-                    <div className="flex items-center gap-4">
-                        <ThemeToggle />
-                        <Button variant="outline" size="sm" asChild>
-                            <Link to="/">
-                                <Home size={16} className="mr-2" />
-                                Trang chủ
-                            </Link>
-                        </Button>
-                    </div>
-                </div>
-            </header>
+            <ProjectHeader />
 
             <main className="pt-24 pb-20">
                 <div className="container mx-auto px-4">

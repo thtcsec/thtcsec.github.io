@@ -82,8 +82,9 @@ export const projects: Project[] = [
             { url: "https://github.com/thtcsec/GCP-Serverless-SOAR", label: "GCP" }
         ],
         demo: "",
-        image: "https://raw.githubusercontent.com/thtcsec/GCP-Serverless-SOAR/main/images/gcp_soar.png",
+        image: "/images/preview/soar_logo.png",
         images: [
+            "/images/preview/soar_logo.png",
             "https://raw.githubusercontent.com/thtcsec/GCP-Serverless-SOAR/main/images/gcp_soar.png",
             "https://raw.githubusercontent.com/thtcsec/AWS-Serverless-SOAR/main/images/aws_soar.png"
         ],
