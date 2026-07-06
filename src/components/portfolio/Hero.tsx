@@ -241,7 +241,7 @@ const Hero = () => {
             </div>
             <div className="rounded-xl border border-border/80 bg-muted/20 p-4">
               <div className="cinema-meta">University</div>
-              <p className="mt-2 text-sm font-semibold text-foreground">{siteConfig.university} — {siteConfig.location}</p>
+              <p className="mt-2 text-xs sm:text-sm font-semibold text-foreground leading-snug">Ho Chi Minh City University of Foreign Languages and Information Technology (HUFLIT)</p>
             </div>
             <div className="rounded-xl border border-border/80 bg-muted/20 p-4">
               <div className="cinema-meta">Academic progress</div>
