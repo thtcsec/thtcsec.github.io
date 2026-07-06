@@ -37,10 +37,10 @@ I actively participate in hackathons to test my skills under pressure and solve 
 - **Ho Chi Minh City AI Challenge 2026** (May - Oct 2026) — *Participant*
 - **Vietnamese Student HackAIthon 2026** (May - July 2026) — *Participant*
 - **Tsinghua University - Global AI + Materials Innovation Competition** (June 2026) — *Participant*
-- **MUGVN × MongoDB Mini Hackathon 2026** (June 2026) — *Top 7 Finalist (Team Vector404)*
+- **MUGVN × MongoDB Mini Hackathon 2026** (June 2026) — *Ranked 2nd (Team Vector404)*
 - **ByteDance - Unbound Creativity with TRAE SOLO @ Vietnam** (May 2026) — *Participant*
 - **VinUniversity - The Gridbreakers Datathon 2026** (May 2026) — *Top 10 Finalist (Team GenCore)*
-- **GenAIFund x Tasco - Tasco Foundry 2026** (May 2026) — *Top 10 Finalist (Team CARO)*
+- **GenAIFund x Tasco - Tasco Foundry 2026** (May 2026) — *Top 11 Finalist (Team CARO)*
 - **AI Ready ASEAN Youth Challenge** (May 2026) — *Participant*
 - **Alibaba Cloud x GenAIFund - Qwen AI Build Day Vietnam** (April 2026) — *Top 10 Finalist*
 - **Kaggle - AI Mathematical Olympiad** (Nov 2025 - Apr 2026) — *Competitor*

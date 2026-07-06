@@ -50,7 +50,7 @@ A collection of featured engineering projects in web architectures, serverless s
 *   **Technologies:** Next.js 14, FastAPI, MongoDB Atlas, Vector Search, Python, D3.js, Docker, TailwindCSS
 *   **Source Code:** [github.com/thtcsec/driftskills-ai](https://github.com/thtcsec/driftskills-ai)
 *   **Highlights:**
-    *   *Award:* Top 7 Finalist (Team Vector404) at MUGVN × MongoDB Mini Hackathon 2026.
+    *   *Award:* Ranked 2nd (Team Vector404) at MUGVN × MongoDB Mini Hackathon 2026.
     *   Semantic Job Matching via `$vectorSearch` on 384-dimensional embeddings.
     *   Collaborative Filtering & Career Drift Score using complex multi-stage aggregation pipelines.
     *   Interactive Visualizations: Skill Galaxy (D3 force-directed graph) and Market Analytics (`$facet`).

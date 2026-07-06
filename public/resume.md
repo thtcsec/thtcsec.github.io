@@ -61,8 +61,8 @@ Cybersecurity Student & Software Engineer specializing in C# Backend, Fullstack 
 ---
 
 ## 🏆 Key Achievements & Awards
-- **Finalist (Top 7)** – MUGVN & MongoDB Mini Hackathon 2026 (Team Vector404)
-- **Top 10 Finalist** – VinUniversity Datathon "The Gridbreaker" 2026 (Team: GenCore)
+- **Ranked 2nd** – MUGVN & MongoDB Mini Hackathon 2026 (Team Vector404)
+- **Top 10 Finalist** – VinUniversity Datathon "The Gridbreaker" 2026 (Team: GenCore - Outperformed 500+ teams & 2,000 contestants)
 - **2nd Runner Up** – GenAI Express Demo Day GDG On Campus SGU 2026
 - **Winner** – HSU Vibe Coding Talents 2025
 - **Outstanding Student of the Year 2023** – Bu Dang District, Binh Phuoc Province

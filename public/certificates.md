@@ -6,15 +6,15 @@ A structured record of professional certifications, credentials, hackathon achie
 
 ## 🏆 Hackathons & Academic Achievements
 
-### 1. Finalist — MUGVN & MongoDB Mini Hackathon 2026
+### 1. Ranked 2nd (Finalist) — MUGVN & MongoDB Mini Hackathon 2026
 *   **Issuer:** MongoDB User Group Vietnam (MUGVN) & MongoDB
 *   **Date:** June 2026
-*   **Description:** Advanced to the National Finals of the MUGVN & MongoDB Mini Hackathon 2026 as a solo engineer (Team Vector404) with the project "DriftSkills AI".
+*   **Description:** Won 2nd place in the National Finals of the MUGVN & MongoDB Mini Hackathon 2026 as a solo engineer (Team Vector404) with the project "DriftSkills AI".
 
 ### 2. Top 10 Finalist — The Gridbreakers Datathon 2026
-*   **Issuer:** VinUniversity & Vintelligence
+*   **Issuer:** VinUniversity & VinTelligence
 *   **Date:** May 2026
-*   **Description:** Ranked 10th nationwide (Team GenCore) in the VinUniversity Gridbreakers Datathon. Selected as one of the best performing teams among over 500 teams and 1,500 participants.
+*   **Description:** Outperformed over 500 teams and nearly 2,000 contestants nationwide in the Datathon 2026 (organized by VinTelligence - VinUni Data Science & AI Club) to secure a position in the Top 10 Finalists with Team GenCore.
 
 ### 3. Top 10 Finalist — Tasco Foundry 2026 Venture Build
 *   **Issuer:** GenAIFund x Tasco

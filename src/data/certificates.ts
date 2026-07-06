@@ -11,6 +11,27 @@ export interface Certificate {
 }
 
 export const certificates: Certificate[] = [
+    {
+        id: "grab-future",
+        title: "GRAB the Future Hackathon",
+        issuer: "UNDP x Grab Vietnam",
+        image: "/images/certificates/grab.png",
+        type: "certificate"
+    },
+    {
+        id: "qcobalt-cert",
+        title: "QCobalt 10-263 Certification",
+        issuer: "QCobalt",
+        image: "/images/certificates/QCobalt10-263.jpg",
+        type: "certificate"
+    },
+    {
+        id: "student-ambassador",
+        title: "Google Student Ambassador",
+        issuer: "Google Vietnam",
+        image: "/images/certificates/daisusinhvien.jpg",
+        type: "certificate"
+    },
     // Google Certificates (first)
     {
         id: "cybersecurity",
@@ -134,19 +155,19 @@ export const certificates: Certificate[] = [
 export const achievements: Certificate[] = [
     {
         id: "mongodb-hackathon-2026",
-        title: "Finalist — MUGVN & MongoDB Mini Hackathon 2026",
+        title: "Finalist (Ranked 2nd) - MongoDB Mini Hackathon 2026",
         issuer: "MongoDB User Group Vietnam (MUGVN) & MongoDB",
         image: "/images/achievements/mongodb.jpg",
         type: "achievement",
-        description: "Advanced to the National Finals of the MUGVN & MongoDB Mini Hackathon 2026 as a solo engineer (Team Vector404) in June 2026."
+        description: "Ranked 2nd place in the National Finals of the MUGVN & MongoDB Mini Hackathon 2026 as a solo engineer (Team Vector404) in June 2026."
     },
     {
         id: "vinuni-datathon-2026",
         title: "Top 10 Finalist - The Gridbreakers Datathon 2026",
-        issuer: "VinUniversity & Vintelligence",
+        issuer: "VinUniversity & VinTelligence",
         image: "/images/achievements/datathon_top10.png",
         type: "achievement",
-        description: "Ranked 10th (Team GenCore) in the nationwide Datathon organized by VinUniversity. Selected as one of the best performing teams among over 500 teams and 1,500 participants."
+        description: "Outperformed over 500 teams and nearly 2,000 contestants nationwide in the Datathon 2026 (organized by VinTelligence - VinUni Data Science & AI Club) to secure a position in the Top 10 Finalists with Team GenCore."
     },
     {
         id: "tasco-foundry-2026",

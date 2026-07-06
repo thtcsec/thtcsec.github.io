@@ -61,7 +61,7 @@ export const projects: Project[] = [
         ],
         featured: true,
         highlights: [
-            "Hackathon Project: MUGVN × MongoDB Mini Hackathon 2026 (Team Vector404)",
+            "Hackathon Project: MUGVN × MongoDB Mini Hackathon 2026 (Ranked 2nd / Team Vector404)",
             "Semantic Job Matching via $vectorSearch on 384-dim embeddings",
             "Collaborative Filtering & Career Drift Score using complex multi-stage aggregation pipelines",
             "Skill Gap Detection & Learning Path Generation with explainable AI (XAI)",

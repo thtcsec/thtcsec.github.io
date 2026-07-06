@@ -88,7 +88,7 @@ const competitions = [
   {
     name: "MUGVN × MongoDB Mini Hackathon 2026",
     date: "June 2026",
-    role: "Top 7 Finalist (Team Vector404)",
+    role: "Ranked 2nd (Team Vector404)",
     icon: <Database className="w-5 h-5 text-emerald-400 group-hover:animate-pulse" />,
     bgGradient: "from-emerald-500/10 to-transparent",
     borderClass: "border-emerald-500/20 group-hover:border-emerald-500/50 group-hover:shadow-[0_0_15px_rgba(16,185,129,0.3)]",
