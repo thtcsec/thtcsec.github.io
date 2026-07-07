@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ArrowDown, Github, Linkedin, Mail, FileText, Facebook, Globe, Trophy, Terminal } from "lucide-react";
+import { ArrowDown, Github, Linkedin, Mail, FileText, Facebook, Globe, Trophy, Terminal, Disc } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { siteConfig, getAcademicProgress, getDaysRemaining } from "@/data/config";
@@ -73,7 +73,7 @@ const Hero = () => {
 
         {/* Actions + Tags */}
         <div className="cinema-reveal flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-6" style={{ ["--reveal-delay" as string]: "120ms" }}>
-          <div className="flex gap-3">
+          <div className="flex flex-wrap gap-3">
             <Button size="default" onClick={() => handleScrollToSection("projects")}>
               View Projects
             </Button>
@@ -81,6 +81,12 @@ const Hero = () => {
               <Link to="/resume">
                 <FileText size={16} className="mr-1.5" />
                 Resume
+              </Link>
+            </Button>
+            <Button variant="outline" size="default" className="border-violet-500/20 bg-violet-500/5 hover:bg-violet-500/10 text-violet-600 dark:text-violet-400 gap-1.5" asChild>
+              <Link to="/immersive">
+                <Disc size={16} className="animate-[spin_4s_linear_infinite]" />
+                Zen Space
               </Link>
             </Button>
           </div>

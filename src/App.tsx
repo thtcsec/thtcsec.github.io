@@ -17,6 +17,7 @@ import BlogPage from "./pages/BlogPage";
 import BlogDetailPage from "./pages/BlogDetailPage";
 import AboutPage from "./pages/AboutPage";
 import PrismaPage from "./pages/PrismaPage";
+import ImmersivePage from "./pages/ImmersivePage";
 import NotFound from "./pages/NotFound";
 import { initGA } from "./lib/ga4";
 import { useHumanActivity } from "./hooks/useHumanActivity";
@@ -68,6 +69,7 @@ const App = () => {
             <Route path="/research/:id" element={<BlogDetailPage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/prisma" element={<PrismaPage />} />
+            <Route path="/immersive" element={<ImmersivePage />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
