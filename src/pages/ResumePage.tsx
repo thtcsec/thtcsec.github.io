@@ -29,7 +29,7 @@ const ResumePage = () => {
     <div className="min-h-screen bg-background text-foreground pt-32 pb-20 px-4 md:px-8 print:p-0 print:bg-white print:text-black font-sans selection:bg-primary/30 overflow-x-hidden">
       {/* Main Navigation - Hidden in Print */}
       <div className="print:hidden">
-        <ProjectHeader backLink="/" backLabel="Trang chủ" />
+        <ProjectHeader backLink="/" backLabel="Home" />
       </div>
 
       {/* Web Page Header Intro Section - Hidden in Print */}

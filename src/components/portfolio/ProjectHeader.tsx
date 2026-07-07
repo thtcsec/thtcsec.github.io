@@ -9,7 +9,7 @@ interface ProjectHeaderProps {
   backLabel?: string;
 }
 
-const ProjectHeader = ({ backLink = "/", backLabel = "Trang chủ" }: ProjectHeaderProps) => {
+const ProjectHeader = ({ backLink = "/", backLabel = "Home" }: ProjectHeaderProps) => {
     const [isScrolled, setIsScrolled] = useState(false);
 
     useEffect(() => {

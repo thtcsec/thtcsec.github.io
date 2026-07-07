@@ -72,7 +72,7 @@ const ProjectDetailPage = () => {
                         <Button variant="outline" size="sm" asChild>
                             <Link to="/">
                                 <Home size={16} className="mr-2" />
-                                Trang chủ
+                                Home
                             </Link>
                         </Button>
                     </div>

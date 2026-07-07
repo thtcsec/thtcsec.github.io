@@ -193,7 +193,7 @@ const PhonePage = () => {
                             >
                                 <Link to="/" className="flex items-center gap-2">
                                     <Icon icon="mdi:arrow-left" className={`${isScrolled ? "w-4 h-4" : "w-5 h-5"}`} />
-                                    <span className={`hidden sm:inline ${isScrolled ? "text-sm" : ""}`}>Trang chủ</span>
+                                    <span className={`hidden sm:inline ${isScrolled ? "text-sm" : ""}`}>Home</span>
                                 </Link>
                             </Button>
                         </div>
