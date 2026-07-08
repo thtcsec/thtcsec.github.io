@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { Disc } from "lucide-react";
+import { useAudio } from "@/context/AudioContext";
 import Header from "@/components/portfolio/Header";
 import Hero from "@/components/portfolio/Hero";
 import Experience from "@/components/portfolio/Experience";
@@ -13,6 +14,7 @@ import Footer from "@/components/portfolio/Footer";
 
 
 const Index = () => {
+  const { hasPlayed } = useAudio();
   const sectionRefs = useRef<(HTMLElement | null)[]>([]);
 
   useEffect(() => {
@@ -98,16 +100,18 @@ const Index = () => {
       <Footer />
       
       {/* Floating Zen Space Button */}
-      <Link
-        to="/immersive"
-        className="fixed bottom-6 left-6 z-50 p-3 rounded-full bg-violet-600 text-white shadow-lg shadow-violet-600/25 transition-all duration-300 hover:scale-110 hover:shadow-xl hover:shadow-violet-600/40 group flex items-center gap-2"
-        aria-label="Enter Zen Space"
-      >
-        <Disc size={24} className="animate-[spin_4s_linear_infinite]" />
-        <span className="max-w-0 overflow-hidden group-hover:max-w-xs transition-all duration-500 ease-out whitespace-nowrap text-sm font-semibold pr-1">
-          Zen Space
-        </span>
-      </Link>
+      {!hasPlayed && (
+        <Link
+          to="/immersive"
+          className="fixed bottom-6 left-6 z-50 p-3 rounded-full bg-violet-600 text-white shadow-lg shadow-violet-600/25 transition-all duration-300 hover:scale-110 hover:shadow-xl hover:shadow-violet-600/40 group flex items-center gap-2"
+          aria-label="Enter Zen Space"
+        >
+          <Disc size={24} className="animate-[spin_4s_linear_infinite]" />
+          <span className="max-w-0 overflow-hidden group-hover:max-w-xs transition-all duration-500 ease-out whitespace-nowrap text-sm font-semibold pr-1">
+            Zen Space
+          </span>
+        </Link>
+      )}
     </div>
   );
 };

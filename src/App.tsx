@@ -23,6 +23,8 @@ import { initGA } from "./lib/ga4";
 import { useHumanActivity } from "./hooks/useHumanActivity";
 import PageTracker from "./components/PageTracker";
 import ScrollToTop from "./components/ScrollToTop";
+import { AudioProvider } from "./context/AudioContext";
+import MiniPlayer from "./components/portfolio/MiniPlayer";
 
 const queryClient = new QueryClient();
 
@@ -51,29 +53,32 @@ const App = () => {
         <Toaster />
         <Sonner />
         <BrowserRouter>
-          <RouteScrollToTop />
-          <PageTracker />
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/projects" element={<ProjectsPage />} />
-            <Route path="/projects/:id" element={<ProjectDetailPage />} />
-            <Route path="/certificates" element={<CertificatesPage />} />
+          <AudioProvider>
+            <RouteScrollToTop />
+            <PageTracker />
+            <Routes>
+              <Route path="/" element={<Index />} />
+              <Route path="/projects" element={<ProjectsPage />} />
+              <Route path="/projects/:id" element={<ProjectDetailPage />} />
+              <Route path="/certificates" element={<CertificatesPage />} />
 
-            <Route path="/services" element={<PricingPage />} />
-            <Route path="/resume" element={<ResumePage />} />
-            <Route path="/silentpipe" element={<SilentPipePage />} />
-            <Route path="/silentpipe/" element={<SilentPipePage />} />
-            <Route path="/pentestlab" element={<PentestLabPage />} />
-            <Route path="/pentestlab/" element={<PentestLabPage />} />
-            <Route path="/research" element={<BlogPage />} />
-            <Route path="/research/:id" element={<BlogDetailPage />} />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/prisma" element={<PrismaPage />} />
-            <Route path="/immersive" element={<ImmersivePage />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-          <ScrollToTop />
+              <Route path="/services" element={<PricingPage />} />
+              <Route path="/resume" element={<ResumePage />} />
+              <Route path="/silentpipe" element={<SilentPipePage />} />
+              <Route path="/silentpipe/" element={<SilentPipePage />} />
+              <Route path="/pentestlab" element={<PentestLabPage />} />
+              <Route path="/pentestlab/" element={<PentestLabPage />} />
+              <Route path="/research" element={<BlogPage />} />
+              <Route path="/research/:id" element={<BlogDetailPage />} />
+              <Route path="/about" element={<AboutPage />} />
+              <Route path="/prisma" element={<PrismaPage />} />
+              <Route path="/immersive" element={<ImmersivePage />} />
+              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+            <ScrollToTop />
+            <MiniPlayer />
+          </AudioProvider>
         </BrowserRouter>
       </TooltipProvider>
     </QueryClientProvider>

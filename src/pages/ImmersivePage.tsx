@@ -18,23 +18,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { siteConfig } from "@/data/config";
-
-// Interface for music track
-interface Track {
-  title: string;
-  artist: string;
-  src: string;
-  cover: string;
-}
-
-const tracks: Track[] = [
-  {
-    title: "学校を 안갔어 (Didn't Go to School Remix)",
-    artist: "량현량하 (Ryanghyun Ryangha) - DragonChimes Music",
-    src: "/music/school-remix.mp3",
-    cover: "/images/doro.jpeg" // Custom doro record center sticker
-  }
-];
+import { useAudio, Track } from "@/context/AudioContext";
 
 interface LyricLine {
   time: number;
@@ -155,78 +139,47 @@ const themeStyles = {
 };
 
 const ImmersivePage = () => {
-  const [currentTrackIndex, setCurrentTrackIndex] = useState(0);
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [currentTime, setCurrentTime] = useState(0);
-  const [duration, setDuration] = useState(0);
-  const [volume, setVolume] = useState(0.5);
-  const [isMuted, setIsMuted] = useState(false);
+  // Consume persistent audio context
+  const { 
+    isPlaying, 
+    currentTime, 
+    duration, 
+    volume, 
+    isMuted, 
+    currentTrack, 
+    togglePlay, 
+    seek, 
+    changeVolume, 
+    toggleMute 
+  } = useAudio();
+
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [isRainy, setIsRainy] = useState(false);
   const [currentTheme, setCurrentTheme] = useState<Theme>('cyber');
+  const [isMobile, setIsMobile] = useState(false);
   
   // Vinyl rotation physics simulation
   const [rotationAngle, setRotationAngle] = useState(0);
   const rotationRef = useRef(0);
   const speedRef = useRef(0);
 
-  const audioRef = useRef<HTMLAudioElement | null>(null);
-  const currentTrack = tracks[currentTrackIndex];
   const t = themeStyles[currentTheme];
   const navigate = useNavigate();
 
-  // Initialize Audio
+  // Detect mobile screen for rain optimizations
   useEffect(() => {
-    const audio = new Audio(currentTrack.src);
-    audio.volume = volume;
-    audioRef.current = audio;
-
-    const handleLoadedMetadata = () => {
-      setDuration(audio.duration);
-    };
-
-    const handleTimeUpdate = () => {
-      setCurrentTime(audio.currentTime);
-    };
-
-    const handleAudioEnded = () => {
-      setIsPlaying(false);
-      setCurrentTime(0);
-    };
-
-    audio.addEventListener("loadedmetadata", handleLoadedMetadata);
-    audio.addEventListener("timeupdate", handleTimeUpdate);
-    audio.addEventListener("ended", handleAudioEnded);
-
-    return () => {
-      audio.pause();
-      audio.removeEventListener("loadedmetadata", handleLoadedMetadata);
-      audio.removeEventListener("timeupdate", handleTimeUpdate);
-      audio.removeEventListener("ended", handleAudioEnded);
-    };
-  }, [currentTrackIndex]);
-
-  // Sync play/pause state
-  useEffect(() => {
-    if (!audioRef.current) return;
-
-    if (isPlaying) {
-      audioRef.current.play().catch(err => {
-        console.log("Audio play failed: ", err);
-        setIsPlaying(false);
-      });
-    } else {
-      audioRef.current.pause();
-    }
-  }, [isPlaying]);
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   // Platter rotation physics simulation (decelerates when paused)
   useEffect(() => {
     let animFrame: number;
     const updateRotation = () => {
-      // 0.65 degrees per frame when playing, 0 when stopped
       const targetSpeed = isPlaying ? 0.65 : 0;
-      // Linear interpolation to simulate momentum / deceleration
+      // momentum / deceleration
       speedRef.current += (targetSpeed - speedRef.current) * 0.035;
 
       if (speedRef.current > 0.005) {
@@ -239,12 +192,6 @@ const ImmersivePage = () => {
     return () => cancelAnimationFrame(animFrame);
   }, [isPlaying]);
 
-  // Volume control
-  useEffect(() => {
-    if (!audioRef.current) return;
-    audioRef.current.volume = isMuted ? 0 : volume;
-  }, [volume, isMuted]);
-
   // Keyboard shortcuts event listener
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -253,7 +200,7 @@ const ImmersivePage = () => {
       const key = e.key.toLowerCase();
       if (e.code === "Space") {
         e.preventDefault();
-        setIsPlaying(prev => !prev);
+        togglePlay();
       } else if (key === 'r') {
         setIsRainy(prev => !prev);
       } else if (key === 'z') {
@@ -267,30 +214,14 @@ const ImmersivePage = () => {
     };
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [navigate]);
-
-  const togglePlay = () => {
-    setIsPlaying(!isPlaying);
-  };
+  }, [togglePlay, navigate]);
 
   const handleSeek = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = parseFloat(e.target.value);
-    if (audioRef.current) {
-      audioRef.current.currentTime = value;
-      setCurrentTime(value);
-    }
+    seek(parseFloat(e.target.value));
   };
 
   const handleVolumeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = parseFloat(e.target.value);
-    setVolume(value);
-    if (value > 0) {
-      setIsMuted(false);
-    }
-  };
-
-  const toggleMute = () => {
-    setIsMuted(!isMuted);
+    changeVolume(parseFloat(e.target.value));
   };
 
   const formatTime = (time: number) => {
@@ -349,9 +280,9 @@ const ImmersivePage = () => {
       {/* Analog tape grain overlay for authentic lofi vibes */}
       <div className="absolute inset-0 z-0 pointer-events-none grainy-overlay" />
 
-      {/* Ambient Floating Spark System */}
+      {/* Ambient Floating Spark System (Optimized for mobile: fewer particles and hardware accelerated) */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-        {Array.from({ length: 15 }).map((_, i) => {
+        {Array.from({ length: isMobile ? 6 : 15 }).map((_, i) => {
           const size = 3 + Math.random() * 5;
           const left = Math.random() * 100;
           const delay = Math.random() * 12;
@@ -372,10 +303,10 @@ const ImmersivePage = () => {
         })}
       </div>
 
-      {/* Rain Effect overlay */}
+      {/* Rain Effect overlay (Optimized for mobile) */}
       {isRainy && (
         <div className="absolute inset-0 pointer-events-none z-10 overflow-hidden">
-          {Array.from({ length: 40 }).map((_, i) => (
+          {Array.from({ length: isMobile ? 12 : 35 }).map((_, i) => (
             <div
               key={i}
               className="absolute w-[1.5px] h-[22px] bg-sky-400/25 animate-fall"
@@ -429,14 +360,15 @@ const ImmersivePage = () => {
           0%, 100% { height: 4px; }
           50% { height: 28px; }
         }
-        /* Rain falling animation */
+        /* GPU Hardware-accelerated Rain falling animation */
         @keyframes fall {
-          from { transform: translateY(-20px); }
-          to { transform: translateY(100vh); }
+          from { transform: translate3d(0, -20px, 0); }
+          to { transform: translate3d(0, 100vh, 0); }
         }
         .animate-fall {
           animation-name: fall;
           animation-timing-function: linear;
+          will-change: transform;
         }
         /* Platter pulse animations with active theme color variables */
         @keyframes beat-pulse {
@@ -448,28 +380,31 @@ const ImmersivePage = () => {
         }
         /* Floating background blobs animation */
         @keyframes float-slow {
-          0%, 100% { transform: translate(0, 0) scale(1); }
-          50% { transform: translate(60px, -40px) scale(1.1); }
+          0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+          50% { transform: translate3d(60px, -40px, 0) scale(1.1); }
         }
         @keyframes float-reverse {
-          0%, 100% { transform: translate(0, 0) scale(1.1); }
-          50% { transform: translate(-60px, 40px) scale(0.9); }
+          0%, 100% { transform: translate3d(0, 0, 0) scale(1.1); }
+          50% { transform: translate3d(-60px, 40px, 0) scale(0.9); }
         }
         .animate-float-slow {
           animation: float-slow 22s infinite ease-in-out;
+          will-change: transform;
         }
         .animate-float-reverse {
           animation: float-reverse 26s infinite ease-in-out;
+          will-change: transform;
         }
-        /* Ambient particles float-up animation */
+        /* Ambient particles float-up animation (GPU accelerated) */
         @keyframes spark-float {
-          0% { transform: translateY(100vh) translateX(0); opacity: 0; }
+          0% { transform: translate3d(0, 100vh, 0) translateX(0); opacity: 0; }
           10% { opacity: 0.5; }
           90% { opacity: 0.5; }
-          100% { transform: translateY(-10vh) translateX(60px); opacity: 0; }
+          100% { transform: translate3d(0, -10vh, 0) translateX(60px); opacity: 0; }
         }
         .ambient-spark {
           animation: spark-float 16s infinite linear;
+          will-change: transform;
         }
         /* Analog film grain overlay */
         .grainy-overlay {
@@ -645,7 +580,7 @@ const ImmersivePage = () => {
             {/* Synchronized Lyrics Container */}
             <div className="h-16 flex flex-col items-center justify-center text-center px-4 py-2 bg-black/30 border border-white/5 rounded-xl transition-all duration-500 ease-in-out min-h-[4rem]">
               {currentLyricIndex >= 0 ? (
-                <div className="animate-fade-in space-y-1">
+                <div className="space-y-1">
                   <p className="text-xs sm:text-sm font-bold text-white tracking-wide leading-snug">
                     {schoolRemixLyrics[currentLyricIndex].text}
                   </p>
