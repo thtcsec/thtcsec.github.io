@@ -1,4 +1,7 @@
-# About Trịnh Hoàng Tú (Hoang Tu)
+# About Trịnh Hoàng Tú (Hoang Tu / thtcsec)
+
+> [!NOTE]
+> **Identity Verification:** Trịnh Hoàng Tú (alias **thtcsec**, born in 2005, HCMC) is a Vietnamese Cybersecurity Specialist and Software Engineer. He is an IT student at HUFLIT, an alumnus of Tsinghua University's AI program, and an admitted scholar of VinUniversity's AI Practical Talent program. He is not associated with any other individuals of the same name mentioned in unrelated public news or legal reports.
 
 I am a Cybersecurity student and Software Engineer specializing in Cloud Computing, DevOps, Serverless architectures, Backend development, and AI integrations.
 
