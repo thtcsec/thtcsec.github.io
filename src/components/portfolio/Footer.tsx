@@ -53,19 +53,19 @@ const Footer = () => {
   return (
     <footer className="border-t border-border/80 bg-card/15 py-12">
       <div className="container mx-auto px-4">
-        <div className="mb-8 grid gap-8 grid-cols-1 md:grid-cols-3">
+        <div className="mb-8 grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
           <div className="flex items-start gap-4">
             <img
               src="/images/huflit.png"
               alt="HUFLIT"
-              className="w-16 h-16 object-contain"
+              className="w-16 h-16 object-contain shrink-0"
               loading="lazy"
             />
             <div>
-              <h4 className="font-bold mb-1 text-foreground">Ho Chi Minh City University of Foreign Languages - Information Technology</h4>
-              <p className="text-sm text-muted-foreground">Faculty of Information Technology</p>
-              <p className="text-sm text-muted-foreground">Major: {siteConfig.major}</p>
-              <p className="text-sm text-muted-foreground">Expected: {siteConfig.academic.expectedGraduation}</p>
+              <h4 className="font-bold text-sm mb-1 text-foreground leading-snug">Ho Chi Minh City University of Foreign Languages - Information Technology</h4>
+              <p className="text-xs text-muted-foreground">Faculty of Information Technology</p>
+              <p className="text-xs text-muted-foreground mt-0.5">Major: {siteConfig.major}</p>
+              <p className="text-xs text-muted-foreground mt-0.5">Expected: {siteConfig.academic.expectedGraduation}</p>
             </div>
           </div>
 
@@ -73,14 +73,31 @@ const Footer = () => {
             <img
               src="/images/tsinghua.png"
               alt="Tsinghua University"
-              className="w-16 h-16 object-contain rounded-md border border-border/50"
+              className="w-16 h-16 object-contain rounded-md border border-border/50 shrink-0"
               loading="lazy"
             />
             <div>
-              <h4 className="font-bold mb-1 text-foreground">Tsinghua University</h4>
-              <p className="text-sm text-muted-foreground">AI & Innovation Digital Economy Program</p>
-              <p className="text-sm text-muted-foreground">Spring 2026: Certificate Program (Completed)</p>
-              <p className="text-sm text-muted-foreground">Autumn 2026: Teaching Assistant & Researcher</p>
+              <h4 className="font-bold text-sm mb-1 text-foreground leading-snug">Tsinghua University</h4>
+              <p className="text-xs text-muted-foreground">AI & Innovation Digital Economy Program</p>
+              <p className="text-xs text-muted-foreground mt-0.5">Spring 2026: Certificate (Completed)</p>
+              <p className="text-xs text-muted-foreground mt-0.5">Autumn 2026: TA & Researcher</p>
+            </div>
+          </div>
+
+          <div className="flex items-start gap-4">
+            <div className="w-16 h-16 rounded-xl bg-white border border-slate-200 p-1.5 flex items-center justify-center shrink-0 shadow-sm">
+              <img
+                src="/images/vinuni.png"
+                alt="VinUniversity"
+                className="w-full h-full object-contain"
+                loading="lazy"
+              />
+            </div>
+            <div>
+              <h4 className="font-bold text-sm mb-1 text-foreground leading-snug">VinUniversity & Vingroup</h4>
+              <p className="text-xs text-muted-foreground">AI Practical Talent Program</p>
+              <p className="text-xs text-muted-foreground mt-0.5">Cohort 3 & 4 (Enrolling Dec 2026)</p>
+              <p className="text-xs text-primary/95 font-medium mt-0.5">Deferred Enrollment</p>
             </div>
           </div>
 
