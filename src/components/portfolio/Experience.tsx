@@ -54,6 +54,26 @@ const calculateDuration = (period: string): string => {
 const Experience = () => {
   const experiences = [
     {
+      company: "Grab",
+      imageLogo: "/images/grab.jpg",
+      isBrandLogo: true,
+      location: "Ho Chi Minh City (On-site)",
+      period: "Incoming",
+      roles: [
+        {
+          title: "Software Engineer (Backend) Intern",
+          period: "Incoming",
+          highlights: [
+            "Offered the Software Engineer (Backend) Internship following outstanding performance and achievements in Hackathon programs.",
+            "Preparing to join Grab's regional engineering teams to design and develop high-performance, scalable backend services.",
+            "Collaborating with cross-functional teams to build robust APIs, microservices, and optimize cloud-native deployments.",
+            "Focusing on system reliability, scaling, and modern backend architectures."
+          ],
+          technologies: ["Java", "Docker", "Kubernetes", "Microservices", "REST APIs", "SQL"]
+        }
+      ]
+    },
+    {
       company: "Next Step Technology",
       imageLogo: "/images/next-step.png",
       isBrandLogo: false,
