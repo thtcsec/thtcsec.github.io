@@ -237,7 +237,6 @@ const ResumePage = () => {
                 </div>
 
                 <ul className="list-disc pl-4 space-y-1.5 text-xs md:text-sm text-muted-foreground print:text-neutral-800 leading-relaxed print:text-[13px] print:space-y-0.5">
-                  <li>Offered the Software Engineer (Backend) Internship following outstanding performance and achievements in Hackathon programs.</li>
                   <li>Preparing to join Grab's regional engineering teams to design and develop high-performance, scalable backend services.</li>
                   <li>Collaborating with cross-functional teams to build robust APIs, microservices, and optimize cloud-native deployments.</li>
                 </ul>

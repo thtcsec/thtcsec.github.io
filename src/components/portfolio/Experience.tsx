@@ -64,7 +64,6 @@ const Experience = () => {
           title: "Software Engineer (Backend) Intern",
           period: "Incoming",
           highlights: [
-            "Offered the Software Engineer (Backend) Internship following outstanding performance and achievements in Hackathon programs.",
             "Preparing to join Grab's regional engineering teams to design and develop high-performance, scalable backend services.",
             "Collaborating with cross-functional teams to build robust APIs, microservices, and optimize cloud-native deployments.",
             "Focusing on system reliability, scaling, and modern backend architectures."

@@ -94,7 +94,7 @@ const Footer = () => {
               />
             </div>
             <div>
-              <h4 className="font-bold text-sm mb-1 text-foreground leading-snug">VinUniversity & Vingroup</h4>
+              <h4 className="font-bold text-sm mb-1 text-foreground leading-snug">VinUniversity</h4>
               <p className="text-xs text-muted-foreground">AI Practical Talent Program</p>
               <p className="text-xs text-muted-foreground mt-0.5">Cohort 3 & 4 (Enrolling Dec 2026)</p>
               <p className="text-xs text-primary/95 font-medium mt-0.5">Deferred Enrollment</p>

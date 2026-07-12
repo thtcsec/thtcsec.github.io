@@ -18,7 +18,6 @@ Cybersecurity Student & Software Engineer specializing in C# Backend, Fullstack 
 ### 1. Software Engineer (Backend) Intern
 **Grab**
 *Timeline: Incoming | On-site*
-- Offered the Software Engineer (Backend) Internship following outstanding performance and achievements in Hackathon programs.
 - Preparing to join Grab's regional engineering teams to design and develop high-performance, scalable backend services.
 - Collaborating with cross-functional teams to build robust APIs, microservices, and optimize cloud-native deployments.
 - **Skills:** Java, Docker, Kubernetes, Microservices, REST APIs, SQL.
