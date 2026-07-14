@@ -12,6 +12,14 @@ export interface Certificate {
 
 export const certificates: Certificate[] = [
     {
+        id: "tsinghua-iede",
+        title: "Global Program on Innovation and Entrepreneurship",
+        issuer: "Tsinghua University",
+        image: "/images/certificates/tsinghua_cert.jpg",
+        type: "certificate",
+        description: "Completed 'Innovation and Entrepreneurship for the 21st Century AI-Driven Knowledge Economy' (IEDE2026126) under the School of Software, Tsinghua University. Supervised by Prof. Kris Singh (CEO at SRII, Ex-Executive at IBM, AMD, Intel, National Semi; Advisor at Startups, Silicon Valley, California; Visiting Professor, Tsinghua University, Beijing; Adj. Professor of Practice, University of Newcastle, Australia)."
+    },
+    {
         id: "grab-future",
         title: "GRAB the Future Hackathon",
         issuer: "UNDP x Grab Vietnam",
@@ -188,11 +196,11 @@ export const achievements: Certificate[] = [
     },
     {
         id: "vinuni-ai-practical-talent",
-        title: "AI Practical Talent Training Program (VinUni) – Selected Participant",
+        title: "AI Practical Talent Training Program (VinUni) – Admitted Scholar",
         issuer: "VinUniversity",
-        image: "/images/achievements/vinuni_ai.png",
+        image: "/images/certificates/vinuni_admission.png",
         type: "achievement",
-        description: "Selected to participate in the prestigious AI Practical Talent Training Program at VinUniversity. Successfully passed the rigorous application screening process and participated in technical assessments for placement."
+        description: "Offered official admission to the prestigious AI Practical Talent Training Program (Cohort 3 & 4) by VinUniversity after passing competitive technical evaluations."
     },
     {
         id: "outstanding-student-2023",
@@ -238,7 +246,7 @@ export const achievements: Certificate[] = [
 
 export const featuredCertificates = [
     certificates.find(c => c.id === "google-cloud-foundation")!,
-    certificates.find(c => c.id === "hack2skill-devops")!,
+    certificates.find(c => c.id === "tsinghua-iede")!,
     certificates.find(c => c.id === "aws-security-fundamentals")!
 ];
 export const featuredAchievements = [

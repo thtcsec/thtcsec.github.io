@@ -158,13 +158,14 @@ const ResumePage = () => {
               <div className="relative">
                 <div className="flex justify-between items-baseline mb-0.5">
                   <h3 className="font-bold text-foreground print:text-black text-sm md:text-base leading-snug">Tsinghua University</h3>
-                  <span className="text-[11px] font-semibold text-muted-foreground print:text-neutral-600">Mar – May 2026</span>
+                  <span className="text-[11px] font-semibold text-muted-foreground print:text-neutral-600">2026 – Present</span>
                 </div>
                 <div className="text-xs text-muted-foreground print:text-neutral-800 italic mb-1.5">
-                  AI & Innovation Digital Economy - Certificate Program (Completed)
+                  AI & Innovation Digital Economy | Research & TA (Autumn 2026)
                 </div>
                 <p className="text-xs text-muted-foreground print:text-neutral-700 leading-relaxed print:text-[12px]">
-                  Completed specialized certificate coursework on AI, digital economics, and led team in developing cloud & security proof-of-concepts.
+                  Completed the specialized Global Program on "Innovation and Entrepreneurship for the 21st Century AI-Driven Knowledge Economy" (Cert. No. IEDE2026126). 
+                  Serving as a Research Participant under the academic supervision of Prof. Kris Singh (CEO at SRII, Ex-Executive at IBM, AMD, Intel, National Semi; Advisor at Startups, Silicon Valley, California; Visiting Professor, Tsinghua University, Beijing; Adj. Professor of Practice, University of Newcastle, Australia) at the MSE Experimental Center, and as a Teaching Assistant.
                 </p>
               </div>
             </div>

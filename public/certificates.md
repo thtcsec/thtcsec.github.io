@@ -31,10 +31,10 @@ A structured record of professional certifications, credentials, hackathon achie
 *   **Date:** October 2025
 *   **Description:** Won the first place at HSU Vibe Coding Talents 2025 competition.
 
-### 6. AI Practical Talent Training Program (VinUni) — Selected Participant
+### 6. AI Practical Talent Training Program (VinUni) — Admitted Scholar
 *   **Issuer:** VinUniversity
 *   **Date:** 2026
-*   **Description:** Selected to participate in the prestigious AI Practical Talent Training Program at VinUniversity. Successfully passed the rigorous application screening process and participated in technical assessments for placement.
+*   **Description:** Offered official admission to the prestigious AI Practical Talent Training Program (Cohort 3 & 4) by VinUniversity after passing competitive technical evaluations. Admission Letter verified.
 
 ### 7. Google Digital Talent Scholarship
 *   **Issuer:** Google x NIC
@@ -53,38 +53,44 @@ A structured record of professional certifications, credentials, hackathon achie
 
 ## 📜 Professional Certifications
 
-### 1. Google Cloud Computing Foundations
+### 1. Global Program on Innovation and Entrepreneurship
+*   **Issuer:** Tsinghua University (Beijing, China)
+*   **Date:** May 2026
+*   **Credential Verification:** Certificate No: IEDE2026126
+*   **Description:** Successfully completed the specialized Global Program on "Innovation and Entrepreneurship for the 21st Century AI-Driven Knowledge Economy" held by the School of Software, Tsinghua University. Supervised by Prof. Kris Singh (CEO at SRII, Ex-Executive at IBM, AMD, Intel, National Semi; Advisor at Startups, Silicon Valley, California; Visiting Professor, Tsinghua University, Beijing; Adj. Professor of Practice, University of Newcastle, Australia).
+
+### 2. Google Cloud Computing Foundations
 *   **Issuer:** Google Cloud
 *   **Date:** February 2026
 *   **Credential Verification:** [Credly Badge ID: ad399ad3-8827-4b99-8221-8fd248047d4a](https://www.credly.com/badges/ad399ad3-8827-4b99-8221-8fd248047d4a/linked_in?t=tarma7)
 
-### 2. Foundations of Cybersecurity
+### 3. Foundations of Cybersecurity
 *   **Issuer:** Google
 *   **Date:** May 2025
 *   **Credential Verification:** [Coursera Verify: XP102V7M0CQC](https://www.coursera.org/verify/XP102V7M0CQC)
 
-### 3. Google AI
+### 4. Google AI
 *   **Issuer:** Google
 *   **Date:** February 2026
 *   **Credential Verification:** [Coursera Verify](https://coursera.org/share/c7724fa55611f8ebb8c0340ddb9664aa)
 
-### 4. Technical Support Fundamentals
+### 5. Technical Support Fundamentals
 *   **Issuer:** Google
 *   **Date:** 2025
 
-### 5. Network Architecture
+### 6. Network Architecture
 *   **Issuer:** Google
 *   **Date:** 2025
 
-### 6. AWS Security Fundamentals
+### 7. AWS Security Fundamentals
 *   **Issuer:** Amazon Web Services (AWS)
 *   **Date:** 2025
 
-### 7. Certified Cybersecurity Educator Professional (CCEP)
+### 8. Certified Cybersecurity Educator Professional (CCEP)
 *   **Issuer:** Red Team Leaders
 *   **Date:** 2025
 
-### 8. Certified Threat Intelligence Governance Analyst (CTIGA)
+### 9. Certified Threat Intelligence Governance Analyst (CTIGA)
 *   **Issuer:** Red Team Leaders
 *   **Date:** 2025
 

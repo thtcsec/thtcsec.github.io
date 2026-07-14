@@ -81,6 +81,7 @@ const Footer = () => {
               <p className="text-xs text-muted-foreground">AI & Innovation Digital Economy Program</p>
               <p className="text-xs text-muted-foreground mt-0.5">Spring 2026: Certificate (Completed)</p>
               <p className="text-xs text-muted-foreground mt-0.5">Autumn 2026: TA & Researcher</p>
+              <p className="text-[11px] text-primary/95 font-medium mt-0.5 leading-tight">Supervised by Prof. Kris Singh (CEO at SRII, Ex-IBM/Intel)</p>
             </div>
           </div>
 

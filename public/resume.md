@@ -54,7 +54,7 @@ Cybersecurity Student & Software Engineer specializing in C# Backend, Fullstack 
 
 ## 🎓 Education & Programs
 - **HUFLIT University:** Bachelor of Cybersecurity (2023 – 2027 Expected) | GPA: 3.50/4.00
-- **Tsinghua University:** AI & Innovation Digital Economy (2026). Completed specialized Spring 2026 Certificate program (coursework on AI and digital innovation; led team projects). Serving as Teaching Assistant to a visiting professor and Research Participant in the Global AI + Materials Innovation Competition for Autumn 2026.
+- **Tsinghua University:** AI & Innovation Digital Economy (2026 – Present). Completed the specialized Global Program on "Innovation and Entrepreneurship for the 21st Century AI-Driven Knowledge Economy" (Cert. No. IEDE2026126). Serving as a Research Participant under the academic supervision of Prof. Kris Singh (CEO at SRII, Ex-Executive at IBM, AMD, Intel, National Semi; Advisor at Startups, Silicon Valley, California; Visiting Professor, Tsinghua University, Beijing; Adj. Professor of Practice, University of Newcastle, Australia) at the MSE Experimental Center (Tsinghua University), and as a Teaching Assistant.
 
 ---
 

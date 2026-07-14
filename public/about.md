@@ -23,11 +23,11 @@ My focus lies at the intersection of serverless deployment pipelines, Zero Trust
 - **Progress:** 8th Semester (131/135 credits completed)
 - **Core Coursework:** Network Security, Cryptography, System Administration, Penetration Testing, Software Architecture.
 
-### AI & Innovation Digital Economy Certificate Program
+### AI & Innovation Digital Economy Program
 **Tsinghua University (Beijing, China / Remote)**
-*Timeline: 2026*
-- **Spring 2026 Certificate:** Completed specialized global program on AI, digital economics, and tech entrepreneurship, selected from over 3,700 global applicants.
-- **Autumn 2026 Roles:** Serving as a Teaching Assistant to a visiting professor and Research Participant in the Global AI + Materials Innovation Competition.
+*Timeline: 2026 - Present*
+- **Global Program Certificate:** Completed the specialized Global Program on "Innovation and Entrepreneurship for the 21st Century AI-Driven Knowledge Economy" (Cert. No. IEDE2026126) under the School of Software.
+- **Academic Research & TA:** Serving as a Research Participant under the academic supervision of Prof. Kris Singh (CEO at SRII, Ex-Executive at IBM, AMD, Intel, National Semi; Advisor at Startups, Silicon Valley, California; Visiting Professor, Tsinghua University, Beijing; Adj. Professor of Practice, University of Newcastle, Australia) at the MSE Experimental Center, and as a Teaching Assistant.
 
 ---
 
