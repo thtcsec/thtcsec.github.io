@@ -127,6 +127,17 @@ const Footer = () => {
                   <ExternalLink size={12} className="opacity-40 group-hover/link:opacity-80 transition-opacity" />
                 </a>
               </li>
+              <li>
+                <a
+                  href="https://ready.orangecloud.vn"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors inline-flex items-center gap-1 group/link"
+                >
+                  <span>Cloudflare Go-Live Readiness</span>
+                  <ExternalLink size={12} className="opacity-40 group-hover/link:opacity-80 transition-opacity" />
+                </a>
+              </li>
             </ul>
           </div>
 
