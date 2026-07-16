@@ -22,7 +22,7 @@ const About = () => {
             {/* Small avatar */}
             <div className="flex-shrink-0">
               <img
-                src="/images/avatar.jpg"
+                src="/images/avatar.png"
                 alt={siteConfig.author}
                 className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl object-cover"
                 loading="lazy"

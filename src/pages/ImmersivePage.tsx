@@ -675,7 +675,7 @@ const ImmersivePage = () => {
           {/* Minimalist Profile Note - using normal avatar, non-spinning */}
           <div className={`rounded-2xl border ${t.cardBg} p-4 sm:p-5 backdrop-blur-xl flex flex-col sm:flex-row gap-4 items-center transition-all duration-1000 ease-in-out`}>
             <img 
-              src="/images/avatar.jpg" 
+              src="/images/avatar.png" 
               alt={siteConfig.author} 
               className="w-12 h-12 rounded-full border border-slate-800/80 object-cover flex-shrink-0"
             />

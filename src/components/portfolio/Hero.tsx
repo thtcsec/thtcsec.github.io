@@ -43,21 +43,21 @@ const Hero = () => {
       <div className="container relative mx-auto px-4 max-w-5xl">
         {/* Top: Avatar + Name + Subtitle */}
         <div className="cinema-reveal flex flex-col sm:flex-row items-start gap-6 sm:gap-8 mb-8" style={{ ["--reveal-delay" as string]: "60ms" }}>
-          <div className="relative group flex-shrink-0">
-            <div className="absolute -inset-1 bg-gradient-to-r from-primary to-accent rounded-3xl blur opacity-20 group-hover:opacity-40 transition duration-500"></div>
+          <div className="relative group flex-shrink-0 mx-auto sm:mx-0">
+            <div className="absolute -inset-1.5 bg-gradient-to-r from-primary via-violet-500 to-accent rounded-3xl blur opacity-30 group-hover:opacity-60 transition duration-500 animate-[pulse_3s_ease-in-out_infinite]"></div>
             <img
-              src="/images/avatar.jpg"
+              src="/images/avatar.png"
               alt={siteConfig.author}
-              className="relative w-36 h-36 sm:w-44 sm:h-44 rounded-3xl object-cover border border-border"
+              className="relative w-48 h-48 sm:w-64 sm:h-64 rounded-3xl object-cover object-top border-2 border-border/80 shadow-2xl transition-transform duration-500 group-hover:scale-[1.02]"
               loading="lazy"
             />
           </div>
-          <div className="flex-1">
+          <div className="flex-1 text-center sm:text-left">
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight">
               {siteConfig.authorEn}
             </h1>
             <p className="mt-1 text-base sm:text-lg md:text-xl text-foreground/70 font-medium">
-              DevOps, Fullstack, Software Engineer.
+              Software Engineer, Fullstack, DevOps.
             </p>
             <p className="mt-3 text-sm text-muted-foreground leading-relaxed max-w-xl">
               {siteConfig.bio}
@@ -240,14 +240,10 @@ const Hero = () => {
             </Dialog>
           </div>
 
-          <div className="grid gap-3 sm:grid-cols-3 mb-4">
+          <div className="grid gap-3 sm:grid-cols-2 mb-4">
             <div className="rounded-xl border border-border/80 bg-muted/20 p-4">
               <div className="cinema-meta">What I build</div>
               <p className="mt-2 text-sm leading-5 text-foreground">Scalable backends, CI/CD pipelines & full-stack apps</p>
-            </div>
-            <div className="rounded-xl border border-border/80 bg-muted/20 p-4">
-              <div className="cinema-meta">University</div>
-              <p className="mt-2 text-xs sm:text-sm font-semibold text-foreground leading-snug">Ho Chi Minh City University of Foreign Languages and Information Technology (HUFLIT)</p>
             </div>
             <div className="rounded-xl border border-border/80 bg-muted/20 p-4">
               <div className="cinema-meta">Academic progress</div>
