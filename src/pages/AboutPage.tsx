@@ -32,13 +32,13 @@ import { Icon } from "@iconify/react";
 
 const competitions = [
   {
-    name: "GenAIFund - Agentic AI Build Week",
-    date: "July 2026",
-    role: "Founding Builder",
-    icon: <Cpu className="w-5 h-5 text-rose-400 group-hover:animate-pulse" />,
-    bgGradient: "from-rose-500/10 to-transparent",
-    borderClass: "border-rose-500/20 group-hover:border-rose-500/50 group-hover:shadow-[0_0_15px_rgba(244,63,94,0.3)]",
-    textClass: "group-hover:text-rose-400 transition-colors text-foreground"
+    name: "Tsinghua University - 全球AI+材料创新应用大赛",
+    date: "Apr - Aug 2026",
+    role: "Participant",
+    icon: <Atom className="w-5 h-5 text-violet-400 group-hover:animate-pulse" />,
+    bgGradient: "from-violet-500/10 to-transparent",
+    borderClass: "border-violet-500/20 group-hover:border-violet-500/50 group-hover:shadow-[0_0_15px_rgba(139,92,246,0.3)]",
+    textClass: "group-hover:text-violet-400 transition-colors text-foreground"
   },
   {
     name: "QC4SG 2026 - International Quantum Computing Hackathon",
@@ -48,6 +48,15 @@ const competitions = [
     bgGradient: "from-emerald-500/10 to-transparent",
     borderClass: "border-emerald-500/20 group-hover:border-emerald-500/50 group-hover:shadow-[0_0_15px_rgba(16,185,129,0.3)]",
     textClass: "group-hover:text-emerald-400 transition-colors text-foreground"
+  },
+  {
+    name: "GenAIFund - Agentic AI Build Week",
+    date: "July 2026",
+    role: "Founding Builder",
+    icon: <Cpu className="w-5 h-5 text-rose-400 group-hover:animate-pulse" />,
+    bgGradient: "from-rose-500/10 to-transparent",
+    borderClass: "border-rose-500/20 group-hover:border-rose-500/50 group-hover:shadow-[0_0_15px_rgba(244,63,94,0.3)]",
+    textClass: "group-hover:text-rose-400 transition-colors text-foreground"
   },
   {
     name: "UNDP x Grab Vietnam - GRAB the Future Hackathon",
@@ -75,15 +84,6 @@ const competitions = [
     bgGradient: "from-orange-500/10 to-transparent",
     borderClass: "border-orange-500/20 group-hover:border-orange-500/50 group-hover:shadow-[0_0_15px_rgba(249,115,22,0.3)]",
     textClass: "group-hover:text-orange-400 transition-colors text-foreground"
-  },
-  {
-    name: "Tsinghua University - 全球AI+材料创新应用大赛 (Global AI + Materials Innovation Competition)",
-    date: "June 2026",
-    role: "Participant",
-    icon: <Atom className="w-5 h-5 text-violet-400 group-hover:animate-pulse" />,
-    bgGradient: "from-violet-500/10 to-transparent",
-    borderClass: "border-violet-500/20 group-hover:border-violet-500/50 group-hover:shadow-[0_0_15px_rgba(139,92,246,0.3)]",
-    textClass: "group-hover:text-violet-400 transition-colors text-foreground"
   },
   {
     name: "MUGVN × MongoDB Mini Hackathon 2026",

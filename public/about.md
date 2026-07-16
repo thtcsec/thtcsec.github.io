@@ -34,12 +34,12 @@ My focus lies at the intersection of serverless deployment pipelines, Zero Trust
 ## 🏆 Competitions & Hackathons
 I actively participate in hackathons to test my skills under pressure and solve real-world problems.
 
-- **GenAIFund - Agentic AI Build Week** (July 2026) — *Founding Builder*
+- **Tsinghua University - 全球AI+材料创新应用大赛** (Apr - Aug 2026) — *Participant*
 - **QC4SG 2026 - International Quantum Computing Hackathon** (Feb - July 2026) — *Finalist*
+- **GenAIFund - Agentic AI Build Week** (July 2026) — *Founding Builder*
 - **UNDP x Grab Vietnam - GRAB the Future Hackathon** (May - June 2026) — *Selected Participant*
 - **Ho Chi Minh City AI Challenge 2026** (May - Oct 2026) — *Participant*
 - **Vietnamese Student HackAIthon 2026** (May - July 2026) — *Participant*
-- **Tsinghua University - Global AI + Materials Innovation Competition** (June 2026) — *Participant*
 - **MUGVN × MongoDB Mini Hackathon 2026** (June 2026) — *Ranked 2nd (Team Vector404)*
 - **ByteDance - Unbound Creativity with TRAE SOLO @ Vietnam** (May 2026) — *Participant*
 - **VinUniversity - The Gridbreakers Datathon 2026** (May 2026) — *Top 10 Finalist (Team GenCore)*
