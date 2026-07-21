@@ -26,6 +26,9 @@ import ScrollToTop from "./components/ScrollToTop";
 import { AudioProvider } from "./context/AudioContext";
 import MiniPlayer from "./components/portfolio/MiniPlayer";
 
+import ArcadePage from "./pages/ArcadePage";
+import { useArcadeSecret } from "./hooks/useArcadeSecret";
+
 const queryClient = new QueryClient();
 
 const RouteScrollToTop = () => {
@@ -35,6 +38,11 @@ const RouteScrollToTop = () => {
     window.scrollTo({ top: 0, left: 0, behavior: "instant" });
   }, [pathname]);
 
+  return null;
+};
+
+const ArcadeListener = () => {
+  useArcadeSecret();
   return null;
 };
 
@@ -53,6 +61,7 @@ const App = () => {
         <Toaster />
         <Sonner />
         <BrowserRouter>
+          <ArcadeListener />
           <AudioProvider>
             <RouteScrollToTop />
             <PageTracker />
@@ -73,6 +82,8 @@ const App = () => {
               <Route path="/about" element={<AboutPage />} />
               <Route path="/prisma" element={<PrismaPage />} />
               <Route path="/immersive" element={<ImmersivePage />} />
+              <Route path="/arcade" element={<ArcadePage />} />
+              <Route path="/game" element={<ArcadePage />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>

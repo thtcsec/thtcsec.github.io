@@ -1,6 +1,7 @@
-import { siteConfig } from "@/data/config";
 import { useState, useEffect } from "react";
-import { Eye, Users, ExternalLink } from "lucide-react";
+import { siteConfig } from "@/data/config";
+import { Link } from "react-router-dom";
+import { Eye, Users, ExternalLink, Gamepad2 } from "lucide-react";
 import { Icon } from "@iconify/react";
 
 const Footer = () => {
@@ -159,6 +160,15 @@ const Footer = () => {
               />
               <span>Protected by Cloudflare</span>
             </a>
+            <span className="text-muted-foreground/40">·</span>
+            <Link
+              to="/arcade"
+              className="group/arcade inline-flex items-center gap-1 text-xs text-muted-foreground/60 hover:text-primary transition-all duration-300 px-2 py-0.5 rounded-full border border-transparent hover:border-primary/30 hover:bg-primary/5"
+              title="Secret Arcade Vault"
+            >
+              <Gamepad2 size={13} className="text-muted-foreground/60 group-hover/arcade:text-primary group-hover/arcade:scale-110 transition-all" />
+              <span className="text-[11px] font-mono opacity-60 group-hover/arcade:opacity-100">arcade</span>
+            </Link>
           </div>
 
           <div className="flex flex-wrap items-center gap-6 text-sm text-muted-foreground">

@@ -3,6 +3,7 @@ import { Menu, X, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import ThemeToggle from "@/components/ThemeToggle";
 import { Link } from "react-router-dom";
+import { useArcadeSecret } from "@/hooks/useArcadeSecret";
 
 const navItems = [
   { label: "Home", href: "#home" },
@@ -19,6 +20,7 @@ const Header = () => {
   const [isHeaderHidden, setIsHeaderHidden] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
   const lastScrollYRef = useRef(0);
+  const { handleSecretClick } = useArcadeSecret();
 
   useEffect(() => {
     const handleScroll = () => {

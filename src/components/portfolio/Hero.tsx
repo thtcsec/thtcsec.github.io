@@ -3,6 +3,7 @@ import { ArrowDown, Github, Linkedin, Mail, FileText, Facebook, Globe, Trophy, T
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { siteConfig, getAcademicProgress, getDaysRemaining } from "@/data/config";
+import { useArcadeSecret } from "@/hooks/useArcadeSecret";
 import {
   Dialog,
   DialogContent,
@@ -24,6 +25,7 @@ const Hero = () => {
   const [isEnglish, setIsEnglish] = useState(true);
   const progressPercentage = getAcademicProgress();
   const daysRemaining = getDaysRemaining();
+  const { handleSecretClick } = useArcadeSecret();
 
   const handleScrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -43,12 +45,12 @@ const Hero = () => {
       <div className="container relative mx-auto px-4 max-w-5xl">
         {/* Top: Avatar + Name + Subtitle */}
         <div className="cinema-reveal flex flex-col sm:flex-row items-start gap-6 sm:gap-8 mb-8" style={{ ["--reveal-delay" as string]: "60ms" }}>
-          <div className="relative group flex-shrink-0 mx-auto sm:mx-0">
+          <div className="relative group flex-shrink-0 mx-auto sm:mx-0 cursor-pointer" onClick={handleSecretClick} title="??? Avatar">
             <div className="absolute -inset-1.5 bg-gradient-to-r from-primary via-violet-500 to-accent rounded-3xl blur opacity-30 group-hover:opacity-60 transition duration-500 animate-[pulse_3s_ease-in-out_infinite]"></div>
             <img
               src="/images/avatar.png"
               alt={siteConfig.author}
-              className="relative w-48 h-48 sm:w-64 sm:h-64 rounded-3xl object-cover object-top border-2 border-border/80 shadow-2xl transition-transform duration-500 group-hover:scale-[1.02]"
+              className="relative w-48 h-48 sm:w-64 sm:h-64 rounded-3xl object-cover object-top border-2 border-border/80 shadow-2xl transition-transform duration-500 group-hover:scale-[1.02] select-none"
               loading="lazy"
             />
           </div>
