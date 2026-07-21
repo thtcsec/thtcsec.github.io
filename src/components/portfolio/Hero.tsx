@@ -90,11 +90,6 @@ const Hero = () => {
               </Link>
             </Button>
           </div>
-          <div className="flex flex-wrap gap-2">
-            <span className="rounded-full border border-border px-3 py-1 text-xs text-muted-foreground">HUFLIT</span>
-            <span className="rounded-full border border-border px-3 py-1 text-xs text-muted-foreground">Cybersecurity</span>
-            <span className="rounded-full border border-border px-3 py-1 text-xs text-muted-foreground">Cloud / DevSecOps</span>
-          </div>
         </div>
 
         {/* Socials */}
