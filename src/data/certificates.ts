@@ -162,6 +162,14 @@ export const certificates: Certificate[] = [
 
 export const achievements: Certificate[] = [
     {
+        id: "qc4sg-quantum-hackathon-2026",
+        title: "Finalist - QC4SG 2026 International Quantum Computing Hackathon",
+        issuer: "VNQuantum, NIC (National Innovation Center) & Department of Science and Technology of Gia Lai Province",
+        image: "/images/achievements/qc4sg_quantum_hackathon_finalist.jpg",
+        type: "achievement",
+        description: "Selected as Finalist (Team 23) in the Quantum Computing for Social Good (QC4SG) 2026 International Hackathon. Built QUASAR: A classical-quantum hybrid logistics engine pairing classical local search (Google OR-Tools) with 127-qubit IBM QPU QAOA algorithms for Traveling Salesperson Problem optimization."
+    },
+    {
         id: "mongodb-hackathon-2026",
         title: "Finalist (Ranked 2nd) - MongoDB Mini Hackathon 2026",
         issuer: "MongoDB User Group Vietnam (MUGVN) & MongoDB",
@@ -250,6 +258,6 @@ export const featuredCertificates = [
     certificates.find(c => c.id === "aws-security-fundamentals")!
 ];
 export const featuredAchievements = [
+    achievements.find(a => a.id === "qc4sg-quantum-hackathon-2026"),
     achievements.find(a => a.id === "mongodb-hackathon-2026"),
-    achievements.find(a => a.id === "vinuni-datathon-2026"),
 ].filter(Boolean) as Certificate[];

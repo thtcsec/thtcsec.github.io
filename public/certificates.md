@@ -6,7 +6,12 @@ A structured record of professional certifications, credentials, hackathon achie
 
 ## 🏆 Hackathons & Academic Achievements
 
-### 1. Ranked 2nd (Finalist) — MUGVN & MongoDB Mini Hackathon 2026
+### 1. Finalist — QC4SG 2026 International Quantum Computing Hackathon
+*   **Issuer:** VNQuantum, NIC (National Innovation Center) & Department of Science and Technology of Gia Lai Province
+*   **Date:** July 2026
+*   **Description:** Selected as Finalist (Team 23) in the Quantum Computing for Social Good (QC4SG) 2026 International Hackathon. Built QUASAR: A classical-quantum hybrid logistics engine pairing classical local search (Google OR-Tools) with 127-qubit IBM QPU QAOA algorithms for Traveling Salesperson Problem optimization.
+
+### 2. Ranked 2nd (Finalist) — MUGVN & MongoDB Mini Hackathon 2026
 *   **Issuer:** MongoDB User Group Vietnam (MUGVN) & MongoDB
 *   **Date:** June 2026
 *   **Description:** Won 2nd place in the National Finals of the MUGVN & MongoDB Mini Hackathon 2026 as a solo engineer (Team Vector404) with the project "DriftSkills AI".
