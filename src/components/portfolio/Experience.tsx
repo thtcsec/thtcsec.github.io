@@ -58,13 +58,13 @@ const Experience = () => {
       imageLogo: "/images/grab.jpg",
       isBrandLogo: true,
       location: "Ho Chi Minh City (On-site)",
-      period: "Incoming",
+      period: "Aug 2026 – Present",
       roles: [
         {
           title: "Software Engineer (Backend) Intern",
-          period: "Incoming",
+          period: "Aug 2026 – Present",
           highlights: [
-            "Preparing to join Grab's regional engineering teams to design and develop high-performance, scalable backend services.",
+            "Designing and developing high-performance, scalable backend services and microservice architectures within Grab's regional engineering teams.",
             "Collaborating with cross-functional teams to build robust APIs, microservices, and optimize cloud-native deployments.",
             "Focusing on system reliability, scaling, and modern backend architectures."
           ],

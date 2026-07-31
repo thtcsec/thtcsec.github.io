@@ -236,12 +236,12 @@ const ResumePage = () => {
                     </div>
                   </div>
                   <div className="text-xs text-muted-foreground print:text-neutral-700 italic font-medium">
-                    Incoming | On-site
+                    Aug 2026 – Present | On-site
                   </div>
                 </div>
 
                 <ul className="list-disc pl-4 space-y-1.5 text-xs md:text-sm text-muted-foreground print:text-neutral-800 leading-relaxed print:text-[13px] print:space-y-0.5">
-                  <li>Preparing to join Grab's regional engineering teams to design and develop high-performance, scalable backend services.</li>
+                  <li>Designing and developing high-performance, scalable backend services and microservice architectures within Grab's regional engineering teams.</li>
                   <li>Collaborating with cross-functional teams to build robust APIs, microservices, and optimize cloud-native deployments.</li>
                 </ul>
 
