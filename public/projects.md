@@ -6,7 +6,17 @@ A collection of featured engineering projects in web architectures, serverless s
 
 ## 🚀 Featured Projects
 
-### 1. OrangeCloud Insights — AI-Powered Tech Intelligence Platform
+### 1. AI-Assisted Resilience for SDN-Enabled ITS (`sdn-its-resilience-ai`)
+*   **Domain:** Artificial Intelligence & Software-Defined Networking (SDN)
+*   **Technologies:** PyTorch, Python, Ryu, ONOS, Mininet-WiFi, SUMO, Scapy, Flask, Docker
+*   **Source Code:** [github.com/thtcsec/sdn-its-resilience-ai](https://github.com/thtcsec/sdn-its-resilience-ai)
+*   **Highlights:**
+    *   *Academic Context:* Research Proposal Project at Tsinghua University IEDE under academic supervision of Prof. Kris Singh.
+    *   Flow-level telemetry paired with Hybrid TCN-GRU anomaly detection achieving 97.33% accuracy.
+    *   Model INT8 quantization reducing model size by 82% (0.174 MB) with 9.9ms response time.
+    *   Automated Detect → Contain → Rollback safety-aware mitigation pipeline with cooldown policy.
+
+### 2. OrangeCloud Insights — AI-Powered Tech Intelligence Platform
 *   **Domain:** Web & AI / Serverless Integration
 *   **Technologies:** Next.js 15, Cloudflare Workflows, Cloudflare D1, Cloudflare R2, Cloudflare Vectorize, Workers AI, OpenAI API, Drizzle ORM, TypeScript
 *   **Live Demo:** [blog.orangecloud.vn](https://blog.orangecloud.vn)
@@ -39,7 +49,46 @@ A collection of featured engineering projects in web architectures, serverless s
     *   Implemented workflow orchestration using AWS Step Functions and GCP Cloud Workflows for automated containment and forensics.
     *   Developed container-based worker services (ECS Fargate / Cloud Run) for malware analysis and incident processing.
     *   Automated response actions including resource isolation, IAM privilege revocation, SSH blocking, and disk snapshot for forensic analysis.
-    *   Provisioned full infrastructure using Terraform with modular multi-environment deployment (dev/staging/prod).
+### 4. EnterpriseRAG — Hybrid Retrieval-Augmented Generation Platform
+*   **Domain:** Artificial Intelligence & Information Retrieval
+*   **Technologies:** FastAPI, Python, Qdrant, OpenSearch, Redis, CrossEncoder, LightOnOCR-2, Docling, Docker
+*   **Source Code:** [github.com/thtcsec/EnterpriseRAG](https://github.com/thtcsec/EnterpriseRAG)
+*   **Highlights:**
+    *   Built MVP for Next Step Technology Solutions.
+    *   Hybrid retrieval pipeline: Qdrant dense vector search + OpenSearch BM25 → Reciprocal Rank Fusion (RRF) → CrossEncoder reranker.
+    *   Multi-format ingestion supporting PDF (`pypdf` text-layer), LightOnOCR-2 for scans/tables, and Docling for structured layout awareness.
+    *   Document-level ACL authorization with API key scope mapping and Qdrant/OpenSearch payload filtering.
+    *   LLM-as-judge citation verification on streaming and non-streaming answers.
+
+### 5. QUASAR — Classical-Quantum Hybrid Logistics Engine
+*   **Domain:** Quantum Computing & Operations Research
+*   **Technologies:** FastAPI, Python, Qiskit, IBM Quantum Runtime, Google OR-Tools, OSMnx, SQLAlchemy, Docker
+*   **Source Code:** [github.com/thtcsec/QUASAR](https://github.com/thtcsec/QUASAR)
+*   **Highlights:**
+    *   *Award:* Finalist (Team 23) at International Quantum Computing Hackathon (QC4SG 2026).
+    *   Asynchronous hybrid computation pipeline pairing classical warm-starts (Google OR-Tools) with 127-qubit IBM QPU QAOA algorithms.
+    *   Dynamic geospatial routing engine using OSMnx to snap coordinate JSON inputs to real road networks with Haversine fallback.
+    *   Deterministic tour validation layer verifying depot start/end constraints and node uniqueness.
+
+### 6. SecureCoating-Vision — Multi-Source Fusion Vision System
+*   **Domain:** Computer Vision & AI for Materials Science
+*   **Technologies:** Python, FastAPI, PyTorch, ONNX Runtime, TensorRT, Streamlit, OpenCV, Docker
+*   **Source Code:** [github.com/thtcsec/securecoating-vision](https://github.com/thtcsec/securecoating-vision)
+*   **Highlights:**
+    *   *Competition:* 2026 Global AI + Materials Competition (Tsinghua University School of Materials Science & Engineering), supervised by Prof. Kris Singh (SRII / Tsinghua).
+    *   Multi-modal sensor fusion combining 2D High-Res Optical RGB, LWIR Thermal, and 3D Laser Profilometer data.
+    *   Dual-stage inference pipeline accelerated via TensorRT FP16/INT8 for $\le 35\text{ms}$ inspection zone latency.
+    *   Fail-safe sensor degradation logic, digital homography correction, and OPC UA / Modbus TCP industrial PLC signaling.
+
+### 7. Foundry — AI Engineering Intelligence Platform
+*   **Domain:** System Engineering & AI Code Intelligence
+*   **Technologies:** ASP.NET Core 10, Next.js 15, C# 13, TypeScript, PostgreSQL, pgvector, Redis, Docker, Terraform
+*   **Source Code:** [github.com/thtcsec/Foundry](https://github.com/thtcsec/Foundry)
+*   **Highlights:**
+    *   Microservices architecture split into API Gateway (ASP.NET Core 10), Background AST Worker, and LLM Model Gateway.
+    *   Vector DB (`pgvector`) RAG indexing with Redis semantic response caching (`>97%` cosine similarity prompt shortcut).
+    *   Multi-tenant isolation using EF Core Global Query Filters and per-tenant encryption.
+    *   Parallel static scanner audits for Security, Dependencies, FinOps, and Infrastructure.
 
 ---
 

@@ -18,29 +18,132 @@ export interface Project {
 
 export const projects: Project[] = [
     {
-        id: "orangecloud-insights",
-        title: "OrangeCloud Insights — AI-Powered Tech Intelligence Platform",
-        description: "Serverless tech intelligence and RSS crawling platform. Automatically crawls RSS feeds, parses content, uses OpenAI models to summarize and rewrite tech articles in neutral, professional Vietnamese, generates embeddings with Workers AI, and saves semantic vectors into Cloudflare Vectorize.",
-        category: "web",
-        technologies: ["Next.js 15", "Cloudflare Workflows", "Cloudflare D1", "Cloudflare R2", "Cloudflare Vectorize", "Workers AI", "OpenAI API", "Drizzle ORM", "TypeScript"],
-        github: "",
-        demo: "https://blog.orangecloud.vn",
-        image: "/images/preview/preview_orangecloud_insights.png",
+        id: "sdn-its-resilience-ai",
+        title: "AI-Assisted Resilience for SDN-Enabled ITS",
+        description: "Lightweight research framework for V2X network reliability, edge telemetry, and safety-aware SDN mitigation featuring Hybrid TCN-GRU anomaly detection (97.33% accuracy, 0.174MB INT8 quantization, 9.9ms latency) with automated contain-and-rollback mitigation.",
+        category: "ai",
+        technologies: ["PyTorch", "Python", "Ryu", "ONOS", "Mininet-WiFi", "SUMO", "Scapy", "Flask", "Docker"],
+        github: "https://github.com/thtcsec/sdn-its-resilience-ai",
+        demo: "",
+        image: "/images/project_image/sdn_its/sdn_its.png",
         images: [
-            "/images/preview/preview_orangecloud_insights.png",
-            "/images/project_image/orangecloud-insights/article_detail.png",
-            "/images/project_image/orangecloud-insights/search_results.png"
+            "/images/project_image/sdn_its/sdn_its.png",
+            "/images/project_image/sdn_its/sdn_its-1.png",
+            "/images/project_image/sdn_its/sdn_its-2.png",
+            "/images/project_image/sdn_its/sdn_its-3.png",
+            "/images/project_image/sdn_its/sdn_its-4.png"
         ],
         featured: true,
         highlights: [
-            "Serverless Cloudflare-Native architecture using Next.js 15 deployed on Cloudflare Pages (@cloudflare/next-on-pages)",
-            "Automated multi-stage processing pipeline orchestrated by Cloudflare Workflows (Beta) with built-in checkpointing and retries",
-            "Split-storage design: relational data on Cloudflare D1 SQL database and raw/cleaned content on Cloudflare R2 object storage",
-            "Semantic search and similar articles suggestions powered by Workers AI (@cf/baai/bge-small-en-v1.5) and Cloudflare Vectorize",
-            "OpenAI Model Router with auto-fallback that dynamically queries OpenAI API capabilities and handles fallback models gracefully",
-            "Rich interactive admin control panel with RSS source CRUD, manual/batch AI review and re-processing flow, auto-publish rules, and custom Telegram daily digests"
+            "Academic Research Proposal & Framework for Tsinghua University Global Innovation Program under academic supervision of Prof. Kris Singh",
+            "Flow-level telemetry (non-DPI counters) paired with Hybrid TCN-GRU anomaly detection",
+            "Model INT8 quantization reducing size by 82% (0.174 MB) with 97.33% accuracy and 9.9ms response time",
+            "Automated Detect -> Contain -> Rollback safety-aware mitigation pipeline with cooldown policy",
+            "Canonical InSDN real dataset evaluation harness, ONNX export pipeline, and interactive command center UI"
         ],
-        isPrivate: true
+        isPrivate: false
+    },
+    {
+        id: "securecoating-vision",
+        title: "SecureCoating-Vision — Multi-Source Fusion Vision System",
+        description: "Multi-source data fusion vision inspection system for real-time coating defect detection (scratches, voids, delamination), prepared for Tsinghua University AI + Materials Competition.",
+        category: "ai",
+        technologies: ["Python", "FastAPI", "PyTorch", "ONNX Runtime", "TensorRT", "Streamlit", "OpenCV", "Docker"],
+        github: "https://github.com/thtcsec/securecoating-vision",
+        demo: "",
+        image: "/images/project_image/securecoating/securecoating-1.png",
+        images: [
+            "/images/project_image/securecoating/securecoating-1.png",
+            "/images/project_image/securecoating/securecoating-2.png"
+        ],
+        featured: true,
+        highlights: [
+            "Competition Project: 2026 Global AI + Materials Competition (Tsinghua University School of Materials Science & Engineering)",
+            "Supervised by Prof. Kris Singh (CEO of SRII & Visiting Professor at Tsinghua University)",
+            "Multi-modal sensor fusion combining 2D High-Res Optical RGB, LWIR Thermal, and 3D Laser Profilometer data",
+            "Dual-stage inference pipeline accelerated via TensorRT FP16/INT8 for <=35ms inspection latency",
+            "Fail-safe sensor degradation logic, digital homography correction, and OPC UA / Modbus TCP industrial PLC signaling"
+        ],
+        isPrivate: false
+    },
+    {
+        id: "foundry-platform",
+        title: "Foundry — AI Engineering Intelligence Platform",
+        description: "AI-Powered Engineering Review & Code Intelligence Platform acting as an experienced Staff Engineer that understands entire codebases, delivering architectural insights, security reviews, FinOps metrics, and dependency upgrade maps.",
+        category: "system",
+        technologies: ["ASP.NET Core 10", "Next.js 15", "C# 13", "TypeScript", "PostgreSQL", "pgvector", "Redis", "Docker", "Terraform"],
+        github: "https://github.com/thtcsec/Foundry",
+        demo: "",
+        image: "/images/project_image/foundry/foundry-1.png",
+        images: [
+            "/images/project_image/foundry/foundry-1.png",
+            "/images/project_image/foundry/foundry-2.png",
+            "/images/project_image/foundry/foundry-3.png",
+            "/images/project_image/foundry/foundry-4.png",
+            "/images/project_image/foundry/foundry-5.png"
+        ],
+        featured: true,
+        highlights: [
+            "Microservices architecture split into API Gateway (ASP.NET Core 10), Background AST Worker, and LLM Model Gateway",
+            "Vector DB (pgvector) RAG indexing with Redis semantic response caching (>97% cosine similarity prompt shortcut)",
+            "Multi-tenant isolation using EF Core Global Query Filters and per-tenant encryption",
+            "Parallel static scanner audits for Security, Dependencies, FinOps, and Infrastructure",
+            "Extensible C# 13 & .NET 10 solution with Next.js App Router frontend and Terraform AWS infra"
+        ],
+        isPrivate: false
+    },
+    {
+        id: "quasar-quantum-routing",
+        title: "QUASAR — Classical-Quantum Hybrid Logistics Engine",
+        description: "Classical-quantum hybrid logistics orchestration system for Traveling Salesperson Problem (TSP) optimization, combining Google OR-Tools guided local search with 127-qubit IBM Quantum Qiskit QAOA execution.",
+        category: "system",
+        technologies: ["FastAPI", "Python", "Qiskit", "IBM Quantum Runtime", "Google OR-Tools", "OSMnx", "SQLAlchemy", "Docker"],
+        github: "https://github.com/thtcsec/QUASAR",
+        demo: "",
+        image: "/images/project_image/quasar/quasar-1.png",
+        images: [
+            "/images/project_image/quasar/quasar-1.png",
+            "/images/project_image/quasar/quasar-2.png",
+            "/images/project_image/quasar/quasar-3.png",
+            "/images/project_image/quasar/quasar-4.png",
+            "/images/project_image/quasar/quasar-5.png",
+            "/images/project_image/quasar/quasar-6.png"
+        ],
+        featured: true,
+        highlights: [
+            "Hackathon Project: International Quantum Computing Hackathon (QC4SG 2026 Finalist / Team 23)",
+            "Asynchronous hybrid computation pipeline pairing classical warm-starts (Google OR-Tools) with 127-qubit IBM QPU QAOA algorithms",
+            "Dynamic geospatial routing engine using OSMnx to snap coordinate JSON inputs to real road networks with Haversine fallback",
+            "Deterministic tour validation layer verifying depot start/end constraints and node uniqueness",
+            "Layered defense-in-depth security middleware (OWASP headers, rate limiting, request tracing)"
+        ],
+        isPrivate: false
+    },
+    {
+        id: "enterpriserag",
+        title: "EnterpriseRAG — Hybrid Retrieval-Augmented Generation Platform",
+        description: "Production hybrid RAG platform combining Qdrant dense vector search, OpenSearch BM25, and CrossEncoder reranking with document-level ACL access control and multi-format ingest (PDF OCR routing via LightOnOCR-2 & Docling).",
+        category: "ai",
+        technologies: ["FastAPI", "Python", "Qdrant", "OpenSearch", "Redis", "CrossEncoder", "LightOnOCR-2", "Docling", "Docker"],
+        github: "https://github.com/thtcsec/EnterpriseRAG",
+        demo: "",
+        image: "/images/project_image/enterpriserag/enterpriserag-1.png",
+        images: [
+            "/images/project_image/enterpriserag/enterpriserag-1.png",
+            "/images/project_image/enterpriserag/enterpriserag-2.png",
+            "/images/project_image/enterpriserag/enterpriserag-3.png",
+            "/images/project_image/enterpriserag/enterpriserag-4.png"
+        ],
+        featured: true,
+        highlights: [
+            "Built MVP for Next Step Technology Solutions",
+            "Hybrid retrieval pipeline: Qdrant dense + OpenSearch BM25 -> Reciprocal Rank Fusion (RRF) -> CrossEncoder reranker",
+            "Multi-format ingestion supporting PDF (pypdf text-layer), LightOnOCR-2 for scans/tables, and Docling for structured layouts",
+            "Document-level ACL authorization with API key scope mapping and Qdrant/OpenSearch payload filtering",
+            "LLM-as-judge citation verification on streaming and non-streaming answers",
+            "Redis semantic caching, Prometheus metrics, and automated IR Golden-set eval harness (Recall@K, MRR, nDCG)"
+        ],
+        isPrivate: false
     },
     {
         id: "driftskills-ai",
@@ -69,6 +172,62 @@ export const projects: Project[] = [
             "Interactive Visualizations: Skill Galaxy (D3 force-directed graph) and Market Analytics ($facet)"
         ],
         isPrivate: false
+    },
+    {
+        id: "orangecloud-insights",
+        title: "OrangeCloud Insights — AI-Powered Tech Intelligence Platform",
+        description: "Serverless tech intelligence and RSS crawling platform. Automatically crawls RSS feeds, parses content, uses OpenAI models to summarize and rewrite tech articles in neutral, professional Vietnamese, generates embeddings with Workers AI, and saves semantic vectors into Cloudflare Vectorize.",
+        category: "web",
+        technologies: ["Next.js 15", "Cloudflare Workflows", "Cloudflare D1", "Cloudflare R2", "Cloudflare Vectorize", "Workers AI", "OpenAI API", "Drizzle ORM", "TypeScript"],
+        github: "",
+        demo: "https://blog.orangecloud.vn",
+        image: "/images/preview/preview_orangecloud_insights.png",
+        images: [
+            "/images/preview/preview_orangecloud_insights.png",
+            "/images/project_image/orangecloud-insights/article_detail.png",
+            "/images/project_image/orangecloud-insights/search_results.png"
+        ],
+        featured: true,
+        highlights: [
+            "Serverless Cloudflare-Native architecture using Next.js 15 deployed on Cloudflare Pages (@cloudflare/next-on-pages)",
+            "Automated multi-stage processing pipeline orchestrated by Cloudflare Workflows (Beta) with built-in checkpointing and retries",
+            "Split-storage design: relational data on Cloudflare D1 SQL database and raw/cleaned content on Cloudflare R2 object storage",
+            "Semantic search and similar articles suggestions powered by Workers AI (@cf/baai/bge-small-en-v1.5) and Cloudflare Vectorize",
+            "OpenAI Model Router with auto-fallback that dynamically queries OpenAI API capabilities and handles fallback models gracefully",
+            "Rich interactive admin control panel with RSS source CRUD, manual/batch AI review and re-processing flow, auto-publish rules, and custom Telegram daily digests"
+        ],
+        isPrivate: true
+    },
+    {
+        id: "ctsmartcam",
+        title: "CTSmartCam - Intelligent Surveillance Ecosystem",
+        description: "An intelligent surveillance ecosystem for Cần Thơ City, utilizing an event-driven AI pipeline for real-time monitoring and security.",
+        category: "ai",
+        technologies: ["ASP.NET Core 9", "SignalR", "Python", "Redis Streams", "YOLOv11", "PostgreSQL", "pgvector", "Nginx", "Docker"],
+        github: "",
+        demo: "",
+        image: "/images/preview/preview_ctsmartcam.png",
+        images: [
+            "/images/project_image/ctsmartcam/01_overview.png",
+            "/images/project_image/ctsmartcam/02_dashboard.png",
+            "/images/project_image/ctsmartcam/03_detection.png",
+            "/images/project_image/ctsmartcam/04_alerts.png",
+            "/images/project_image/ctsmartcam/05_settings.png",
+            "/images/project_image/ctsmartcam/06_stats.png",
+        ],
+        videos: [
+            "https://github.com/user-attachments/assets/35d2d595-7d66-4df0-8c1b-4a855888d564",
+            "https://github.com/user-attachments/assets/e254fcf1-9cdf-4b40-8fcd-9dfd05e8aebc"
+        ],
+        featured: true,
+        highlights: [
+            "Event-driven architecture optimizing hardware resources for multi-camera processing",
+            "Integrated Identity Fusion linking vehicle license plates with driver facial recognition",
+            "Advanced LPR system with Super Resolution support for low-quality captures",
+            "Multi-layer security featuring application honeypots and real-time security logging",
+            "Interactive CMS dashboard for centralized camera management and analytics"
+        ],
+        isPrivate: true
     },
     {
         id: "multi-cloud-soar",
@@ -147,37 +306,6 @@ export const projects: Project[] = [
         isPrivate: true
     },
     {
-        id: "ctsmartcam",
-        title: "CTSmartCam - Intelligent Surveillance Ecosystem",
-        description: "An intelligent surveillance ecosystem for Cần Thơ City, utilizing an event-driven AI pipeline for real-time monitoring and security.",
-        category: "ai",
-        technologies: ["ASP.NET Core 9", "SignalR", "Python", "Redis Streams", "YOLOv11", "PostgreSQL", "pgvector", "Nginx", "Docker"],
-        github: "",
-        demo: "",
-        image: "/images/preview/preview_ctsmartcam.png",
-        images: [
-            "/images/project_image/ctsmartcam/01_overview.png",
-            "/images/project_image/ctsmartcam/02_dashboard.png",
-            "/images/project_image/ctsmartcam/03_detection.png",
-            "/images/project_image/ctsmartcam/04_alerts.png",
-            "/images/project_image/ctsmartcam/05_settings.png",
-            "/images/project_image/ctsmartcam/06_stats.png",
-        ],
-        videos: [
-            "https://github.com/user-attachments/assets/35d2d595-7d66-4df0-8c1b-4a855888d564",
-            "https://github.com/user-attachments/assets/e254fcf1-9cdf-4b40-8fcd-9dfd05e8aebc"
-        ],
-        featured: true,
-        highlights: [
-            "Event-driven architecture optimizing hardware resources for multi-camera processing",
-            "Integrated Identity Fusion linking vehicle license plates with driver facial recognition",
-            "Advanced LPR system with Super Resolution support for low-quality captures",
-            "Multi-layer security featuring application honeypots and real-time security logging",
-            "Interactive CMS dashboard for centralized camera management and analytics"
-        ],
-        isPrivate: true
-    },
-    {
         id: "ai-lms",
         title: "toanvotruongtoan.com - AI-Powered LMS",
         description: "Production-ready Learning Management System with Gemini AI integration for automated exam generation and intelligent tutoring, serving hundreds of students.",
@@ -213,7 +341,7 @@ export const projects: Project[] = [
             "Offline download & background playback",
             "No ads, no tracking, privacy-first",
             "Python-powered yt-dlp integration"
-        ],
+        ]
     },
     {
         id: "chaincampus",
@@ -301,8 +429,8 @@ export const projects: Project[] = [
     }
 ];
 
-// Explicitly select and order the 3 top featured projects for the homepage
-const featuredOrder = ["orangecloud-insights", "ctsmartcam", "multi-cloud-soar"];
+// Explicitly select and order the top featured projects for the homepage
+const featuredOrder = ["sdn-its-resilience-ai", "securecoating-vision", "orangecloud-insights"];
 export const featuredProjects = featuredOrder
     .map(id => projects.find(p => p.id === id))
     .filter((p): p is Project => p !== undefined);
