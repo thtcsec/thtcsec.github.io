@@ -9,7 +9,7 @@ A collection of featured engineering projects in web architectures, serverless s
 ### 1. AI-Assisted Resilience for SDN-Enabled ITS (`sdn-its-resilience-ai`)
 *   **Domain:** Artificial Intelligence & Software-Defined Networking (SDN)
 *   **Technologies:** PyTorch, Python, Ryu, ONOS, Mininet-WiFi, SUMO, Scapy, Flask, Docker
-*   **Source Code:** [github.com/thtcsec/sdn-its-resilience-ai](https://github.com/thtcsec/sdn-its-resilience-ai)
+*   **Access:** Private Research Repository
 *   **Highlights:**
     *   *Academic Context:* Research Proposal Project at Tsinghua University IEDE under academic supervision of Prof. Kris Singh.
     *   Flow-level telemetry paired with Hybrid TCN-GRU anomaly detection achieving 97.33% accuracy.
@@ -52,7 +52,7 @@ A collection of featured engineering projects in web architectures, serverless s
 ### 4. EnterpriseRAG — Hybrid Retrieval-Augmented Generation Platform
 *   **Domain:** Artificial Intelligence & Information Retrieval
 *   **Technologies:** FastAPI, Python, Qdrant, OpenSearch, Redis, CrossEncoder, LightOnOCR-2, Docling, Docker
-*   **Source Code:** [github.com/thtcsec/EnterpriseRAG](https://github.com/thtcsec/EnterpriseRAG)
+*   **Access:** Private MVP Repository
 *   **Highlights:**
     *   Built MVP for Next Step Technology Solutions.
     *   Hybrid retrieval pipeline: Qdrant dense vector search + OpenSearch BM25 → Reciprocal Rank Fusion (RRF) → CrossEncoder reranker.
@@ -63,7 +63,7 @@ A collection of featured engineering projects in web architectures, serverless s
 ### 5. QUASAR — Classical-Quantum Hybrid Logistics Engine
 *   **Domain:** Quantum Computing & Operations Research
 *   **Technologies:** FastAPI, Python, Qiskit, IBM Quantum Runtime, Google OR-Tools, OSMnx, SQLAlchemy, Docker
-*   **Source Code:** [github.com/thtcsec/QUASAR](https://github.com/thtcsec/QUASAR)
+*   **Source Code:** [github.com/Muhammad-Rafif-Irfan/QUASAR](https://github.com/Muhammad-Rafif-Irfan/QUASAR)
 *   **Highlights:**
     *   *Award:* Finalist (Team 23) at International Quantum Computing Hackathon (QC4SG 2026).
     *   Asynchronous hybrid computation pipeline pairing classical warm-starts (Google OR-Tools) with 127-qubit IBM QPU QAOA algorithms.
@@ -73,7 +73,7 @@ A collection of featured engineering projects in web architectures, serverless s
 ### 6. SecureCoating-Vision — Multi-Source Fusion Vision System
 *   **Domain:** Computer Vision & AI for Materials Science
 *   **Technologies:** Python, FastAPI, PyTorch, ONNX Runtime, TensorRT, Streamlit, OpenCV, Docker
-*   **Source Code:** [github.com/thtcsec/securecoating-vision](https://github.com/thtcsec/securecoating-vision)
+*   **Access:** Private Competition Repository
 *   **Highlights:**
     *   *Competition:* 2026 Global AI + Materials Competition (Tsinghua University School of Materials Science & Engineering), supervised by Prof. Kris Singh (SRII / Tsinghua).
     *   Multi-modal sensor fusion combining 2D High-Res Optical RGB, LWIR Thermal, and 3D Laser Profilometer data.
@@ -83,7 +83,7 @@ A collection of featured engineering projects in web architectures, serverless s
 ### 7. Foundry — AI Engineering Intelligence Platform
 *   **Domain:** System Engineering & AI Code Intelligence
 *   **Technologies:** ASP.NET Core 10, Next.js 15, C# 13, TypeScript, PostgreSQL, pgvector, Redis, Docker, Terraform
-*   **Source Code:** [github.com/thtcsec/Foundry](https://github.com/thtcsec/Foundry)
+*   **Access:** Private Project Repository
 *   **Highlights:**
     *   Microservices architecture split into API Gateway (ASP.NET Core 10), Background AST Worker, and LLM Model Gateway.
     *   Vector DB (`pgvector`) RAG indexing with Redis semantic response caching (`>97%` cosine similarity prompt shortcut).
@@ -97,7 +97,7 @@ A collection of featured engineering projects in web architectures, serverless s
 ### 4. DriftSkills AI - Career Recommendation Engine
 *   **Domain:** AI / Career Path Planning
 *   **Technologies:** Next.js 14, FastAPI, MongoDB Atlas, Vector Search, Python, D3.js, Docker, TailwindCSS
-*   **Source Code:** [github.com/thtcsec/driftskills-ai](https://github.com/thtcsec/driftskills-ai)
+*   **Access:** Private Hackathon Repository
 *   **Highlights:**
     *   *Award:* Ranked 2nd (Team Vector404) at MUGVN × MongoDB Mini Hackathon 2026.
     *   Semantic Job Matching via `$vectorSearch` on 384-dimensional embeddings.

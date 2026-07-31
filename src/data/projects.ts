@@ -23,7 +23,7 @@ export const projects: Project[] = [
         description: "Lightweight research framework for V2X network reliability, edge telemetry, and safety-aware SDN mitigation featuring Hybrid TCN-GRU anomaly detection (97.33% accuracy, 0.174MB INT8 quantization, 9.9ms latency) with automated contain-and-rollback mitigation.",
         category: "ai",
         technologies: ["PyTorch", "Python", "Ryu", "ONOS", "Mininet-WiFi", "SUMO", "Scapy", "Flask", "Docker"],
-        github: "https://github.com/thtcsec/sdn-its-resilience-ai",
+        github: "",
         demo: "",
         image: "/images/project_image/sdn_its/sdn_its.png",
         images: [
@@ -41,7 +41,7 @@ export const projects: Project[] = [
             "Automated Detect -> Contain -> Rollback safety-aware mitigation pipeline with cooldown policy",
             "Canonical InSDN real dataset evaluation harness, ONNX export pipeline, and interactive command center UI"
         ],
-        isPrivate: false
+        isPrivate: true
     },
     {
         id: "securecoating-vision",
@@ -49,7 +49,7 @@ export const projects: Project[] = [
         description: "Multi-source data fusion vision inspection system for real-time coating defect detection (scratches, voids, delamination), prepared for Tsinghua University AI + Materials Competition.",
         category: "ai",
         technologies: ["Python", "FastAPI", "PyTorch", "ONNX Runtime", "TensorRT", "Streamlit", "OpenCV", "Docker"],
-        github: "https://github.com/thtcsec/securecoating-vision",
+        github: "",
         demo: "",
         image: "/images/project_image/securecoating/securecoating-1.png",
         images: [
@@ -64,7 +64,7 @@ export const projects: Project[] = [
             "Dual-stage inference pipeline accelerated via TensorRT FP16/INT8 for <=35ms inspection latency",
             "Fail-safe sensor degradation logic, digital homography correction, and OPC UA / Modbus TCP industrial PLC signaling"
         ],
-        isPrivate: false
+        isPrivate: true
     },
     {
         id: "foundry-platform",
@@ -72,7 +72,7 @@ export const projects: Project[] = [
         description: "AI-Powered Engineering Review & Code Intelligence Platform acting as an experienced Staff Engineer that understands entire codebases, delivering architectural insights, security reviews, FinOps metrics, and dependency upgrade maps.",
         category: "system",
         technologies: ["ASP.NET Core 10", "Next.js 15", "C# 13", "TypeScript", "PostgreSQL", "pgvector", "Redis", "Docker", "Terraform"],
-        github: "https://github.com/thtcsec/Foundry",
+        github: "",
         demo: "",
         image: "/images/project_image/foundry/foundry-1.png",
         images: [
@@ -90,7 +90,7 @@ export const projects: Project[] = [
             "Parallel static scanner audits for Security, Dependencies, FinOps, and Infrastructure",
             "Extensible C# 13 & .NET 10 solution with Next.js App Router frontend and Terraform AWS infra"
         ],
-        isPrivate: false
+        isPrivate: true
     },
     {
         id: "quasar-quantum-routing",
@@ -98,7 +98,7 @@ export const projects: Project[] = [
         description: "Classical-quantum hybrid logistics orchestration system for Traveling Salesperson Problem (TSP) optimization, combining Google OR-Tools guided local search with 127-qubit IBM Quantum Qiskit QAOA execution.",
         category: "system",
         technologies: ["FastAPI", "Python", "Qiskit", "IBM Quantum Runtime", "Google OR-Tools", "OSMnx", "SQLAlchemy", "Docker"],
-        github: "https://github.com/thtcsec/QUASAR",
+        github: "https://github.com/Muhammad-Rafif-Irfan/QUASAR",
         demo: "",
         image: "/images/project_image/quasar/quasar-1.png",
         images: [
@@ -125,7 +125,7 @@ export const projects: Project[] = [
         description: "Production hybrid RAG platform combining Qdrant dense vector search, OpenSearch BM25, and CrossEncoder reranking with document-level ACL access control and multi-format ingest (PDF OCR routing via LightOnOCR-2 & Docling).",
         category: "ai",
         technologies: ["FastAPI", "Python", "Qdrant", "OpenSearch", "Redis", "CrossEncoder", "LightOnOCR-2", "Docling", "Docker"],
-        github: "https://github.com/thtcsec/EnterpriseRAG",
+        github: "",
         demo: "",
         image: "/images/project_image/enterpriserag/enterpriserag-1.png",
         images: [
@@ -143,7 +143,7 @@ export const projects: Project[] = [
             "LLM-as-judge citation verification on streaming and non-streaming answers",
             "Redis semantic caching, Prometheus metrics, and automated IR Golden-set eval harness (Recall@K, MRR, nDCG)"
         ],
-        isPrivate: false
+        isPrivate: true
     },
     {
         id: "driftskills-ai",
@@ -151,7 +151,7 @@ export const projects: Project[] = [
         description: "AI-powered career recommendation engine. Detects skill gaps and career drift, providing personalized learning paths using MongoDB Atlas Vector Search and Aggregation Pipelines.",
         category: "ai",
         technologies: ["Next.js 14", "FastAPI", "MongoDB Atlas", "Vector Search", "Python", "D3.js", "Docker", "TailwindCSS"],
-        github: "https://github.com/thtcsec/driftskills-ai",
+        github: "",
         demo: "",
         image: "/images/preview/preview_driftskills.png",
         images: [
@@ -171,7 +171,7 @@ export const projects: Project[] = [
             "MongoDB Live Engine Inspector (X-Ray) for real-time pipeline tracing and execution stats",
             "Interactive Visualizations: Skill Galaxy (D3 force-directed graph) and Market Analytics ($facet)"
         ],
-        isPrivate: false
+        isPrivate: true
     },
     {
         id: "orangecloud-insights",
