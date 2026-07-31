@@ -69,43 +69,31 @@ A structured record of professional certifications, credentials, hackathon achie
 *   **Date:** February 2026
 *   **Credential Verification:** [Credly Badge ID: ad399ad3-8827-4b99-8221-8fd248047d4a](https://www.credly.com/badges/ad399ad3-8827-4b99-8221-8fd248047d4a/linked_in?t=tarma7)
 
-### 3. Foundations of Cybersecurity
-*   **Issuer:** Google
-*   **Date:** May 2025
-*   **Credential Verification:** [Coursera Verify: XP102V7M0CQC](https://www.coursera.org/verify/XP102V7M0CQC)
-
-### 4. Google AI
+### 3. Google AI
 *   **Issuer:** Google
 *   **Date:** February 2026
 *   **Credential Verification:** [Coursera Verify](https://coursera.org/share/c7724fa55611f8ebb8c0340ddb9664aa)
 
-### 5. Technical Support Fundamentals
-*   **Issuer:** Google
-*   **Date:** 2025
-
-### 6. Network Architecture
-*   **Issuer:** Google
-*   **Date:** 2025
-
-### 7. AWS Security Fundamentals
+### 4. AWS Security Fundamentals
 *   **Issuer:** Amazon Web Services (AWS)
 *   **Date:** 2025
 
-### 8. Certified Cybersecurity Educator Professional (CCEP)
+### 4. Certified Cybersecurity Educator Professional (CCEP)
 *   **Issuer:** Red Team Leaders
 *   **Date:** 2025
 
-### 9. Certified Threat Intelligence Governance Analyst (CTIGA)
+### 5. Certified Threat Intelligence Governance Analyst (CTIGA)
 *   **Issuer:** Red Team Leaders
 *   **Date:** 2025
 
-### 9. Introduction to Critical Infrastructure Protection (ICIP)
+### 6. Introduction to Critical Infrastructure Protection (ICIP)
 *   **Issuer:** OPSWAT Academy
 *   **Date:** 2025
 
-### 10. Cloud Learning Tracks (Hack2skill)
+### 7. Cloud Learning Tracks (Hack2skill)
 *   **Data Learning Certification** — Hack2skill
 *   **DevOps Learning Certification** — Hack2skill (Verification: [Academy DevOps](https://certificate.hack2skill.com/user/academy2devops/2025H2S10GENAI-DE300881))
 *   **Network Learning Certification** — Hack2skill (Verification: [Academy Networking](https://certificate.hack2skill.com/user/academy2networking/2025H2S10GENAI-NE300623))
 *   **Serverless Learning Certification** — Hack2skill
 *   **AI and ML Learning Certification** — Hack2skill
+

@@ -1,4 +1,4 @@
-// Certificates and Achievements data - from certificates.html
+// Certificates and Achievements data
 export interface Certificate {
     id: string;
     title: string;
@@ -20,39 +20,10 @@ export const certificates: Certificate[] = [
         description: "Completed 'Innovation and Entrepreneurship for the 21st Century AI-Driven Knowledge Economy' (IEDE2026126) under the School of Software, Tsinghua University. Supervised by Prof. Kris Singh (CEO at SRII, Ex-Executive at IBM, AMD, Intel, National Semi; Advisor at Startups, Silicon Valley, California; Visiting Professor, Tsinghua University, Beijing; Adj. Professor of Practice, University of Newcastle, Australia)."
     },
     {
-        id: "grab-future",
-        title: "GRAB the Future Hackathon",
-        issuer: "UNDP x Grab Vietnam",
-        image: "/images/certificates/grab.png",
-        type: "certificate"
-    },
-    {
-        id: "qcobalt-cert",
-        title: "QCobalt 10-263 Certification",
-        issuer: "QCobalt",
-        image: "/images/certificates/QCobalt10-263.jpg",
-        type: "certificate"
-    },
-    {
-        id: "student-ambassador",
-        title: "Google Student Ambassador",
-        issuer: "Google Vietnam",
-        image: "/images/certificates/daisusinhvien.jpg",
-        type: "certificate"
-    },
-    // Google Certificates (first)
-    {
-        id: "cybersecurity",
-        title: "Foundations of Cybersecurity",
-        issuer: "Google",
-        image: "/images/certificates/foundations_of_cybersecurity.jpg",
-        type: "certificate"
-    },
-    {
         id: "google-cloud-foundation",
         title: "Google Cloud Computing Foundation",
         issuer: "Google Cloud",
-        image: "", // Not used since it's an embed
+        image: "",
         type: "certificate",
         credlyBadgeId: "ad399ad3-8827-4b99-8221-8fd248047d4a"
     },
@@ -64,28 +35,12 @@ export const certificates: Certificate[] = [
         type: "certificate"
     },
     {
-        id: "technical-support",
-        title: "Technical Support Fundamentals",
-        issuer: "Google",
-        image: "/images/certificates/technical_support_fundamentals.jpg",
-        type: "certificate"
-    },
-
-    {
-        id: "network-architecture",
-        title: "Network Architecture",
-        issuer: "Google",
-        image: "/images/certificates/network_architecture.jpg",
-        type: "certificate"
-    },
-    {
         id: "aws-security-fundamentals",
         title: "AWS Security Fundamentals",
-        issuer: "Amazon Web Services",
+        issuer: "Amazon Web Services (AWS)",
         image: "/images/certificates/aws_security_fundamentals.jpg",
         type: "certificate"
     },
-    // Professional Certifications
     {
         id: "ccep-certified",
         title: "Certified Cybersecurity Educator Professional (CCEP)",
@@ -107,7 +62,6 @@ export const certificates: Certificate[] = [
         image: "/images/certificates/introduction_to_cip.png",
         type: "certificate"
     },
-    // Hack2skill Certifications
     {
         id: "hack2skill-data",
         title: "Data Learning",
@@ -143,7 +97,27 @@ export const certificates: Certificate[] = [
         image: "/images/certificates/hack2skill_ai_ml_learning.png",
         type: "certificate"
     },
-    // Hackathon Participation (last)
+    {
+        id: "qcobalt-cert",
+        title: "QCobalt 10-263 Certification",
+        issuer: "QCobalt",
+        image: "/images/certificates/QCobalt10-263.jpg",
+        type: "certificate"
+    },
+    {
+        id: "student-ambassador",
+        title: "Google Student Ambassador",
+        issuer: "Google Vietnam",
+        image: "/images/certificates/daisusinhvien.jpg",
+        type: "certificate"
+    },
+    {
+        id: "grab-future",
+        title: "GRAB the Future Hackathon",
+        issuer: "UNDP x Grab Vietnam",
+        image: "/images/certificates/grab.png",
+        type: "certificate"
+    },
     {
         id: "vpbank-hackathon",
         title: "VPBank Hackathon",
@@ -253,8 +227,8 @@ export const achievements: Certificate[] = [
 ];
 
 export const featuredCertificates = [
-    certificates.find(c => c.id === "google-cloud-foundation")!,
     certificates.find(c => c.id === "tsinghua-iede")!,
+    certificates.find(c => c.id === "google-cloud-foundation")!,
     certificates.find(c => c.id === "aws-security-fundamentals")!
 ];
 export const featuredAchievements = [
