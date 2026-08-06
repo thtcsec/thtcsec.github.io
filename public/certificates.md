@@ -7,7 +7,7 @@ A structured record of professional certifications, credentials, hackathon achie
 ## 🏆 Hackathons & Academic Achievements
 
 ### 1. Finalist — QC4SG 2026 International Quantum Computing Hackathon
-*   **Issuer:** VNQuantum, NIC (National Innovation Center) & Department of Science and Technology of Gia Lai Province
+*   **Issuer:** VNQuantum, NIC & Department of Science and Technology of Gia Lai Province
 *   **Date:** July 2026
 *   **Description:** Selected as Finalist (Team 23) in the Quantum Computing for Social Good (QC4SG) 2026 International Hackathon. Built QUASAR: A classical-quantum hybrid logistics engine pairing classical local search (Google OR-Tools) with 127-qubit IBM QPU QAOA algorithms for Traveling Salesperson Problem optimization.
 
@@ -16,10 +16,10 @@ A structured record of professional certifications, credentials, hackathon achie
 *   **Date:** June 2026
 *   **Description:** Won 2nd place in the National Finals of the MUGVN & MongoDB Mini Hackathon 2026 as a solo engineer (Team Vector404) with the project "DriftSkills AI".
 
-### 2. Top 10 Finalist — The Gridbreakers Datathon 2026
+### 3. Ranked 10th — The Gridbreakers Datathon 2026
 *   **Issuer:** VinUniversity & VinTelligence
 *   **Date:** May 2026
-*   **Description:** Outperformed over 500 teams and nearly 2,000 contestants nationwide in the Datathon 2026 (organized by VinTelligence - VinUni Data Science & AI Club) to secure a position in the Top 10 Finalists with Team GenCore.
+*   **Description:** Ranked 10th out of 50 top shortlisted teams (outperforming over 500 teams and 2,000 contestants nationwide) in The Gridbreakers Datathon 2026 organized by VinUniversity & VinTelligence with Team GenCore.
 
 ### 3. Top 10 Finalist — Tasco Foundry 2026 Venture Build
 *   **Issuer:** GenAIFund x Tasco

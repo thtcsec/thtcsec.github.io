@@ -82,7 +82,7 @@ const ArcadePage = () => {
                 Arcade Showcase
               </h1>
               <p className="text-muted-foreground text-sm md:text-base leading-relaxed">
-                A personal archive of captured battle moments and gaming highlights.
+                A personal collection of in-game screenshots.
               </p>
             </div>
           </div>

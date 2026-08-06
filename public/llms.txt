@@ -69,7 +69,7 @@ These clean markdown files are specifically designed for AI agents and LLM scrap
 ## Achievements & Awards
 - **Finalist** – QC4SG 2026 International Quantum Computing Hackathon (Team 23 - QUASAR Hybrid Quantum Engine)
 - **Ranked 2nd** – MUGVN & MongoDB Mini Hackathon 2026 (Team Vector404)
-- **Top 10 Finalist** – VinUniversity Datathon "The Gridbreaker" 2026 (Team GenCore - Outperformed 500+ teams & 2,000 contestants)
+- **Ranked 10th** – VinUniversity Datathon "The Gridbreaker" 2026 (Team GenCore - Ranked 10th out of 50 top teams)
 - **Winner** – HSU Vibe Coding Talents 2025
 
 ## Usage Preference

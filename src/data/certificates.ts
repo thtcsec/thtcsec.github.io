@@ -138,7 +138,7 @@ export const achievements: Certificate[] = [
     {
         id: "qc4sg-quantum-hackathon-2026",
         title: "Finalist - QC4SG 2026 International Quantum Computing Hackathon",
-        issuer: "VNQuantum, NIC (National Innovation Center) & Department of Science and Technology of Gia Lai Province",
+        issuer: "VNQuantum, NIC & Department of Science and Technology of Gia Lai Province",
         image: "/images/achievements/qc4sg_quantum_hackathon_finalist.jpg",
         type: "achievement",
         description: "Selected as Finalist (Team 23) in the Quantum Computing for Social Good (QC4SG) 2026 International Hackathon. Built QUASAR: A classical-quantum hybrid logistics engine pairing classical local search (Google OR-Tools) with 127-qubit IBM QPU QAOA algorithms for Traveling Salesperson Problem optimization."
@@ -153,11 +153,11 @@ export const achievements: Certificate[] = [
     },
     {
         id: "vinuni-datathon-2026",
-        title: "Top 10 Finalist - The Gridbreakers Datathon 2026",
+        title: "Ranked 10th - The Gridbreakers Datathon 2026",
         issuer: "VinUniversity & VinTelligence",
         image: "/images/achievements/datathon_top10.png",
         type: "achievement",
-        description: "Outperformed over 500 teams and nearly 2,000 contestants nationwide in the Datathon 2026 (organized by VinTelligence - VinUni Data Science & AI Club) to secure a position in the Top 10 Finalists with Team GenCore."
+        description: "Ranked 10th out of 50 top shortlisted teams (outperforming over 500 teams and nearly 2,000 contestants nationwide) in The Gridbreakers Datathon 2026 organized by VinUniversity & VinTelligence with Team GenCore."
     },
     {
         id: "tasco-foundry-2026",

@@ -186,7 +186,7 @@ const ResumePage = () => {
                 <strong className="text-foreground print:text-black">Ranked 2nd</strong> – MUGVN & MongoDB Mini Hackathon 2026 (Team Vector404)
               </li>
               <li>
-                <strong className="text-foreground print:text-black">Top 10 Finalist</strong> – VinUniversity Datathon "The Gridbreaker" 2026 (Team: GenCore - Outperformed 500+ teams & 2,000 contestants)
+                <strong className="text-foreground print:text-black">Ranked 10th</strong> – VinUniversity Datathon "The Gridbreaker" 2026 (Team GenCore - Ranked 10th out of 50 top teams, outperforming 500+ teams & 2,000 contestants)
               </li>
               <li>
                 <strong className="text-foreground print:text-black">2nd Runner Up</strong> – GenAI Express Demo Day GDG On Campus SGU 2026
