@@ -26,7 +26,7 @@ export const publicationsData: Publication[] = [
     abbreviation: "ICAI-FAI 2026",
     track: "Track 1: Information and Communications Technology (ICT)",
     year: 2026,
-    authors: ["Trinh Hoang Tu", "Cao Tien Thanh"],
+    authors: ["Trinh Hoang Tu", "ThS. Cao Tien Thanh"],
     affiliation: "Faculty of Information Technology, HUFLIT",
     abstract:
       "Modern university networks face escalating cybersecurity threats driven by unmanaged BYOD devices and heterogeneous IoT endpoints. Traditional Security Operations Center (SOC) workflows rely on manual alert triage, yielding Mean Time to Respond (MTTR) latencies exceeding 1500 seconds. This paper proposes an AI-native event-driven edge-cloud security platform enabling sub-10 ms closed-loop threat containment. We decouple high-frequency edge telemetry ingestion from cloud policy control.",
@@ -44,7 +44,7 @@ export const publicationsData: Publication[] = [
     abbreviation: "CSONET 2026",
     track: "Network Security, Log Intelligence & Deep Learning",
     year: 2026,
-    authors: ["Cao Tien Thanh", "Trinh Hoang Tu", "Tran Manh Ha"],
+    authors: ["ThS. Cao Tien Thanh", "Trinh Hoang Tu", "PGS. TS. Tran Manh Ha"],
     affiliation: "Industrial University of Ho Chi Minh City & Faculty of Information Technology, HUFLIT",
     abstract:
       "This paper presents a network-aware system log anomaly detection pipeline based on Drain3 and event sequence analysis, modeling log sequences as walks on directed event-transition networks and client-service interaction graphs. We evaluate Temporal Convolutional Networks (TCN) and Transformers against traditional baselines on three large-scale log datasets (HDFS, BGL, and HUFLIT-Career). On BGL (500k lines, 198 templates), TCN leads with an F1-score of 0.9826, demonstrating notable classification advantage and competitive inference latency.",
@@ -79,7 +79,7 @@ export const publicationsData: Publication[] = [
     abbreviation: "VNICT 2026",
     track: "Information & Network Security, AIOps & Deep Learning",
     year: 2026,
-    authors: ["Trinh Hoang Tu", "Cao Tien Thanh"],
+    authors: ["Trinh Hoang Tu", "ThS. Cao Tien Thanh"],
     affiliation: "Faculty of Information Technology, HUFLIT",
     abstract:
       "This paper presents a large-scale system log anomaly detection pipeline based on Drain3 and event sequence analysis, comparing Temporal Convolutional Networks (TCN) and Transformers against traditional baselines (PCA, SVD, Isolation Forest, DeepLog) on HDFS and BGL datasets. (Accepted as Camera-Ready paper #6979; the research team subsequently upgraded and expanded this work into CSoneT 2026).",
