@@ -333,12 +333,6 @@ export const PublicationsPage: React.FC = () => {
                               <ExternalLink className="w-3.5 h-3.5" /> Official Conf Site
                             </a>
                           )}
-                          {pub.pdfUrl && (
-                            <a href={pub.pdfUrl} target="_blank" rel="noreferrer"
-                              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-cyan-600 hover:bg-cyan-500 text-white text-xs font-bold transition-all shadow-sm">
-                              <FileText className="w-3.5 h-3.5" /> PDF Paper
-                            </a>
-                          )}
                           {pub.githubUrl && (
                             <a href={pub.githubUrl} target="_blank" rel="noreferrer"
                               className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 text-xs font-bold transition-all border border-slate-300 dark:border-slate-700">
