@@ -1,89 +1,56 @@
-import { ArrowRight, Calendar, Clock } from "lucide-react";
+import { ArrowRight, BookOpen, FlaskConical } from "lucide-react";
 import { Link } from "react-router-dom";
-import { blogPosts } from "@/data/blog";
 
 const RecentBlogs = () => {
-  // Get the 2 most recent posts
-  const recentPosts = blogPosts.slice(0, 2);
-
   return (
     <section id="research" className="cinema-section bg-background overflow-hidden py-20">
       <div className="container px-4 mx-auto relative z-10">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6 max-w-5xl mx-auto">
-          <div className="max-w-2xl">
-            <div className="cinema-kicker mb-4">
-              Research
-            </div>
-            <h2 className="cinema-title mb-4 text-left md:text-4xl">
-              Articles and notes
-            </h2>
-            <p className="text-muted-foreground text-lg">
-              Short write-ups on security, systems, and the technical work behind the portfolio.
-            </p>
-          </div>
-          <Link
-            to="/research"
-            className="group flex items-center gap-2 text-primary font-medium hover:text-primary/80 transition-colors whitespace-nowrap"
-          >
-            View all articles
-            <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-          </Link>
-        </div>
+        <div className="max-w-5xl mx-auto">
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-          {recentPosts.map((post) => (
-            <Link
-              key={post.id}
-              to={`/research/${post.id}`}
-              className="cinema-card group flex flex-col h-full overflow-hidden transition-colors hover:border-primary/50"
-            >
-              {post.imageUrl && (
-                <div className="relative h-44 overflow-hidden">
-                  <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors z-10" />
-                  <img
-                    src={post.imageUrl}
-                    alt={post.title}
-                    className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute top-4 left-4 z-20 flex gap-2">
-                     {post.tags.slice(0, 2).map((tag, i) => (
-                       <span key={i} className="px-3 py-1 bg-background/80 backdrop-blur-md text-xs font-semibold rounded-full border border-border/50 text-foreground">
-                         {tag}
-                       </span>
-                     ))}
-                  </div>
-                </div>
-              )}
-              
-              <div className="p-6 flex flex-col flex-grow">
-                <div className="flex items-center gap-4 text-xs text-muted-foreground mb-4 font-medium">
-                  <div className="flex items-center gap-1.5">
-                     <Calendar size={14} />
-                     {post.date}
-                  </div>
-                  <div className="flex items-center gap-1.5">
-                     <Clock size={14} />
-                     {post.readTime}
-                  </div>
-                </div>
-                
-                <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors line-clamp-2">
-                  {post.title}
-                </h3>
-                
-                <p className="text-muted-foreground mb-6 line-clamp-2 text-sm flex-grow">
-                  {post.excerpt}
-                </p>
-                
-                <div className="mt-auto flex items-center justify-between">
-                  <span className="text-sm font-bold text-primary flex items-center gap-1 group-hover:gap-2 transition-all">
-                    Read article <ArrowRight size={14} />
-                  </span>
-                  {post.icon && <post.icon size={20} className="text-muted-foreground/30 group-hover:text-primary/50 transition-colors" />}
-                </div>
+          {/* Header */}
+          <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+            <div className="max-w-2xl">
+              <div className="cinema-kicker mb-4">
+                Research
               </div>
+              <h2 className="cinema-title mb-4 text-left md:text-4xl">
+                Publications & Research
+              </h2>
+              <p className="text-muted-foreground text-lg">
+                Peer-reviewed papers and conference proceedings in Cybersecurity, AI, and Network Systems — currently under review.
+              </p>
+            </div>
+          </div>
+
+          {/* CTA Card — placeholder until papers are published */}
+          <div className="rounded-2xl border border-border bg-card/60 backdrop-blur-sm p-10 flex flex-col md:flex-row items-center gap-8 shadow-lg">
+            {/* Icon */}
+            <div className="shrink-0 w-20 h-20 rounded-2xl bg-primary/10 flex items-center justify-center border border-primary/20">
+              <FlaskConical size={36} className="text-primary" />
+            </div>
+
+            {/* Text */}
+            <div className="flex-1 text-center md:text-left">
+              <h3 className="text-xl font-bold mb-2">
+                Papers under peer review
+              </h3>
+              <p className="text-muted-foreground text-sm leading-relaxed max-w-xl">
+                Research articles will be posted here once accepted and officially published.
+                In the meantime, browse the full list of submitted works — including abstracts, conference tracks, and author details.
+              </p>
+            </div>
+
+            {/* Button */}
+            <Link
+              to="/publications"
+              className="group shrink-0 inline-flex items-center gap-2.5 px-6 py-3 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:bg-primary/90 transition-all shadow-md hover:shadow-primary/30 hover:scale-[1.03]"
+            >
+              <BookOpen size={16} />
+              View Publications
+              <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
             </Link>
-          ))}
+          </div>
+
         </div>
       </div>
     </section>
