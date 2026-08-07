@@ -79,9 +79,9 @@ const Footer = () => {
             />
             <div>
               <h4 className="font-bold text-sm mb-1 text-foreground leading-snug">Tsinghua University</h4>
-              <p className="text-xs text-muted-foreground">AI & Innovation Digital Economy Program</p>
-              <p className="text-xs text-muted-foreground mt-0.5">Spring 2026: Certificate (Completed)</p>
-              <p className="text-xs text-muted-foreground mt-0.5">Autumn 2026: TA & Researcher</p>
+              <p className="text-xs text-primary/95 font-bold">Global Innovation Program Certified</p>
+              <p className="text-xs text-muted-foreground mt-0.5">AI & Innovation Digital Economy Program</p>
+              <p className="text-xs text-muted-foreground mt-0.5">Spring 2026: Certificate (Completed) &bull; Autumn 2026: TA & Researcher</p>
               <p className="text-[11px] text-primary/95 font-medium mt-0.5 leading-tight">Supervised by Prof. Kris Singh (CEO at SRII, Ex-IBM/Intel)</p>
             </div>
           </div>

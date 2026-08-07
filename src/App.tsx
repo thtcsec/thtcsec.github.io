@@ -26,6 +26,8 @@ import ScrollToTop from "./components/ScrollToTop";
 import { AudioProvider } from "./context/AudioContext";
 import MiniPlayer from "./components/portfolio/MiniPlayer";
 
+import PublicationsPage from "./pages/PublicationsPage";
+
 import ArcadePage from "./pages/ArcadePage";
 import { useArcadeSecret } from "./hooks/useArcadeSecret";
 
@@ -73,6 +75,7 @@ const App = () => {
 
               <Route path="/services" element={<PricingPage />} />
               <Route path="/resume" element={<ResumePage />} />
+              <Route path="/publications" element={<PublicationsPage />} />
               <Route path="/silentpipe" element={<SilentPipePage />} />
               <Route path="/silentpipe/" element={<SilentPipePage />} />
               <Route path="/pentestlab" element={<PentestLabPage />} />
