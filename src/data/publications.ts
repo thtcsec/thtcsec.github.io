@@ -90,4 +90,20 @@ export const publicationsData: Publication[] = [
     status: "Accepted",
     tags: ["Log Anomaly Detection", "TCN", "Transformer", "Drain3", "AIOps", "Camera-Ready"],
   },
+  {
+    id: "gigs-2026",
+    title: "AI-Driven Cyber Resilience and Smart Governance for Sustainable Digital Transformation in Higher Education Institutions",
+    conference: "International Conference on Governance, Innovation, Glocalization and Sustainability (GIGS 2026)",
+    abbreviation: "GIGS 2026",
+    track: "Governance, Policy and Societal Transformation / Digital Transformation",
+    year: 2026,
+    authors: ["Trinh Hoang Tu", "ThS. Cao Tien Thanh"],
+    affiliation: "Faculty of Information Technology, HUFLIT",
+    abstract:
+      "This study examines the interplay between AI-native cybersecurity governance, operational feasibility, and institutional sustainability across emerging higher education networks. We propose a risk-governance framework integrating edge AI telemetry and automated threat containment to achieve UN Sustainable Development Goal (SDG) 9 & 16 compliance.",
+    officialUrl: "https://gigs.ftu.edu.vn",
+    conferenceLogos: ["/images/ftu.png", "/images/curtin.jpg"],
+    status: "Under Review",
+    tags: ["AI Governance", "Digital Transformation", "Cyber Resilience", "ESG & Sustainability"],
+  },
 ];
