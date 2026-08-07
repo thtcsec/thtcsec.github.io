@@ -11,7 +11,10 @@ import {
   ChevronDown,
   ChevronUp,
   ChevronsUpDown,
+  ArrowLeft,
+  Home,
 } from "lucide-react";
+import { Link } from "react-router-dom";
 import { publicationsData, Publication } from "@/data/publications";
 
 export const PublicationsPage: React.FC = () => {
@@ -58,6 +61,17 @@ export const PublicationsPage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 pt-24 pb-16 px-4 sm:px-6 lg:px-8 transition-colors duration-300">
+      {/* Back to Home button */}
+      <div className="max-w-7xl mx-auto mb-6">
+        <Link
+          to="/"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-sm font-semibold text-slate-700 dark:text-slate-300 hover:border-cyan-500/60 hover:text-cyan-600 dark:hover:text-cyan-400 transition-all shadow-sm hover:shadow-md group"
+        >
+          <ArrowLeft className="w-4 h-4 group-hover:-translate-x-0.5 transition-transform" />
+          <Home className="w-3.5 h-3.5" />
+          Back to Home
+        </Link>
+      </div>
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         
         {/* LEFT COLUMN: Personal Academic Profile Sidebar */}
@@ -262,14 +276,18 @@ export const PublicationsPage: React.FC = () => {
                     </div>
                   )}
 
-                  {/* EXPANDED DETAILS (Revealed when clicked or Expand All) */}
-                  {isExpanded && (
-                    <div className="px-5 pb-6 pt-2 border-t border-slate-100 dark:border-slate-800 space-y-4 bg-slate-50/50 dark:bg-slate-950/40 cursor-default" onClick={(e) => e.stopPropagation()}>
+                  {/* EXPANDED DETAILS — smooth CSS height animation */}
+                  <div
+                    className={`overflow-hidden transition-all duration-400 ease-in-out ${
+                      isExpanded ? "max-h-[800px] opacity-100" : "max-h-0 opacity-0"
+                    }`}
+                    style={{ transition: 'max-height 0.38s cubic-bezier(0.4,0,0.2,1), opacity 0.28s ease' }}
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    <div className="px-5 pb-6 pt-3 border-t border-slate-100 dark:border-slate-800 space-y-4 bg-slate-50/50 dark:bg-slate-950/40 cursor-default">
                       {/* Conference Full Title & Track */}
                       <div className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 font-medium space-y-1">
-                        <div className="flex items-center gap-2">
-                          <p className="text-cyan-700 dark:text-cyan-400 font-semibold">{pub.conference}</p>
-                        </div>
+                        <p className="text-cyan-700 dark:text-cyan-400 font-semibold">{pub.conference}</p>
                         <p className="text-slate-500 dark:text-slate-400 text-xs">
                           <strong className="text-slate-700 dark:text-slate-300">Track:</strong> {pub.track}
                         </p>
@@ -277,12 +295,8 @@ export const PublicationsPage: React.FC = () => {
 
                       {/* Authors & Affiliations */}
                       <div className="text-xs font-mono text-slate-700 dark:text-slate-300 bg-white dark:bg-slate-950 p-3.5 rounded-xl border border-slate-200 dark:border-slate-800 space-y-1 shadow-sm">
-                        <div>
-                          <span className="font-bold text-slate-900 dark:text-white">Authors:</span> {pub.authors.join(", ")}
-                        </div>
-                        <div>
-                          <span className="text-slate-500 dark:text-slate-400">Affiliation:</span> {pub.affiliation}
-                        </div>
+                        <div><span className="font-bold text-slate-900 dark:text-white">Authors:</span> {pub.authors.join(", ")}</div>
+                        <div><span className="text-slate-500 dark:text-slate-400">Affiliation:</span> {pub.affiliation}</div>
                       </div>
 
                       {/* Abstract */}
@@ -297,54 +311,38 @@ export const PublicationsPage: React.FC = () => {
                       <div className="flex flex-wrap items-center justify-between gap-4 pt-3 border-t border-slate-200 dark:border-slate-800">
                         <div className="flex flex-wrap gap-1.5">
                           {pub.tags.map((tag, idx) => (
-                            <span key={idx} className="px-2.5 py-0.5 text-[11px] font-mono rounded bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300">
-                              #{tag}
-                            </span>
+                            <span key={idx} className="px-2.5 py-0.5 text-[11px] font-mono rounded bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300">#{tag}</span>
                           ))}
                         </div>
-
                         <div className="flex flex-wrap items-center gap-2">
                           {pub.officialUrl && (
-                            <a
-                              href={pub.officialUrl}
-                              target="_blank"
-                              rel="noreferrer"
-                              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold transition-all shadow-sm"
-                            >
+                            <a href={pub.officialUrl} target="_blank" rel="noreferrer"
+                              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold transition-all shadow-sm">
                               <ExternalLink className="w-3.5 h-3.5" /> Official Conf Site
                             </a>
                           )}
                           {pub.pdfUrl && (
-                            <a
-                              href={pub.pdfUrl}
-                              target="_blank"
-                              rel="noreferrer"
-                              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-cyan-600 hover:bg-cyan-500 text-white text-xs font-bold transition-all shadow-sm"
-                            >
+                            <a href={pub.pdfUrl} target="_blank" rel="noreferrer"
+                              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-cyan-600 hover:bg-cyan-500 text-white text-xs font-bold transition-all shadow-sm">
                               <FileText className="w-3.5 h-3.5" /> PDF Paper
                             </a>
                           )}
                           {pub.githubUrl && (
-                            <a
-                              href={pub.githubUrl}
-                              target="_blank"
-                              rel="noreferrer"
-                              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 text-xs font-bold transition-all border border-slate-300 dark:border-slate-700"
-                            >
+                            <a href={pub.githubUrl} target="_blank" rel="noreferrer"
+                              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 text-xs font-bold transition-all border border-slate-300 dark:border-slate-700">
                               <Github className="w-3.5 h-3.5 text-cyan-600 dark:text-cyan-400" /> Artifact
                             </a>
                           )}
                           <button
                             onClick={(e) => handleCopyBibtex(pub, e)}
-                            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 text-xs font-medium transition-all border border-slate-300 dark:border-slate-700"
-                          >
+                            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 text-xs font-medium transition-all border border-slate-300 dark:border-slate-700">
                             {copiedId === pub.id ? <Check className="w-3.5 h-3.5 text-emerald-500" /> : <ExternalLink className="w-3.5 h-3.5" />}
                             {copiedId === pub.id ? "Copied" : "BibTeX"}
                           </button>
                         </div>
                       </div>
                     </div>
-                  )}
+                  </div>
                 </div>
               );
             })}

@@ -50,7 +50,7 @@ export const publicationsData: Publication[] = [
       "This paper presents a network-aware system log anomaly detection pipeline based on Drain3 and event sequence analysis, modeling log sequences as walks on directed event-transition networks and client-service interaction graphs. We evaluate Temporal Convolutional Networks (TCN) and Transformers against traditional baselines on three large-scale log datasets (HDFS, BGL, and HUFLIT-Career). On BGL (500k lines, 198 templates), TCN leads with an F1-score of 0.9826, demonstrating notable classification advantage and competitive inference latency.",
     pdfUrl: "/cv/csonet2026.pdf",
     githubUrl: "https://github.com/thtcsec/log-anomaly-tcn-transformer",
-    officialUrl: "https://csonet.org",
+    officialUrl: "https://csonet-conf.github.io/csonet26/index.html",
     conferenceLogos: ["/images/hcmut.png"],
     status: "Under Review",
     tags: ["Log Anomaly Detection", "TCN", "Transformer", "Drain3", "AIOps", "Event Sequence Modeling"],
@@ -67,7 +67,7 @@ export const publicationsData: Publication[] = [
     abstract:
       "Empirical econometric evaluation of security automation adoption rates across 45 Higher Education Institutions (HEIs) in Vietnam, demonstrating statistical significance of edge AI deployment in reducing incident containment costs.",
     pdfUrl: "/cv/ueh_conf.pdf",
-    officialUrl: "https://icyreb.ueh.edu.vn",
+    officialUrl: "https://submit.ueh.edu.vn/index.php/icyref2026/index",
     conferenceLogos: ["/images/ueh.png"],
     status: "Under Review",
     tags: ["Econometric Analysis", "Cybersecurity Governance", "EdTech Resilience"],
