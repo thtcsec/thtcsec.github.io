@@ -124,7 +124,7 @@ const Footer = () => {
                   rel="noopener noreferrer"
                   className="text-sm text-muted-foreground hover:text-primary transition-colors inline-flex items-center gap-1 group/link"
                 >
-                  <span>Cloudflare News & Blog</span>
+                  <span>Cloudflare News & Blog (Technical Rewritten)</span>
                   <ExternalLink size={12} className="opacity-40 group-hover/link:opacity-80 transition-opacity" />
                 </a>
               </li>
@@ -138,6 +138,12 @@ const Footer = () => {
                   <span>Cloudflare Go-Live Readiness</span>
                   <ExternalLink size={12} className="opacity-40 group-hover/link:opacity-80 transition-opacity" />
                 </a>
+              </li>
+              <li>
+                <span className="text-sm text-muted-foreground/60 inline-flex items-center gap-1.5 cursor-not-allowed">
+                  <span>OrangeCloud DocOps</span>
+                  <span className="text-[10px] font-mono font-semibold px-1.5 py-0.5 rounded bg-muted border border-border text-muted-foreground">coming soon</span>
+                </span>
               </li>
             </ul>
           </div>

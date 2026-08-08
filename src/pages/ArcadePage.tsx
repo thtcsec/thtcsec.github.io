@@ -81,9 +81,6 @@ const ArcadePage = () => {
               <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-foreground via-foreground to-primary bg-clip-text text-transparent">
                 Arcade Showcase
               </h1>
-              <p className="text-muted-foreground text-sm md:text-base leading-relaxed">
-                A personal collection of in-game screenshots.
-              </p>
             </div>
           </div>
         </div>
