@@ -2,16 +2,54 @@ import fs from 'fs';
 import path from 'path';
 
 const routes = [
+  // Primary top-level routes
   'projects',
   'certificates',
   'services',
   'resume',
+  'publications',
   'silentpipe',
   'pentestlab',
   'research',
   'about',
   'prisma',
-  'immersive'
+  'immersive',
+  'arcade',
+  'game',
+
+  // Project detail routes
+  'projects/sdn-its-resilience-ai',
+  'projects/securecoating-vision',
+  'projects/foundry-platform',
+  'projects/quasar-quantum-routing',
+  'projects/enterpriserag',
+  'projects/driftskills-ai',
+  'projects/orangecloud-insights',
+  'projects/ctsmartcam',
+  'projects/multi-cloud-soar',
+  'projects/pentest-lab',
+  'projects/lingfilm',
+  'projects/ai-lms',
+  'projects/silentpipe',
+  'projects/chaincampus',
+  'projects/ai-sentinel',
+  'projects/face-recognition',
+  'projects/yodobashi',
+  'projects/portfolio',
+
+  // Legacy project IDs for backward compatibility (200 OK for old Googlebot links)
+  'projects/ct-smartcam',
+  'projects/foundry',
+  'projects/quasar',
+  'projects/securecoating',
+  'projects/sdn_its',
+  'projects/sdn-its',
+
+  // Research article routes
+  'research/soar-platform-aws-gcp',
+  'research/llm-citation-verification',
+  'research/pentest-lab-series',
+  'research/ctsmartcam-edge-ai'
 ];
 
 const distDir = path.resolve('dist');
@@ -32,4 +70,4 @@ routes.forEach(route => {
   );
 });
 
-console.log('✅ SPA Prerender: Generated index.html for all primary routes successfully!');
+console.log(`✅ SPA Prerender: Generated index.html for ${routes.length} routes successfully!`);

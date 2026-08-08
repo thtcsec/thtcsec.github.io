@@ -45,7 +45,8 @@ const LazyImage = ({ src, alt }: { src: string; alt: string }) => {
 
 const ProjectDetailPage = () => {
     const { id } = useParams<{ id: string }>();
-    const project = allProjects.find(p => p.id === id);
+    const normalizedId = id === "ct-smartcam" ? "ctsmartcam" : id;
+    const project = allProjects.find(p => p.id === normalizedId || p.id === id);
     const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
     const hasImages = project?.images && project.images.length > 0;
     const galleryImages = hasImages ? project.images! : (project ? [project.image] : []);
