@@ -15,6 +15,7 @@ export interface Publication {
   conferenceLogos?: string[];
   doi?: string;
   status: "Under Review" | "Accepted" | "Published" | "Camera Ready";
+  indexing?: string;
   tags: string[];
 }
 
@@ -35,6 +36,7 @@ export const publicationsData: Publication[] = [
     officialUrl: "https://icai.cmcu.edu.vn",
     conferenceLogos: ["/images/cmc.png", "/images/steinbeis.png", "/images/tsinghua_shenzhen.png"],
     status: "Under Review",
+    indexing: "Peer-Reviewed Intl Conf (CMC x Tsinghua x Steinbeis)",
     tags: ["AI-Native Security", "Edge AI", "Quantization INT8", "Deep Q-Network", "SDN", "SOAR"],
   },
   {
@@ -53,6 +55,7 @@ export const publicationsData: Publication[] = [
     officialUrl: "https://csonet-conf.github.io/csonet26/index.html",
     conferenceLogos: ["/images/hcmut.png"],
     status: "Under Review",
+    indexing: "Springer LNCS / Scopus Indexed",
     tags: ["Log Anomaly Detection", "TCN", "Transformer", "Drain3", "AIOps", "Event Sequence Modeling"],
   },
   {
@@ -70,6 +73,7 @@ export const publicationsData: Publication[] = [
     officialUrl: "https://submit.ueh.edu.vn/index.php/icyref2026/index",
     conferenceLogos: ["/images/ueh.png"],
     status: "Under Review",
+    indexing: "Peer-Reviewed Intl Conf (UEH)",
     tags: ["Econometric Analysis", "Cybersecurity Governance", "EdTech Resilience"],
   },
   {
@@ -88,6 +92,7 @@ export const publicationsData: Publication[] = [
     officialUrl: "https://hoithaoquocgiacntt.ac.vn/",
     conferenceLogos: ["/images/hanu.jpg"],
     status: "Accepted",
+    indexing: "National Proceedings (VAIP / VNICT)",
     tags: ["Log Anomaly Detection", "TCN", "Transformer", "Drain3", "AIOps", "Camera-Ready"],
   },
   {
@@ -104,6 +109,7 @@ export const publicationsData: Publication[] = [
     officialUrl: "https://gigs.ftu.edu.vn",
     conferenceLogos: ["/images/ftu.png", "/images/curtin.jpg"],
     status: "Under Review",
+    indexing: "Peer-Reviewed Intl Conf (FTU x Curtin)",
     tags: ["AI Governance", "Digital Transformation", "Cyber Resilience", "ESG & Sustainability"],
   },
 ];

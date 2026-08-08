@@ -228,6 +228,11 @@ export const PublicationsPage: React.FC = () => {
                           <span className="px-2.5 py-0.5 rounded-md text-xs font-bold bg-cyan-100 dark:bg-cyan-950 text-cyan-800 dark:text-cyan-300 border border-cyan-200 dark:border-cyan-800/60">
                             {pub.abbreviation}
                           </span>
+                          {pub.indexing && (
+                            <span className="px-2.5 py-0.5 rounded-md text-xs font-medium bg-purple-100 dark:bg-purple-950/80 text-purple-800 dark:text-purple-300 border border-purple-200 dark:border-purple-800/60">
+                              {pub.indexing}
+                            </span>
+                          )}
                           {!pub.abbreviation.includes(pub.year.toString()) && (
                             <span className="text-xs font-mono text-slate-500 dark:text-slate-400">{pub.year}</span>
                           )}
@@ -260,6 +265,11 @@ export const PublicationsPage: React.FC = () => {
                             <span className="px-2.5 py-0.5 rounded-md text-xs font-bold bg-cyan-100 dark:bg-cyan-950 text-cyan-800 dark:text-cyan-300 border border-cyan-200 dark:border-cyan-800/60">
                               {pub.abbreviation}
                             </span>
+                            {pub.indexing && (
+                              <span className="px-2.5 py-0.5 rounded-md text-xs font-medium bg-purple-100 dark:bg-purple-950/80 text-purple-800 dark:text-purple-300 border border-purple-200 dark:border-purple-800/60">
+                                {pub.indexing}
+                              </span>
+                            )}
                             {!pub.abbreviation.includes(pub.year.toString()) && (
                               <span className="text-xs font-mono text-slate-500 dark:text-slate-400">{pub.year}</span>
                             )}
