@@ -31,7 +31,7 @@ const Showcase = () => {
         <div className="cinema-reveal text-center mb-12">
           <span className="cinema-kicker mb-4 flex items-center justify-center gap-2">
             <Sparkles size={14} className="text-amber-500 animate-pulse" />
-            Spotlight & Engineering Portfolio
+            Portfolio
           </span>
           <h2 className="cinema-title mb-4">
             Honors & Featured Projects
@@ -143,11 +143,6 @@ const Showcase = () => {
             <Button size="lg" variant="outline" asChild>
               <Link to="/certificates">
                 View All Certificates & Awards
-              </Link>
-            </Button>
-            <Button size="lg" variant="ghost" asChild>
-              <Link to="/publications">
-                Research Publications
               </Link>
             </Button>
           </div>

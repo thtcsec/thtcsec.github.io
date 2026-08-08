@@ -37,7 +37,29 @@ const RouteScrollToTop = () => {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+    if (pathname === "/") {
+      const savedY = sessionStorage.getItem("home_scroll_y");
+      if (savedY) {
+        const y = parseInt(savedY, 10);
+        setTimeout(() => {
+          window.scrollTo({ top: y, left: 0, behavior: "instant" });
+        }, 50);
+      }
+    } else {
+      window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+    }
+  }, [pathname]);
+
+  useEffect(() => {
+    if (pathname === "/") {
+      const handleScroll = () => {
+        if (window.scrollY > 50) {
+          sessionStorage.setItem("home_scroll_y", window.scrollY.toString());
+        }
+      };
+      window.addEventListener("scroll", handleScroll, { passive: true });
+      return () => window.removeEventListener("scroll", handleScroll);
+    }
   }, [pathname]);
 
   return null;
