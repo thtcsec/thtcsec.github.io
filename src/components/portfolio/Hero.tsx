@@ -28,7 +28,7 @@ const Hero = () => {
   const { handleSecretClick } = useArcadeSecret();
 
   const handleScrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
+    const element = document.getElementById(sectionId) || document.getElementById("showcase");
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
@@ -76,7 +76,7 @@ const Hero = () => {
         {/* Actions + Tags */}
         <div className="cinema-reveal flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-6" style={{ ["--reveal-delay" as string]: "120ms" }}>
           <div className="flex flex-wrap gap-3">
-            <Button size="default" onClick={() => handleScrollToSection("projects")}>
+            <Button size="default" onClick={() => handleScrollToSection("showcase")}>
               View Projects
             </Button>
             <Button variant="outline" size="default" asChild>

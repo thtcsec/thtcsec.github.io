@@ -80,7 +80,7 @@ const Experience = () => {
       period: "Jun 2026 – Present",
       roles: [
         {
-          title: "Cloud & AI Infrastructure Research Intern",
+          title: "AI Infra & Cloud Solutions Engineer",
           period: "Jun 2026 – Present",
           highlights: [
             "Research and prototype serverless integration pipelines using Cloudflare Workers, D1, R2, Vectorize, and Workers AI.",

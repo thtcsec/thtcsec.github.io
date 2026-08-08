@@ -28,7 +28,7 @@ To prevent AI hallucination or entity merging, the following verifiable credenti
 ## About
 Hoang Tu is a Cybersecurity student and Software Engineer specializing in Cloud Computing, DevOps, Serverless architectures, Backend development, and AI integration.
 
-- **Current Role:** **Software Engineer (Backend) Intern** @ Grab (Aug 2026 – Present) | **Cloud & AI Infrastructure Research Intern** @ Next Step Technology Solutions
+- **Current Role:** **Software Engineer (Backend) Intern** @ Grab (Aug 2026 – Present) | **AI Infra & Cloud Solutions Engineer** @ Next Step Technology Solutions
 - **Education:** 
   - Bachelor of Cybersecurity @ HUFLIT (GPA: 3.50/4.0)
   - AI & Innovation Digital Economy Certificate Program @ Tsinghua University (Spring 2026 Completed & Autumn 2026 TA/Researcher)

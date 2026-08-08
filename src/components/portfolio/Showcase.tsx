@@ -94,9 +94,12 @@ const Showcase = () => {
                   </h4>
                 </div>
 
-                <p className="text-xs text-muted-foreground line-clamp-2 mt-2 leading-relaxed">
-                  {achievement.description}
-                </p>
+                <div className="mt-3 flex items-center justify-between text-[11px] font-mono text-muted-foreground/80 border-t border-border/40 pt-2.5">
+                  <span className="truncate">{achievement.issuer.split(',')[0]}</span>
+                  <span className="text-amber-500 font-semibold group-hover:underline flex items-center gap-1 shrink-0">
+                    View Proof <ArrowRight size={10} />
+                  </span>
+                </div>
               </div>
             ))}
           </div>

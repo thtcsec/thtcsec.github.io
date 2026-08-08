@@ -209,7 +209,7 @@ const ResumePage = () => {
           <div className="glass bg-card/40 border border-border/50 rounded-2xl p-6 shadow-sm hover:border-primary/20 transition-all duration-300 print:bg-transparent print:border-none print:shadow-none print:p-0 print:rounded-none">
             <h2 className="text-sm font-bold uppercase tracking-widest text-primary print:text-black print:border-b print:border-black/20 print:pb-1 print:mb-2">Professional Summary</h2>
             <p className="text-sm md:text-[15px] leading-relaxed text-muted-foreground print:text-neutral-800 text-justify">
-              Third-year Cybersecurity student specializing in <strong className="text-foreground dark:text-white print:text-black">C# Backend</strong>, <strong className="text-foreground dark:text-white print:text-black">Fullstack development</strong>, <strong className="text-foreground dark:text-white print:text-black">Software Engineering</strong>, and <strong className="text-foreground dark:text-white print:text-black">DevOps</strong>. Focus on building secure systems using <strong className="text-foreground dark:text-white print:text-black">ASP.NET Core</strong>, optimizing cloud deployments, and automating security integrations. Passionate about understanding how real-world systems are designed and operated with practical trade-offs between performance, reliability, and security constraints.
+              Third-year Cybersecurity student specializing in <strong className="text-foreground dark:text-white print:text-black">Backend engineering</strong> (ASP.NET Core, FastAPI, Java), <strong className="text-foreground dark:text-white print:text-black">Fullstack development</strong>, <strong className="text-foreground dark:text-white print:text-black">Software Engineering</strong>, and <strong className="text-foreground dark:text-white print:text-black">DevOps</strong>. Focus on building high-performance secure systems, optimizing cloud deployments, and automating security integrations. Passionate about understanding how real-world systems are designed and operated with practical trade-offs between performance, reliability, and security constraints.
             </p>
           </div>
 
@@ -262,7 +262,7 @@ const ResumePage = () => {
                 <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 mb-2">
                   <div>
                     <h3 className="text-base md:text-lg font-bold text-foreground print:text-black">
-                      Cloud & AI Infrastructure Research Intern
+                      AI Infra & Cloud Solutions Engineer
                     </h3>
                     <div className="text-sm text-primary font-semibold print:text-neutral-900">
                       Next Step Technology Solutions

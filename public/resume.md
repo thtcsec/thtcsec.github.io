@@ -1,6 +1,6 @@
 # Curriculum Vitae — Trịnh Hoàng Tú
 
-Cybersecurity Student & Software Engineer specializing in C# Backend, Fullstack development, Software Engineering, and DevOps.
+Cybersecurity Student & Software Engineer specializing in Backend (ASP.NET Core, FastAPI, Java), Fullstack development, Software Engineering, and DevOps.
 
 ---
 
@@ -22,7 +22,7 @@ Cybersecurity Student & Software Engineer specializing in C# Backend, Fullstack 
 - Collaborating with cross-functional teams to build robust APIs, microservices, and optimize cloud-native deployments.
 - **Skills:** Java, Docker, Kubernetes, Microservices, REST APIs, SQL.
 
-### 2. Cloud & AI Infrastructure Research Intern
+### 2. AI Infra & Cloud Solutions Engineer
 **Next Step Technology Solutions**
 *Timeline: Jun 2026 – Present | Hybrid*
 - Research and prototype serverless integration pipelines using Cloudflare Workers, D1, R2, Vectorize, and Workers AI.
