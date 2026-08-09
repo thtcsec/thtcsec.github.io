@@ -125,7 +125,7 @@ const Showcase = () => {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-            {featuredProjects.slice(0, 6).map((project) => (
+            {featuredProjects.slice(0, 3).map((project) => (
               <ProjectCard
                 key={project.id}
                 project={project}
