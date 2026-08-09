@@ -17,7 +17,7 @@ const RecentBlogs = () => {
                 Publications & Research
               </h2>
               <p className="text-muted-foreground text-lg">
-                Peer-reviewed papers and conference proceedings in Cybersecurity, AI, and Network Systems — currently under review.
+                Research manuscripts and conference submissions in Cybersecurity, AI, and Network Systems.
               </p>
             </div>
           </div>

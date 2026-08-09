@@ -151,10 +151,10 @@ export const PublicationsPage: React.FC = () => {
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <div>
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-50 dark:bg-cyan-950/80 border border-cyan-200 dark:border-cyan-500/30 text-cyan-700 dark:text-cyan-400 text-xs font-semibold">
-                  <Award className="w-3.5 h-3.5" /> Peer-Reviewed Publications & Proceedings
+                  <Award className="w-3.5 h-3.5" /> Research & Publications
                 </div>
                 <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white mt-2">
-                  Research Papers & Proceedings
+                  Research & Publications
                 </h2>
               </div>
 
