@@ -344,18 +344,27 @@ export const PublicationsPage: React.FC = () => {
                               <ExternalLink className="w-3.5 h-3.5" /> Official Conf Site
                             </a>
                           )}
-                          {pub.githubUrl && (
-                            <a href={pub.githubUrl} target="_blank" rel="noreferrer"
-                              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 text-xs font-bold transition-all border border-slate-300 dark:border-slate-700">
-                              <Github className="w-3.5 h-3.5 text-cyan-600 dark:text-cyan-400" /> Artifact
-                            </a>
+
+                          {pub.status === "Under Review" ? (
+                            <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20 text-xs font-semibold" title="Peer-review draft is protected against unauthorized distribution. Reviewers & professors can request private copy.">
+                              🔒 Protected Draft (Available Upon Request)
+                            </span>
+                          ) : (
+                            <>
+                              {pub.githubUrl && (
+                                <a href={pub.githubUrl} target="_blank" rel="noreferrer"
+                                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 text-xs font-bold transition-all border border-slate-300 dark:border-slate-700">
+                                  <Github className="w-3.5 h-3.5 text-cyan-600 dark:text-cyan-400" /> Artifact
+                                </a>
+                              )}
+                              <button
+                                onClick={(e) => handleCopyBibtex(pub, e)}
+                                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 text-xs font-medium transition-all border border-slate-300 dark:border-slate-700">
+                                {copiedId === pub.id ? <Check className="w-3.5 h-3.5 text-emerald-500" /> : <ExternalLink className="w-3.5 h-3.5" />}
+                                {copiedId === pub.id ? "Copied" : "BibTeX"}
+                              </button>
+                            </>
                           )}
-                          <button
-                            onClick={(e) => handleCopyBibtex(pub, e)}
-                            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 text-xs font-medium transition-all border border-slate-300 dark:border-slate-700">
-                            {copiedId === pub.id ? <Check className="w-3.5 h-3.5 text-emerald-500" /> : <ExternalLink className="w-3.5 h-3.5" />}
-                            {copiedId === pub.id ? "Copied" : "BibTeX"}
-                          </button>
                         </div>
                       </div>
                     </div>

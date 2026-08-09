@@ -30,9 +30,7 @@ export const publicationsData: Publication[] = [
     authors: ["Trinh Hoang Tu", "ThS. Cao Tien Thanh"],
     affiliation: "Faculty of Information Technology, HUFLIT",
     abstract:
-      "Modern university networks face escalating cybersecurity threats driven by unmanaged BYOD devices and heterogeneous IoT endpoints. Traditional Security Operations Center (SOC) workflows rely on manual alert triage, yielding Mean Time to Respond (MTTR) latencies exceeding 1500 seconds. This paper proposes an AI-native event-driven edge-cloud security platform enabling sub-10 ms closed-loop threat containment. We decouple high-frequency edge telemetry ingestion from cloud policy control.",
-    pdfUrl: "/cv/icaifai.pdf",
-    githubUrl: "https://github.com/thtcsec/icai-fai2026",
+      "This paper investigates an AI-native event-driven security platform for campus and enterprise network environments. The proposed architecture decouples high-frequency edge telemetry ingestion from cloud policy control to achieve rapid, closed-loop threat containment under heterogeneous device constraints.",
     officialUrl: "https://icai.cmcu.edu.vn",
     conferenceLogos: ["/images/cmc.png", "/images/steinbeis.png", "/images/tsinghua_shenzhen.png"],
     status: "Under Review",
@@ -49,9 +47,7 @@ export const publicationsData: Publication[] = [
     authors: ["ThS. Cao Tien Thanh", "Trinh Hoang Tu", "PGS. TS. Tran Manh Ha"],
     affiliation: "Industrial University of Ho Chi Minh City & Faculty of Information Technology, HUFLIT",
     abstract:
-      "This paper presents a network-aware system log anomaly detection pipeline based on Drain3 and event sequence analysis, modeling log sequences as walks on directed event-transition networks and client-service interaction graphs. We evaluate Temporal Convolutional Networks (TCN) and Transformers against traditional baselines on three large-scale log datasets (HDFS, BGL, and HUFLIT-Career). On BGL (500k lines, 198 templates), TCN leads with an F1-score of 0.9826, demonstrating notable classification advantage and competitive inference latency.",
-    pdfUrl: "/cv/csonet2026.pdf",
-    githubUrl: "https://github.com/thtcsec/log-anomaly-tcn-transformer",
+      "This paper presents a network-aware system log anomaly detection framework based on Drain3 log parsing and event sequence analysis. By modeling system log sequences as directed transition networks and client-service interaction graphs, we benchmark sequence modeling architectures against established baselines across large-scale log datasets.",
     officialUrl: "https://csonet-conf.github.io/csonet26/index.html",
     conferenceLogos: ["/images/hcmut.png"],
     status: "Under Review",
@@ -68,8 +64,7 @@ export const publicationsData: Publication[] = [
     authors: ["Trinh Hoang Tu"],
     affiliation: "Faculty of Information Technology, HUFLIT",
     abstract:
-      "Empirical econometric evaluation of security automation adoption rates across 45 Higher Education Institutions (HEIs) in Vietnam, demonstrating statistical significance of edge AI deployment in reducing incident containment costs.",
-    pdfUrl: "/cv/ueh_conf.pdf",
+      "An empirical econometric evaluation of cybersecurity automation adoption rates and operational feasibility across Higher Education Institutions (HEIs) in Vietnam, examining the operational trade-offs of edge AI security deployment.",
     officialUrl: "https://submit.ueh.edu.vn/index.php/icyref2026/index",
     conferenceLogos: ["/images/ueh.png"],
     status: "Under Review",
@@ -86,9 +81,7 @@ export const publicationsData: Publication[] = [
     authors: ["Trinh Hoang Tu", "ThS. Cao Tien Thanh"],
     affiliation: "Faculty of Information Technology, HUFLIT",
     abstract:
-      "This paper presents a large-scale system log anomaly detection pipeline based on Drain3 and event sequence analysis, comparing Temporal Convolutional Networks (TCN) and Transformers against traditional baselines (PCA, SVD, Isolation Forest, DeepLog) on HDFS and BGL datasets. (Accepted as Camera-Ready paper #6979; the research team subsequently upgraded and expanded this work into CSoneT 2026).",
-    pdfUrl: "/cv/vnict2026.pdf",
-    githubUrl: "https://github.com/thtcsec/vnict2026-log-anomaly",
+      "This paper presents a large-scale system log anomaly detection pipeline based on Drain3 and event sequence analysis, comparing Temporal Convolutional Networks (TCN) and Transformers against traditional baselines on HDFS and BGL datasets.",
     officialUrl: "https://hoithaoquocgiacntt.ac.vn/",
     conferenceLogos: ["/images/hanu.jpg"],
     status: "Accepted",
@@ -105,7 +98,7 @@ export const publicationsData: Publication[] = [
     authors: ["Trinh Hoang Tu", "ThS. Cao Tien Thanh"],
     affiliation: "Faculty of Information Technology, HUFLIT",
     abstract:
-      "This study examines the interplay between AI-native cybersecurity governance, operational feasibility, and institutional sustainability across emerging higher education networks. We propose a risk-governance framework integrating edge AI telemetry and automated threat containment to achieve UN Sustainable Development Goal (SDG) 9 & 16 compliance.",
+      "This study examines the interplay between AI-native cybersecurity governance, operational feasibility, and institutional sustainability across emerging higher education networks, proposing a smart governance framework integrating automated security telemetry.",
     officialUrl: "https://gigs.ftu.edu.vn",
     conferenceLogos: ["/images/ftu.png", "/images/curtin.jpg"],
     status: "Under Review",
