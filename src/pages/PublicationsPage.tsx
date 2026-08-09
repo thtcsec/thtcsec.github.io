@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import {
   ExternalLink,
   Github,
@@ -16,11 +16,38 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { publicationsData, Publication } from "@/data/publications";
+import ThemeToggle from "@/components/ThemeToggle";
 
 export const PublicationsPage: React.FC = () => {
   const [copiedId, setCopiedId] = useState<string | null>(null);
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [expandedIds, setExpandedIds] = useState<Record<string, boolean>>({});
+  const [isSearchOpen, setIsSearchOpen] = useState<boolean>(false);
+  const [isSearchHighlighted, setIsSearchHighlighted] = useState<boolean>(false);
+  const searchInputRef = useRef<HTMLInputElement>(null);
+
+  const handleToggleSearch = () => {
+    if (!isSearchOpen) {
+      setIsSearchOpen(true);
+      setIsSearchHighlighted(true);
+
+      setTimeout(() => {
+        if (searchInputRef.current) {
+          const rect = searchInputRef.current.getBoundingClientRect();
+          const targetY = window.scrollY + rect.top - 120;
+          window.scrollTo({ top: targetY, behavior: "smooth" });
+          searchInputRef.current.focus();
+        }
+      }, 150);
+
+      setTimeout(() => {
+        setIsSearchHighlighted(false);
+      }, 1400);
+    } else {
+      setIsSearchOpen(false);
+      setSearchTerm("");
+    }
+  };
 
   const handleCopyBibtex = (pub: Publication, e: React.MouseEvent) => {
     e.stopPropagation();
@@ -61,8 +88,8 @@ export const PublicationsPage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 pt-24 pb-16 px-4 sm:px-6 lg:px-8 transition-colors duration-300">
-      {/* Back to Home button */}
-      <div className="max-w-7xl mx-auto mb-6">
+      {/* Top Controls Header Bar */}
+      <div className="max-w-7xl mx-auto mb-6 flex flex-wrap items-center justify-between gap-4">
         <Link
           to="/"
           className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-sm font-semibold text-slate-700 dark:text-slate-300 hover:border-cyan-500/60 hover:text-cyan-600 dark:hover:text-cyan-400 transition-all shadow-sm hover:shadow-md group"
@@ -71,6 +98,26 @@ export const PublicationsPage: React.FC = () => {
           <Home className="w-3.5 h-3.5" />
           Back to Home
         </Link>
+
+        {/* Right side: Search Chip + Synchronized ThemeToggle */}
+        <div className="flex items-center gap-2.5">
+          <button
+            onClick={handleToggleSearch}
+            className={`inline-flex items-center gap-2 px-3.5 py-2 rounded-xl border text-xs font-semibold transition-all shadow-sm group ${
+              isSearchOpen
+                ? "bg-cyan-500 text-white border-cyan-500 shadow-cyan-500/20"
+                : "bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:border-cyan-500/60 hover:text-cyan-600 dark:hover:text-cyan-400"
+            }`}
+            title="Toggle search bar"
+          >
+            <Search className={`w-3.5 h-3.5 ${isSearchOpen ? "text-white" : "text-cyan-500"} group-hover:scale-110 transition-transform`} />
+            <span>{isSearchOpen ? "Close Search" : "Search Papers"}</span>
+          </button>
+
+          <div className="p-1 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm flex items-center justify-center">
+            <ThemeToggle />
+          </div>
+        </div>
       </div>
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         
@@ -150,10 +197,7 @@ export const PublicationsPage: React.FC = () => {
           <div className="p-6 rounded-2xl bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 shadow-md space-y-4">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <div>
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-50 dark:bg-cyan-950/80 border border-cyan-200 dark:border-cyan-500/30 text-cyan-700 dark:text-cyan-400 text-xs font-semibold">
-                  <Award className="w-3.5 h-3.5" /> Research & Publications
-                </div>
-                <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white mt-2">
+                <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white">
                   Research & Publications
                 </h2>
               </div>
@@ -167,16 +211,29 @@ export const PublicationsPage: React.FC = () => {
               </button>
             </div>
 
-            {/* Search Input */}
-            <div className="relative">
-              <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-3" />
-              <input
-                type="text"
-                placeholder="Filter by title, venue (ICAI-FAI, CSONET, UEH), or keywords..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-10 pr-4 py-2 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-xs sm:text-sm text-slate-900 dark:text-slate-200 placeholder-slate-400 focus:outline-none focus:border-cyan-500 transition-colors"
-              />
+            {/* Collapsible Search Input */}
+            <div
+              className={`overflow-hidden transition-all duration-500 ease-in-out ${
+                isSearchOpen ? "max-h-24 opacity-100 mt-4" : "max-h-0 opacity-0 mt-0 pointer-events-none"
+              }`}
+            >
+              <div className={`relative transition-all duration-500 rounded-xl ${
+                isSearchHighlighted
+                  ? "ring-2 ring-cyan-500/80 scale-[1.015] shadow-[0_0_30px_rgba(6,182,212,0.35)]"
+                  : ""
+              }`}>
+                <Search className={`w-4 h-4 absolute left-3.5 top-3 transition-colors ${
+                  isSearchHighlighted ? "text-cyan-500" : "text-slate-400"
+                }`} />
+                <input
+                  ref={searchInputRef}
+                  type="text"
+                  placeholder="Filter by title, venue (ICAI-FAI, CSONET, UEH), or keywords..."
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  className="w-full pl-10 pr-4 py-2 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-xs sm:text-sm text-slate-900 dark:text-slate-200 placeholder-slate-400 focus:outline-none focus:border-cyan-500 transition-colors"
+                />
+              </div>
             </div>
           </div>
 
