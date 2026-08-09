@@ -54,12 +54,9 @@ const gamesList: GameItem[] = [
 ];
 
 const ArcadePage = () => {
-  const [selectedFilter, setSelectedFilter] = useState<"All" | "HoYoverse" | "MOBA">("All");
   const [activeImageModal, setActiveImageModal] = useState<{ src: string; title: string } | null>(null);
 
-  const filteredGames = gamesList.filter(
-    (g) => selectedFilter === "All" || g.category === selectedFilter
-  );
+  const filteredGames = gamesList;
 
   return (
     <div className="min-h-screen bg-background text-foreground flex flex-col font-sans selection:bg-primary/20 selection:text-primary">
@@ -82,30 +79,6 @@ const ArcadePage = () => {
                 Arcade Showcase
               </h1>
             </div>
-          </div>
-        </div>
-
-        {/* Filter Bar & Controls */}
-        <div className="flex flex-wrap items-center justify-between gap-4 mb-8">
-          <div className="flex items-center gap-2 p-1.5 bg-card/60 border border-border/70 rounded-2xl backdrop-blur-md">
-            {(["All", "HoYoverse", "MOBA"] as const).map((filter) => (
-              <button
-                key={filter}
-                onClick={() => setSelectedFilter(filter)}
-                className={`px-4 py-2 rounded-xl text-xs font-semibold transition-all duration-200 ${
-                  selectedFilter === filter
-                    ? "bg-primary text-primary-foreground shadow-md scale-105"
-                    : "text-muted-foreground hover:text-foreground hover:bg-muted/40"
-                }`}
-              >
-                {filter === "All" ? "All Games" : filter}
-              </button>
-            ))}
-          </div>
-
-          <div className="flex items-center gap-2 text-xs text-muted-foreground bg-muted/30 px-3.5 py-2 rounded-xl border border-border/50">
-            <Info size={14} className="text-primary shrink-0" />
-            <span>Click any screenshot to view in full resolution</span>
           </div>
         </div>
 
