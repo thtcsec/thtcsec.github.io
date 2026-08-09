@@ -54,12 +54,13 @@ const Footer = () => {
   return (
     <footer className="border-t border-border/80 bg-card/15 py-12">
       <div className="container mx-auto px-4">
-        <div className="mb-8 grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+        {/* Top: 3 Academic Partners Grid */}
+        <div className="mb-10 grid gap-8 grid-cols-1 md:grid-cols-3">
           <div className="flex items-start gap-4">
             <img
               src="/images/huflit.png"
               alt="HUFLIT"
-              className="w-16 h-16 object-contain shrink-0"
+              className="w-14 h-14 object-contain shrink-0"
               loading="lazy"
             />
             <div>
@@ -74,7 +75,7 @@ const Footer = () => {
             <img
               src="/images/tsinghua.png"
               alt="Tsinghua University"
-              className="w-16 h-16 object-contain rounded-md border border-border/50 shrink-0"
+              className="w-14 h-14 object-contain rounded-md border border-border/50 shrink-0"
               loading="lazy"
             />
             <div>
@@ -87,7 +88,7 @@ const Footer = () => {
           </div>
 
           <div className="flex items-start gap-4">
-            <div className="w-16 h-16 rounded-xl bg-white border border-slate-200 p-1.5 flex items-center justify-center shrink-0 shadow-sm">
+            <div className="w-14 h-14 rounded-xl bg-white border border-slate-200 p-1.5 flex items-center justify-center shrink-0 shadow-sm">
               <img
                 src="/images/vinuni.png"
                 alt="VinUniversity"
@@ -102,57 +103,35 @@ const Footer = () => {
               <p className="text-xs text-primary/95 font-medium mt-0.5">Deferred Enrollment</p>
             </div>
           </div>
+        </div>
 
-          <div>
-            <h4 className="cinema-meta mb-4">OrangeCloud VN(Cloudflare)</h4>
-            <ul className="space-y-2">
-              <li>
-                <a
-                  href="https://onboarding.orangecloud.vn"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm text-muted-foreground hover:text-primary transition-colors inline-flex items-center gap-1 group/link"
-                >
-                  <span>Cloudflare for Beginners</span>
-                  <ExternalLink size={12} className="opacity-40 group-hover/link:opacity-80 transition-opacity" />
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://blog.orangecloud.vn"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm text-muted-foreground hover:text-primary transition-colors inline-flex items-center gap-1 group/link"
-                >
-                  <span>Cloudflare News & Blog (Technical Rewritten)</span>
-                  <ExternalLink size={12} className="opacity-40 group-hover/link:opacity-80 transition-opacity" />
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://ready.orangecloud.vn"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm text-muted-foreground hover:text-primary transition-colors inline-flex items-center gap-1 group/link"
-                >
-                  <span>Cloudflare Go-Live Readiness</span>
-                  <ExternalLink size={12} className="opacity-40 group-hover/link:opacity-80 transition-opacity" />
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://docops.orangecloud.vn/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm text-muted-foreground hover:text-primary transition-colors inline-flex items-center gap-1 group/link"
-                >
-                  <span>OrangeCloud DocOps</span>
-                  <ExternalLink size={12} className="opacity-40 group-hover/link:opacity-80 transition-opacity" />
-                </a>
-              </li>
-            </ul>
+        {/* Middle: OrangeCloud Cloudflare Ecosystem Horizontal Bar */}
+        <div className="mb-10 p-4 sm:p-5 rounded-2xl bg-card/40 border border-border/60 shadow-sm flex flex-col md:flex-row items-center justify-between gap-4">
+          <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-muted-foreground shrink-0">
+            <Icon icon="simple-icons:cloudflare" className="w-4 h-4 text-[#F38020]" />
+            <span>OrangeCloud VN (Cloudflare Ecosystem)</span>
           </div>
 
+          <div className="flex flex-wrap items-center justify-center md:justify-end gap-2">
+            {[
+              { label: "Beginners Guide", href: "https://onboarding.orangecloud.vn" },
+              { label: "Technical Blog", href: "https://blog.orangecloud.vn" },
+              { label: "Go-Live Readiness", href: "https://ready.orangecloud.vn" },
+              { label: "DocOps Platform", href: "https://docops.orangecloud.vn/" },
+              { label: "Reputation Engine", href: "https://reputation.orangecloud.vn/" },
+            ].map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-background/80 hover:bg-primary/10 border border-border/60 hover:border-primary/40 text-xs font-medium text-foreground/80 hover:text-primary transition-all duration-300 shadow-sm group"
+              >
+                <span>{link.label}</span>
+                <ExternalLink size={11} className="text-muted-foreground group-hover:text-primary transition-colors" />
+              </a>
+            ))}
+          </div>
         </div>
 
         <div className="flex flex-col items-center justify-between gap-4 border-t border-border pt-8 md:flex-row">
