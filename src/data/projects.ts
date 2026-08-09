@@ -426,11 +426,34 @@ export const projects: Project[] = [
         image: "/images/preview/preview_portfolio.png",
         featured: true,
         isPrivate: true
+    },
+    {
+        id: "baoan-auto-zalo-mini-app",
+        title: "Bảo An Auto — Zalo Mini App Garage Management & Multi-Branch SaaS",
+        description: "Enterprise Zalo Mini App SaaS for automotive garage chain operation. Features 5-tier RBAC (Super Admin, Owner, Manager, Technician, Customer), dynamic invoice & quote PDF printing engine, Supabase PostgreSQL sync with local in-memory mock DB fallback, and Vercel serverless deployment.",
+        category: "mobile",
+        technologies: ["Zalo Mini App", "React", "TypeScript", "Vite", "Zustand", "Tailwind CSS", "Supabase", "Express.js", "Vercel", "Recharts"],
+        image: "/images/project_image/baoan-auto/baoan_auto_1.jpg",
+        images: [
+            "/images/project_image/baoan-auto/baoan_auto_1.jpg",
+            "/images/project_image/baoan-auto/baoan_auto_2.jpg",
+            "/images/project_image/baoan-auto/baoan_auto_3.jpg",
+            "/images/project_image/baoan-auto/baoan_auto_4.jpg",
+            "/images/project_image/baoan-auto/baoan_auto_5.jpg"
+        ],
+        featured: true,
+        highlights: [
+            "📱 Mobile-first Zalo Mini App SaaS built with React, TypeScript, Vite & Zustand",
+            "🔐 5-Tier Role-Based Access Control (Super Admin, Garage Owner, Manager, Technician, Customer)",
+            "⚡ Dual-mode Architecture: Supabase PostgreSQL cloud sync + zero-config local mock DB fallback",
+            "🧾 Dynamic PDF printing engine for vehicle inspection tickets, estimates, and tax invoices"
+        ],
+        isPrivate: true
     }
 ];
 
 // Explicitly select and order the top featured projects for the homepage
-const featuredOrder = ["sdn-its-resilience-ai", "securecoating-vision", "orangecloud-insights"];
+const featuredOrder = ["sdn-its-resilience-ai", "securecoating-vision", "orangecloud-insights", "baoan-auto-zalo-mini-app"];
 export const featuredProjects = featuredOrder
     .map(id => projects.find(p => p.id === id))
     .filter((p): p is Project => p !== undefined);
