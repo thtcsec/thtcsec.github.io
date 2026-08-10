@@ -211,6 +211,9 @@ export const PublicationsPage: React.FC = () => {
 
             {/* Affiliations & Partners Logos */}
             <div className="space-y-3.5 pt-4 border-t border-slate-200 dark:border-slate-800 text-xs sm:text-sm text-slate-700 dark:text-slate-300">
+              <div className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider flex items-center gap-1.5 mb-1">
+                <Building2 className="w-3.5 h-3.5 text-cyan-500" /> Academic Affiliations
+              </div>
               <div className="flex items-center gap-3">
                 <img src="/images/huflit.png" alt="HUFLIT" className="w-6 h-6 object-contain" />
                 <span>
