@@ -187,7 +187,9 @@ const Footer = () => {
                 <img
                   src="https://komarev.com/ghpvc/?username=thtcsec&label=Profile%20Views&color=3b82f6&style=flat"
                   alt="Profile Views"
-                  className="h-5"
+                  width="120"
+                  height="20"
+                  className="h-5 w-auto"
                   loading="lazy"
                 />
               </a>

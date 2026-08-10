@@ -45,9 +45,11 @@ export const AudioProvider: React.FC<{ children: React.ReactNode }> = ({ childre
 
   const currentTrack = tracks[0]; // Currently just one track
 
-  // Initialize Audio
+  // Initialize Audio with preload="none" to prevent massive background download on page load
   useEffect(() => {
-    const audio = new Audio(currentTrack.src);
+    const audio = new Audio();
+    audio.preload = "none";
+    audio.src = currentTrack.src;
     audio.volume = volume;
     audioRef.current = audio;
 
