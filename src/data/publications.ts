@@ -82,7 +82,7 @@ export const publicationsData: Publication[] = [
     affiliation: "Faculty of Information Technology, HUFLIT",
     abstract:
       "This paper proposes a privacy-preserving federated edge-cloud resilience architecture for multi-campus university environments. By deploying quantized sequence autoencoders at edge gateways and executing decentralized weight aggregation, the framework achieves real-time threat containment without streaming raw telemetry to central servers.",
-    officialUrl: "https://rivf2026.vinuni.edu.vn",
+    officialUrl: "https://rivf2026.org/#content",
     conferenceLogos: ["/images/vinuni.png"],
     status: "Under Review",
     indexing: "IEEE Xplore / Scopus Indexed",
