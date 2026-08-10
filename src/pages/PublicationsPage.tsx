@@ -89,49 +89,49 @@ export const PublicationsPage: React.FC = () => {
       pub.tags.some((t) => t.toLowerCase().includes(searchTerm.toLowerCase()))
   );
 
-  // Helper to render logos (Special inverted-triangle/pyramid layout for 3 logos: 2 on top, 1 centered below)
+  // Helper to render logos:
+  // - Compact View (isCompact = true) + 3 logos: Triangle layout (2 on top, 1 centered below)
+  // - Standard Detailed View (isCompact = false): Always single clean horizontal row!
   const renderLogos = (pub: Publication, isCompact: boolean) => {
     const logos = pub.conferenceLogos || (pub.conferenceLogo ? [pub.conferenceLogo] : []);
     if (!logos || logos.length === 0) return null;
 
-    // 3 Logos: Triangle layout (2 on top, 1 centered below)
-    if (logos.length === 3) {
-      const cardClass = isCompact
-        ? "h-11 sm:h-12 w-16 sm:w-20 p-1 rounded-xl bg-white border border-slate-200 dark:border-slate-700 shadow-sm flex items-center justify-center overflow-hidden shrink-0"
-        : "h-14 sm:h-16 w-24 sm:w-28 p-1 rounded-xl bg-white border border-slate-200 dark:border-slate-700 shadow-md flex items-center justify-center overflow-hidden shrink-0";
+    // 3 Logos in Compact View ONLY: Triangle layout
+    if (isCompact && logos.length === 3) {
+      const cardClass = "h-10 sm:h-11 w-16 sm:w-20 p-1 rounded-xl bg-white border border-slate-200 dark:border-slate-700 shadow-sm flex items-center justify-center overflow-hidden shrink-0";
 
       return (
-        <div className="flex flex-col items-center gap-1.5 shrink-0">
+        <div className="flex flex-col items-center gap-1 shrink-0">
           {/* Top Row: 2 Logos side by side */}
-          <div className="flex items-center gap-1.5">
+          <div className="flex items-center gap-1">
             <div className={cardClass}>
-              <img src={logos[0]} alt={pub.abbreviation} className="w-full h-full object-contain" style={{ transform: isCompact ? 'scale(1.15)' : 'scale(1.35)' }} />
+              <img src={logos[0]} alt={pub.abbreviation} className="w-full h-full object-contain" style={{ transform: 'scale(1.15)' }} />
             </div>
             <div className={cardClass}>
-              <img src={logos[1]} alt={pub.abbreviation} className="w-full h-full object-contain" style={{ transform: isCompact ? 'scale(1.15)' : 'scale(1.35)' }} />
+              <img src={logos[1]} alt={pub.abbreviation} className="w-full h-full object-contain" style={{ transform: 'scale(1.15)' }} />
             </div>
           </div>
           {/* Bottom Row: 1 Logo centered below */}
           <div className="flex items-center justify-center">
             <div className={cardClass}>
-              <img src={logos[2]} alt={pub.abbreviation} className="w-full h-full object-contain" style={{ transform: isCompact ? 'scale(1.15)' : 'scale(1.35)' }} />
+              <img src={logos[2]} alt={pub.abbreviation} className="w-full h-full object-contain" style={{ transform: 'scale(1.15)' }} />
             </div>
           </div>
         </div>
       );
     }
 
-    // Default Row layout for 1, 2, or 4+ logos
+    // Single Horizontal Row layout for Standard Detailed View or 1, 2, 4+ logos
     return (
-      <div className="flex items-center gap-1.5 shrink-0">
+      <div className="flex items-center gap-2 flex-wrap shrink-0">
         {logos.map((logo, logoIdx) => {
           const cardClass = isCompact
             ? "h-12 sm:h-14 w-20 sm:w-24 p-1 rounded-xl bg-white border border-slate-200 dark:border-slate-700 shadow-sm flex items-center justify-center overflow-hidden shrink-0"
-            : "h-16 sm:h-20 w-24 sm:w-28 p-1 rounded-xl bg-white border border-slate-200 dark:border-slate-700 shadow-md flex items-center justify-center overflow-hidden shrink-0";
+            : "h-14 sm:h-16 w-24 sm:w-32 p-1 rounded-xl bg-white border border-slate-200 dark:border-slate-700 shadow-md flex items-center justify-center overflow-hidden shrink-0";
 
           return (
             <div key={logoIdx} className={cardClass}>
-              <img src={logo} alt={pub.abbreviation} className="w-full h-full object-contain" style={{ transform: isCompact ? 'scale(1.15)' : 'scale(1.1)' }} />
+              <img src={logo} alt={pub.abbreviation} className="w-full h-full object-contain" style={{ transform: isCompact ? 'scale(1.15)' : 'scale(1.35)' }} />
             </div>
           );
         })}
@@ -305,7 +305,7 @@ export const PublicationsPage: React.FC = () => {
             </div>
           </div>
 
-          {/* COMPACT SUMMARY VIEW (Triangle Pyramid Layout for 3 Logos) */}
+          {/* COMPACT SUMMARY VIEW */}
           {isCompactView ? (
             <div className="rounded-2xl bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 shadow-xl overflow-hidden p-3.5 sm:p-5 space-y-3.5">
               {filteredPublications.map((pub, idx) => (
@@ -313,11 +313,11 @@ export const PublicationsPage: React.FC = () => {
                   key={pub.id}
                   className="p-4 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 hover:border-cyan-500/50 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 transition-all hover:shadow-md"
                 >
-                  {/* Left Column: Triangle / Grid Logo Container */}
+                  {/* Left Column: Triangle Logo Container for 3 logos in Compact View */}
                   <div className="flex items-center gap-4 min-w-0 flex-1">
                     <span className="text-xs font-mono font-bold text-slate-400 shrink-0">#{idx + 1}</span>
                     
-                    {/* Rendered Logos (2-on-top + 1-centered-below if 3 logos!) */}
+                    {/* Rendered Logos */}
                     {renderLogos(pub, true)}
 
                     {/* Middle Column: Badges, Title & Authors */}
@@ -360,7 +360,7 @@ export const PublicationsPage: React.FC = () => {
               ))}
             </div>
           ) : (
-            /* STANDARD CARD VIEW */
+            /* STANDARD DETAILED CARD VIEW (Always Single Clean Horizontal Row for Logos!) */
             <div className="space-y-4">
               {filteredPublications.map((pub) => {
                 const isExpanded = !!expandedIds[pub.id];
