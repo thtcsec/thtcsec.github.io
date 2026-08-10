@@ -54,6 +54,25 @@ const calculateDuration = (period: string): string => {
 const Experience = () => {
   const experiences = [
     {
+      company: "VETC",
+      imageLogo: "/images/vetc.png",
+      isBrandLogo: true,
+      location: "Ho Chi Minh City (On-site)",
+      period: "Aug 2026 – Present",
+      roles: [
+        {
+          title: "AI Engineer",
+          period: "Aug 2026 – Present",
+          highlights: [
+            "Recently joined as AI Engineer developing Intelligent Transportation Systems (ITS) and Smart City infrastructure.",
+            "Building Computer Vision pipelines for traffic camera analytics, real-time traffic density detection, and automated road surveillance.",
+            "Integrating IoT sensor streams and designing scalable, event-driven microservices architecture for high-throughput traffic data processing."
+          ],
+          technologies: ["Python", "Computer Vision", "Traffic Analytics", "IoT Sensors", "Microservices", "Deep Learning", "Docker"]
+        }
+      ]
+    },
+    {
       company: "Grab",
       imageLogo: "/images/grab.jpg",
       isBrandLogo: true,
