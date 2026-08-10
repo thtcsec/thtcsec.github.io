@@ -89,6 +89,56 @@ export const PublicationsPage: React.FC = () => {
       pub.tags.some((t) => t.toLowerCase().includes(searchTerm.toLowerCase()))
   );
 
+  // Helper to render logos (Special inverted-triangle/pyramid layout for 3 logos: 2 on top, 1 centered below)
+  const renderLogos = (pub: Publication, isCompact: boolean) => {
+    const logos = pub.conferenceLogos || (pub.conferenceLogo ? [pub.conferenceLogo] : []);
+    if (!logos || logos.length === 0) return null;
+
+    // 3 Logos: Triangle layout (2 on top, 1 centered below)
+    if (logos.length === 3) {
+      const cardClass = isCompact
+        ? "h-11 sm:h-12 w-16 sm:w-20 p-1 rounded-xl bg-white border border-slate-200 dark:border-slate-700 shadow-sm flex items-center justify-center overflow-hidden shrink-0"
+        : "h-14 sm:h-16 w-24 sm:w-28 p-1 rounded-xl bg-white border border-slate-200 dark:border-slate-700 shadow-md flex items-center justify-center overflow-hidden shrink-0";
+
+      return (
+        <div className="flex flex-col items-center gap-1.5 shrink-0">
+          {/* Top Row: 2 Logos side by side */}
+          <div className="flex items-center gap-1.5">
+            <div className={cardClass}>
+              <img src={logos[0]} alt={pub.abbreviation} className="w-full h-full object-contain" style={{ transform: isCompact ? 'scale(1.15)' : 'scale(1.35)' }} />
+            </div>
+            <div className={cardClass}>
+              <img src={logos[1]} alt={pub.abbreviation} className="w-full h-full object-contain" style={{ transform: isCompact ? 'scale(1.15)' : 'scale(1.35)' }} />
+            </div>
+          </div>
+          {/* Bottom Row: 1 Logo centered below */}
+          <div className="flex items-center justify-center">
+            <div className={cardClass}>
+              <img src={logos[2]} alt={pub.abbreviation} className="w-full h-full object-contain" style={{ transform: isCompact ? 'scale(1.15)' : 'scale(1.35)' }} />
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    // Default Row layout for 1, 2, or 4+ logos
+    return (
+      <div className="flex items-center gap-1.5 shrink-0">
+        {logos.map((logo, logoIdx) => {
+          const cardClass = isCompact
+            ? "h-12 sm:h-14 w-20 sm:w-24 p-1 rounded-xl bg-white border border-slate-200 dark:border-slate-700 shadow-sm flex items-center justify-center overflow-hidden shrink-0"
+            : "h-16 sm:h-20 w-24 sm:w-28 p-1 rounded-xl bg-white border border-slate-200 dark:border-slate-700 shadow-md flex items-center justify-center overflow-hidden shrink-0";
+
+          return (
+            <div key={logoIdx} className={cardClass}>
+              <img src={logo} alt={pub.abbreviation} className="w-full h-full object-contain" style={{ transform: isCompact ? 'scale(1.15)' : 'scale(1.1)' }} />
+            </div>
+          );
+        })}
+      </div>
+    );
+  };
+
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 pt-24 pb-16 px-4 sm:px-6 lg:px-8 transition-colors duration-300">
       {/* Top Controls Header Bar */}
@@ -255,7 +305,7 @@ export const PublicationsPage: React.FC = () => {
             </div>
           </div>
 
-          {/* COMPACT SUMMARY VIEW (Prominent Large Logos + Full Co-Organizers + Authors + Indexing Badges) */}
+          {/* COMPACT SUMMARY VIEW (Triangle Pyramid Layout for 3 Logos) */}
           {isCompactView ? (
             <div className="rounded-2xl bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 shadow-xl overflow-hidden p-3.5 sm:p-5 space-y-3.5">
               {filteredPublications.map((pub, idx) => (
@@ -263,27 +313,12 @@ export const PublicationsPage: React.FC = () => {
                   key={pub.id}
                   className="p-4 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 hover:border-cyan-500/50 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 transition-all hover:shadow-md"
                 >
-                  {/* Left Column: Prominent Large Logo Box */}
+                  {/* Left Column: Triangle / Grid Logo Container */}
                   <div className="flex items-center gap-4 min-w-0 flex-1">
                     <span className="text-xs font-mono font-bold text-slate-400 shrink-0">#{idx + 1}</span>
                     
-                    {/* Big Prominent Logo Container */}
-                    <div className="flex items-center gap-1.5 shrink-0">
-                      {pub.conferenceLogos && pub.conferenceLogos.length > 0 ? (
-                        pub.conferenceLogos.map((logo, logoIdx) => (
-                          <div
-                            key={logoIdx}
-                            className="h-12 sm:h-14 w-20 sm:w-24 p-1 rounded-xl bg-white border border-slate-200 dark:border-slate-700 shadow-sm flex items-center justify-center overflow-hidden shrink-0"
-                          >
-                            <img src={logo} alt={pub.abbreviation} className="w-full h-full object-contain" style={{ transform: 'scale(1.15)' }} />
-                          </div>
-                        ))
-                      ) : pub.conferenceLogo ? (
-                        <div className="h-12 sm:h-14 w-20 sm:w-24 p-1 rounded-xl bg-white border border-slate-200 dark:border-slate-700 shadow-sm flex items-center justify-center overflow-hidden shrink-0">
-                          <img src={pub.conferenceLogo} alt={pub.abbreviation} className="w-full h-full object-contain" style={{ transform: 'scale(1.15)' }} />
-                        </div>
-                      ) : null}
-                    </div>
+                    {/* Rendered Logos (2-on-top + 1-centered-below if 3 logos!) */}
+                    {renderLogos(pub, true)}
 
                     {/* Middle Column: Badges, Title & Authors */}
                     <div className="space-y-1 min-w-0 flex-1">
@@ -341,14 +376,7 @@ export const PublicationsPage: React.FC = () => {
                       <div className="p-4 sm:p-5">
                         <div className="flex items-center justify-between gap-3 mb-3">
                           <div className="flex items-center gap-2.5 flex-wrap flex-1 min-w-0">
-                            {pub.conferenceLogos.map((logo, logoIdx) => (
-                              <div
-                                key={logoIdx}
-                                className="h-14 sm:h-16 w-24 sm:w-32 p-1 rounded-xl bg-white border border-slate-200 dark:border-slate-700 shadow-md flex items-center justify-center overflow-hidden shrink-0"
-                              >
-                                <img src={logo} alt={pub.abbreviation} className="w-full h-full object-contain" style={{ transform: 'scale(1.35)' }} />
-                              </div>
-                            ))}
+                            {renderLogos(pub, false)}
                           </div>
                           <div className="flex items-center gap-2 shrink-0">
                             <span className={`px-3 py-1 rounded-full text-xs font-semibold whitespace-nowrap border ${
@@ -388,15 +416,7 @@ export const PublicationsPage: React.FC = () => {
                     ) : (
                       <div className="p-4 sm:p-5 flex items-center gap-4 justify-between">
                         <div className="flex items-center gap-4 min-w-0 flex-1">
-                          {(pub.conferenceLogos && pub.conferenceLogos.length === 1) ? (
-                            <div className="h-16 sm:h-20 w-24 sm:w-28 p-1 rounded-xl bg-white border border-slate-200 dark:border-slate-700 shadow-md flex items-center justify-center overflow-hidden shrink-0">
-                              <img src={pub.conferenceLogos[0]} alt={pub.abbreviation} className="w-full h-full object-contain" style={{ transform: 'scale(1.1)' }} />
-                            </div>
-                          ) : pub.conferenceLogo ? (
-                            <div className="h-16 sm:h-20 w-24 sm:w-28 p-1 rounded-xl bg-white border border-slate-200 dark:border-slate-700 shadow-md flex items-center justify-center overflow-hidden shrink-0">
-                              <img src={pub.conferenceLogo} alt={pub.abbreviation} className="w-full h-full object-contain" style={{ transform: 'scale(1.1)' }} />
-                            </div>
-                          ) : null}
+                          {renderLogos(pub, false)}
                           <div className="space-y-1 min-w-0 flex-1">
                             <div className="flex items-center gap-2 flex-wrap">
                               <span className="px-2.5 py-0.5 rounded-md text-xs font-bold bg-cyan-100 dark:bg-cyan-950 text-cyan-800 dark:text-cyan-300 border border-cyan-200 dark:border-cyan-800/60">
