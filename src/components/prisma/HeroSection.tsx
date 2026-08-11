@@ -1,6 +1,6 @@
 import { useRef, useState, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ArrowRight, Github, Linkedin, Mail, Facebook, ChevronDown } from "lucide-react";
+import { ArrowRight, Github, Linkedin, Mail, Facebook, ChevronDown, BookOpen } from "lucide-react";
 import { siteConfig, getAcademicProgress } from "@/data/config";
 
 const navItems = [
@@ -156,15 +156,27 @@ const HeroSection = () => {
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.7, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="flex items-center gap-4"
+            className="flex flex-wrap items-center gap-3 sm:gap-4"
           >
             <a
               href="#projects"
-              className="group inline-flex items-center gap-1.5 hover:gap-3 bg-primary rounded-full pl-5 pr-1 py-1 transition-all duration-300"
+              className="group inline-flex items-center gap-1.5 hover:gap-3 bg-primary rounded-full pl-5 pr-1 py-1 transition-all duration-300 shadow-lg shadow-primary/10"
             >
-              <span className="text-black font-medium text-sm">View my work</span>
-              <span className="bg-black rounded-full w-9 h-9 flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
+              <span className="text-black font-semibold text-xs sm:text-sm">View my work</span>
+              <span className="bg-black rounded-full w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
                 <ArrowRight className="w-4 h-4" style={{ color: "#E1E0CC" }} />
+              </span>
+            </a>
+
+            <a
+              href="#research"
+              className="group inline-flex items-center gap-2 px-4 py-2.5 rounded-full border border-emerald-500/40 bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-300 hover:text-emerald-200 text-xs sm:text-sm font-semibold transition-all duration-300 backdrop-blur-md shadow-[0_0_15px_rgba(16,185,129,0.15)] hover:shadow-[0_0_20px_rgba(16,185,129,0.3)]"
+            >
+              <BookOpen className="w-4 h-4 text-emerald-400 group-hover:scale-110 transition-transform" />
+              <span>Research Papers</span>
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
               </span>
             </a>
 
