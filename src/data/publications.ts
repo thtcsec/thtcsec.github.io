@@ -117,7 +117,7 @@ export const publicationsData: Publication[] = [
     abstract:
       "This study conducts an empirical investigation into the economic feasibility, compliance factors, and institutional readiness for adopting AI-native security and automated threat orchestration across higher education institutions in Vietnam.",
     conferenceLogos: ["/images/ueh.png"],
-    status: "Accepted",
+    status: "Under Review",
     indexing: "National Proceedings (UEH / SR-ICYREB)",
     tags: ["Cyber Economics", "EdTech Security", "Empirical Research", "AI Adoption"],
   },
@@ -134,7 +134,7 @@ export const publicationsData: Publication[] = [
       "This paper presents an empirical cybersecurity economics framework analyzing data leak likelihood, compliance penalties under Decree 13/2023/ND-CP, and operational loss modeling using Monte Carlo simulations for EdTech platforms in emerging Asian markets.",
     officialUrl: "https://gigs2026.ftu.edu.vn",
     conferenceLogos: ["/images/ftu.png", "/images/curtin.jpg"],
-    status: "Accepted",
+    status: "Under Review",
     indexing: "Peer-Reviewed Intl Conf (FTU x Curtin)",
     tags: ["Cyber Economics", "EdTech Risk", "Data Governance", "Decree 13/2023/ND-CP", "Monte Carlo"],
   },
