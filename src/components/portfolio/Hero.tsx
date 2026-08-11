@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ArrowDown, Github, Linkedin, Mail, FileText, Facebook, Globe, Trophy, Terminal, Disc } from "lucide-react";
+import { ArrowDown, Github, Linkedin, Mail, FileText, Facebook, Globe, Trophy, Terminal, Disc, BookOpen } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { siteConfig, getAcademicProgress, getDaysRemaining } from "@/data/config";
@@ -28,7 +28,7 @@ const Hero = () => {
   const { handleSecretClick } = useArcadeSecret();
 
   const handleScrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId) || document.getElementById("showcase");
+    const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
@@ -78,6 +78,10 @@ const Hero = () => {
           <div className="flex flex-wrap gap-3">
             <Button size="default" onClick={() => handleScrollToSection("showcase")}>
               View Projects
+            </Button>
+            <Button variant="outline" size="default" className="border-emerald-500/30 bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 gap-1.5 font-medium shadow-[0_0_15px_-3px_rgba(16,185,129,0.2)]" onClick={() => handleScrollToSection("research")}>
+              <BookOpen size={16} className="text-emerald-500" />
+              Research
             </Button>
             <Button variant="outline" size="default" asChild>
               <Link to="/resume">

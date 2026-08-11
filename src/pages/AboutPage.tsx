@@ -32,6 +32,24 @@ import { Icon } from "@iconify/react";
 
 const competitions = [
   {
+    name: "Hoa Sen University - HSU AI-Driven Challenge 2026",
+    date: "July - Aug 2026",
+    role: "Finalist",
+    icon: <Trophy className="w-5 h-5 text-amber-400 group-hover:animate-pulse" />,
+    bgGradient: "from-amber-500/10 to-transparent",
+    borderClass: "border-amber-500/20 group-hover:border-amber-500/50 group-hover:shadow-[0_0_15px_rgba(245,158,11,0.3)]",
+    textClass: "group-hover:text-amber-400 transition-colors text-foreground"
+  },
+  {
+    name: "Viettel Group - Viettel AI Race 2026",
+    date: "June - Sept 2026",
+    role: "Participant",
+    icon: <Cpu className="w-5 h-5 text-red-400 group-hover:animate-pulse" />,
+    bgGradient: "from-red-500/10 to-transparent",
+    borderClass: "border-red-500/20 group-hover:border-red-500/50 group-hover:shadow-[0_0_15px_rgba(239,68,68,0.3)]",
+    textClass: "group-hover:text-red-400 transition-colors text-foreground"
+  },
+  {
     name: "Tsinghua University - 全球AI+材料创新应用大赛",
     date: "Apr - Aug 2026",
     role: "Participant",
