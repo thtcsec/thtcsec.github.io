@@ -105,16 +105,16 @@ export const PublicationsPage: React.FC = () => {
           {/* Top Row: 2 Logos side by side */}
           <div className="flex items-center gap-1">
             <div className={cardClass}>
-              <img src={logos[0]} alt={pub.abbreviation} className="w-full h-full object-contain" style={{ transform: 'scale(1.15)' }} />
+              <img src={logos[0]} alt={pub.abbreviation} className="w-full h-full object-contain p-0.5" />
             </div>
             <div className={cardClass}>
-              <img src={logos[1]} alt={pub.abbreviation} className="w-full h-full object-contain" style={{ transform: 'scale(1.15)' }} />
+              <img src={logos[1]} alt={pub.abbreviation} className="w-full h-full object-contain p-0.5" />
             </div>
           </div>
           {/* Bottom Row: 1 Logo centered below */}
           <div className="flex items-center justify-center">
             <div className={cardClass}>
-              <img src={logos[2]} alt={pub.abbreviation} className="w-full h-full object-contain" style={{ transform: 'scale(1.15)' }} />
+              <img src={logos[2]} alt={pub.abbreviation} className="w-full h-full object-contain p-0.5" />
             </div>
           </div>
         </div>
@@ -131,7 +131,7 @@ export const PublicationsPage: React.FC = () => {
 
           return (
             <div key={logoIdx} className={cardClass}>
-              <img src={logo} alt={pub.abbreviation} className="w-full h-full object-contain" style={{ transform: isCompact ? 'scale(1.15)' : 'scale(1.35)' }} />
+              <img src={logo} alt={pub.abbreviation} className="w-full h-full object-contain p-0.5" />
             </div>
           );
         })}
