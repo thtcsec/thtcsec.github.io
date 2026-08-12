@@ -57,14 +57,14 @@ const Experience = () => {
       company: "VETC",
       imageLogo: "/images/vetc.png",
       isBrandLogo: true,
-      location: "Ho Chi Minh City (On-site)",
+      location: "Ha Noi City (Remote)",
       period: "Aug 2026 – Present",
       roles: [
         {
           title: "AI Engineer",
           period: "Aug 2026 – Present",
           highlights: [
-            "Recently joined as AI Engineer developing Intelligent Transportation Systems (ITS) and Smart City infrastructure.",
+            "AI Engineer developing Intelligent Transportation Systems (ITS) and Smart City infrastructure.",
             "Building Computer Vision pipelines for traffic camera analytics, real-time traffic density detection, and automated road surveillance.",
             "Integrating IoT sensor streams and designing scalable, event-driven microservices architecture for high-throughput traffic data processing."
           ],

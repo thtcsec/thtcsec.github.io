@@ -244,7 +244,7 @@ const Hero = () => {
           <div className="grid gap-3 sm:grid-cols-3 mb-4">
             <div className="rounded-xl border border-border/80 bg-muted/20 p-4">
               <div className="cinema-meta">What I build</div>
-              <p className="mt-2 text-sm leading-relaxed text-foreground font-medium">Scalable backends, CI/CD pipelines, full-stack apps, distributed systems, computer vision apps & RAG</p>
+              <p className="mt-2 text-sm leading-relaxed text-foreground font-medium">Scalable backends, CI/CD pipelines, Zalo Mini App, full-stack apps, distributed systems, computer vision apps & RAG</p>
             </div>
             <div className="rounded-xl border border-border/80 bg-muted/20 p-4">
               <div className="cinema-meta">Tech & Language</div>

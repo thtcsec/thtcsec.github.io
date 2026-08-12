@@ -236,7 +236,7 @@ const ResumePage = () => {
                     </div>
                   </div>
                   <div className="text-xs text-muted-foreground print:text-neutral-700 italic font-medium">
-                    Aug 2026 – Present | On-site
+                    Aug 2026 – Present | Ha Noi City (Remote)
                   </div>
                 </div>
 
