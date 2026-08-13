@@ -52,11 +52,11 @@ const competitions = [
   {
     name: "Tsinghua University - 全球AI+材料创新应用大赛",
     date: "Apr - Aug 2026",
-    role: "Participant",
-    icon: <Atom className="w-5 h-5 text-violet-400 group-hover:animate-pulse" />,
-    bgGradient: "from-violet-500/10 to-transparent",
-    borderClass: "border-violet-500/20 group-hover:border-violet-500/50 group-hover:shadow-[0_0_15px_rgba(139,92,246,0.3)]",
-    textClass: "group-hover:text-violet-400 transition-colors text-foreground"
+    role: "Finalist",
+    icon: <Trophy className="w-5 h-5 text-amber-400 group-hover:animate-pulse" />,
+    bgGradient: "from-amber-500/10 to-transparent",
+    borderClass: "border-amber-500/20 group-hover:border-amber-500/50 group-hover:shadow-[0_0_15px_rgba(245,158,11,0.3)]",
+    textClass: "group-hover:text-amber-400 transition-colors text-foreground"
   },
   {
     name: "QC4SG 2026 - International Quantum Computing Hackathon",
