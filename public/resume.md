@@ -15,19 +15,19 @@ Cybersecurity Student & Software Engineer specializing in Backend (ASP.NET Core,
 
 ## 💼 Work Experience
 
-### 1. AI Engineer
-**VETC**
-*Timeline: August 2026 – Present | Ha Noi City (Remote)*
-- Developing Computer Vision pipelines for traffic camera analytics, real-time traffic density detection, and road surveillance.
-- Integrating IoT sensor streams and engineering event-driven microservices architecture for Intelligent Transportation Systems (ITS).
-- **Skills:** Python, Computer Vision, Traffic Analytics, IoT Sensors, Microservices, Deep Learning, Docker.
-
-### 2. Software Engineer (Backend) Intern
+### 1. Software Engineer (Backend) Intern
 **Grab**
 *Timeline: August 2026 – Present | On-site*
 - Designing and developing high-performance, scalable backend services and microservice architectures within Grab's regional engineering teams.
 - Collaborating with cross-functional teams to build robust APIs, microservices, and optimize cloud-native deployments.
 - **Skills:** Java, Docker, Kubernetes, Microservices, REST APIs, SQL.
+
+### 2. AI Engineer
+**VETC**
+*Timeline: August 2026 – Present | Ha Noi City (Remote)*
+- Developing Computer Vision pipelines for traffic camera analytics, real-time traffic density detection, and road surveillance.
+- Integrating IoT sensor streams and engineering event-driven microservices architecture for Intelligent Transportation Systems (ITS).
+- **Skills:** Python, Computer Vision, Traffic Analytics, IoT Sensors, Microservices, Deep Learning, Docker.
 
 ### 2. AI Infra & Cloud Solutions Engineer
 **Next Step Technology Solutions**

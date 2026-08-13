@@ -54,25 +54,6 @@ const calculateDuration = (period: string): string => {
 const Experience = () => {
   const experiences = [
     {
-      company: "VETC",
-      imageLogo: "/images/vetc.png",
-      isBrandLogo: true,
-      location: "Ha Noi City (Remote)",
-      period: "Aug 2026 – Present",
-      roles: [
-        {
-          title: "AI Engineer",
-          period: "Aug 2026 – Present",
-          highlights: [
-            "AI Engineer developing Intelligent Transportation Systems (ITS) and Smart City infrastructure.",
-            "Building Computer Vision pipelines for traffic camera analytics, real-time traffic density detection, and automated road surveillance.",
-            "Integrating IoT sensor streams and designing scalable, event-driven microservices architecture for high-throughput traffic data processing."
-          ],
-          technologies: ["Python", "Computer Vision", "Traffic Analytics", "IoT Sensors", "Microservices", "Deep Learning", "Docker"]
-        }
-      ]
-    },
-    {
       company: "Grab",
       imageLogo: "/images/grab.jpg",
       isBrandLogo: true,
@@ -88,6 +69,25 @@ const Experience = () => {
             "Focusing on system reliability, scaling, and modern backend architectures."
           ],
           technologies: ["Java", "Docker", "Kubernetes", "Microservices", "REST APIs", "SQL"]
+        }
+      ]
+    },
+    {
+      company: "VETC",
+      imageLogo: "/images/vetc.png",
+      isBrandLogo: true,
+      location: "Ha Noi City (Remote)",
+      period: "Aug 2026 – Present",
+      roles: [
+        {
+          title: "AI Engineer",
+          period: "Aug 2026 – Present",
+          highlights: [
+            "AI Engineer developing Intelligent Transportation Systems (ITS) and Smart City infrastructure.",
+            "Building Computer Vision pipelines for traffic camera analytics, real-time traffic density detection, and automated road surveillance.",
+            "Integrating IoT sensor streams and designing scalable, event-driven microservices architecture for high-throughput traffic data processing."
+          ],
+          technologies: ["Python", "Computer Vision", "Traffic Analytics", "IoT Sensors", "Microservices", "Deep Learning", "Docker"]
         }
       ]
     },

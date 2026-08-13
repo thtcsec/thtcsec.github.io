@@ -221,39 +221,6 @@ const ResumePage = () => {
             </div>
 
             <div className="relative border-l border-border/70 ml-2 pl-6 space-y-8 print:border-l print:border-black/20 print:ml-2 print:pl-4 print:space-y-4">
-              {/* VETC Electronic Toll Collection */}
-              <div className="relative">
-                {/* Timeline dot */}
-                <div className="absolute -left-[31px] top-1.5 w-2.5 h-2.5 rounded-full border border-primary bg-background shadow-sm print:bg-black print:border-black" />
-
-                <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 mb-2">
-                  <div>
-                    <h3 className="text-base md:text-lg font-bold text-foreground print:text-black">
-                      AI Engineer
-                    </h3>
-                    <div className="text-sm text-primary font-semibold print:text-neutral-900">
-                      VETC
-                    </div>
-                  </div>
-                  <div className="text-xs text-muted-foreground print:text-neutral-700 italic font-medium">
-                    Aug 2026 – Present | Ha Noi City (Remote)
-                  </div>
-                </div>
-
-                <ul className="list-disc pl-4 space-y-1.5 text-xs md:text-sm text-muted-foreground print:text-neutral-800 leading-relaxed print:text-[13px] print:space-y-0.5">
-                  <li>Building Computer Vision analytics for traffic camera feeds, real-time traffic density detection, and road surveillance.</li>
-                  <li>Integrating IoT sensor networks and engineering event-driven microservices architecture for high-throughput intelligent transportation systems (ITS).</li>
-                </ul>
-
-                <div className="mt-3 flex flex-wrap gap-1.5 print:hidden">
-                  {["Python", "Computer Vision", "Traffic Analytics", "IoT Sensors", "Microservices", "Deep Learning", "Docker"].map((t) => (
-                    <span key={t} className="px-2 py-0.5 text-[10px] rounded bg-muted text-muted-foreground border border-border/80">
-                      {t}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
               {/* Grab */}
               <div className="relative">
                 {/* Timeline dot */}
@@ -280,6 +247,39 @@ const ResumePage = () => {
 
                 <div className="mt-3 flex flex-wrap gap-1.5 print:hidden">
                   {["Java", "Docker", "Kubernetes", "Microservices", "REST APIs", "SQL"].map((t) => (
+                    <span key={t} className="px-2 py-0.5 text-[10px] rounded bg-muted text-muted-foreground border border-border/80">
+                      {t}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              {/* VETC Electronic Toll Collection */}
+              <div className="relative">
+                {/* Timeline dot */}
+                <div className="absolute -left-[31px] top-1.5 w-2.5 h-2.5 rounded-full border border-primary bg-background shadow-sm print:bg-black print:border-black" />
+
+                <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 mb-2">
+                  <div>
+                    <h3 className="text-base md:text-lg font-bold text-foreground print:text-black">
+                      AI Engineer
+                    </h3>
+                    <div className="text-sm text-primary font-semibold print:text-neutral-900">
+                      VETC
+                    </div>
+                  </div>
+                  <div className="text-xs text-muted-foreground print:text-neutral-700 italic font-medium">
+                    Aug 2026 – Present | Ha Noi City (Remote)
+                  </div>
+                </div>
+
+                <ul className="list-disc pl-4 space-y-1.5 text-xs md:text-sm text-muted-foreground print:text-neutral-800 leading-relaxed print:text-[13px] print:space-y-0.5">
+                  <li>Building Computer Vision analytics for traffic camera feeds, real-time traffic density detection, and road surveillance.</li>
+                  <li>Integrating IoT sensor networks and engineering event-driven microservices architecture for high-throughput intelligent transportation systems (ITS).</li>
+                </ul>
+
+                <div className="mt-3 flex flex-wrap gap-1.5 print:hidden">
+                  {["Python", "Computer Vision", "Traffic Analytics", "IoT Sensors", "Microservices", "Deep Learning", "Docker"].map((t) => (
                     <span key={t} className="px-2 py-0.5 text-[10px] rounded bg-muted text-muted-foreground border border-border/80">
                       {t}
                     </span>

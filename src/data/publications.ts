@@ -28,7 +28,7 @@ export const publicationsData: Publication[] = [
     track: "Network Security, Log Intelligence & Deep Learning",
     year: 2026,
     authors: ["ThS. Cao Tien Thanh", "Trinh Hoang Tu", "PGS. TS. Tran Manh Ha"],
-    affiliation: "Industrial University of Ho Chi Minh City & Faculty of Information Technology, HUFLIT",
+    affiliation: "Faculty of Information Technology, Ho Chi Minh City University of Foreign Languages - Information Technology, Ho Chi Minh City, Vietnam",
     abstract:
       "This paper presents a network-aware system log anomaly detection framework based on Drain3 log parsing and event sequence analysis. By modeling system log sequences as directed transition networks and client-service interaction graphs, we benchmark sequence modeling architectures against established baselines across large-scale log datasets.",
     officialUrl: "https://csonet-conf.github.io/csonet26/index.html",
@@ -45,7 +45,7 @@ export const publicationsData: Publication[] = [
     track: "AI Foundations, Foundation Models, and Generative AI",
     year: 2026,
     authors: ["Trinh Hoang Tu", "ThS. Cao Tien Thanh"],
-    affiliation: "Faculty of Information Technology, HUFLIT",
+    affiliation: "Faculty of Information Technology, Ho Chi Minh City University of Foreign Languages - Information Technology, Ho Chi Minh City, Vietnam",
     abstract:
       "This paper proposes an end-to-end LLM-augmented AIOps framework combining streaming Drain3 log template parsing, a hybrid TCN-Transformer autoencoder, and a lightweight INT4-quantized Foundation Model (Phi-3 / Mistral) for real-time automated Root Cause Analysis (RCA). Evaluated on 5GB production campus network logs from HUFLIT alongside BGL and HDFS, the framework achieves F1 = 0.9520 and reduces incident triage time by >88%.",
     officialUrl: "https://soict.org",
@@ -62,7 +62,7 @@ export const publicationsData: Publication[] = [
     track: "Communications, Networking, IoT, Cloud Computing",
     year: 2026,
     authors: ["Trinh Hoang Tu", "ThS. Cao Tien Thanh"],
-    affiliation: "Faculty of Information Technology, HUFLIT",
+    affiliation: "Faculty of Information Technology, Ho Chi Minh City University of Foreign Languages - Information Technology, Ho Chi Minh City, Vietnam",
     abstract:
       "This paper proposes a privacy-preserving federated edge-cloud resilience architecture for multi-campus university environments. By deploying quantized sequence autoencoders at edge gateways and executing decentralized weight aggregation, the framework achieves real-time threat containment without streaming raw telemetry to central servers.",
     officialUrl: "https://rivf2026.org/#content",
@@ -79,7 +79,7 @@ export const publicationsData: Publication[] = [
     track: "Track 1: Information and Communications Technology (ICT)",
     year: 2026,
     authors: ["Trinh Hoang Tu", "ThS. Cao Tien Thanh"],
-    affiliation: "Faculty of Information Technology, HUFLIT",
+    affiliation: "Faculty of Information Technology, Ho Chi Minh City University of Foreign Languages - Information Technology, Ho Chi Minh City, Vietnam",
     abstract:
       "This paper investigates an AI-native event-driven security platform for campus and enterprise network environments. The proposed architecture decouples high-frequency edge telemetry ingestion from cloud policy control to achieve rapid, closed-loop threat containment under heterogeneous device constraints.",
     officialUrl: "https://icai.cmcu.edu.vn",
@@ -96,7 +96,7 @@ export const publicationsData: Publication[] = [
     track: "Information & Network Security, AIOps & Deep Learning",
     year: 2026,
     authors: ["Trinh Hoang Tu", "ThS. Cao Tien Thanh"],
-    affiliation: "Faculty of Information Technology, HUFLIT",
+    affiliation: "Faculty of Information Technology, Ho Chi Minh City University of Foreign Languages - Information Technology, Ho Chi Minh City, Vietnam",
     abstract:
       "This paper presents a large-scale system log anomaly detection pipeline based on Drain3 and event sequence analysis, comparing Temporal Convolutional Networks (TCN) and Transformers against traditional baselines on HDFS and BGL datasets.",
     officialUrl: "https://hoithaoquocgiacntt.ac.vn/",
@@ -113,7 +113,7 @@ export const publicationsData: Publication[] = [
     track: "Green Innovation, Digital Transformation & Risk Management",
     year: 2026,
     authors: ["Trinh Hoang Tu", "ThS. Cao Tien Thanh"],
-    affiliation: "Faculty of Information Technology, HUFLIT",
+    affiliation: "Faculty of Information Technology, Ho Chi Minh City University of Foreign Languages - Information Technology, Ho Chi Minh City, Vietnam",
     abstract:
       "This paper presents an empirical cybersecurity economics framework analyzing data leak likelihood, compliance penalties under Decree 13/2023/ND-CP, and operational loss modeling using Monte Carlo simulations for EdTech platforms in emerging Asian markets.",
     officialUrl: "https://gigs2026.ftu.edu.vn",
@@ -130,7 +130,7 @@ export const publicationsData: Publication[] = [
     track: "Digital Transformation & Cyber Economics",
     year: 2026,
     authors: ["Trinh Hoang Tu"],
-    affiliation: "Faculty of Information Technology, HUFLIT",
+    affiliation: "Faculty of Information Technology, Ho Chi Minh City University of Foreign Languages - Information Technology, Ho Chi Minh City, Vietnam",
     abstract:
       "This study conducts an empirical investigation into the economic feasibility, compliance factors, and institutional readiness for adopting AI-native security and automated threat orchestration across higher education institutions in Vietnam.",
     conferenceLogos: ["/images/ueh.png"],
