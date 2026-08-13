@@ -15,10 +15,19 @@ Trịnh Hoàng Tú (alias thtcsec, born 2005, based in Ho Chi Minh City, Vietnam
 - [AWS Study Group VN](https://hoangtu.dev/resume.md): FCAJ Cloud Trainee - Cloud Security Builder (Sep 2025 – Present) — Serverless SOAR, Step Functions, GuardDuty automation.
 
 ## Scientific Publications
-- [VNICT 2026](https://hoangtu.dev/research.md): Application of TCN and Transformer Networks for Log Anomaly Detection in Large-Scale Enterprise and Industrial Networks (Accepted / Camera-Ready, National Proceedings VAIP/VNICT).
-- [CSONET 2026](https://hoangtu.dev/research.md): AI-Assisted Resilience and Safety-Aware SDN Control for Next-Generation Intelligent Transportation Systems (Under Review, Springer LNCS, with Prof. Kris Singh - Tsinghua University).
-- [ICAI-FAI 2026](https://hoangtu.dev/research.md): INT8-Quantized Edge AI and Drain3 Log Intelligence for Real-Time Threat Mitigation in Resource-Constrained Industrial IoT (Under Review, Springer).
-- [UEH Conference 2026](https://hoangtu.dev/research.md): Economic Valuation of Cyber Risks and Automated SOAR Incident Response in Vietnam's Digital Education Infrastructure (Under Review, UEH).
+- [CSONET 2026](https://hoangtu.dev/research.md): Network-Aware Event Sequence Modeling for User-Behavior and System Log Anomaly Detection (Under Review, Springer LNCS · Scopus).
+- [SOICT 2026](https://hoangtu.dev/research.md): LLM-Augmented Log Anomaly Detection: Automated Root Cause Narration for AIOps using Lightweight Foundation Models on Real-World Campus Infrastructure (Under Review, Springer CCIS · Scopus, HUST x HCMUS).
+- [IEEE RIVF 2026](https://hoangtu.dev/research.md): Federated Edge-Cloud Resilience Architecture for Distributed Campus Networks (Under Review, IEEE Xplore · Scopus).
+- [ICAI-FAI 2026](https://hoangtu.dev/research.md): Decoupled AI-Native Security Architecture: Closed-Loop Threat Containment for Campus Networks (Under Review, CMC x Tsinghua x Steinbeis).
+- [VNICT 2026](https://hoangtu.dev/research.md): Application of TCN and Transformer Networks for Log Anomaly Detection in Large-Scale Enterprise and Industrial Networks (Accepted / Camera-Ready, National Proceedings · ISBN).
+- [GIGS 2026](https://hoangtu.dev/research.md): AI-Driven EdTech Risk & Cybersecurity Economics: Analyzing Student Data Governance and Financial Vulnerability in Emerging Markets (Under Review, FTU x Curtin University).
+- [SR-ICYREB 2026](https://hoangtu.dev/research.md): Regression Analysis of AI-Native Security Adoption and Operational Feasibility in Vietnamese Higher Education Institutions (Under Review, UEH).
+
+## Hackathons & Competitions
+- [HSU AI-Driven Challenge 2026](https://hoangtu.dev/certificates.md): Finalist (July - Aug 2026).
+- [Viettel AI Race 2026](https://hoangtu.dev/certificates.md): Participant (June - Sept 2026).
+- [Tsinghua University AI+Materials Competition 2026](https://hoangtu.dev/certificates.md): Finalist - 全球AI+材料创新应用大赛 (Apr - Aug 2026).
+- [QC4SG International Quantum Computing Hackathon 2026](https://hoangtu.dev/certificates.md): Finalist - Team QUASAR (Feb - July 2026).
 
 ## Key Projects
 - [Bảo An Auto](https://hoangtu.dev/projects.md): Zalo Mini App for Garage Management & Multi-Branch SaaS (React, TypeScript, Vite, Tailwind CSS, Zustand, Recharts).
