@@ -68,9 +68,7 @@ I actively participate in hackathons to test my skills under pressure and solve 
 ## 👥 Community & Leadership
 Engaging with developer communities and promoting modern web technologies:
 
-- **AI & Innovation Digital Economy - Tsinghua University** — *Cohort Member* (Focusing on AI innovation and digital economy).
 - **Agora Ambassador** — *Official Ambassador* (Promoting Real-Time Engagement technologies like WebRTC/Agora).
-- **Google Student Ambassador - HUFLIT** — *Campus Ambassador* (Leading Google AI tech adoption on campus).
 - **Google Developer Group HCMC** — *Active Member* (Participating in Google Tech events and workshops).
 - **AWS First Cloud AI Journey** — *Participant* (Deep dive into AWS Cloud and AI/ML services).
 

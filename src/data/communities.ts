@@ -10,28 +10,12 @@ export interface Community {
 
 export const communities: Community[] = [
     {
-        id: "iede-community",
-        title: "AI & Innovation Digital Economy - Tsinghua University",
-        description: "Member of a specialized cohort at Tsinghua University, focusing on AI innovation and entrepreneurship in the digital economy. Selected from over 3,700 global applicants.",
-        image: "/images/tsinghua.png",
-        tags: ["AI", "Entrepreneurship", "Digital Economy", "Tsinghua"],
-        link: ""
-    },
-    {
         id: "agora-ambassador",
         title: "Agora Ambassador",
         description: "Officially selected as an Agora Ambassador. Engaging with the developer community and promoting Agora's Real-Time Engagement (RTE) technologies.",
         image: "/images/forums/agora.png",
         tags: ["Agora", "Community", "Ambassador", "RTE", "WebRTC"],
         link: "https://www.agora.io/en/community/"
-    },
-    {
-        id: "gsa-huflit",
-        title: "Google Student Ambassador - HUFLIT",
-        description: "Officially selected as Google Student Ambassador representing HUFLIT. Leading the adoption of Google AI technologies on campus through leadership, community engagement, creative thinking, and digital communication.",
-        image: "/images/forums/gsa.png",
-        tags: ["Google", "AI", "Leadership", "Ambassador", "HUFLIT"],
-        link: "https://googlestudentambassador.vn"
     },
     {
         id: "gdg-hcmc",
