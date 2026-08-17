@@ -34,7 +34,7 @@ I build robust, secure, and highly scalable AI, cloud-native, and microservices 
 ## 🏆 Competitions & Hackathons
 I actively participate in hackathons to test my skills under pressure and solve real-world problems.
 
-- **Hoa Sen University - HSU AI-Driven Challenge 2026** (July - Aug 2026) — *Finalist (Vòng Bảng / Vòng Chung kết)*
+- **Hoa Sen University - HSU AI-Driven Challenge 2026** (July - Aug 2026) — *3rd Runner Up (Team Firewall404)*
 - **Viettel Group - Viettel AI Race 2026** (June - Sept 2026) — *Participant*
 - **Tsinghua University - 全球AI+材料创新应用大赛** (Apr - Aug 2026) — *Finalist*
 - **QC4SG 2026 - International Quantum Computing Hackathon** (Feb - July 2026) — *Finalist*

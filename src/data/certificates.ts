@@ -136,6 +136,14 @@ export const certificates: Certificate[] = [
 
 export const achievements: Certificate[] = [
     {
+        id: "hsu-ai-driven-challenge-2026",
+        title: "3rd Runner Up - HSU AI-Driven Challenge 2026",
+        issuer: "Hoa Sen University (HSU)",
+        image: "/images/achievements/hsu-ai-driven.jpg",
+        type: "achievement",
+        description: "Awarded 3rd Runner Up (Team Firewall404) at the HSU AI-Driven Challenge 2026 under the theme 'Mitigating Risks, Mastering AI Security'. Engineered Machine Learning models to classify and evaluate input prompt safety, detect data leakage risks, and prevent adversarial AI manipulation."
+    },
+    {
         id: "qc4sg-quantum-hackathon-2026",
         title: "Finalist - QC4SG 2026 International Quantum Computing Hackathon",
         issuer: "VNQuantum, NIC & Department of Science and Technology of Gia Lai Province",
@@ -203,7 +211,7 @@ export const achievements: Certificate[] = [
     {
         id: "hsu-vibe-coding",
         title: "Winner - HSU Vibe Coding Talents",
-        issuer: "HSU University",
+        issuer: "Hoa Sen University (HSU)",
         image: "/images/achievements/hsu_vibe_coding_talents_winner.jpg",
         type: "achievement",
         description: "Winner with a prize valued at ~15 million VND, demonstrating exceptional coding skills."
@@ -232,6 +240,7 @@ export const featuredCertificates = [
     certificates.find(c => c.id === "aws-security-fundamentals")!
 ];
 export const featuredAchievements = [
+    achievements.find(a => a.id === "hsu-ai-driven-challenge-2026"),
     achievements.find(a => a.id === "qc4sg-quantum-hackathon-2026"),
     achievements.find(a => a.id === "mongodb-hackathon-2026"),
 ].filter(Boolean) as Certificate[];

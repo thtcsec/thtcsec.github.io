@@ -34,7 +34,7 @@ const competitions = [
   {
     name: "Hoa Sen University - HSU AI-Driven Challenge 2026",
     date: "July - Aug 2026",
-    role: "Finalist",
+    role: "3rd Runner Up (Team Firewall404)",
     icon: <Trophy className="w-5 h-5 text-amber-400 group-hover:animate-pulse" />,
     bgGradient: "from-amber-500/10 to-transparent",
     borderClass: "border-amber-500/20 group-hover:border-amber-500/50 group-hover:shadow-[0_0_15px_rgba(245,158,11,0.3)]",

@@ -6,7 +6,12 @@ A structured record of professional certifications, credentials, hackathon achie
 
 ## 🏆 Hackathons & Academic Achievements
 
-### 1. Finalist — QC4SG 2026 International Quantum Computing Hackathon
+### 1. 3rd Runner Up — HSU AI-Driven Challenge 2026
+*   **Issuer:** Hoa Sen University (HSU)
+*   **Date:** August 2026
+*   **Description:** Awarded 3rd Runner Up (Team Firewall404) at the HSU AI-Driven Challenge 2026 under the theme "Mitigating Risks, Mastering AI Security". Processed real-world datasets and engineered Machine Learning models to evaluate input prompt safety, detect data leakage risks, and prevent adversarial AI manipulation.
+
+### 2. Finalist — QC4SG 2026 International Quantum Computing Hackathon
 *   **Issuer:** VNQuantum, NIC & Department of Science and Technology of Gia Lai Province
 *   **Date:** July 2026
 *   **Description:** Selected as Finalist (Team 23) in the Quantum Computing for Social Good (QC4SG) 2026 International Hackathon. Built QUASAR: A classical-quantum hybrid logistics engine pairing classical local search (Google OR-Tools) with 127-qubit IBM QPU QAOA algorithms for Traveling Salesperson Problem optimization.
