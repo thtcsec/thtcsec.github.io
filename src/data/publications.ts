@@ -44,7 +44,7 @@ export const publicationsData: Publication[] = [
     abbreviation: "SOICT 2026",
     track: "AI Foundations, Foundation Models, and Generative AI",
     year: 2026,
-    authors: ["Trinh Hoang Tu", "ThS. Cao Tien Thanh"],
+    authors: ["ThS. Cao Tien Thanh", "Trinh Hoang Tu", "PGS. TS. Tran Manh Ha"],
     affiliation: "Faculty of Information Technology, Ho Chi Minh City University of Foreign Languages - Information Technology, Ho Chi Minh City, Vietnam",
     abstract:
       "This paper proposes an end-to-end LLM-augmented AIOps framework combining streaming Drain3 log template parsing, a hybrid TCN-Transformer autoencoder, and a lightweight INT4-quantized Foundation Model (Phi-3 / Mistral) for real-time automated Root Cause Analysis (RCA). Evaluated on 5GB production campus network logs from HUFLIT alongside BGL and HDFS, the framework achieves F1 = 0.9520 and reduces incident triage time by >88%.",
