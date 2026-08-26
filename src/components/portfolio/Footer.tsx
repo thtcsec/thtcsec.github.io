@@ -105,15 +105,18 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Middle: OrangeCloud Cloudflare Ecosystem Horizontal Bar */}
-        <div className="mb-10 p-4 sm:p-5 rounded-2xl bg-card/40 border border-border/60 shadow-sm flex flex-col md:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-muted-foreground shrink-0">
-            <Icon icon="simple-icons:cloudflare" className="w-4 h-4 text-[#F38020]" />
-            <span>OrangeCloud VN (Cloudflare Ecosystem)</span>
+                {/* Middle: OrangeCloud VN Ecosystem Horizontal Bar */}
+        <div className="mb-8 p-3.5 sm:p-4 rounded-xl bg-card/30 border border-border/40 flex flex-col md:flex-row items-center justify-between gap-3.5">
+          <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground shrink-0">
+            <span className="flex h-5 w-5 items-center justify-center rounded bg-[#F38020]/15 text-[#F38020] font-bold text-xs">
+              ☁
+            </span>
+            <span>OrangeCloud VN</span>
           </div>
 
-          <div className="flex flex-wrap items-center justify-center md:justify-end gap-2">
+          <div className="flex flex-wrap items-center justify-center md:justify-end gap-1.5 sm:gap-2">
             {[
+              { label: "thtcsec (Portfolio)", href: "https://thtcsec.orangecloud.vn", isSelf: true },
               { label: "Beginners Guide", href: "https://onboarding.orangecloud.vn" },
               { label: "Technical Blog", href: "https://blog.orangecloud.vn" },
               { label: "Go-Live Readiness", href: "https://ready.orangecloud.vn" },
@@ -125,10 +128,14 @@ const Footer = () => {
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-background/80 hover:bg-primary/10 border border-border/60 hover:border-primary/40 text-xs font-medium text-foreground/80 hover:text-primary transition-all duration-300 shadow-sm group"
+                className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg border text-xs font-medium transition-all duration-200 group ${
+                  (link as any).isSelf
+                    ? 'bg-[#F38020]/10 text-[#F38020] border-[#F38020]/30 hover:bg-[#F38020]/20'
+                    : 'bg-background/60 hover:bg-primary/5 border-border/40 hover:border-primary/40 text-muted-foreground hover:text-foreground'
+                }`}
               >
                 <span>{link.label}</span>
-                <ExternalLink size={11} className="text-muted-foreground group-hover:text-primary transition-colors" />
+                <ExternalLink size={10} className={(link as any).isSelf ? 'text-[#F38020]' : 'text-muted-foreground/70 group-hover:text-primary transition-colors'} />
               </a>
             ))}
           </div>
