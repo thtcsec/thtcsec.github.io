@@ -74,8 +74,15 @@ export const projects: Project[] = [
         technologies: ["Python", "FastAPI", "PyTorch", "ONNX Runtime", "TensorRT", "Streamlit", "OpenCV", "Docker"],
         github: "",
         demo: "",
-        image: "/images/project_image/securecoating/securecoating-1.png",
+        image: "/images/project_image/securecoating/securecoating-4.png",
         images: [
+            "/images/project_image/securecoating/securecoating-4.png",
+            "/images/project_image/securecoating/securecoating-5.png",
+            "/images/project_image/securecoating/securecoating-6.png",
+            "/images/project_image/securecoating/securecoating-7.png",
+            "/images/project_image/securecoating/securecoating-3.png",
+            "/images/project_image/securecoating/securecoating-8.png",
+            "/images/project_image/securecoating/securecoating-9.png",
             "/images/project_image/securecoating/securecoating-1.png",
             "/images/project_image/securecoating/securecoating-2.png"
         ],
