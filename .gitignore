@@ -131,3 +131,6 @@ public/images/gallery/*
 # Logs
 logs/
 .project_image/
+# local image optimization backups
+public/images/project_image/_bak_pre_webp_*/
+

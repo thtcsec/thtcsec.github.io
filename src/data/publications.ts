@@ -49,7 +49,7 @@ export const publicationsData: Publication[] = [
     abstract:
       "This paper proposes an end-to-end LLM-augmented AIOps framework combining streaming Drain3 log template parsing, a hybrid TCN-Transformer autoencoder, and a lightweight INT4-quantized Foundation Model (Phi-3 / Mistral) for real-time automated Root Cause Analysis (RCA). Evaluated on 5GB production campus network logs from HUFLIT alongside BGL and HDFS, the framework achieves F1 = 0.9520 and reduces incident triage time by >88%.",
     officialUrl: "https://soict.org",
-    conferenceLogos: ["/images/soict-hust.png", "/images/hcmus.png"],
+    conferenceLogos: ["/images/soict-hust.webp", "/images/hcmus.webp"],
     status: "Under Review",
     indexing: "Springer CCIS · Scopus",
     tags: ["LLM", "Foundation Models", "Log Anomaly Detection", "AIOps", "Root Cause Analysis", "Drain3", "TCN-Transformer"],

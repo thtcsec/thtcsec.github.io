@@ -48,13 +48,16 @@ export const projects: Project[] = [
         technologies: ["PyTorch", "Python", "Ryu", "ONOS", "Mininet-WiFi", "SUMO", "Scapy", "Flask", "Docker"],
         github: "",
         demo: "",
-        image: "/images/project_image/sdn_its/sdn_its.png",
+        image: "/images/project_image/sdn_its/sdn_its-1.webp",
         images: [
-            "/images/project_image/sdn_its/sdn_its.png",
-            "/images/project_image/sdn_its/sdn_its-1.png",
-            "/images/project_image/sdn_its/sdn_its-2.png",
-            "/images/project_image/sdn_its/sdn_its-3.png",
-            "/images/project_image/sdn_its/sdn_its-4.png"
+            "/images/project_image/sdn_its/sdn_its.webp",
+            "/images/project_image/sdn_its/sdn_its-1.webp",
+            "/images/project_image/sdn_its/sdn_its-2.webp",
+            "/images/project_image/sdn_its/sdn_its-3.webp",
+            "/images/project_image/sdn_its/sdn_its-4.webp",
+            "/images/project_image/sdn_its/sdn_its-5.webp",
+            "/images/project_image/sdn_its/sdn_its-6.webp",
+            "/images/project_image/sdn_its/sdn_its-7.webp"
         ],
         featured: true,
         highlights: [
@@ -74,16 +77,16 @@ export const projects: Project[] = [
         technologies: ["Python", "FastAPI", "PyTorch", "ONNX Runtime", "Streamlit", "OpenCV", "Docker"],
         github: "",
         demo: "",
-        image: "/images/project_image/securecoating/securecoating-1.png",
+        image: "/images/project_image/securecoating/securecoating-1.webp",
         images: [
-            "/images/project_image/securecoating/securecoating-1.png",
-            "/images/project_image/securecoating/securecoating-2.png",
-            "/images/project_image/securecoating/securecoating-3.png",
-            "/images/project_image/securecoating/securecoating-4.png",
-            "/images/project_image/securecoating/securecoating-5.png",
-            "/images/project_image/securecoating/securecoating-6.png",
-            "/images/project_image/securecoating/securecoating-7.png",
-            "/images/project_image/securecoating/securecoating-8.png"
+            "/images/project_image/securecoating/securecoating-1.webp",
+            "/images/project_image/securecoating/securecoating-2.webp",
+            "/images/project_image/securecoating/securecoating-3.webp",
+            "/images/project_image/securecoating/securecoating-4.webp",
+            "/images/project_image/securecoating/securecoating-5.webp",
+            "/images/project_image/securecoating/securecoating-6.webp",
+            "/images/project_image/securecoating/securecoating-7.webp",
+            "/images/project_image/securecoating/securecoating-8.webp"
         ],
         featured: true,
         highlights: [
