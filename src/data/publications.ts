@@ -122,20 +122,4 @@ export const publicationsData: Publication[] = [
     indexing: "FTU · Curtin University",
     tags: ["Cyber Economics", "EdTech Risk", "Data Governance", "Decree 13/2023/ND-CP", "Monte Carlo"],
   },
-  {
-    id: "sr-icyreb-2026",
-    title: "Regression Analysis of AI-Native Security Adoption and Operational Feasibility in Vietnamese Higher Education Institutions",
-    conference: "The 12th International Conference for Young Researchers in Economics and Business (SR-ICYREB 2026)",
-    abbreviation: "SR-ICYREB 2026",
-    track: "Digital Transformation & Cyber Economics",
-    year: 2026,
-    authors: ["Trinh Hoang Tu"],
-    affiliation: "Faculty of Information Technology, Ho Chi Minh City University of Foreign Languages - Information Technology, Ho Chi Minh City, Vietnam",
-    abstract:
-      "This study conducts an empirical investigation into the economic feasibility, compliance factors, and institutional readiness for adopting AI-native security and automated threat orchestration across higher education institutions in Vietnam.",
-    conferenceLogos: ["/images/ueh.png"],
-    status: "Under Review",
-    indexing: "National Proceedings · UEH",
-    tags: ["Cyber Economics", "EdTech Security", "Empirical Research", "AI Adoption"],
-  },
 ];
