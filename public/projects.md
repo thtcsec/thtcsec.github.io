@@ -70,15 +70,16 @@ A collection of featured engineering projects in web architectures, serverless s
     *   Dynamic geospatial routing engine using OSMnx to snap coordinate JSON inputs to real road networks with Haversine fallback.
     *   Deterministic tour validation layer verifying depot start/end constraints and node uniqueness.
 
-### 6. SecureCoating-Vision — Multi-Source Fusion Vision System
-*   **Domain:** Computer Vision & AI for Materials Science
-*   **Technologies:** Python, FastAPI, PyTorch, ONNX Runtime, TensorRT, Streamlit, OpenCV, Docker
+### 6. SecureCoating-Vision — Evidence-Gated Electrode Inspection
+*   **Domain:** AI + Materials Testing (battery electrode coating)
+*   **Technologies:** Python, FastAPI, PyTorch, ONNX Runtime, Streamlit, OpenCV, Docker
 *   **Access:** Private Competition Repository
 *   **Highlights:**
-    *   *Competition:* 2026 Global AI + Materials Competition (Tsinghua University School of Materials Science & Engineering), supervised by Prof. Kris Singh (SRII / Tsinghua).
-    *   Multi-modal sensor fusion combining 2D High-Res Optical RGB, LWIR Thermal, and 3D Laser Profilometer data.
-    *   Dual-stage inference pipeline accelerated via TensorRT FP16/INT8 for $\le 35\text{ms}$ inspection zone latency.
-    *   Fail-safe sensor degradation logic, digital homography correction, and OPC UA / Modbus TCP industrial PLC signaling.
+    *   Track 4 problem: coating defects become scrap or untraceable cell risk; a detector that ranks anomalies can still be unsafe to act on.
+    *   Novelty is the evidence gate (PASS / REJECT / HOLD), not another YOLO. LIBAD/DA-Core stay attributed to Sui et al.
+    *   CoatingVision held-out test-split: mAP50 0.63 / P 0.64 / R 0.64. Live CPU pipeline ~312 ms. LIBAD authors report FPR95 54.3% — HOLD converts disagreement into a controlled state.
+    *   Thermal and profilometry are simulated adapters. Target real multimodal lane: LIBAD VIS + X-rayL. HMAC certificates, OPC UA/Modbus, fail-closed console. Not production-qualified.
+
 
 ### 7. Foundry — AI Engineering Intelligence Platform
 *   **Domain:** System Engineering & AI Code Intelligence

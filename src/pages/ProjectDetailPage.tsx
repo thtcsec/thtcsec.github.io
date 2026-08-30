@@ -8,7 +8,7 @@ import ThemeToggle from "@/components/ThemeToggle";
 import NotFound from "@/pages/NotFound";
 import ImageModal from "@/components/ImageModal";
 
-const LazyImage = ({ src, alt }: { src: string; alt: string }) => {
+const LazyImage = ({ src, alt, fit = "cover" }: { src: string; alt: string; fit?: "cover" | "contain" }) => {
     const [isLoaded, setIsLoaded] = useState(false);
     const [isInView, setIsInView] = useState(false);
     const imgRef = useRef<HTMLDivElement>(null);
@@ -36,7 +36,7 @@ const LazyImage = ({ src, alt }: { src: string; alt: string }) => {
                     loading="lazy"
                     decoding="async"
                     onLoad={() => setIsLoaded(true)}
-                    className={`w-full h-full object-cover transition-opacity duration-300 ${isLoaded ? "opacity-100" : "opacity-0"}`}
+                    className={`w-full h-full transition-opacity duration-300 ${isLoaded ? "opacity-100" : "opacity-0"} ${fit === "contain" ? "object-contain bg-zinc-950" : "object-cover"}`}
                 />
             )}
         </div>
@@ -168,13 +168,15 @@ const ProjectDetailPage = () => {
                                 <div>
                                     <h2 className="text-2xl font-bold mb-6">Gallery</h2>
                                     <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                                        {project.images.map((img, i) => (
+                                        {project.images.map((img, i) => {
+                                            const screenshotGallery = project.id === "securecoating-vision";
+                                            return (
                                             <div
                                                 key={i}
                                                 onClick={() => setSelectedImageIndex(i)}
-                                                className="relative aspect-[4/3] overflow-hidden rounded-xl border border-border bg-muted cursor-pointer group hover:border-primary/50 transition-all"
+                                                className={`relative overflow-hidden rounded-xl border border-border bg-muted cursor-pointer group hover:border-primary/50 transition-all ${screenshotGallery ? "aspect-video" : "aspect-[4/3]"}`}
                                             >
-                                                <LazyImage src={img} alt={`${project.title} - ${i + 1}`} />
+                                                <LazyImage src={img} alt={`${project.title} - ${i + 1}`} fit={screenshotGallery ? "contain" : "cover"} />
                                                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                                                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                                                     <div className="p-2 rounded-full bg-black/50 backdrop-blur-sm">
@@ -182,7 +184,8 @@ const ProjectDetailPage = () => {
                                                     </div>
                                                 </div>
                                             </div>
-                                        ))}
+                                            );
+                                        })}
                                     </div>
                                 </div>
                             )}

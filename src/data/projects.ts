@@ -68,31 +68,32 @@ export const projects: Project[] = [
     },
     {
         id: "securecoating-vision",
-        title: "SecureCoating-Vision — Multi-Source Fusion Vision System",
-        description: "Multi-source data fusion vision inspection system for real-time coating defect detection (scratches, voids, delamination), prepared for Tsinghua University AI + Materials Competition.",
+        title: "SecureCoating-Vision — Evidence-Gated Electrode Inspection",
+        description: "Track 4 (AI + Materials Testing): electrode coating defects become scrap or untraceable cell risk. Ranking anomalies is not enough — a line needs to know when a detection is safe to act on. SecureCoating-Vision is a fail-closed inspection pipeline: RGB YOLO-seg localization, then an evidence gate that may only PASS/REJECT when sensors, calibration, traceability, and PLC ACK agree; otherwise HOLD. Thermal and laser channels are simulated adapters; the industrial claim is the decision contract, not another detector.",
         category: "ai",
-        technologies: ["Python", "FastAPI", "PyTorch", "ONNX Runtime", "TensorRT", "Streamlit", "OpenCV", "Docker"],
+        technologies: ["Python", "FastAPI", "PyTorch", "ONNX Runtime", "Streamlit", "OpenCV", "Docker"],
         github: "",
         demo: "",
-        image: "/images/project_image/securecoating/securecoating-4.png",
+        image: "/images/project_image/securecoating/securecoating-1.png",
         images: [
+            "/images/project_image/securecoating/securecoating-1.png",
+            "/images/project_image/securecoating/securecoating-2.png",
+            "/images/project_image/securecoating/securecoating-3.png",
             "/images/project_image/securecoating/securecoating-4.png",
             "/images/project_image/securecoating/securecoating-5.png",
             "/images/project_image/securecoating/securecoating-6.png",
             "/images/project_image/securecoating/securecoating-7.png",
-            "/images/project_image/securecoating/securecoating-3.png",
-            "/images/project_image/securecoating/securecoating-8.png",
-            "/images/project_image/securecoating/securecoating-9.png",
-            "/images/project_image/securecoating/securecoating-1.png",
-            "/images/project_image/securecoating/securecoating-2.png"
+            "/images/project_image/securecoating/securecoating-8.png"
         ],
         featured: true,
         highlights: [
-            "Competition Project: 2026 Global AI + Materials Competition (Tsinghua University School of Materials Science & Engineering)",
-            "Supervised by Prof. Kris Singh (CEO of SRII & Visiting Professor at Tsinghua University)",
-            "Multi-modal sensor fusion combining 2D High-Res Optical RGB, LWIR Thermal, and 3D Laser Profilometer data",
-            "Dual-stage inference pipeline accelerated via TensorRT FP16/INT8 for <=35ms inspection latency",
-            "Fail-safe sensor degradation logic, digital homography correction, and OPC UA / Modbus TCP industrial PLC signaling"
+            "Competition: 2026 Global AI + Materials (Tsinghua MSE), Track 4 — AI + Materials Testing and Characterization. Advisor: Prof. Kris Singh.",
+            "Novelty is the evidence gate, not another YOLO: detection cannot self-release the line. Modality disagreement, stale sensors, invalid calibration, or missing PLC ACK become HOLD — a controlled industrial state, not a hidden false-positive rate. LIBAD/DA-Core stay attributed to Sui et al.",
+            "Held-out CoatingVision optical test-split (seed 71, Figshare DOI 10.6084/m9.figshare.29260121.v1): mAP50 0.63 / precision 0.64 / recall 0.64. Live mean pipeline latency ~312 ms on CPU. Sui et al. report LIBAD FPR95 54.3% even at F1-max 90.6% — we measure how much of that risk converts to HOLD (Automatic Decision Coverage, HOLD Rate, Escape Rate, Selective Risk), not a claim that FPR vanished.",
+            "Materials, not generic CV: acquired coating-surface frames on a roll/batch identity, SHA-256 verified samples, SPC on the coating process. Thermal and profilometry are simulated interface adapters in this prototype; the target real multimodal lane is LIBAD VIS + inline-compatible X-rayL.",
+            "Industrial contract: fail-closed production console, confirm-audit E-stop/reset, OPC UA / Modbus command+ACK, HMAC roll certificates. Prototype is not production-qualified — no vendor PLC HIL, no plant safety approval, no factory yield claim.",
+            "Operator story in one History view: acquired frame → letterboxed model input → blister/scratch overlay → PASS / REJECT / HOLD. Dataset, Diagnose, and Traceability show provenance, readiness blockers, and the signed certificate.",
+            "Reproducibility: Docker API + dashboard, 171 software tests, pinned weights path, hash-verified dataset library. Limitations stated: official LIBAD 4.84 GB run pending; thermal/profiler not plant instruments; tracked YOLO split is research evidence, not a factory qualification."
         ],
         isPrivate: true
     },
