@@ -55,16 +55,18 @@ const Footer = () => {
     <footer className="border-t border-border/80 bg-card/15 py-12">
       <div className="container mx-auto px-4">
         {/* Top: 3 Academic Partners Grid */}
+        <h2 className="sr-only">Academic Background and Affiliations</h2>
         <div className="mb-10 grid gap-8 grid-cols-1 md:grid-cols-3">
           <div className="flex items-start gap-4">
             <img
               src="/images/huflit.png"
-              alt="HUFLIT"
+              alt=""
+              aria-hidden="true"
               className="w-14 h-14 object-contain shrink-0"
               loading="lazy"
             />
             <div>
-              <h4 className="font-bold text-sm mb-1 text-foreground leading-snug">Ho Chi Minh City University of Foreign Languages - Information Technology</h4>
+              <h3 className="font-bold text-sm mb-1 text-foreground leading-snug">Ho Chi Minh City University of Foreign Languages - Information Technology</h3>
               <p className="text-xs text-muted-foreground">Faculty of Information Technology</p>
               <p className="text-xs text-muted-foreground mt-0.5">Major: {siteConfig.major}</p>
               <p className="text-xs text-muted-foreground mt-0.5">Expected: {siteConfig.academic.expectedGraduation}</p>
@@ -74,16 +76,17 @@ const Footer = () => {
           <div className="flex items-start gap-4">
             <img
               src="/images/tsinghua.png"
-              alt="Tsinghua University"
+              alt=""
+              aria-hidden="true"
               className="w-14 h-14 object-contain rounded-md border border-border/50 shrink-0"
               loading="lazy"
             />
             <div>
-              <h4 className="font-bold text-sm mb-1 text-foreground leading-snug">Tsinghua University</h4>
-              <p className="text-xs text-primary/95 font-bold">Global Innovation Program Certified</p>
+              <h3 className="font-bold text-sm mb-1 text-foreground leading-snug">Tsinghua University</h3>
+              <p className="text-xs text-primary font-bold">Global Innovation Program Certified</p>
               <p className="text-xs text-muted-foreground mt-0.5">AI & Innovation Digital Economy Program</p>
               <p className="text-xs text-muted-foreground mt-0.5">Spring 2026: Certificate (Completed) &bull; Autumn 2026: TA & Researcher</p>
-              <p className="text-[11px] text-primary/95 font-medium mt-0.5 leading-tight">Supervised by Prof. Kris Singh (CEO at SRII, Ex-IBM/Intel)</p>
+              <p className="text-[11px] text-primary font-medium mt-0.5 leading-tight">Supervised by Prof. Kris Singh (CEO at SRII, Ex-IBM/Intel)</p>
             </div>
           </div>
 
@@ -91,16 +94,17 @@ const Footer = () => {
             <div className="w-14 h-14 rounded-xl bg-white border border-slate-200 p-1.5 flex items-center justify-center shrink-0 shadow-sm">
               <img
                 src="/images/vinuni.png"
-                alt="VinUniversity"
+                alt=""
+                aria-hidden="true"
                 className="w-full h-full object-contain"
                 loading="lazy"
               />
             </div>
             <div>
-              <h4 className="font-bold text-sm mb-1 text-foreground leading-snug">VinUniversity</h4>
+              <h3 className="font-bold text-sm mb-1 text-foreground leading-snug">VinUniversity</h3>
               <p className="text-xs text-muted-foreground">AI Practical Talent Program</p>
               <p className="text-xs text-muted-foreground mt-0.5">Cohort 3 & 4 (Enrolling Dec 2026)</p>
-              <p className="text-xs text-primary/95 font-medium mt-0.5">Deferred Enrollment</p>
+              <p className="text-xs text-primary font-medium mt-0.5">Deferred Enrollment</p>
             </div>
           </div>
         </div>

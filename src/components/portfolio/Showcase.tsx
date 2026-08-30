@@ -84,19 +84,19 @@ const Showcase = () => {
                     />
                   </div>
 
-                  <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-amber-500/10 text-amber-500 border border-amber-500/30 text-[10px] font-bold uppercase tracking-wider mb-2">
+                  <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/30 text-[10px] font-bold uppercase tracking-wider mb-2">
                     <Award size={12} />
                     <span>{achievement.issuer.split(',')[0]}</span>
                   </div>
 
-                  <h4 className="text-sm font-extrabold text-foreground group-hover:text-amber-500 transition-colors leading-snug line-clamp-2">
+                  <h4 className="text-sm font-extrabold text-foreground group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors leading-snug line-clamp-2">
                     {achievement.title}
                   </h4>
                 </div>
 
                 <div className="mt-3 flex items-center justify-between text-[11px] font-mono text-muted-foreground/80 border-t border-border/40 pt-2.5">
                   <span className="truncate">{achievement.issuer.split(',')[0]}</span>
-                  <span className="text-amber-500 font-semibold group-hover:underline flex items-center gap-1 shrink-0">
+                  <span className="text-amber-600 dark:text-amber-400 font-semibold group-hover:underline flex items-center gap-1 shrink-0">
                     View Proof <ArrowRight size={10} />
                   </span>
                 </div>
