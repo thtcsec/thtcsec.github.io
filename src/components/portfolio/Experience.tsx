@@ -186,14 +186,14 @@ const Experience = () => {
                     : "border-transparent text-muted-foreground hover:text-foreground hover:bg-muted/40"
                   }`}
               >
-                <div className="w-8 h-8 rounded-lg bg-muted border border-border flex items-center justify-center flex-shrink-0">
+                <div className="w-10 h-10 rounded-xl bg-muted/60 border border-border/80 flex items-center justify-center flex-shrink-0 p-1.5 transition-transform group-hover:scale-105">
                   {exp.imageLogo ? (
-                    <img src={exp.imageLogo} alt={exp.company} className="w-5 h-5 object-contain" />
+                    <img src={exp.imageLogo} alt={exp.company} className="w-full h-full object-contain" />
                   ) : (
-                    <Icon icon={exp.logo || "mdi:server-network-outline"} className={`w-5 h-5 ${exp.logoColor}`} />
+                    <Icon icon={exp.logo || "mdi:server-network-outline"} className={`w-6 h-6 ${exp.logoColor}`} />
                   )}
                 </div>
-                <span>{exp.company}</span>
+                <span className="truncate">{exp.company}</span>
               </button>
             ))}
           </div>
@@ -201,13 +201,22 @@ const Experience = () => {
           {/* Details Card */}
           <div className="flex-1 w-full cinema-card p-6 md:p-8 transition-all duration-300">
             <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 border-b border-border/50 pb-6 mb-6">
-              <div>
-                <h3 className="text-2xl font-extrabold text-foreground tracking-tight">
-                  {activeExp.company}
-                </h3>
-                <div className="flex items-center gap-1.5 text-sm text-muted-foreground mt-1">
-                  <MapPin className="w-4 h-4" />
-                  <span>{activeExp.location}</span>
+              <div className="flex items-center gap-3.5">
+                <div className="w-12 h-12 rounded-xl bg-muted/80 border border-border flex items-center justify-center flex-shrink-0 p-2 shadow-sm">
+                  {activeExp.imageLogo ? (
+                    <img src={activeExp.imageLogo} alt={activeExp.company} className="w-full h-full object-contain" />
+                  ) : (
+                    <Icon icon={activeExp.logo || "mdi:server-network-outline"} className={`w-7 h-7 ${activeExp.logoColor}`} />
+                  )}
+                </div>
+                <div>
+                  <h3 className="text-2xl font-extrabold text-foreground tracking-tight">
+                    {activeExp.company}
+                  </h3>
+                  <div className="flex items-center gap-1.5 text-sm text-muted-foreground mt-0.5">
+                    <MapPin className="w-4 h-4" />
+                    <span>{activeExp.location}</span>
+                  </div>
                 </div>
               </div>
               <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-primary/5 border border-primary/20 text-xs font-semibold text-primary self-start">
