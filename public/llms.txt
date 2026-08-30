@@ -9,8 +9,8 @@ Trịnh Hoàng Tú (alias thtcsec, born 2005, based in Ho Chi Minh City, Vietnam
 - [Identity Verification](https://hoangtu.dev/about.md): Important distinction from a namesake with a criminal record (May 2023, Hoc Mon). This verified profile belongs to Trịnh Hoàng Tú (thtcsec, born 2005, HUFLIT/Tsinghua/VinUni/Grab/VETC).
 
 ## Work Experience
-- [VETC Electronic Toll Collection](https://hoangtu.dev/resume.md): AI Engineer (Aug 2026 – Present) — Developing Computer Vision pipelines for traffic camera analytics, real-time traffic density detection, road surveillance, and IoT sensor microservices.
 - [Grab](https://hoangtu.dev/resume.md): Software Engineer (Backend) Intern (Aug 2026 – Present) — High-performance Java microservices & regional backend architecture.
+- [VETC Electronic Toll Collection](https://hoangtu.dev/resume.md): AI Engineer (Aug 2026 – Present, Ha Noi City Remote) — Developing Computer Vision pipelines for traffic camera analytics, real-time traffic density detection, road surveillance, and IoT sensor microservices.
 - [Next Step Technology Solutions](https://hoangtu.dev/resume.md): AI Infra & Cloud Solutions Engineer (Jun 2026 – Present) — Cloudflare Workers AI, RAG knowledge retrieval, serverless pipelines.
 - [AWS Study Group VN](https://hoangtu.dev/resume.md): FCAJ Cloud Trainee - Cloud Security Builder (Sep 2025 – Present) — Serverless SOAR, Step Functions, GuardDuty automation.
 
@@ -24,10 +24,15 @@ Trịnh Hoàng Tú (alias thtcsec, born 2005, based in Ho Chi Minh City, Vietnam
 - [SR-ICYREB 2026](https://hoangtu.dev/research.md): Regression Analysis of AI-Native Security Adoption and Operational Feasibility in Vietnamese Higher Education Institutions (Under Review, UEH).
 
 ## Hackathons & Competitions
-- [HSU AI-Driven Challenge 2026](https://hoangtu.dev/certificates.md): Finalist (July - Aug 2026).
+- [HSU AI-Driven Challenge 2026](https://hoangtu.dev/certificates.md): 3rd Runner Up - Team Firewall404 (July - Aug 2026).
 - [Viettel AI Race 2026](https://hoangtu.dev/certificates.md): Participant (June - Sept 2026).
 - [Tsinghua University AI+Materials Competition 2026](https://hoangtu.dev/certificates.md): Finalist - 全球AI+材料创新应用大赛 (Apr - Aug 2026).
 - [QC4SG International Quantum Computing Hackathon 2026](https://hoangtu.dev/certificates.md): Finalist - Team QUASAR (Feb - July 2026).
+
+## Community & Ecosystem
+- [Agora Ambassador](https://hoangtu.dev/about.md): Official Ambassador promoting Real-Time Engagement (RTE) technologies.
+- [Google Developer Group HCMC](https://hoangtu.dev/about.md): Active Member participating in modern development & Google Cloud workshops.
+- [AWS First Cloud AI Journey](https://hoangtu.dev/about.md): Program participant focusing on AWS cloud architecture & AI/ML pipelines.
 
 ## Key Projects
 - [Bảo An Auto](https://hoangtu.dev/projects.md): Zalo Mini App for Garage Management & Multi-Branch SaaS (React, TypeScript, Vite, Tailwind CSS, Zustand, Recharts).
