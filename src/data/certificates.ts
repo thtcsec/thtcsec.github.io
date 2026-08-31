@@ -190,7 +190,7 @@ export const achievements: Certificate[] = [
         issuer: "VinUniversity",
         image: "/images/certificates/vinuni_admission.png",
         type: "achievement",
-        description: "Offered official admission to the prestigious AI Practical Talent Training Program (Cohort 3 & 4) by VinUniversity after passing competitive technical evaluations."
+        description: "Officially offered admission to the prestigious AI Practical Talent Training Program (Cohort 1) by VinUniversity after passing competitive technical evaluations (Deferred enrollment status reserved until 2027)."
     },
     {
         id: "outstanding-student-2023",

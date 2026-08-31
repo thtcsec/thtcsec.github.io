@@ -85,7 +85,8 @@ const Footer = () => {
               <h3 className="font-bold text-sm mb-1 text-foreground leading-snug">Tsinghua University</h3>
               <p className="text-xs text-primary font-bold">Global Innovation Program Certified</p>
               <p className="text-xs text-muted-foreground mt-0.5">AI & Innovation Digital Economy Program</p>
-              <p className="text-xs text-muted-foreground mt-0.5">Spring 2026: Certificate (Completed) &bull; Autumn 2026: TA & Researcher</p>
+              <p className="text-xs text-muted-foreground mt-0.5">Spring 2026: Certificate (Completed)</p>
+              <p className="text-xs text-muted-foreground mt-0.5">Autumn 2026: Extended Teaching Assistant</p>
               <p className="text-[11px] text-primary font-medium mt-0.5 leading-tight">Supervised by Prof. Kris Singh (CEO at SRII, Ex-IBM/Intel)</p>
             </div>
           </div>
@@ -102,9 +103,9 @@ const Footer = () => {
             </div>
             <div>
               <h3 className="font-bold text-sm mb-1 text-foreground leading-snug">VinUniversity</h3>
-              <p className="text-xs text-muted-foreground">AI Practical Talent Program</p>
-              <p className="text-xs text-muted-foreground mt-0.5">Cohort 3 & 4 (Enrolling Dec 2026)</p>
-              <p className="text-xs text-primary font-medium mt-0.5">Deferred Enrollment</p>
+              <p className="text-xs text-primary font-bold">AI Practical Talent Program</p>
+              <p className="text-xs text-muted-foreground mt-0.5">Cohort 1: Admitted Scholar</p>
+              <p className="text-xs text-muted-foreground mt-0.5">Deferred Enrollment (Reserved until 2027)</p>
             </div>
           </div>
         </div>

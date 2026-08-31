@@ -161,11 +161,11 @@ const ResumePage = () => {
                   <span className="text-[11px] font-semibold text-muted-foreground print:text-neutral-600">2026 – Present</span>
                 </div>
                 <div className="text-xs text-muted-foreground print:text-neutral-800 italic mb-1.5">
-                  AI & Innovation Digital Economy | Research & TA (Autumn 2026)
+                  AI & Innovation Digital Economy | Extended Teaching Assistant (Autumn 2026)
                 </div>
                 <p className="text-xs text-muted-foreground print:text-neutral-700 leading-relaxed print:text-[12px]">
                   Completed the specialized Global Program on "Innovation and Entrepreneurship for the 21st Century AI-Driven Knowledge Economy" (Cert. No. IEDE2026126). 
-                  Serving as a Research Participant under the academic supervision of Prof. Kris Singh (CEO at SRII, Ex-Executive at IBM, AMD, Intel, National Semi; Advisor at Startups, Silicon Valley, California; Visiting Professor, Tsinghua University, Beijing; Adj. Professor of Practice, University of Newcastle, Australia) at the MSE Experimental Center, and as a Teaching Assistant.
+                  Serving under the academic supervision of Prof. Kris Singh (CEO at SRII, Ex-Executive at IBM, AMD, Intel, National Semi; Advisor at Startups, Silicon Valley, California; Visiting Professor, Tsinghua University, Beijing; Adj. Professor of Practice, University of Newcastle, Australia) at the MSE Experimental Center, and as an Extended Teaching Assistant.
                 </p>
               </div>
             </div>
