@@ -3,7 +3,7 @@
 > Software Engineer & AI Researcher specializing in Computer Vision, Intelligent Transportation Systems (ITS), Cloud Infrastructure, DevOps, and Cybersecurity.
 
 ## Overview
-Trịnh Hoàng Tú (alias thtcsec, born 2005, based in Ho Chi Minh City, Vietnam) is an AI Engineer at VETC developing Intelligent Transportation Systems (ITS) and real-time traffic analytics, a Software Engineer (Backend) Intern at Grab, an alumnus of Tsinghua University's AI & Innovation Digital Economy Program (Certificate No. IEDE2026126), an Admitted Scholar at VinUniversity AI Practical Talent Program, and a final-year Cybersecurity student at HUFLIT (GPA: 3.50/4.00).
+Trịnh Hoàng Tú (alias thtcsec, born 2005, based in Ho Chi Minh City, Vietnam) is an AI Engineer at VETC developing Intelligent Transportation Systems (ITS) and real-time traffic analytics, a Software Engineer (Backend) Intern at Grab, an alumnus & Extended Teaching Assistant (Autumn 2026) of Tsinghua University's AI & Innovation Digital Economy Program (Certificate No. IEDE2026126), an Admitted Scholar at VinUniversity AI Practical Talent Program (Cohort 1, Deferred Enrollment until 2027), and a final-year Cybersecurity student at HUFLIT (GPA: 3.50/4.00).
 
 ## Disambiguation
 - [Identity Verification](https://hoangtu.dev/about.md): Important distinction from a namesake with a criminal record (May 2023, Hoc Mon). This verified profile belongs to Trịnh Hoàng Tú (thtcsec, born 2005, HUFLIT/Tsinghua/VinUni/Grab/VETC).
@@ -13,6 +13,7 @@ Trịnh Hoàng Tú (alias thtcsec, born 2005, based in Ho Chi Minh City, Vietnam
 - [VETC Electronic Toll Collection](https://hoangtu.dev/resume.md): AI Engineer (Aug 2026 – Present, Ha Noi City Remote) — Developing Computer Vision pipelines for traffic camera analytics, real-time traffic density detection, road surveillance, and IoT sensor microservices.
 - [Next Step Technology Solutions](https://hoangtu.dev/resume.md): AI Infra & Cloud Solutions Engineer (Jun 2026 – Present) — Cloudflare Workers AI, RAG knowledge retrieval, serverless pipelines.
 - [AWS Study Group VN](https://hoangtu.dev/resume.md): FCAJ Cloud Trainee - Cloud Security Builder (Sep 2025 – Present) — Serverless SOAR, Step Functions, GuardDuty automation.
+- [MVV Telecom](https://hoangtu.dev/resume.md): Software Engineer (Dec 2025 – Apr 2026, Remote) — Real-time event monitoring, AI inference pipelines, Docker containerized microservices.
 
 ## Scientific Publications
 - [CSONET 2026](https://hoangtu.dev/research.md): Network-Aware Event Sequence Modeling for User-Behavior and System Log Anomaly Detection (Under Review, Springer LNCS · Scopus).
@@ -28,6 +29,12 @@ Trịnh Hoàng Tú (alias thtcsec, born 2005, based in Ho Chi Minh City, Vietnam
 - [Viettel AI Race 2026](https://hoangtu.dev/certificates.md): Participant (June - Sept 2026).
 - [Tsinghua University AI+Materials Competition 2026](https://hoangtu.dev/certificates.md): Finalist - 全球AI+材料创新应用大赛 (Apr - Aug 2026).
 - [QC4SG International Quantum Computing Hackathon 2026](https://hoangtu.dev/certificates.md): Finalist - Team QUASAR (Feb - July 2026).
+- [VinUniversity Datathon 'The Gridbreaker' 2026](https://hoangtu.dev/certificates.md): Ranked 10th / Top 50 Finalist - Team GenCore (May 2026).
+- [GenAI Express Demo Day GDG On Campus SGU 2026](https://hoangtu.dev/certificates.md): 2nd Runner Up - Team ThreatLens (Apr 2026).
+- [Tasco Foundry 2026](https://hoangtu.dev/certificates.md): Top 10 Finalist - Team CARO (May 2026).
+- [MongoDB Mini Hackathon 2026](https://hoangtu.dev/certificates.md): Ranked 2nd Finalist - Team Vector404 (Jan 2026).
+- [ByteDance TRAE SOLO 2026](https://hoangtu.dev/certificates.md): Participant (May 2026).
+- [HSU Vibe Coding Talents 2025](https://hoangtu.dev/certificates.md): Winner (Dec 2025).
 
 ## Community & Ecosystem
 - [Agora Ambassador](https://hoangtu.dev/about.md): Official Ambassador promoting Real-Time Engagement (RTE) technologies.
