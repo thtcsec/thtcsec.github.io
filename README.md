@@ -66,6 +66,30 @@ A modern, high-performance portfolio and technical engineering platform showcasi
 
 ---
 
+## 📁 Project Structure
+
+```text
+├── public/                # Static assets, manifests, and markdown endpoints
+│   ├── images/            # Optimized image assets (achievements, certs, projects)
+│   ├── cv/                # Resume and curriculum vitae downloads
+│   ├── llms.txt           # Agentic browsing & LLM discovery standard
+│   └── *.md               # Raw markdown endpoints (/about.md, /resume.md, etc.)
+├── src/
+│   ├── components/        # Reusable UI & presentation components
+│   │   ├── portfolio/     # Core portfolio sections (Hero, Showcase, Experience, etc.)
+│   │   └── ui/            # Shadcn UI primitives & Mermaid diagram renderer
+│   ├── data/              # Typed data models (projects, publications, certificates)
+│   ├── pages/             # Page route components (Projects, Publications, About, etc.)
+│   ├── context/           # React context providers (Theme, Audio)
+│   ├── hooks/             # Custom React hooks
+│   └── lib/               # Utility functions and helpers
+├── prerender.js           # Headless multi-route static HTML generator (41+ routes)
+├── index.html             # Application entry point with JSON-LD & meta tags
+└── vite.config.ts         # Vite build and bundle configuration
+```
+
+---
+
 ## 📦 Getting Started Locally
 
 ### Prerequisites
