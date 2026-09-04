@@ -239,8 +239,53 @@ export const featuredCertificates = [
     certificates.find(c => c.id === "google-cloud-foundation")!,
     certificates.find(c => c.id === "aws-security-fundamentals")!
 ];
+export interface HonorItem {
+    id: string;
+    badge: string;
+    title: string;
+    shortTitle: string;
+    issuer: string;
+    image: string;
+}
+
+export const topHonors: HonorItem[] = [
+    {
+        id: "qc4sg-quantum-hackathon-2026",
+        badge: "Finalist",
+        title: "QC4SG 2026 International Quantum Computing Hackathon",
+        shortTitle: "QC4SG International Quantum Hackathon",
+        issuer: "VNQuantum & NIC",
+        image: "/images/achievements/qc4sg_quantum_hackathon_finalist.jpg"
+    },
+    {
+        id: "mongodb-hackathon-2026",
+        badge: "2nd Place",
+        title: "Finalist (Ranked 2nd) - MongoDB Mini Hackathon 2026",
+        shortTitle: "MongoDB Mini Hackathon 2026",
+        issuer: "MUGVN & MongoDB",
+        image: "/images/achievements/mongodb.jpg"
+    },
+    {
+        id: "hsu-ai-driven-challenge-2026",
+        badge: "3rd Runner Up",
+        title: "HSU AI-Driven Challenge 2026 (AI Security)",
+        shortTitle: "HSU AI-Driven Challenge (AI Security)",
+        issuer: "Hoa Sen University",
+        image: "/images/achievements/hsu-ai-driven.jpg"
+    },
+    {
+        id: "tasco-foundry-2026",
+        badge: "Top 10 Finalist",
+        title: "Top 10 Finalist - Tasco Foundry 2026",
+        shortTitle: "Tasco Foundry Venture Build (AutoTech)",
+        issuer: "GenAIFund x Tasco",
+        image: "/images/achievements/tasco_top10.jpg"
+    }
+];
+
 export const featuredAchievements = [
-    achievements.find(a => a.id === "hsu-ai-driven-challenge-2026"),
     achievements.find(a => a.id === "qc4sg-quantum-hackathon-2026"),
     achievements.find(a => a.id === "mongodb-hackathon-2026"),
+    achievements.find(a => a.id === "hsu-ai-driven-challenge-2026"),
+    achievements.find(a => a.id === "tasco-foundry-2026"),
 ].filter(Boolean) as Certificate[];

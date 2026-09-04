@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { ExternalLink, Github, ChevronRight } from "lucide-react";
+import { ExternalLink, Github, ChevronRight, Trophy } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { allProjects, type Project } from "@/data/projects";
 import { Link } from "react-router-dom";
@@ -47,7 +47,7 @@ const ProjectsPage = () => {
         <div className="min-h-screen bg-background">
             <ProjectHeader />
 
-            <main className="pt-24 pb-20">
+            <main className="pt-36 sm:pt-40 md:pt-44 pb-20">
                 <div className="container mx-auto px-4">
                     {/* Page Header */}
                     <div className="text-center mb-12">
@@ -127,24 +127,43 @@ const ProjectCard = ({ project, imageLoaded, onImageLoad }: ProjectCardProps) =>
                 {!imageLoaded && (
                     <div className="absolute inset-0 bg-gradient-to-br from-muted to-muted-foreground/10 animate-pulse" />
                 )}
-                <img
-                    src={project.image}
-                    alt={project.title}
-                    className={`w-full h-full object-cover transition-all duration-500 group-hover:scale-110 ${imageLoaded ? "opacity-100" : "opacity-0"
-                        }`}
-                    loading="lazy"
-                    onLoad={onImageLoad}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent opacity-60" />
-
-                {/* Badges */}
-                <div className="absolute top-4 left-4 px-3 py-1 rounded-full bg-primary/20 backdrop-blur-sm border border-primary/30 text-xs font-medium text-primary">
-                    {categoryEmoji[project.category]} {categoryLabels[project.category]}
-                </div>
+                {project.category === 'mobile' ? (
+                    <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-slate-900 via-zinc-900 to-black p-2.5">
+                        <div className="h-full aspect-[9/18.5] rounded-xl overflow-hidden border-2 border-neutral-700/80 bg-black shadow-lg">
+                            <img
+                                src={project.image}
+                                alt={project.title}
+                                className={`w-full h-full object-cover transition-all duration-500 group-hover:scale-105 ${imageLoaded ? "opacity-100" : "opacity-0"
+                                    }`}
+                                loading="lazy"
+                                onLoad={onImageLoad}
+                            />
+                        </div>
+                    </div>
+                ) : (
+                    <img
+                        src={project.image}
+                        alt={project.title}
+                        className={`w-full h-full object-cover transition-all duration-500 group-hover:scale-110 ${imageLoaded ? "opacity-100" : "opacity-0"
+                            }`}
+                        loading="lazy"
+                        onLoad={onImageLoad}
+                    />
+                )}
+                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent opacity-60 pointer-events-none" />
             </Link>
 
             {/* Content */}
             <div className="p-6 flex flex-col flex-1">
+                <div className="flex items-center justify-between gap-3 text-xs mb-2.5">
+                    <span className="font-mono text-muted-foreground">{categoryEmoji[project.category]} {categoryLabels[project.category]}</span>
+                    {project.awardBadge && (
+                        <span className="font-mono text-[11px] text-amber-600 dark:text-amber-400 font-semibold flex items-center gap-1">
+                            <Trophy size={11} className="text-amber-500" />
+                            {project.awardBadge}
+                        </span>
+                    )}
+                </div>
                 <Link to={`/projects/${project.id}`}>
                     <h3 className="text-xl font-bold mb-2 text-foreground group-hover:text-primary transition-colors">
                         {project.title}

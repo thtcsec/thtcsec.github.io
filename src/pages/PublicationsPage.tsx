@@ -140,7 +140,7 @@ export const PublicationsPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 pt-24 pb-16 px-4 sm:px-6 lg:px-8 transition-colors duration-300">
+    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 pt-36 sm:pt-40 md:pt-44 pb-16 px-4 sm:px-6 lg:px-8 transition-colors duration-300">
       {/* Top Controls Header Bar */}
       <div className="max-w-7xl mx-auto mb-6 flex flex-wrap items-center justify-between gap-4">
         <Link

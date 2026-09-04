@@ -14,6 +14,7 @@ export interface Project {
     featured: boolean;
     highlights?: string[];
     isPrivate?: boolean;
+    awardBadge?: string;
 }
 
 export const projects: Project[] = [
@@ -67,7 +68,8 @@ export const projects: Project[] = [
             "Automated Detect -> Contain -> Rollback safety-aware mitigation pipeline with cooldown policy",
             "Canonical InSDN real dataset evaluation harness, ONNX export pipeline, and interactive command center UI"
         ],
-        isPrivate: true
+        isPrivate: true,
+        awardBadge: "Tsinghua University Research"
     },
     {
         id: "securecoating-vision",
@@ -98,7 +100,8 @@ export const projects: Project[] = [
             "Operator story in one History view: acquired frame → letterboxed model input → blister/scratch overlay → PASS / REJECT / HOLD. Dataset, Diagnose, and Traceability show provenance, readiness blockers, and the signed certificate.",
             "Reproducibility: Docker API + dashboard, 171 software tests, pinned weights path, hash-verified dataset library. Limitations stated: official LIBAD 4.84 GB run pending; thermal/profiler not plant instruments; tracked YOLO split is research evidence, not a factory qualification."
         ],
-        isPrivate: true
+        isPrivate: true,
+        awardBadge: "Tsinghua MSE Track 4 (AI+Materials)"
     },
     {
         id: "foundry-platform",
@@ -151,7 +154,8 @@ export const projects: Project[] = [
             "Deterministic tour validation layer verifying depot start/end constraints and node uniqueness",
             "Layered defense-in-depth security middleware (OWASP headers, rate limiting, request tracing)"
         ],
-        isPrivate: false
+        isPrivate: false,
+        awardBadge: "QC4SG 2026 International Finalist"
     },
     {
         id: "enterpriserag",
@@ -205,7 +209,8 @@ export const projects: Project[] = [
             "MongoDB Live Engine Inspector (X-Ray) for real-time pipeline tracing and execution stats",
             "Interactive Visualizations: Skill Galaxy (D3 force-directed graph) and Market Analytics ($facet)"
         ],
-        isPrivate: true
+        isPrivate: true,
+        awardBadge: "MongoDB Hackathon 2026 (2nd Place)"
     },
     {
         id: "orangecloud-insights",
@@ -464,7 +469,7 @@ export const projects: Project[] = [
 ];
 
 // Explicitly select and order the top featured projects for the homepage
-const featuredOrder = ["baoan-auto-zalo-mini-app", "sdn-its-resilience-ai", "securecoating-vision", "orangecloud-insights"];
+const featuredOrder = ["baoan-auto-zalo-mini-app", "quasar-quantum-routing", "sdn-its-resilience-ai", "securecoating-vision", "orangecloud-insights"];
 export const featuredProjects = featuredOrder
     .map(id => projects.find(p => p.id === id))
     .filter((p): p is Project => p !== undefined);

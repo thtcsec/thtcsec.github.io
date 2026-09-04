@@ -274,11 +274,11 @@ const Hero = () => {
         {/* Scroll hint */}
         <div className="mt-10 flex justify-center">
           <button
-            onClick={() => handleScrollToSection("projects")}
+            onClick={() => handleScrollToSection("showcase")}
             className="inline-flex items-center gap-2 text-xs font-medium text-muted-foreground transition-colors hover:text-foreground"
           >
             <ArrowDown size={14} />
-            Scroll to projects
+            Explore work & systems
           </button>
         </div>
       </div>

@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { ExternalLink, Github, ArrowRight, Award, Trophy, Sparkles } from "lucide-react";
+import { ExternalLink, Github, ArrowRight, Trophy, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import ImageModal from "@/components/ImageModal";
-import { featuredProjects, type Project } from "@/data/projects";
-import { featuredAchievements } from "@/data/certificates";
+import { featuredProjects, allProjects, type Project } from "@/data/projects";
+import { topHonors } from "@/data/certificates";
 
 const categoryLabels: Record<string, string> = {
   all: "All",
@@ -27,77 +27,86 @@ const Showcase = () => {
   return (
     <section id="showcase" className="cinema-section py-20 bg-background/50">
       <div className="container mx-auto px-4">
-        {/* Header */}
+        {/* Section Header */}
         <div className="cinema-reveal text-center mb-12">
           <span className="cinema-kicker mb-4 flex items-center justify-center gap-2">
             <Sparkles size={14} className="text-amber-500 animate-pulse" />
-            Portfolio
+            Engineering & Honors
           </span>
           <h2 className="cinema-title mb-4">
-            Honors & Featured Projects
+            Featured Systems & Honors
           </h2>
           <p className="cinema-subtitle">
-            Verified competition awards and production-grade engineering systems.
+            Production-grade architecture, research-grade engineering, and verified competition outcomes.
           </p>
         </div>
 
-        {/* 🏆 TOP HIGHLIGHTS: Key Achievements & Honors Spotlight */}
+        {/* 🏆 Key Competition Honors: Clean Images Without Chips */}
         <div className="mb-16">
-          <div className="flex items-center justify-between mb-6">
-            <div className="flex items-center gap-2.5">
-              <div className="p-2 rounded-xl bg-amber-500/10 text-amber-500 border border-amber-500/20">
-                <Trophy size={20} />
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6">
+            <div className="flex items-center gap-3">
+              <div className="p-2.5 rounded-2xl bg-amber-500/10 text-amber-500 border border-amber-500/20 shrink-0">
+                <Trophy size={22} />
               </div>
               <div>
                 <h3 className="text-xl md:text-2xl font-extrabold text-foreground tracking-tight">
                   Key Competition Honors
                 </h3>
-                <p className="text-xs text-muted-foreground">
-                  Recognized nationally and internationally in AI, Quantum, and Cybersecurity
+                <p className="text-xs md:text-sm text-muted-foreground mt-0.5">
+                  National & International awards in Quantum Computing, AI Security, and AutoTech
                 </p>
               </div>
             </div>
+
             <Link
               to="/certificates"
-              className="text-xs font-semibold text-primary hover:underline hidden sm:inline-flex items-center gap-1"
+              className="inline-flex items-center gap-1.5 text-xs font-semibold text-primary hover:underline shrink-0"
             >
-              View all awards <ArrowRight size={12} />
+              <span>View All 12+ Awards & Certs</span>
+              <ArrowRight size={13} />
             </Link>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
-            {featuredAchievements.map((achievement) => (
+          {/* 4 Cards Grid - Fully Balanced, Clean Visuals */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
+            {topHonors.map((honor) => (
               <div
-                key={achievement.id}
-                onClick={() => setModalImage({ src: achievement.image, alt: achievement.title })}
-                className="group relative rounded-2xl border border-amber-500/25 bg-card/60 hover:bg-card/90 hover:border-amber-500/60 p-4 transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-1 cursor-pointer overflow-hidden flex flex-col justify-between"
+                key={honor.id}
+                onClick={() => setModalImage({ src: honor.image, alt: honor.title })}
+                className="group relative rounded-2xl border border-border/80 bg-card/60 hover:bg-card hover:border-amber-500/50 p-3.5 transition-all duration-300 shadow-sm hover:shadow-xl hover:-translate-y-1 cursor-pointer flex flex-col justify-between overflow-hidden"
               >
-                <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-amber-500/10 via-amber-500/5 to-transparent rounded-bl-full pointer-events-none" />
+                <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-amber-500/10 to-transparent rounded-bl-full pointer-events-none" />
 
                 <div>
-                  <div className="relative aspect-video w-full rounded-xl overflow-hidden bg-black/80 mb-3 border border-border/50">
+                  {/* Clean Certificate Picture - No floating chips */}
+                  <div className="relative aspect-[16/10] w-full rounded-xl overflow-hidden bg-black/80 mb-3 border border-border/60">
                     <img
-                      src={achievement.image}
-                      alt={achievement.title}
-                      className="w-full h-full object-contain p-1 group-hover:scale-105 transition-transform duration-500"
+                      src={honor.image}
+                      alt={honor.title}
+                      className="w-full h-full object-contain p-1.5 group-hover:scale-105 transition-transform duration-500"
                       loading="lazy"
                     />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                   </div>
 
-                  <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/30 text-[10px] font-bold uppercase tracking-wider mb-2">
-                    <Award size={12} />
-                    <span>{achievement.issuer.split(',')[0]}</span>
+                  <div className="flex items-center justify-between gap-2 mb-1.5">
+                    <span className="text-xs font-mono font-bold text-amber-600 dark:text-amber-400">
+                      {honor.badge}
+                    </span>
+                    <span className="text-[11px] font-mono text-muted-foreground truncate">
+                      {honor.issuer}
+                    </span>
                   </div>
 
-                  <h4 className="text-sm font-extrabold text-foreground group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors leading-snug line-clamp-2">
-                    {achievement.title}
+                  <h4 className="text-sm font-bold text-foreground group-hover:text-primary transition-colors leading-snug line-clamp-2">
+                    {honor.title}
                   </h4>
                 </div>
 
-                <div className="mt-3 flex items-center justify-between text-[11px] font-mono text-muted-foreground/80 border-t border-border/40 pt-2.5">
-                  <span className="truncate">{achievement.issuer.split(',')[0]}</span>
-                  <span className="text-amber-600 dark:text-amber-400 font-semibold group-hover:underline flex items-center gap-1 shrink-0">
-                    View Proof <ArrowRight size={10} />
+                <div className="mt-3.5 pt-2.5 border-t border-border/50 flex items-center justify-between text-xs">
+                  <span className="text-muted-foreground/70 font-mono text-[11px]">Inspect proof</span>
+                  <span className="text-amber-600 dark:text-amber-400 font-semibold group-hover:translate-x-0.5 transition-transform flex items-center gap-1 text-[11px]">
+                    View Proof <ArrowRight size={11} />
                   </span>
                 </div>
               </div>
@@ -105,20 +114,21 @@ const Showcase = () => {
           </div>
         </div>
 
-        {/* 💻 SECOND SECTION: Featured Engineering Projects */}
+        {/* 💻 Featured Engineering Projects */}
         <div>
-          <div className="flex items-center justify-between mb-8">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
             <div>
+              <span className="cinema-kicker mb-2">Core Engineering</span>
               <h3 className="text-xl md:text-2xl font-extrabold text-foreground tracking-tight">
-                Featured Engineering Systems
+                Featured Production Systems
               </h3>
-              <p className="text-xs text-muted-foreground mt-0.5">
-                Production-grade architecture, edge AI, and fullstack platforms
+              <p className="text-xs md:text-sm text-muted-foreground mt-1">
+                Scalable enterprise SaaS, quantum-classical hybrid engines, and research architectures
               </p>
             </div>
-            <Button variant="outline" size="sm" asChild className="hidden sm:inline-flex">
+            <Button variant="outline" size="sm" asChild className="hidden sm:inline-flex shrink-0">
               <Link to="/projects">
-                View All Projects ({featuredProjects.length}+)
+                View All Projects ({allProjects.length})
                 <ArrowRight size={14} className="ml-1.5" />
               </Link>
             </Button>
@@ -136,16 +146,16 @@ const Showcase = () => {
           </div>
 
           {/* Bottom Call to Actions */}
-          <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
+          <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
             <Button size="lg" asChild className="group">
               <Link to="/projects">
-                Explore All Projects
+                Explore All Projects ({allProjects.length})
                 <ArrowRight size={18} className="ml-2 group-hover:translate-x-1 transition-transform" />
               </Link>
             </Button>
             <Button size="lg" variant="outline" asChild>
               <Link to="/certificates">
-                View All Certificates & Awards
+                View All Certificates & Honors
               </Link>
             </Button>
           </div>
@@ -172,103 +182,130 @@ interface ProjectCardProps {
 const ProjectCard = ({ project, imageLoaded, onImageLoad }: ProjectCardProps) => {
   return (
     <div className="cinema-card group relative flex h-full flex-col overflow-hidden transition-colors hover:border-primary/40">
+      {/* Clean Cover Image - No floating chips */}
       <div className="relative overflow-hidden bg-muted aspect-video">
         <Link to={`/projects/${project.id}`} className="block absolute inset-0 z-10 cursor-pointer">
           {!imageLoaded && (
             <div className="absolute inset-0 bg-gradient-to-br from-muted to-muted-foreground/10 animate-pulse" />
           )}
-          <img
-            src={project.image}
-            alt={`${project.title} Cover`}
-            className={`w-full h-full transition-all duration-500 group-hover:scale-105 ${
-              imageLoaded ? "opacity-100" : "opacity-0"
-            } ${project.category === 'mobile' ? 'object-contain bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-800 dark:to-slate-900' : 'object-cover'}`}
-            loading="lazy"
-            onLoad={onImageLoad}
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent opacity-70 transition-opacity group-hover:opacity-80" />
+          {project.category === 'mobile' ? (
+            <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-slate-900 via-zinc-900 to-black p-2.5">
+              <div className="h-full aspect-[9/18.5] rounded-xl overflow-hidden border-2 border-neutral-700/80 bg-black shadow-lg">
+                <img
+                  src={project.image}
+                  alt={`${project.title} Cover`}
+                  className={`w-full h-full object-cover transition-all duration-500 group-hover:scale-105 ${
+                    imageLoaded ? "opacity-100" : "opacity-0"
+                  }`}
+                  loading="lazy"
+                  onLoad={onImageLoad}
+                />
+              </div>
+            </div>
+          ) : (
+            <img
+              src={project.image}
+              alt={`${project.title} Cover`}
+              className={`w-full h-full object-cover transition-all duration-500 group-hover:scale-105 ${
+                imageLoaded ? "opacity-100" : "opacity-0"
+              }`}
+              loading="lazy"
+              onLoad={onImageLoad}
+            />
+          )}
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent opacity-70 transition-opacity group-hover:opacity-80 pointer-events-none" />
         </Link>
-
-        <div className="absolute top-3 left-3 rounded-full border border-border/60 bg-background/85 px-3 py-1 text-xs font-medium text-foreground/80 backdrop-blur-sm pointer-events-none">
-          {categoryLabels[project.category]}
-        </div>
       </div>
 
       <div className="flex flex-1 flex-col p-6">
-        <div className="cinema-meta flex items-center justify-between gap-3">
-          <span>{categoryLabels[project.category]}</span>
-          <span>{project.isPrivate ? "Private Repo" : "Public Repo"}</span>
+        {/* Clean meta line - No chip on image */}
+        <div className="cinema-meta flex items-center justify-between gap-3 text-xs">
+          <span className="font-mono text-muted-foreground">{categoryLabels[project.category]}</span>
+          {project.awardBadge ? (
+            <span className="font-mono text-[11px] text-amber-600 dark:text-amber-400 font-semibold flex items-center gap-1">
+              <Trophy size={11} className="text-amber-500" />
+              {project.awardBadge}
+            </span>
+          ) : (
+            <span className="flex items-center gap-1.5 font-mono text-[11px]">
+              <span className={`w-1.5 h-1.5 rounded-full ${project.isPrivate ? "bg-amber-500/80" : "bg-emerald-500/80"}`} />
+              {project.isPrivate ? "Private Repo" : "Public Repo"}
+            </span>
+          )}
         </div>
 
         <Link to={`/projects/${project.id}`}>
-          <h3 className="mt-3 text-xl font-bold text-foreground transition-colors group-hover:text-primary">
+          <h3 className="mt-3 text-xl font-bold text-foreground transition-colors group-hover:text-primary leading-snug line-clamp-2">
             {project.title}
           </h3>
         </Link>
-        <p className="mt-3 text-sm leading-6 text-muted-foreground line-clamp-3">
+        <p className="mt-2.5 text-sm leading-6 text-muted-foreground line-clamp-3">
           {project.description}
         </p>
 
         {project.highlights && project.highlights.length > 0 && (
-          <ul className="mt-4 space-y-2 border-t border-border pt-4">
+          <ul className="mt-4 space-y-1.5 border-t border-border/70 pt-3.5">
             {project.highlights.slice(0, 2).map((highlight, i) => (
               <li key={i} className="flex items-start gap-2 text-xs text-muted-foreground">
-                <span className="mt-1 h-1.5 w-1.5 rounded-full bg-primary shrink-0" />
-                <span className="line-clamp-2 leading-5">{highlight}</span>
+                <span className="mt-1.5 h-1 w-1 rounded-full bg-primary shrink-0" />
+                <span className="line-clamp-2 leading-relaxed">{highlight}</span>
               </li>
             ))}
           </ul>
         )}
 
-        <div className="mt-4 flex flex-wrap gap-2">
+        <div className="mt-4 flex flex-wrap gap-1.5">
           {project.technologies.slice(0, 4).map((tech) => (
             <span
               key={tech}
-              className="rounded-md border border-border bg-muted px-2 py-1 text-xs font-medium text-foreground/80"
+              className="rounded-md border border-border/80 bg-muted/60 px-2 py-0.5 text-[11px] font-medium text-foreground/80 font-mono"
             >
               {tech}
             </span>
           ))}
           {project.technologies.length > 4 && (
-            <span className="rounded-md border border-border bg-muted px-2 py-1 text-xs font-medium text-foreground/80">
+            <span className="rounded-md border border-border/80 bg-muted/60 px-2 py-0.5 text-[11px] font-medium text-muted-foreground font-mono">
               +{project.technologies.length - 4}
             </span>
           )}
         </div>
 
-        <div className="mt-5 flex items-center gap-3 pt-2" onClick={(e) => e.stopPropagation()}>
-          {project.github && (
-            <Button variant="outline" size="sm" asChild className="gap-2">
-              <a href={project.github} target="_blank" rel="noopener noreferrer">
-                <Github size={16} />
-                Code
-              </a>
-            </Button>
-          )}
+        <div className="mt-auto pt-5 flex items-center justify-between gap-2 border-t border-border/40" onClick={(e) => e.stopPropagation()}>
+          <div className="flex items-center gap-2">
+            {project.github && (
+              <Button variant="outline" size="sm" asChild className="gap-1.5 h-8 text-xs">
+                <a href={project.github} target="_blank" rel="noopener noreferrer">
+                  <Github size={14} />
+                  Code
+                </a>
+              </Button>
+            )}
 
-          {project.githubLinks?.map((link, idx) => (
-            <Button key={idx} variant="outline" size="sm" asChild className="gap-2">
-              <a href={link.url} target="_blank" rel="noopener noreferrer">
-                <Github size={16} />
-                {link.label}
-              </a>
-            </Button>
-          ))}
+            {project.githubLinks?.map((link, idx) => (
+              <Button key={idx} variant="outline" size="sm" asChild className="gap-1.5 h-8 text-xs">
+                <a href={link.url} target="_blank" rel="noopener noreferrer">
+                  <Github size={14} />
+                  {link.label}
+                </a>
+              </Button>
+            ))}
 
-          {project.isPrivate && (
-            <span className="flex items-center gap-1 rounded-md border border-border bg-muted/50 px-2 py-1 text-xs text-muted-foreground">
-              Private
-            </span>
-          )}
+            {project.demo && (
+              <Button size="sm" asChild className="gap-1.5 h-8 text-xs">
+                <a href={project.demo} target="_blank" rel="noopener noreferrer">
+                  <ExternalLink size={14} />
+                  Demo
+                </a>
+              </Button>
+            )}
+          </div>
 
-          {project.demo && (
-            <Button size="sm" asChild className="gap-2">
-              <a href={project.demo} target="_blank" rel="noopener noreferrer">
-                <ExternalLink size={16} />
-                Demo
-              </a>
-            </Button>
-          )}
+          <Button variant="ghost" size="sm" asChild className="gap-1 text-xs text-muted-foreground hover:text-foreground h-8 px-2">
+            <Link to={`/projects/${project.id}`}>
+              Details
+              <ArrowRight size={12} />
+            </Link>
+          </Button>
         </div>
       </div>
     </div>
