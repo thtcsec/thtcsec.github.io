@@ -34,35 +34,37 @@ const ProjectHeader = ({ backLink = "/", backLabel = "Home" }: ProjectHeaderProp
             <div
                 className={`transition-all duration-500 ${
                     isScrolled
-                        ? "bg-background/70 dark:bg-background/40 backdrop-blur-xl border border-border/50 dark:border-white/10 rounded-full shadow-xl dark:shadow-[0_0_30px_rgba(0,0,0,0.5)] py-2 px-4 md:px-6"
-                        : "bg-background/30 dark:bg-background/20 backdrop-blur-sm border border-transparent rounded-full py-3 md:py-4 px-4 md:px-6"
+                        ? "bg-background/80 dark:bg-background/80 backdrop-blur-xl border border-border/50 shadow-lg shadow-black/5 dark:shadow-black/20 rounded-full px-4 py-2"
+                        : "bg-background/40 dark:bg-background/40 backdrop-blur-md border border-border/30 rounded-2xl px-6 py-3"
                 }`}
             >
                 <div className="flex items-center justify-between">
                     <Link
                         to="/"
-                        className={`font-bold transition-all duration-300 ease-out whitespace-nowrap ${
-                            isScrolled ? "text-base md:text-lg" : "text-lg md:text-xl"
-                        }`}
+                        className="flex items-center gap-2 group transition-opacity hover:opacity-80"
                     >
-                        hoangtu<span className="text-primary">.dev</span>
+                        <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-primary to-primary/60 flex items-center justify-center text-primary-foreground font-bold text-sm shadow-sm">
+                            T
+                        </div>
+                        <span className="font-semibold text-sm tracking-tight text-foreground hidden sm:inline-block">
+                            Trịnh Hoàng Tú
+                        </span>
                     </Link>
 
-                    <div className={`flex items-center transition-all duration-500 ${isScrolled ? "gap-1" : "gap-2"}`}>
+                    <div className="flex items-center gap-3">
+                        <Button
+                            variant="ghost"
+                            size="sm"
+                            asChild
+                            className="text-muted-foreground hover:text-foreground text-xs gap-1.5"
+                        >
+                            <Link to={backLink}>
+                                <Icon icon="lucide:arrow-left" className="w-3.5 h-3.5" />
+                                {backLabel}
+                            </Link>
+                        </Button>
+                        <div className="h-4 w-px bg-border/60" />
                         <ThemeToggle />
-                        {backLink !== "none" && (
-                            <Button
-                                size={isScrolled ? "sm" : "default"}
-                                variant="ghost"
-                                className="transition-all duration-500 hover:scale-105"
-                                asChild
-                            >
-                                <Link to={backLink} className="flex items-center gap-2">
-                                    <Icon icon="mdi:arrow-left" className={`${isScrolled ? "w-4 h-4" : "w-5 h-5"}`} />
-                                    <span className={`hidden sm:inline ${isScrolled ? "text-sm" : ""}`}>{backLabel}</span>
-                                </Link>
-                            </Button>
-                        )}
                     </div>
                 </div>
             </div>
@@ -71,3 +73,4 @@ const ProjectHeader = ({ backLink = "/", backLabel = "Home" }: ProjectHeaderProp
 };
 
 export default ProjectHeader;
+

@@ -51,7 +51,9 @@ const Hero = () => {
               src="/images/avatar.png"
               alt={siteConfig.author}
               className="relative w-48 h-48 sm:w-64 sm:h-64 rounded-3xl object-cover object-top border-2 border-border/80 shadow-2xl transition-transform duration-500 group-hover:scale-[1.02] select-none"
-              loading="lazy"
+              loading="eager"
+              decoding="async"
+              fetchPriority="high"
             />
           </div>
           <div className="flex-1 text-center sm:text-left">

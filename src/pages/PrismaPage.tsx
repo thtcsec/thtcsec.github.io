@@ -4,7 +4,6 @@ import SkillsSection from "@/components/prisma/SkillsSection";
 import FeaturesSection from "@/components/prisma/FeaturesSection";
 import AchievementsSection from "@/components/prisma/AchievementsSection";
 import ContactSection from "@/components/prisma/ContactSection";
-import ScrollToTop from "@/components/prisma/ScrollToTop";
 import { siteConfig } from "@/data/config";
 
 const PrismaPage = () => {
@@ -16,7 +15,6 @@ const PrismaPage = () => {
       <FeaturesSection />
       <AchievementsSection />
       <ContactSection />
-      <ScrollToTop />
 
       {/* Footer */}
       <footer className="bg-[#080808] border-t border-white/[0.04] py-8 sm:py-10 px-4 sm:px-6 md:px-8">

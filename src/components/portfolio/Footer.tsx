@@ -122,11 +122,11 @@ const Footer = () => {
           <div className="flex flex-wrap items-center justify-center md:justify-end gap-1.5 sm:gap-2">
             {[
               { label: "thtcsec (Portfolio)", href: "https://thtcsec.orangecloud.vn", isSelf: true },
-              { label: "Beginners Guide", href: "https://onboarding.orangecloud.vn" },
-              { label: "Technical Blog", href: "https://blog.orangecloud.vn" },
-              { label: "Go-Live Readiness", href: "https://ready.orangecloud.vn" },
-              { label: "DocOps Platform", href: "https://docops.orangecloud.vn/" },
-              { label: "Reputation Engine", href: "https://reputation.orangecloud.vn/" },
+              { label: "Beginners Guide", href: "https://onboarding.orangecloud.vn", isSelf: false },
+              { label: "Technical Blog", href: "https://blog.orangecloud.vn", isSelf: false },
+              { label: "Go-Live Readiness", href: "https://ready.orangecloud.vn", isSelf: false },
+              { label: "DocOps Platform", href: "https://docops.orangecloud.vn/", isSelf: false },
+              { label: "Reputation Engine", href: "https://reputation.orangecloud.vn/", isSelf: false },
             ].map((link) => (
               <a
                 key={link.label}
@@ -134,18 +134,17 @@ const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg border text-xs font-medium transition-all duration-200 group ${
-                  (link as any).isSelf
+                  link.isSelf
                     ? 'bg-[#F38020]/10 text-[#F38020] border-[#F38020]/30 hover:bg-[#F38020]/20'
                     : 'bg-background/60 hover:bg-primary/5 border-border/40 hover:border-primary/40 text-muted-foreground hover:text-foreground'
                 }`}
               >
                 <span>{link.label}</span>
-                <ExternalLink size={10} className={(link as any).isSelf ? 'text-[#F38020]' : 'text-muted-foreground/70 group-hover:text-primary transition-colors'} />
+                <ExternalLink size={10} className={link.isSelf ? 'text-[#F38020]' : 'text-muted-foreground/70 group-hover:text-primary transition-colors'} />
               </a>
             ))}
           </div>
         </div>
-
         <div className="flex flex-col items-center justify-between gap-4 border-t border-border pt-8 md:flex-row">
           <div className="text-sm text-muted-foreground flex flex-wrap items-center justify-center md:justify-start gap-x-2 gap-y-1">
             <span>© {currentYear} {siteConfig.authorEn}. All rights reserved.</span>
@@ -203,6 +202,9 @@ const Footer = () => {
                   height="20"
                   className="h-5 w-auto"
                   loading="lazy"
+                  onError={(e) => {
+                    (e.currentTarget as HTMLElement).style.display = "none";
+                  }}
                 />
               </a>
             </div>

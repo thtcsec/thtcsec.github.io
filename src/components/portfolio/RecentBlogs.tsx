@@ -36,68 +36,92 @@ const RecentBlogs = () => {
           </div>
 
           {/* Accepted Paper Card */}
-          <div className="relative overflow-hidden rounded-2xl border border-emerald-500/30 bg-gradient-to-br from-card via-card to-emerald-500/5 p-6 md:p-8 shadow-xl backdrop-blur-sm transition-all duration-300 hover:border-emerald-500/60">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/10 rounded-bl-full pointer-events-none blur-xl" />
+          <div className="relative overflow-hidden rounded-2xl border border-emerald-500/30 bg-gradient-to-br from-card via-card to-emerald-500/5 p-6 md:p-8 shadow-xl backdrop-blur-sm transition-all duration-300 hover:border-emerald-500/60 group">
+            {/* Ambient emerald glow */}
+            <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500/10 rounded-bl-full pointer-events-none blur-2xl" />
 
-            <div className="flex flex-col md:flex-row items-start md:items-center gap-6">
-              {/* Logo Box */}
-              <div className="shrink-0 h-20 w-32 p-2 rounded-xl bg-white border border-slate-200 dark:border-slate-800 shadow-md flex items-center justify-center overflow-hidden">
-                <img
-                  src={acceptedPub.conferenceLogos?.[0] || acceptedPub.conferenceLogo || "/images/hanu.jpg"}
-                  alt={acceptedPub.abbreviation}
-                  className="w-full h-full object-contain scale-110"
-                />
+            <div className="relative z-10">
+              {/* Badges row */}
+              <div className="flex flex-wrap items-center gap-2 mb-4">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30 tracking-wide uppercase">
+                  <CheckCircle2 size={13} className="shrink-0" />
+                  {acceptedPub.status === "Camera Ready" ? "Accepted / Camera-Ready" : acceptedPub.status}
+                </span>
+                <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-mono font-semibold bg-primary/10 text-primary border border-primary/25">
+                  <Award size={12} className="shrink-0" />
+                  {acceptedPub.abbreviation}
+                </span>
+                {acceptedPub.indexing && (
+                  <span className="hidden sm:inline-flex items-center px-2.5 py-1 rounded-full text-xs font-mono text-muted-foreground bg-muted/60 border border-border">
+                    {acceptedPub.indexing}
+                  </span>
+                )}
+                <span className="ml-auto text-xs font-mono text-muted-foreground">
+                  {acceptedPub.year}
+                </span>
               </div>
 
-              {/* Content */}
-              <div className="flex-1 space-y-3">
-                <div className="flex flex-wrap items-center gap-2">
-                  <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30 uppercase tracking-wider">
-                    <CheckCircle2 size={13} />
-                    {acceptedPub.status === "Camera Ready" ? "Accepted / Camera-Ready" : acceptedPub.status}
-                  </span>
-                  <span className="px-2.5 py-0.5 rounded-md text-xs font-mono font-semibold bg-primary/10 text-primary border border-primary/20">
-                    {acceptedPub.abbreviation}
-                  </span>
-                  {acceptedPub.indexing && (
-                    <span className="px-2.5 py-0.5 rounded-md text-xs font-medium bg-purple-500/10 text-purple-600 dark:text-purple-400 border border-purple-500/20">
-                      {acceptedPub.indexing}
+              {/* Title & Conference logo */}
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-4">
+                <div className="h-16 w-28 p-2 rounded-xl bg-white border border-slate-200 dark:border-slate-800 shadow-sm flex items-center justify-center overflow-hidden shrink-0">
+                  <img
+                    src={acceptedPub.conferenceLogos?.[0] || acceptedPub.conferenceLogo || "/images/hanu.jpg"}
+                    alt={acceptedPub.abbreviation}
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+                <div>
+                  <h3 className="text-lg md:text-xl font-bold text-foreground leading-snug group-hover:text-primary transition-colors">
+                    {acceptedPub.title}
+                  </h3>
+                  <p className="text-xs text-muted-foreground mt-1">
+                    <span className="font-semibold text-foreground">Venue: </span>
+                    {acceptedPub.conference}
+                  </p>
+                </div>
+              </div>
+
+              {/* Authors & Affiliation */}
+              <div className="text-xs text-muted-foreground space-y-0.5 mb-4 font-mono">
+                <div>
+                  <span className="text-foreground font-semibold">Authors: </span>
+                  {acceptedPub.authors.join(", ")}
+                </div>
+                <div className="truncate">
+                  <span className="text-foreground font-semibold">Affiliation: </span>
+                  {acceptedPub.affiliation}
+                </div>
+              </div>
+
+              {/* Abstract quote */}
+              <p className="text-xs md:text-sm text-muted-foreground/90 leading-relaxed line-clamp-3 mb-6 italic border-l-2 border-emerald-500/40 pl-3">
+                "{acceptedPub.abstract}"
+              </p>
+
+              {/* Tags & Action CTA */}
+              <div className="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-border/60">
+                <div className="flex flex-wrap gap-1.5">
+                  {acceptedPub.tags.slice(0, 5).map((tag) => (
+                    <span
+                      key={tag}
+                      className="px-2.5 py-0.5 text-xs font-mono rounded-md bg-muted text-muted-foreground border border-border"
+                    >
+                      #{tag}
                     </span>
-                  )}
+                  ))}
                 </div>
 
-                <h3 className="text-lg md:text-xl font-extrabold text-foreground leading-snug">
-                  {acceptedPub.title}
-                </h3>
-
-                <p className="text-xs text-muted-foreground font-medium">
-                  <span className="text-foreground font-semibold">Venue:</span> {acceptedPub.conference}
-                </p>
-
-                <p className="text-xs text-muted-foreground font-mono">
-                  <span className="text-foreground font-semibold">Authors:</span> {acceptedPub.authors.join(", ")} ({acceptedPub.affiliation})
-                </p>
+                <div className="flex items-center gap-3">
+                  <Link
+                    to="/publications"
+                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-primary text-primary-foreground text-xs font-semibold hover:bg-primary/90 transition-all shadow-md"
+                  >
+                    <FileText size={13} />
+                    View Details & BibTeX
+                    <ArrowRight size={13} />
+                  </Link>
+                </div>
               </div>
-            </div>
-
-            {/* Tags & Action Footer */}
-            <div className="mt-6 pt-4 border-t border-border/60 flex flex-wrap items-center justify-between gap-4">
-              <div className="flex flex-wrap gap-1.5">
-                {acceptedPub.tags.map((tag) => (
-                  <span key={tag} className="px-2 py-0.5 text-[11px] font-mono rounded bg-muted text-muted-foreground border border-border">
-                    #{tag}
-                  </span>
-                ))}
-              </div>
-
-              <Link
-                to="/publications"
-                className="group inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-primary text-primary-foreground font-bold text-xs hover:bg-primary/90 transition-all shadow-md hover:shadow-primary/30 hover:scale-[1.02]"
-              >
-                <FileText size={14} />
-                Read Paper Abstract & Details
-                <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-              </Link>
             </div>
           </div>
 
@@ -108,3 +132,4 @@ const RecentBlogs = () => {
 };
 
 export default RecentBlogs;
+

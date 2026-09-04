@@ -2,7 +2,6 @@ import { useEffect, useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import ProjectHeader from "@/components/portfolio/ProjectHeader";
 import Footer from "@/components/portfolio/Footer";
-import ScrollToTop from "@/components/ScrollToTop";
 import {
   Trophy,
   Code,
@@ -576,7 +575,6 @@ const AboutPage = () => {
 
 
       <Footer />
-      <ScrollToTop />
     </div>
   );
 };

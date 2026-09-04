@@ -144,7 +144,7 @@ const ProjectCard = ({ project, imageLoaded, onImageLoad }: ProjectCardProps) =>
             </Link>
 
             {/* Content */}
-            <div className="p-6">
+            <div className="p-6 flex flex-col flex-1">
                 <Link to={`/projects/${project.id}`}>
                     <h3 className="text-xl font-bold mb-2 text-foreground group-hover:text-primary transition-colors">
                         {project.title}

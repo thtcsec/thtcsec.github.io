@@ -40,7 +40,14 @@ const Contact = () => {
   );
 };
 
-const SocialLinkWithPreview = ({ social }: { social: any }) => {
+interface SocialLinkItem {
+  id: string;
+  icon: string;
+  href: string;
+  label: string;
+}
+
+const SocialLinkWithPreview = ({ social }: { social: SocialLinkItem }) => {
   return (
     <a
       href={social.href}
@@ -60,3 +67,4 @@ const SocialLinkWithPreview = ({ social }: { social: any }) => {
 };
 
 export default Contact;
+

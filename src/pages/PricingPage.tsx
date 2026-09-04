@@ -21,7 +21,6 @@ import { pricingData } from "@/data/pricing";
 import { siteConfig } from "@/data/config";
 import ThemeToggle from "@/components/ThemeToggle";
 import Footer from "@/components/portfolio/Footer";
-import ScrollToTop from "@/components/ScrollToTop";
 
 const PricingPage = () => {
   const formRef = useRef<HTMLFormElement>(null);
@@ -542,7 +541,6 @@ const PricingPage = () => {
       </AlertDialog>
 
       <Footer />
-      <ScrollToTop />
     </div>
   );
 };
