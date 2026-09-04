@@ -1,27 +1,16 @@
 import { useState, useEffect } from "react";
-import { ExternalLink, Github, ChevronRight, Trophy } from "lucide-react";
+import { ExternalLink, Github, ChevronRight, Trophy, Layers, Cpu, Cloud, ShieldCheck, Boxes } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { allProjects, type Project } from "@/data/projects";
+import { allProjects, type Project, categoryLabels, projectCategoryOrder, type ProjectCategory } from "@/data/projects";
 import { Link } from "react-router-dom";
 import ProjectHeader from "@/components/portfolio/ProjectHeader";
 
-const categoryLabels: Record<string, string> = {
-    all: "All",
-    ai: "AI/ML",
-    web: "Web",
-    extension: "Extension",
-    system: "System",
-    desktop: "Desktop",
-    mobile: "Mobile",
-};
-
-const categoryEmoji: Record<string, string> = {
-    ai: "🤖",
-    web: "🌐",
-    extension: "🎯",
-    system: "🐧",
-    desktop: "📖",
-    mobile: "📱",
+const categoryIcons: Record<string, typeof Layers> = {
+    all: Layers,
+    "ai-cv": Cpu,
+    "cloud-systems": Cloud,
+    "cybersecurity": ShieldCheck,
+    "saas": Boxes,
 };
 
 const ProjectsPage = () => {
@@ -32,7 +21,7 @@ const ProjectsPage = () => {
         ? allProjects
         : allProjects.filter(p => p.category === activeCategory);
 
-    const categories = ["all", ...new Set(allProjects.map(p => p.category))];
+    const categories = projectCategoryOrder;
 
     const handleImageLoad = (id: string) => {
         setImageLoaded(prev => ({ ...prev, [id]: true }));
@@ -52,30 +41,35 @@ const ProjectsPage = () => {
                     {/* Page Header */}
                     <div className="text-center mb-12">
                         <span className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
-                            Portfolio
+                            Engineering Portfolio
                         </span>
-                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-foreground">
-                            All Projects
+                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-foreground tracking-tight">
+                            All Systems & Projects
                         </h1>
                         <p className="text-muted-foreground max-w-2xl mx-auto">
-                            A comprehensive list of all projects I've worked on
+                            Production platforms, research frameworks, AI/ML pipelines, and security infrastructure
                         </p>
                     </div>
 
                     {/* Category Filter */}
-                    <div className="flex flex-wrap justify-center gap-2 mb-12">
-                        {categories.map((category) => (
-                            <button
-                                key={category}
-                                onClick={() => setActiveCategory(category)}
-                                className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${activeCategory === category
-                                    ? "bg-primary text-primary-foreground"
-                                    : "bg-card text-muted-foreground hover:bg-primary/10 hover:text-primary border border-border"
-                                    }`}
-                            >
-                                {category !== "all" && categoryEmoji[category]} {categoryLabels[category]}
-                            </button>
-                        ))}
+                    <div className="flex flex-wrap justify-center gap-2.5 mb-12">
+                        {categories.map((category) => {
+                            const IconComponent = categoryIcons[category] || Layers;
+                            const isActive = activeCategory === category;
+                            return (
+                                <button
+                                    key={category}
+                                    onClick={() => setActiveCategory(category)}
+                                    className={`inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all duration-300 ${isActive
+                                        ? "bg-primary text-primary-foreground shadow-md shadow-primary/25 scale-[1.02]"
+                                        : "bg-card text-muted-foreground hover:bg-primary/10 hover:text-primary border border-border/80"
+                                        }`}
+                                >
+                                    <IconComponent size={15} className={isActive ? "text-primary-foreground" : "text-muted-foreground"} />
+                                    <span>{categoryLabels[category]}</span>
+                                </button>
+                            );
+                        })}
                     </div>
 
                     {/* Projects Grid */}
@@ -93,7 +87,7 @@ const ProjectsPage = () => {
                     {/* Empty State */}
                     {filteredProjects.length === 0 && (
                         <div className="text-center py-20">
-                            <p className="text-muted-foreground">No projects found in this category.</p>
+                            <p className="text-muted-foreground">No projects found in this domain.</p>
                         </div>
                     )}
                 </div>
@@ -118,6 +112,8 @@ interface ProjectCardProps {
 }
 
 const ProjectCard = ({ project, imageLoaded, onImageLoad }: ProjectCardProps) => {
+    const CategoryIcon = categoryIcons[project.category] || Layers;
+
     return (
         <div
             className="group relative rounded-2xl overflow-hidden bg-card border border-border hover:border-primary/50 transition-all duration-500 hover:-translate-y-2 hover:shadow-xl hover:shadow-primary/10 flex flex-col h-full"
@@ -127,7 +123,7 @@ const ProjectCard = ({ project, imageLoaded, onImageLoad }: ProjectCardProps) =>
                 {!imageLoaded && (
                     <div className="absolute inset-0 bg-gradient-to-br from-muted to-muted-foreground/10 animate-pulse" />
                 )}
-                {project.category === 'mobile' ? (
+                {project.isMobileApp ? (
                     <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-slate-900 via-zinc-900 to-black p-2.5">
                         <div className="h-full aspect-[9/18.5] rounded-xl overflow-hidden border-2 border-neutral-700/80 bg-black shadow-lg">
                             <img
@@ -156,7 +152,10 @@ const ProjectCard = ({ project, imageLoaded, onImageLoad }: ProjectCardProps) =>
             {/* Content */}
             <div className="p-6 flex flex-col flex-1">
                 <div className="flex items-center justify-between gap-3 text-xs mb-2.5">
-                    <span className="font-mono text-muted-foreground">{categoryEmoji[project.category]} {categoryLabels[project.category]}</span>
+                    <span className="inline-flex items-center gap-1.5 font-mono text-[11px] text-primary font-medium px-2 py-0.5 rounded-md bg-primary/10 border border-primary/20">
+                        <CategoryIcon size={12} className="shrink-0" />
+                        {categoryLabels[project.category] || project.category}
+                    </span>
                     {project.awardBadge && (
                         <span className="font-mono text-[11px] text-amber-600 dark:text-amber-400 font-semibold flex items-center gap-1">
                             <Trophy size={11} className="text-amber-500" />

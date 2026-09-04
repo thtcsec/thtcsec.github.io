@@ -1,9 +1,12 @@
 // Projects data - migrated from data/projects.json
+export type ProjectCategory = 'ai-cv' | 'cloud-systems' | 'cybersecurity' | 'saas';
+
 export interface Project {
     id: string;
     title: string;
     description: string;
-    category: 'ai' | 'web' | 'extension' | 'system' | 'desktop' | 'mobile';
+    category: ProjectCategory;
+    isMobileApp?: boolean;
     technologies: string[];
     github?: string;
     githubLinks?: { url: string; label: string }[];
@@ -17,12 +20,29 @@ export interface Project {
     awardBadge?: string;
 }
 
+export const categoryLabels: Record<string, string> = {
+    all: "All Systems",
+    "ai-cv": "AI & Computer Vision",
+    "cloud-systems": "Cloud & Distributed",
+    "cybersecurity": "Cybersecurity & Infra",
+    "saas": "Production SaaS",
+};
+
+export const projectCategoryOrder: (ProjectCategory | 'all')[] = [
+    'all',
+    'ai-cv',
+    'cloud-systems',
+    'cybersecurity',
+    'saas',
+];
+
 export const projects: Project[] = [
     {
         id: "baoan-auto-zalo-mini-app",
         title: "Bảo An Auto — Zalo Mini App Garage Management & Multi-Branch SaaS",
         description: "Enterprise Zalo Mini App SaaS for automotive garage chain operation. Features 5-tier RBAC (Super Admin, Owner, Manager, Technician, Customer), dynamic invoice & quote PDF printing engine, Supabase PostgreSQL sync with local in-memory mock DB fallback, and Vercel serverless deployment.",
-        category: "mobile",
+        category: "saas",
+        isMobileApp: true,
         technologies: ["Zalo Mini App", "React", "TypeScript", "Vite", "Zustand", "Tailwind CSS", "Supabase", "Express.js", "Vercel", "Recharts"],
         image: "/images/project_image/baoan-auto/baoan_auto_1.jpg",
         images: [
@@ -45,7 +65,7 @@ export const projects: Project[] = [
         id: "sdn-its-resilience-ai",
         title: "AI-Assisted Resilience for SDN-Enabled ITS",
         description: "Lightweight research framework for V2X network reliability, edge telemetry, and safety-aware SDN mitigation featuring Hybrid TCN-GRU anomaly detection (97.33% accuracy, 0.174MB INT8 quantization, 9.9ms latency) with automated contain-and-rollback mitigation.",
-        category: "ai",
+        category: "ai-cv",
         technologies: ["PyTorch", "Python", "Ryu", "ONOS", "Mininet-WiFi", "SUMO", "Scapy", "Flask", "Docker"],
         github: "",
         demo: "",
@@ -75,7 +95,7 @@ export const projects: Project[] = [
         id: "securecoating-vision",
         title: "SecureCoating-Vision — Evidence-Gated Electrode Inspection",
         description: "Track 4 (AI + Materials Testing): electrode coating defects become scrap or untraceable cell risk. Ranking anomalies is not enough — a line needs to know when a detection is safe to act on. SecureCoating-Vision is a fail-closed inspection pipeline: RGB YOLO-seg localization, then an evidence gate that may only PASS/REJECT when sensors, calibration, traceability, and PLC ACK agree; otherwise HOLD. Thermal and laser channels are simulated adapters; the industrial claim is the decision contract, not another detector.",
-        category: "ai",
+        category: "ai-cv",
         technologies: ["Python", "FastAPI", "PyTorch", "ONNX Runtime", "Streamlit", "OpenCV", "Docker"],
         github: "",
         demo: "",
@@ -107,7 +127,7 @@ export const projects: Project[] = [
         id: "foundry-platform",
         title: "Foundry — AI Engineering Intelligence Platform",
         description: "AI-Powered Engineering Review & Code Intelligence Platform acting as an experienced Staff Engineer that understands entire codebases, delivering architectural insights, security reviews, FinOps metrics, and dependency upgrade maps.",
-        category: "system",
+        category: "cloud-systems",
         technologies: ["ASP.NET Core 10", "Next.js 15", "C# 13", "TypeScript", "PostgreSQL", "pgvector", "Redis", "Docker", "Terraform"],
         github: "",
         demo: "",
@@ -133,7 +153,7 @@ export const projects: Project[] = [
         id: "quasar-quantum-routing",
         title: "QUASAR — Classical-Quantum Hybrid Logistics Engine",
         description: "Classical-quantum hybrid logistics orchestration system for Traveling Salesperson Problem (TSP) optimization, combining Google OR-Tools guided local search with 127-qubit IBM Quantum Qiskit QAOA execution.",
-        category: "system",
+        category: "cloud-systems",
         technologies: ["FastAPI", "Python", "Qiskit", "IBM Quantum Runtime", "Google OR-Tools", "OSMnx", "SQLAlchemy", "Docker"],
         github: "https://github.com/Muhammad-Rafif-Irfan/QUASAR",
         demo: "",
@@ -161,7 +181,7 @@ export const projects: Project[] = [
         id: "enterpriserag",
         title: "EnterpriseRAG — Hybrid Retrieval-Augmented Generation Platform",
         description: "Production hybrid RAG platform combining Qdrant dense vector search, OpenSearch BM25, and CrossEncoder reranking with document-level ACL access control and multi-format ingest (PDF OCR routing via LightOnOCR-2 & Docling).",
-        category: "ai",
+        category: "cloud-systems",
         technologies: ["FastAPI", "Python", "Qdrant", "OpenSearch", "Redis", "CrossEncoder", "LightOnOCR-2", "Docling", "Docker"],
         github: "",
         demo: "",
@@ -187,7 +207,7 @@ export const projects: Project[] = [
         id: "driftskills-ai",
         title: "DriftSkills AI - Career Recommendation Engine",
         description: "AI-powered career recommendation engine. Detects skill gaps and career drift, providing personalized learning paths using MongoDB Atlas Vector Search and Aggregation Pipelines.",
-        category: "ai",
+        category: "cloud-systems",
         technologies: ["Next.js 14", "FastAPI", "MongoDB Atlas", "Vector Search", "Python", "D3.js", "Docker", "TailwindCSS"],
         github: "",
         demo: "",
@@ -216,7 +236,7 @@ export const projects: Project[] = [
         id: "orangecloud-insights",
         title: "OrangeCloud Insights — AI-Powered Tech Intelligence Platform",
         description: "Serverless tech intelligence and RSS crawling platform. Automatically crawls RSS feeds, parses content, uses OpenAI models to summarize and rewrite tech articles in neutral, professional Vietnamese, generates embeddings with Workers AI, and saves semantic vectors into Cloudflare Vectorize.",
-        category: "web",
+        category: "cloud-systems",
         technologies: ["Next.js 15", "Cloudflare Workflows", "Cloudflare D1", "Cloudflare R2", "Cloudflare Vectorize", "Workers AI", "OpenAI API", "Drizzle ORM", "TypeScript"],
         github: "",
         demo: "https://blog.orangecloud.vn",
@@ -241,7 +261,7 @@ export const projects: Project[] = [
         id: "ctsmartcam",
         title: "CTSmartCam - Intelligent Surveillance Ecosystem",
         description: "An intelligent surveillance ecosystem for Cần Thơ City, utilizing an event-driven AI pipeline for real-time monitoring and security.",
-        category: "ai",
+        category: "ai-cv",
         technologies: ["ASP.NET Core 9", "SignalR", "Python", "Redis Streams", "YOLOv11", "PostgreSQL", "pgvector", "Nginx", "Docker"],
         github: "",
         demo: "",
@@ -272,7 +292,7 @@ export const projects: Project[] = [
         id: "multi-cloud-soar",
         title: "Multi-Cloud Serverless SOAR Platform (AWS & GCP)",
         description: "Designed and implemented a multi-cloud Security Orchestration, Automation, and Response (SOAR) platform across AWS and GCP. Built event-driven incident response pipelines using GuardDuty / Security Command Center, EventBridge / Eventarc, and SQS / Pub/Sub.",
-        category: "system",
+        category: "cybersecurity",
         technologies: ["GCP", "AWS", "Terraform", "Python", "Serverless", "Eventarc", "Pub/Sub", "Step Functions", "Cloud Workflows", "Cloud Run", "ECS Fargate"],
         github: "",
         githubLinks: [
@@ -303,7 +323,7 @@ export const projects: Project[] = [
         id: "pentest-lab",
         title: "Realistic Pentest Home Lab Series",
         description: "Realistic Penetration Testing lab environment spanning from Web and Active Directory to Cloud. Includes One-Click Setup via Docker and focuses on the mindset: Root Cause ➜ Attack Path ➜ Mitigation ➜ Detection.",
-        category: "system",
+        category: "cybersecurity",
         technologies: ["Docker", "Python", "Node.js", "PHP", "Active Directory"],
         github: "https://github.com/thtcsec/PentestLab",
         demo: "https://hoangtu.dev/pentestlab",
@@ -320,7 +340,7 @@ export const projects: Project[] = [
         id: "lingfilm",
         title: "LingFilm - AI Language Learning",
         description: "Learn languages through movies with AI-powered dual subtitles, instant vocabulary tracking, and SRS-based spaced repetition review.",
-        category: "ai",
+        category: "ai-cv",
         technologies: ["React 18", "TypeScript", ".NET 8", "PostgreSQL", "Python", "FastAPI", "Whisper", "spaCy", "Supabase", "Redis", "Hangfire", "TailwindCSS"],
         github: "",
         demo: "",
@@ -348,7 +368,7 @@ export const projects: Project[] = [
         id: "ai-lms",
         title: "toanvotruongtoan.com - AI-Powered LMS",
         description: "Production-ready Learning Management System with Gemini AI integration for automated exam generation and intelligent tutoring, serving hundreds of students.",
-        category: "web",
+        category: "saas",
         technologies: ["React", "Supabase", "Vercel", "Gemini AI", "TypeScript"],
         github: "",
         demo: "https://toanvotruongtoan.com",
@@ -367,7 +387,8 @@ export const projects: Project[] = [
         id: "silentpipe",
         title: "SilentPipe - Android Media Player",
         description: "Anonymous & powerful Android media player for YouTube/TikTok with no ads, background playback, custom equalizer, and offline download support.",
-        category: "mobile",
+        category: "cybersecurity",
+        isMobileApp: true,
         technologies: ["Java", "Kotlin", "Android Media3", "Chaquopy", "NewPipeExtractor", "OkHttp"],
         github: "https://github.com/thtcsec/SilentPipe",
         demo: "https://thtcsec.github.io/silentpipe",
@@ -386,7 +407,7 @@ export const projects: Project[] = [
         id: "chaincampus",
         title: "ChainCampus - Blockchain Event Ticketing",
         description: "Anti-fraud event ticketing system using Ethereum blockchain. NFT tickets with QR verification, Metamask SIWE authentication, and real-time updates.",
-        category: "web",
+        category: "saas",
         technologies: ["Django", "PostgreSQL", "Ethereum", "Solidity", "Hardhat", "Web3.py"],
         github: "",
         demo: "",
@@ -405,7 +426,7 @@ export const projects: Project[] = [
         id: "ai-sentinel",
         title: "Lumisight Core",
         description: "Spatial & anomaly detection system running 100% on edge devices. Features zero-shot anomaly detection, real-time Telegram alerts, and Snowflake data lake integration.",
-        category: "ai",
+        category: "ai-cv",
         technologies: ["Python", "OpenCV", "Docker", "MediaPipe", "YOLOv8", "Snowflake"],
         github: "https://github.com/thtcsec/Lumisight-Core",
         demo: "",
@@ -423,7 +444,7 @@ export const projects: Project[] = [
         id: "face-recognition",
         title: "Face Recognition System",
         description: "Network programming project with Java Swing client/server and Python Flask + OpenCV for face detection, embedding generation, and real-time recognition.",
-        category: "ai",
+        category: "ai-cv",
         technologies: ["Java", "Python", "OpenCV", "Flask", "Gradle", "Swing"],
         github: "",
         demo: "",
@@ -441,7 +462,7 @@ export const projects: Project[] = [
         id: "yodobashi",
         title: "Yodobashi Ultimate Sniper",
         description: "Advanced automation system for Yodobashi with stealth anti-detection, real-time monitoring, and hybrid speed/safe mode attack strategies.",
-        category: "extension",
+        category: "cybersecurity",
         technologies: ["Playwright", "Node.js", "JavaScript", "Stealth Tech"],
         github: "",
         demo: "",
@@ -459,7 +480,7 @@ export const projects: Project[] = [
         id: "portfolio",
         title: "Portfolio Website",
         description: "Modern responsive portfolio with React, TypeScript, and TailwindCSS. Features dark/light theme, animations, and SEO optimization.",
-        category: "web",
+        category: "saas",
         technologies: ["React", "TypeScript", "TailwindCSS", "Vite"],
         demo: "https://thtcsec.github.io",
         image: "/images/preview/preview_portfolio.png",

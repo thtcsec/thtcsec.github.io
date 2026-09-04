@@ -3,18 +3,8 @@ import { ExternalLink, Github, ArrowRight, Trophy, Sparkles } from "lucide-react
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import ImageModal from "@/components/ImageModal";
-import { featuredProjects, allProjects, type Project } from "@/data/projects";
+import { featuredProjects, allProjects, type Project, categoryLabels } from "@/data/projects";
 import { topHonors } from "@/data/certificates";
-
-const categoryLabels: Record<string, string> = {
-  all: "All",
-  ai: "AI/ML",
-  web: "Web",
-  extension: "Extension",
-  system: "System",
-  desktop: "Desktop",
-  mobile: "Mobile",
-};
 
 const Showcase = () => {
   const [modalImage, setModalImage] = useState<{ src: string; alt: string } | null>(null);
@@ -188,7 +178,7 @@ const ProjectCard = ({ project, imageLoaded, onImageLoad }: ProjectCardProps) =>
           {!imageLoaded && (
             <div className="absolute inset-0 bg-gradient-to-br from-muted to-muted-foreground/10 animate-pulse" />
           )}
-          {project.category === 'mobile' ? (
+          {project.isMobileApp ? (
             <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-slate-900 via-zinc-900 to-black p-2.5">
               <div className="h-full aspect-[9/18.5] rounded-xl overflow-hidden border-2 border-neutral-700/80 bg-black shadow-lg">
                 <img
@@ -220,7 +210,9 @@ const ProjectCard = ({ project, imageLoaded, onImageLoad }: ProjectCardProps) =>
       <div className="flex flex-1 flex-col p-6">
         {/* Clean meta line - No chip on image */}
         <div className="cinema-meta flex items-center justify-between gap-3 text-xs">
-          <span className="font-mono text-muted-foreground">{categoryLabels[project.category]}</span>
+          <span className="font-mono text-[11px] text-primary font-medium px-2 py-0.5 rounded bg-primary/10 border border-primary/20">
+            {categoryLabels[project.category] || project.category}
+          </span>
           {project.awardBadge ? (
             <span className="font-mono text-[11px] text-amber-600 dark:text-amber-400 font-semibold flex items-center gap-1">
               <Trophy size={11} className="text-amber-500" />

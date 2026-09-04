@@ -1,5 +1,5 @@
 import { useParams, Link } from "react-router-dom";
-import { allProjects } from "@/data/projects";
+import { allProjects, categoryLabels } from "@/data/projects";
 import { Button } from "@/components/ui/button";
 import { ExternalLink, Github, ArrowLeft, Home } from "lucide-react";
 import { Icon } from "@iconify/react";
@@ -24,21 +24,32 @@ const LazyImage = ({ src, alt, fit = "cover" }: { src: string; alt: string; fit?
             },
             { rootMargin: "200px" }
         );
-        if (imgRef.current) observer.observe(imgRef.current);
+
+        if (imgRef.current) {
+            observer.observe(imgRef.current);
+        }
+
         return () => observer.disconnect();
     }, []);
 
     return (
-        <div ref={imgRef} className={`w-full h-full bg-muted ${isLoaded ? "" : "animate-pulse"}`}>
-            {isInView && (
-                <img
-                    src={src}
-                    alt={alt}
-                    loading="lazy"
-                    decoding="async"
-                    onLoad={() => setIsLoaded(true)}
-                    className={`w-full h-full transition-opacity duration-300 ${isLoaded ? "opacity-100" : "opacity-0"} ${fit === "contain" ? "object-contain bg-zinc-950" : "object-cover"}`}
-                />
+        <div ref={imgRef} className="w-full h-full relative overflow-hidden bg-muted flex items-center justify-center">
+            {isInView ? (
+                <>
+                    <img
+                        src={src}
+                        alt={alt}
+                        className={`w-full h-full ${fit === "contain" ? "object-contain" : "object-cover"} transition-opacity duration-300 ${isLoaded ? "opacity-100" : "opacity-0"
+                            }`}
+                        onLoad={() => setIsLoaded(true)}
+                        loading="lazy"
+                    />
+                    {!isLoaded && (
+                        <div className="absolute inset-0 bg-muted animate-pulse" />
+                    )}
+                </>
+            ) : (
+                <div className="absolute inset-0 bg-muted" />
             )}
         </div>
     );
@@ -51,7 +62,7 @@ const ProjectDetailPage = () => {
     const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
     const hasImages = project?.images && project.images.length > 0;
     const galleryImages = hasImages ? project.images! : (project ? [project.image] : []);
-    const isMobile = project?.category === "mobile";
+    const isMobile = Boolean(project?.isMobileApp || project?.id === "baoan-auto-zalo-mini-app");
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -76,7 +87,7 @@ const ProjectDetailPage = () => {
                                 <div className="flex-1 text-center lg:text-left">
                                     <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2.5 mb-5">
                                         <span className="px-3.5 py-1 rounded-full bg-primary/15 border border-primary/30 text-xs font-semibold text-primary uppercase tracking-wider">
-                                            📱 Zalo Mini App / Mobile SaaS
+                                            {project.id === "baoan-auto-zalo-mini-app" ? "Zalo Mini App / Mobile SaaS" : (categoryLabels[project.category] || "Mobile Application")}
                                         </span>
                                         {project.featured && (
                                             <span className="px-3.5 py-1 rounded-full bg-accent/90 border border-accent/20 text-xs font-medium text-white shadow-sm">
@@ -140,8 +151,8 @@ const ProjectDetailPage = () => {
                         <div className="absolute bottom-0 left-0 right-0 p-4 md:p-12">
                             <div className="container mx-auto">
                                 <div className="flex items-center gap-3 mb-4">
-                                    <span className="px-3 py-1 rounded-full bg-primary/20 backdrop-blur-sm border border-primary/30 text-sm font-medium text-primary uppercase tracking-wider">
-                                        {project.category}
+                                    <span className="px-3 py-1 rounded-full bg-primary/20 backdrop-blur-sm border border-primary/30 text-sm font-medium text-primary tracking-wide">
+                                        {categoryLabels[project.category] || project.category}
                                     </span>
                                     {project.featured && (
                                         <span className="px-3 py-1 rounded-full bg-accent/90 backdrop-blur-sm border border-accent/20 text-sm font-medium text-white shadow-lg">
