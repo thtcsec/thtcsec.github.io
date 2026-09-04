@@ -404,25 +404,6 @@ export const projects: Project[] = [
         ]
     },
     {
-        id: "chaincampus",
-        title: "ChainCampus - Blockchain Event Ticketing",
-        description: "Anti-fraud event ticketing system using Ethereum blockchain. NFT tickets with QR verification, Metamask SIWE authentication, and real-time updates.",
-        category: "saas",
-        technologies: ["Django", "PostgreSQL", "Ethereum", "Solidity", "Hardhat", "Web3.py"],
-        github: "",
-        demo: "",
-        image: "/images/preview/preview_chaincampus.png",
-        featured: false,
-        highlights: [
-            "NFT tickets on Ethereum Sepolia testnet",
-            "Smart Contract with Solidity + Hardhat",
-            "QR Scanner with webcam integration",
-            "Sign-In with Ethereum (SIWE) authentication",
-            "Real-time SSE updates"
-        ],
-        isPrivate: true
-    },
-    {
         id: "ai-sentinel",
         title: "Lumisight Core",
         description: "Spatial & anomaly detection system running 100% on edge devices. Features zero-shot anomaly detection, real-time Telegram alerts, and Snowflake data lake integration.",
