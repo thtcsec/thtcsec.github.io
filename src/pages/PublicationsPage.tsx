@@ -1,56 +1,78 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import {
   ExternalLink,
   Github,
-  FileText,
   Check,
-  Award,
   Building2,
-  Tag,
   Search,
-  ChevronDown,
-  ChevronUp,
-  ChevronsUpDown,
   ArrowLeft,
-  Home,
-  LayoutList,
-  Grid,
+  Copy,
+  BookOpen,
+  Filter,
+  X,
+  Globe,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { publicationsData, Publication } from "@/data/publications";
 import ThemeToggle from "@/components/ThemeToggle";
 
+// Helper: highlight "Trinh Hoang Tu" in author list
+function renderAuthors(authors: string[]) {
+  return authors.map((author, i) => {
+    const isMainAuthor =
+      author === "Trinh Hoang Tu" || author.includes("Hoang Tu");
+    return (
+      <span key={i}>
+        {i > 0 && <span className="text-slate-400 dark:text-slate-600">, </span>}
+        <span
+          className={
+            isMainAuthor
+              ? "font-semibold text-slate-900 dark:text-white underline decoration-amber-400 underline-offset-2 decoration-[1.5px]"
+              : "text-slate-600 dark:text-slate-300"
+          }
+        >
+          {author}
+        </span>
+      </span>
+    );
+  });
+}
+
+const STATUS_COLORS: Record<string, string> = {
+  Accepted:
+    "bg-emerald-50 text-emerald-700 ring-1 ring-emerald-200 dark:bg-emerald-950/60 dark:text-emerald-300 dark:ring-emerald-700/70",
+  "Camera Ready":
+    "bg-emerald-50 text-emerald-700 ring-1 ring-emerald-200 dark:bg-emerald-950/60 dark:text-emerald-300 dark:ring-emerald-700/70",
+  Published:
+    "bg-blue-50 text-blue-700 ring-1 ring-blue-200 dark:bg-blue-950/60 dark:text-blue-300 dark:ring-blue-700/70",
+  "Under Review":
+    "bg-amber-50 text-amber-700 ring-1 ring-amber-200 dark:bg-amber-950/60 dark:text-amber-300 dark:ring-amber-700/70",
+};
+
+const FILTER_OPTIONS = [
+  { label: "All", value: "all" },
+  { label: "Accepted", value: "Accepted" },
+  { label: "Under Review", value: "Under Review" },
+  { label: "Springer", value: "Springer" },
+  { label: "IEEE", value: "IEEE" },
+  { label: "Scopus", value: "Scopus" },
+];
+
+type FilterVal = (typeof FILTER_OPTIONS)[number]["value"];
+
 export const PublicationsPage: React.FC = () => {
   const [copiedId, setCopiedId] = useState<string | null>(null);
-  const [searchTerm, setSearchTerm] = useState<string>("");
-  const [expandedIds, setExpandedIds] = useState<Record<string, boolean>>({});
-  const [isSearchOpen, setIsSearchOpen] = useState<boolean>(false);
-  const [isSearchHighlighted, setIsSearchHighlighted] = useState<boolean>(false);
-  const [isCompactView, setIsCompactView] = useState<boolean>(false);
-  const searchInputRef = useRef<HTMLInputElement>(null);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [expandedId, setExpandedId] = useState<string | null>(null);
+  const [activeFilter, setActiveFilter] = useState<FilterVal>("all");
+  const [searchOpen, setSearchOpen] = useState(false);
+  const searchRef = useRef<HTMLInputElement>(null);
 
-  const handleToggleSearch = () => {
-    if (!isSearchOpen) {
-      setIsSearchOpen(true);
-      setIsSearchHighlighted(true);
-
-      setTimeout(() => {
-        if (searchInputRef.current) {
-          const rect = searchInputRef.current.getBoundingClientRect();
-          const targetY = window.scrollY + rect.top - 120;
-          window.scrollTo({ top: targetY, behavior: "smooth" });
-          searchInputRef.current.focus();
-        }
-      }, 150);
-
-      setTimeout(() => {
-        setIsSearchHighlighted(false);
-      }, 1400);
-    } else {
-      setIsSearchOpen(false);
-      setSearchTerm("");
+  useEffect(() => {
+    if (searchOpen && searchRef.current) {
+      searchRef.current.focus();
     }
-  };
+  }, [searchOpen]);
 
   const handleCopyBibtex = (pub: Publication, e: React.MouseEvent) => {
     e.stopPropagation();
@@ -66,471 +88,551 @@ export const PublicationsPage: React.FC = () => {
     setTimeout(() => setCopiedId(null), 2000);
   };
 
-  const toggleExpand = (id: string) => {
-    setExpandedIds((prev) => ({ ...prev, [id]: !prev[id] }));
+  const handleCopyAllBibtex = () => {
+    const all = publicationsData
+      .map(
+        (pub) => `@inproceedings{${pub.id},
+  title={${pub.title}},
+  author={${pub.authors.join(" and ")}},
+  booktitle={${pub.conference}},
+  year={${pub.year}},
+  organization={${pub.affiliation}}
+}`
+      )
+      .join("\n\n");
+    navigator.clipboard.writeText(all);
+    setCopiedId("all");
+    setTimeout(() => setCopiedId(null), 2000);
   };
 
-  const isAllExpanded = publicationsData.every((pub) => expandedIds[pub.id]);
+  const filteredPublications = publicationsData.filter((pub) => {
+    const term = searchTerm.toLowerCase();
+    const matchesSearch =
+      !searchTerm ||
+      pub.title.toLowerCase().includes(term) ||
+      pub.abbreviation.toLowerCase().includes(term) ||
+      pub.tags.some((t) => t.toLowerCase().includes(term)) ||
+      pub.authors.some((a) => a.toLowerCase().includes(term));
 
-  const toggleExpandAll = () => {
-    if (isAllExpanded) {
-      setExpandedIds({});
-    } else {
-      const all: Record<string, boolean> = {};
-      publicationsData.forEach((pub) => (all[pub.id] = true));
-      setExpandedIds(all);
-    }
-  };
+    const matchesFilter =
+      activeFilter === "all" ||
+      pub.status === activeFilter ||
+      (pub.indexing && pub.indexing.includes(activeFilter));
 
-  const filteredPublications = publicationsData.filter(
-    (pub) =>
-      pub.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      pub.abbreviation.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      pub.tags.some((t) => t.toLowerCase().includes(searchTerm.toLowerCase()))
-  );
-
-  // Helper to render logos:
-  // - Compact View (isCompact = true) + 3 logos: Triangle layout (2 on top, 1 centered below)
-  // - Standard Detailed View (isCompact = false): Always single clean horizontal row!
-  const renderLogos = (pub: Publication, isCompact: boolean) => {
-    const logos = pub.conferenceLogos || (pub.conferenceLogo ? [pub.conferenceLogo] : []);
-    if (!logos || logos.length === 0) return null;
-
-    // 3 Logos in Compact View ONLY: Triangle layout
-    if (isCompact && logos.length === 3) {
-      const cardClass = "h-10 sm:h-11 w-16 sm:w-20 p-1 rounded-xl bg-white border border-slate-200 dark:border-slate-700 shadow-sm flex items-center justify-center overflow-hidden shrink-0";
-
-      return (
-        <div className="flex flex-col items-center gap-1 shrink-0">
-          {/* Top Row: 2 Logos side by side */}
-          <div className="flex items-center gap-1">
-            <div className={cardClass}>
-              <img src={logos[0]} alt={pub.abbreviation} className="w-full h-full object-contain p-0.5" />
-            </div>
-            <div className={cardClass}>
-              <img src={logos[1]} alt={pub.abbreviation} className="w-full h-full object-contain p-0.5" />
-            </div>
-          </div>
-          {/* Bottom Row: 1 Logo centered below */}
-          <div className="flex items-center justify-center">
-            <div className={cardClass}>
-              <img src={logos[2]} alt={pub.abbreviation} className="w-full h-full object-contain p-0.5" />
-            </div>
-          </div>
-        </div>
-      );
-    }
-
-    // Single Horizontal Row layout for Standard Detailed View or 1, 2, 4+ logos
-    return (
-      <div className="flex items-center gap-2 flex-wrap shrink-0">
-        {logos.map((logo, logoIdx) => {
-          const cardClass = isCompact
-            ? "h-12 sm:h-14 w-20 sm:w-24 p-1 rounded-xl bg-white border border-slate-200 dark:border-slate-700 shadow-sm flex items-center justify-center overflow-hidden shrink-0"
-            : "h-14 sm:h-16 w-24 sm:w-32 p-1 rounded-xl bg-white border border-slate-200 dark:border-slate-700 shadow-md flex items-center justify-center overflow-hidden shrink-0";
-
-          return (
-            <div key={logoIdx} className={cardClass}>
-              <img src={logo} alt={pub.abbreviation} className="w-full h-full object-contain p-0.5" />
-            </div>
-          );
-        })}
-      </div>
-    );
-  };
+    return matchesSearch && matchesFilter;
+  });
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 pt-36 sm:pt-40 md:pt-44 pb-16 px-4 sm:px-6 lg:px-8 transition-colors duration-300">
-      {/* Top Controls Header Bar */}
-      <div className="max-w-7xl mx-auto mb-6 flex flex-wrap items-center justify-between gap-4">
-        <Link
-          to="/"
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-sm font-semibold text-slate-700 dark:text-slate-300 hover:border-cyan-500/60 hover:text-cyan-600 dark:hover:text-cyan-400 transition-all shadow-sm hover:shadow-md group"
-        >
-          <ArrowLeft className="w-4 h-4 group-hover:-translate-x-0.5 transition-transform" />
-          <Home className="w-3.5 h-3.5" />
-          Back to Home
-        </Link>
+    <div
+      className="min-h-screen bg-slate-50 dark:bg-[#0b0e14] text-slate-900 dark:text-slate-100 transition-colors duration-300"
+      style={{ fontFamily: "'Figtree', 'Segoe UI', system-ui, sans-serif" }}
+    >
+      {/* Google Font: Figtree + Chivo Mono */}
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800;900&family=Chivo+Mono:wght@400;500&display=swap');
+        .pub-font { font-family: 'Figtree', system-ui, sans-serif; }
+        .pub-mono { font-family: 'Chivo Mono', monospace; }
 
-        {/* Right side: Search Chip + View Mode Toggle + Synchronized ThemeToggle */}
-        <div className="flex items-center gap-2.5 flex-wrap">
-          <button
-            onClick={() => setIsCompactView(!isCompactView)}
-            className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-xs font-semibold text-slate-700 dark:text-slate-300 hover:border-cyan-500/60 hover:text-cyan-600 dark:hover:text-cyan-400 transition-all shadow-sm"
-            title={isCompactView ? "Switch to Detailed Card View" : "Switch to Compact Summary View"}
+        .pub-entry {
+          position: relative;
+        }
+        .pub-entry::before {
+          content: '';
+          position: absolute;
+          left: 0; top: 0; bottom: 0;
+          width: 1px;
+          background: linear-gradient(to bottom, transparent, oklch(0.55 0.12 250 / 0.35) 20%, oklch(0.55 0.12 250 / 0.35) 80%, transparent);
+          opacity: 0;
+          transition: opacity 0.25s ease;
+        }
+        .pub-entry:hover::before {
+          opacity: 1;
+        }
+
+        .abstract-grid {
+          display: grid;
+          grid-template-rows: 0fr;
+          transition: grid-template-rows 0.38s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .abstract-grid.open {
+          grid-template-rows: 1fr;
+        }
+        .abstract-inner {
+          overflow: hidden;
+        }
+
+        .filter-chip {
+          transition: all 0.15s ease;
+        }
+        .filter-chip.active {
+          background: oklch(0.2 0.02 250);
+          color: white;
+          border-color: oklch(0.35 0.03 250);
+        }
+        .dark .filter-chip.active {
+          background: oklch(0.88 0.02 250);
+          color: oklch(0.12 0.02 250);
+          border-color: oklch(0.88 0.02 250);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          .abstract-grid { transition: none; }
+          .pub-entry::before { display: none; }
+        }
+      `}</style>
+
+      {/* ── Top Nav Bar ── */}
+      <nav className="fixed top-0 inset-x-0 z-40 border-b border-slate-200/60 dark:border-slate-800/60 bg-slate-50/90 dark:bg-[#0b0e14]/90 backdrop-blur-sm">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between gap-4">
+          <Link
+            to="/"
+            className="inline-flex items-center gap-2 text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors group"
           >
-            {isCompactView ? <Grid className="w-3.5 h-3.5 text-cyan-500" /> : <LayoutList className="w-3.5 h-3.5 text-cyan-500" />}
-            <span>{isCompactView ? "Detailed Cards" : "Compact Summary"}</span>
-          </button>
+            <ArrowLeft className="w-4 h-4 group-hover:-translate-x-0.5 transition-transform" />
+            hoangtu.dev
+          </Link>
 
-          <button
-            onClick={handleToggleSearch}
-            className={`inline-flex items-center gap-2 px-3.5 py-2 rounded-xl border text-xs font-semibold transition-all shadow-sm group ${
-              isSearchOpen
-                ? "bg-cyan-500 text-white border-cyan-500 shadow-cyan-500/20"
-                : "bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:border-cyan-500/60 hover:text-cyan-600 dark:hover:text-cyan-400"
-            }`}
-            title="Toggle search bar"
-          >
-            <Search className={`w-3.5 h-3.5 ${isSearchOpen ? "text-white" : "text-cyan-500"} group-hover:scale-110 transition-transform`} />
-            <span>{isSearchOpen ? "Close Search" : "Search Papers"}</span>
-          </button>
-
-          <div className="p-1 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm flex items-center justify-center">
+          <div className="flex items-center gap-3">
+            <button
+              onClick={() => {
+                setSearchOpen((v) => !v);
+                if (searchOpen) setSearchTerm("");
+              }}
+              aria-label="Toggle search"
+              className="w-8 h-8 flex items-center justify-center rounded-lg text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-200/60 dark:hover:bg-slate-800/60 transition-all"
+            >
+              {searchOpen ? <X className="w-4 h-4" /> : <Search className="w-4 h-4" />}
+            </button>
             <ThemeToggle />
           </div>
         </div>
-      </div>
+      </nav>
 
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-        
-        {/* LEFT COLUMN: Personal Academic Profile Sidebar */}
-        <aside className="lg:col-span-4 space-y-6 lg:sticky lg:top-24">
-          <div className="p-6 rounded-2xl bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 shadow-lg space-y-6">
-            
-            {/* Avatar & Basic Info */}
-            <div className="flex flex-col items-center sm:items-start text-center sm:text-left space-y-4">
-              <picture className="w-40 h-40 sm:w-48 sm:h-48 shrink-0">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 pt-24 pb-24">
+
+        {/* ── Page Header ── */}
+        <header className="mb-12 md:mb-16">
+          <div className="pub-mono text-xs tracking-widest text-slate-500 dark:text-slate-400 uppercase mb-4">
+            Research & Hobby Projects · 2026
+          </div>
+          <h1
+            className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white mb-4 leading-none"
+            style={{ fontFamily: "'Figtree', system-ui, sans-serif", letterSpacing: "-0.03em" }}
+          >
+            Publications
+          </h1>
+          <p className="text-base text-slate-600 dark:text-slate-300 max-w-xl leading-relaxed">
+            Exploratory research and conference preprints in AI-native security, log anomaly detection, and distributed systems.{" "}
+            <span className="font-medium text-slate-800 dark:text-slate-100">Trịnh Hoàng Tú</span> ·{" "}
+            <span className="pub-mono text-sm">HUFLIT · 2026</span>
+          </p>
+        </header>
+
+        <div className="grid grid-cols-1 lg:grid-cols-[300px_1fr] gap-10 items-start">
+
+          {/* ── LEFT: Author Profile Sidebar ── */}
+          <aside className="lg:sticky lg:top-20 space-y-8">
+
+            {/* Portrait */}
+            <div>
+              <picture>
                 <source srcSet="/images/academic_portrait.webp" type="image/webp" />
                 <img
                   src="/images/academic_portrait.jpg"
-                  alt="Trịnh Hoàng Tú"
+                  alt="Trịnh Hoàng Tú at Gia Lai Quantum Year 2026"
                   onError={(e) => {
                     (e.target as HTMLImageElement).src = "/images/avatar.png";
                   }}
-                  className="w-full h-full aspect-square rounded-2xl object-cover object-top border border-slate-200 dark:border-slate-800 shadow-md select-none"
+                  className="w-full aspect-square object-cover object-top rounded-xl shadow-sm select-none"
+                  style={{ maxHeight: "300px" }}
                 />
               </picture>
-
-              <div>
-                <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">
-                  Trịnh Hoàng Tú
-                </h1>
-                <p className="text-xs font-mono text-cyan-600 dark:text-cyan-400 font-semibold mt-0.5">
-                  Research Artifacts & Scientific Publications
-                </p>
-              </div>
             </div>
 
-            {/* Affiliations & Partners Logos */}
-            <div className="space-y-3.5 pt-4 border-t border-slate-200 dark:border-slate-800 text-xs sm:text-sm text-slate-700 dark:text-slate-300">
-              <div className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider flex items-center gap-1.5 mb-1">
-                <Building2 className="w-3.5 h-3.5 text-cyan-500" /> Academic Affiliations
-              </div>
-              <div className="flex items-center gap-3">
-                <img src="/images/huflit.png" alt="HUFLIT" className="w-6 h-6 object-contain" />
-                <span>
-                  Faculty of Information Technology, <strong className="text-slate-900 dark:text-white">HUFLIT</strong>
-                </span>
-              </div>
-              <div className="flex items-center gap-3">
-                <img src="/images/tsinghua.png" alt="Tsinghua University" className="w-6 h-6 object-contain" />
-                <span>
-                  Global Innovation Program Certified, <strong className="text-slate-900 dark:text-white">Tsinghua University</strong>
-                </span>
-              </div>
+            {/* Identity */}
+            <div className="space-y-2">
+              <h2 className="text-xl font-bold text-slate-900 dark:text-white" style={{ fontFamily: "'Figtree', system-ui, sans-serif" }}>
+                Trịnh Hoàng Tú
+              </h2>
+              <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                Backend engineer tinkering with AI systems. Exploring log intelligence, AI security, and edge models as a fun research hobby and technical playground.
+              </p>
             </div>
 
-            {/* Research Focus Tags */}
-            <div className="space-y-2.5 pt-4 border-t border-slate-200 dark:border-slate-800">
-              <div className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider flex items-center gap-1.5">
-                <Tag className="w-3.5 h-3.5 text-cyan-500" /> Key Research Areas
-              </div>
-              <div className="flex flex-wrap gap-1.5">
-                {[
-                  "AI-Native Security",
-                  "Log Anomaly Detection",
-                  "Drain3 & Sequence Modeling",
-                  "TCN & Transformer Networks",
-                  "INT8 Edge AI Quantization",
-                  "Deep Q-Networks (DQN)",
-                  "SDN OpenFlow Resilience",
-                  "SOAR Incident Automation",
-                  "Cyber Economics & EdTech Risk"
-                ].map((interest, idx) => (
-                  <span
-                    key={idx}
-                    className="px-2.5 py-1 rounded-md text-xs font-medium bg-slate-100 dark:bg-slate-950 text-slate-700 dark:text-cyan-300 border border-slate-200 dark:border-slate-800 hover:border-cyan-500/50 transition-colors"
-                  >
-                    {interest}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </div>
-        </aside>
-
-        {/* RIGHT COLUMN: Scientific Publications List */}
-        <main className="lg:col-span-8 space-y-6">
-          {/* Header Bar & Search & Expand All Button */}
-          <div className="p-6 rounded-2xl bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 shadow-md space-y-4">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-              <div>
-                <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white">
-                  Research & Publications
-                </h2>
-                <p className="text-xs text-slate-500 dark:text-slate-400 font-mono mt-1">
-                  Total {filteredPublications.length} Peer-Reviewed Scientific Publications & Artifacts
-                </p>
-              </div>
-
-              {!isCompactView && (
-                <button
-                  onClick={toggleExpandAll}
-                  className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-xs font-bold text-slate-700 dark:text-slate-200 transition-all border border-slate-300 dark:border-slate-700 shrink-0 self-start sm:self-auto"
-                >
-                  <ChevronsUpDown className="w-4 h-4 text-cyan-500" />
-                  {isAllExpanded ? "Collapse All" : "Expand All"}
-                </button>
-              )}
-            </div>
-
-            {/* Collapsible Search Input */}
-            <div
-              className={`overflow-hidden transition-all duration-500 ease-in-out ${
-                isSearchOpen ? "max-h-24 opacity-100 mt-4" : "max-h-0 opacity-0 mt-0 pointer-events-none"
-              }`}
-            >
-              <div className={`relative transition-all duration-500 rounded-xl ${
-                isSearchHighlighted
-                  ? "ring-2 ring-cyan-500/80 scale-[1.015] shadow-[0_0_30px_rgba(6,182,212,0.35)]"
-                  : ""
-              }`}>
-                <Search className={`w-4 h-4 absolute left-3.5 top-3 transition-colors ${
-                  isSearchHighlighted ? "text-cyan-500" : "text-slate-400"
-                }`} />
-                <input
-                  ref={searchInputRef}
-                  type="text"
-                  placeholder="Filter by title, venue (CSONET, ICAI-FAI, VNICT, RIVF), or keywords..."
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full pl-10 pr-4 py-2 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-xs sm:text-sm text-slate-900 dark:text-slate-200 placeholder-slate-400 focus:outline-none focus:border-cyan-500 transition-colors"
-                />
-              </div>
-            </div>
-          </div>
-
-          {/* COMPACT SUMMARY VIEW */}
-          {isCompactView ? (
-            <div className="rounded-2xl bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 shadow-xl overflow-hidden p-3.5 sm:p-5 space-y-3.5">
-              {filteredPublications.map((pub, idx) => (
+            {/* Stats strip */}
+            <div className="grid grid-cols-3 gap-2">
+              {[
+                { n: publicationsData.length.toString(), label: "Papers" },
+                { n: publicationsData.filter((p) => p.indexing?.includes("Scopus")).length.toString(), label: "Scopus" },
+                { n: publicationsData.filter((p) => p.status === "Accepted" || p.status === "Published").length.toString(), label: "Accepted" },
+              ].map(({ n, label }) => (
                 <div
-                  key={pub.id}
-                  className="p-4 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 hover:border-cyan-500/50 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 transition-all hover:shadow-md"
+                  key={label}
+                  className="flex flex-col items-center py-3 px-1 rounded-lg bg-white dark:bg-slate-900/80 border border-slate-200/80 dark:border-slate-800"
                 >
-                  {/* Left Column: Triangle Logo Container for 3 logos in Compact View */}
-                  <div className="flex items-center gap-4 min-w-0 flex-1">
-                    <span className="text-xs font-mono font-bold text-slate-400 shrink-0">#{idx + 1}</span>
-                    
-                    {/* Rendered Logos */}
-                    {renderLogos(pub, true)}
+                  <span className="text-2xl font-extrabold text-slate-900 dark:text-white" style={{ fontFamily: "'Figtree', system-ui, sans-serif", letterSpacing: "-0.04em" }}>
+                    {n}
+                  </span>
+                  <span className="pub-mono text-[10px] text-slate-500 dark:text-slate-400 uppercase tracking-wider mt-0.5">
+                    {label}
+                  </span>
+                </div>
+              ))}
+            </div>
 
-                    {/* Middle Column: Badges, Title & Authors */}
-                    <div className="space-y-1 min-w-0 flex-1">
-                      <div className="flex items-center gap-2 flex-wrap">
-                        <span className="px-2.5 py-0.5 rounded text-xs font-extrabold bg-cyan-100 dark:bg-cyan-950 text-cyan-800 dark:text-cyan-300 border border-cyan-200 dark:border-cyan-800/60">
-                          {pub.abbreviation}
-                        </span>
-                        {pub.indexing && (
-                          <span className="px-2.5 py-0.5 rounded text-xs font-medium bg-purple-100 dark:bg-purple-950 text-purple-800 dark:text-purple-300 border border-purple-200 dark:border-purple-800/60">
-                            {pub.indexing}
-                          </span>
-                        )}
-                        {!pub.abbreviation.includes(pub.year.toString()) && (
-                          <span className="text-xs font-mono text-slate-500 dark:text-slate-400">{pub.year}</span>
-                        )}
-                      </div>
-
-                      <h3 className="text-sm sm:text-base font-bold text-slate-900 dark:text-white leading-snug">
-                        {pub.title}
-                      </h3>
-
-                      <p className="text-xs text-slate-500 dark:text-slate-400 font-mono">
-                        <strong className="text-slate-700 dark:text-slate-300">Authors:</strong> {pub.authors.join(", ")}
-                      </p>
-                    </div>
+            {/* Affiliations */}
+            <div className="space-y-3">
+              <div className="pub-mono text-[10px] text-slate-500 dark:text-slate-400 uppercase tracking-widest flex items-center gap-1.5 font-semibold">
+                <Building2 className="w-3 h-3" /> Affiliations
+              </div>
+              {[
+                { logo: "/images/huflit.png", name: "HUFLIT", desc: "Faculty of IT" },
+                { logo: "/images/tsinghua.png", name: "Tsinghua Univ.", desc: "GIP Certified" },
+              ].map(({ logo, name, desc }) => (
+                <div key={name} className="flex items-center gap-3.5">
+                  <div className="w-14 h-14 rounded-xl bg-white border border-slate-200 dark:border-slate-700/80 flex items-center justify-center p-1.5 shrink-0 shadow-xs">
+                    <img src={logo} alt={name} className="max-h-full max-w-full object-contain" />
                   </div>
-
-                  {/* Right Column: Status Badge */}
-                  <div className="shrink-0 self-end sm:self-auto">
-                    <span className={`px-3 py-1 rounded-full text-xs font-semibold whitespace-nowrap border ${
-                      pub.status === "Accepted" || pub.status === "Camera Ready" || pub.status === "Published"
-                        ? "bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300 border-emerald-200 dark:border-emerald-800/60"
-                        : "bg-amber-100 dark:bg-amber-950 text-amber-800 dark:text-amber-400 border-amber-200 dark:border-amber-800/60"
-                    }`}>
-                      {pub.status}
-                    </span>
+                  <div>
+                    <div className="text-sm font-semibold text-slate-800 dark:text-slate-100">{name}</div>
+                    <div className="pub-mono text-xs text-slate-500 dark:text-slate-400">{desc}</div>
                   </div>
                 </div>
               ))}
             </div>
-          ) : (
-            /* STANDARD DETAILED CARD VIEW (Always Single Clean Horizontal Row for Logos!) */
-            <div className="space-y-4">
-              {filteredPublications.map((pub) => {
-                const isExpanded = !!expandedIds[pub.id];
+
+            {/* Research keywords */}
+            <div className="space-y-2.5">
+              <div className="pub-mono text-[10px] text-slate-500 dark:text-slate-400 uppercase tracking-widest font-semibold">
+                Key Topics
+              </div>
+              <div className="flex flex-wrap gap-1.5">
+                {[
+                  "Log Anomaly Detection",
+                  "AIOps",
+                  "AI-Native Security",
+                  "Edge AI",
+                  "Federated Learning",
+                  "TCN · Transformer",
+                  "SOAR Automation",
+                  "Cyber Economics",
+                ].map((kw) => (
+                  <span
+                    key={kw}
+                    className="inline-block px-2 py-0.5 rounded-md text-[11px] font-medium bg-slate-100 dark:bg-slate-900 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:border-slate-400 dark:hover:border-slate-500 transition-colors cursor-default"
+                  >
+                    {kw}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* Export button */}
+            <button
+              onClick={handleCopyAllBibtex}
+              className="w-full flex items-center justify-center gap-2 py-2.5 rounded-lg text-sm font-medium bg-slate-900 dark:bg-slate-100 text-slate-50 dark:text-slate-900 hover:bg-slate-700 dark:hover:bg-slate-300 transition-colors shadow-xs"
+            >
+              {copiedId === "all" ? (
+                <>
+                  <Check className="w-4 h-4" />
+                  Copied all BibTeX
+                </>
+              ) : (
+                <>
+                  <Copy className="w-4 h-4" />
+                  Export all BibTeX
+                </>
+              )}
+            </button>
+          </aside>
+
+          {/* ── RIGHT: Publications Feed ── */}
+          <main className="min-w-0 space-y-0">
+
+            {/* Controls row: filter chips + search */}
+            <div className="mb-8 space-y-4">
+              {/* Search bar (collapsible) */}
+              <div
+                className={`overflow-hidden transition-all duration-300 ease-out ${
+                  searchOpen ? "max-h-16 opacity-100" : "max-h-0 opacity-0"
+                }`}
+              >
+                <div className="relative">
+                  <Search className="w-3.5 h-3.5 absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 dark:text-slate-400" />
+                  <input
+                    ref={searchRef}
+                    type="text"
+                    placeholder="Search title, venue, tag, author…"
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                    className="w-full pl-9 pr-4 py-2.5 text-sm rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-slate-400 dark:focus:ring-slate-500 transition-all"
+                    style={{ fontFamily: "'Figtree', system-ui, sans-serif" }}
+                  />
+                </div>
+              </div>
+
+              {/* Filter chips */}
+              <div className="flex items-center gap-2 flex-wrap">
+                <Filter className="w-3.5 h-3.5 text-slate-400 dark:text-slate-400 shrink-0" />
+                {FILTER_OPTIONS.map((opt) => {
+                  const isActive = activeFilter === opt.value;
+                  return (
+                    <button
+                      key={opt.value}
+                      onClick={() => setActiveFilter(isActive ? "all" : opt.value)}
+                      className={`filter-chip pub-mono text-[11px] px-2.5 py-1 rounded-md border transition-all ${
+                        isActive
+                          ? "active"
+                          : "bg-white dark:bg-slate-900/60 border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:border-slate-400 dark:hover:border-slate-500"
+                      }`}
+                    >
+                      {opt.label}
+                      {opt.value !== "all" && (
+                        <span className="ml-1 text-slate-400 dark:text-slate-400">
+                          (
+                          {
+                            publicationsData.filter(
+                              (p) =>
+                                p.status === opt.value ||
+                                (p.indexing && p.indexing.includes(opt.value))
+                            ).length
+                          }
+                          )
+                        </span>
+                      )}
+                    </button>
+                  );
+                })}
+                {(searchTerm || activeFilter !== "all") && (
+                  <button
+                    onClick={() => {
+                      setSearchTerm("");
+                      setActiveFilter("all");
+                    }}
+                    className="pub-mono text-[11px] px-2.5 py-1 rounded-md text-rose-500 dark:text-rose-400 hover:bg-rose-50 dark:hover:bg-rose-950/30 transition-colors"
+                  >
+                    Clear
+                  </button>
+                )}
+              </div>
+
+              {/* Count line */}
+              <div className="pub-mono text-[11px] text-slate-500 dark:text-slate-400">
+                Showing {filteredPublications.length} of {publicationsData.length} publications
+              </div>
+            </div>
+
+            {/* Publication entries */}
+            <div className="divide-y divide-slate-200 dark:divide-slate-800/60">
+              {filteredPublications.length === 0 && (
+                <div className="py-16 text-center space-y-2">
+                  <BookOpen className="w-8 h-8 text-slate-300 dark:text-slate-600 mx-auto" />
+                  <p className="text-sm text-slate-500 dark:text-slate-400">
+                    No publications match your filter.
+                  </p>
+                </div>
+              )}
+
+              {filteredPublications.map((pub, idx) => {
+                const isOpen = expandedId === pub.id;
+                const logos =
+                  pub.conferenceLogos ||
+                  (pub.conferenceLogo ? [pub.conferenceLogo] : []);
 
                 return (
-                  <div
+                  <article
                     key={pub.id}
-                    onClick={() => toggleExpand(pub.id)}
-                    style={{ animationDelay: `${filteredPublications.indexOf(pub) * 80}ms` }}
-                    className="pub-card rounded-2xl bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 hover:border-cyan-500/50 hover:scale-[1.01] hover:shadow-lg transition-all duration-300 shadow-md cursor-pointer overflow-hidden group"
+                    className="pub-entry pl-6 py-7 group"
+                    style={{ animationDelay: `${idx * 60}ms` }}
                   >
-                    {pub.conferenceLogos && pub.conferenceLogos.length > 1 ? (
-                      <div className="p-4 sm:p-5">
-                        <div className="flex items-center justify-between gap-3 mb-3">
-                          <div className="flex items-center gap-2.5 flex-wrap flex-1 min-w-0">
-                            {renderLogos(pub, false)}
-                          </div>
-                          <div className="flex items-center gap-2 shrink-0">
-                            <span className={`px-3 py-1 rounded-full text-xs font-semibold whitespace-nowrap border ${
-                              pub.status === "Accepted" || pub.status === "Camera Ready" || pub.status === "Published"
-                                ? "bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300 border-emerald-200 dark:border-emerald-800/60"
-                                : "bg-amber-100 dark:bg-amber-950 text-amber-800 dark:text-amber-400 border-amber-200 dark:border-amber-800/60"
-                            }`}>
-                              {pub.status}
+                    {/* Entry header row */}
+                    <div
+                      className="flex items-start gap-4 cursor-pointer"
+                      onClick={() => setExpandedId(isOpen ? null : pub.id)}
+                      role="button"
+                      tabIndex={0}
+                      onKeyDown={(e) =>
+                        e.key === "Enter" && setExpandedId(isOpen ? null : pub.id)
+                      }
+                    >
+                      {/* Index number */}
+                      <span
+                        className="pub-mono text-4xl font-bold leading-none text-slate-200 dark:text-slate-700/80 select-none shrink-0 mt-1 group-hover:text-slate-300 dark:group-hover:text-slate-500 transition-colors"
+                        aria-hidden="true"
+                      >
+                        {String(idx + 1).padStart(2, "0")}
+                      </span>
+
+                      {/* Main content */}
+                      <div className="flex-1 min-w-0 space-y-2">
+                        {/* Venue + Status row */}
+                        <div className="flex flex-wrap items-center gap-2">
+                          <span className="pub-mono text-[11px] font-semibold text-slate-600 dark:text-slate-300 tracking-wide">
+                            {pub.abbreviation}
+                          </span>
+                          {pub.indexing && (
+                            <span className="pub-mono text-[10px] text-slate-600 dark:text-slate-300 px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700">
+                              {pub.indexing}
                             </span>
-                            <div className="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-300 group-hover:bg-cyan-500 group-hover:text-white transition-colors">
-                              {isExpanded ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
-                            </div>
-                          </div>
-                        </div>
-                        <div className="space-y-1">
-                          <div className="flex items-center gap-2 flex-wrap">
-                            <span className="px-2.5 py-0.5 rounded-md text-xs font-bold bg-cyan-100 dark:bg-cyan-950 text-cyan-800 dark:text-cyan-300 border border-cyan-200 dark:border-cyan-800/60">
-                              {pub.abbreviation}
-                            </span>
-                            {pub.indexing && (
-                              <span className="px-2.5 py-0.5 rounded-md text-xs font-medium bg-purple-100 dark:bg-purple-950/80 text-purple-800 dark:text-purple-300 border border-purple-200 dark:border-purple-800/60">
-                                {pub.indexing}
-                              </span>
-                            )}
-                            {!pub.abbreviation.includes(pub.year.toString()) && (
-                              <span className="text-xs font-mono text-slate-500 dark:text-slate-400">{pub.year}</span>
-                            )}
-                          </div>
-                          <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white leading-snug group-hover:text-cyan-600 dark:group-hover:text-cyan-300 transition-colors">
-                            {pub.title}
-                          </h3>
-                          <p className="text-xs text-slate-500 dark:text-slate-400 font-mono">
-                            {pub.authors.join(", ")}
-                          </p>
-                        </div>
-                      </div>
-                    ) : (
-                      <div className="p-4 sm:p-5 flex items-center gap-4 justify-between">
-                        <div className="flex items-center gap-4 min-w-0 flex-1">
-                          {renderLogos(pub, false)}
-                          <div className="space-y-1 min-w-0 flex-1">
-                            <div className="flex items-center gap-2 flex-wrap">
-                              <span className="px-2.5 py-0.5 rounded-md text-xs font-bold bg-cyan-100 dark:bg-cyan-950 text-cyan-800 dark:text-cyan-300 border border-cyan-200 dark:border-cyan-800/60">
-                                {pub.abbreviation}
-                              </span>
-                              {pub.indexing && (
-                                <span className="px-2.5 py-0.5 rounded-md text-xs font-medium bg-purple-100 dark:bg-purple-950/80 text-purple-800 dark:text-purple-300 border border-purple-200 dark:border-purple-800/60">
-                                  {pub.indexing}
-                                </span>
-                              )}
-                              {!pub.abbreviation.includes(pub.year.toString()) && (
-                                <span className="text-xs font-mono text-slate-500 dark:text-slate-400">{pub.year}</span>
-                              )}
-                            </div>
-                            <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white leading-snug group-hover:text-cyan-600 dark:group-hover:text-cyan-300 transition-colors">
-                              {pub.title}
-                            </h3>
-                            <p className="text-xs text-slate-500 dark:text-slate-400 font-mono">
-                              {pub.authors.join(", ")}
-                            </p>
-                          </div>
-                        </div>
-                        <div className="flex items-center gap-2 shrink-0">
-                          <span className={`px-3 py-1 rounded-full text-xs font-semibold whitespace-nowrap border ${
-                            pub.status === "Accepted" || pub.status === "Camera Ready" || pub.status === "Published"
-                              ? "bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300 border-emerald-200 dark:border-emerald-800/60"
-                              : "bg-amber-100 dark:bg-amber-950 text-amber-800 dark:text-amber-400 border-amber-200 dark:border-amber-800/60"
-                          }`}>
+                          )}
+                          <span
+                            className={`inline-block pub-mono text-[10px] px-2 py-0.5 rounded-full font-medium ${
+                              STATUS_COLORS[pub.status] || STATUS_COLORS["Under Review"]
+                            }`}
+                          >
                             {pub.status}
                           </span>
-                          <div className="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-300 group-hover:bg-cyan-500 group-hover:text-white transition-colors">
-                            {isExpanded ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+                        </div>
+
+                        {/* Title */}
+                        <h3
+                          className="text-base sm:text-lg font-bold leading-snug text-slate-900 dark:text-white group-hover:text-slate-700 dark:group-hover:text-slate-200 transition-colors"
+                          style={{ fontFamily: "'Figtree', system-ui, sans-serif", letterSpacing: "-0.015em" }}
+                        >
+                          {pub.title}
+                        </h3>
+
+                        {/* Authors */}
+                        <div className="text-sm leading-relaxed">
+                          {renderAuthors(pub.authors)}
+                        </div>
+
+                        {/* Track */}
+                        <div className="pub-mono text-[10px] text-slate-500 dark:text-slate-400 leading-relaxed">
+                          {pub.track}
+                        </div>
+
+                        {/* Prominent Organizing / Host Institution Logos */}
+                        {logos.length > 0 && (
+                          <div className="pt-2.5 flex items-center gap-3 flex-wrap">
+                            <span className="pub-mono text-[10px] uppercase tracking-wider text-slate-500 dark:text-slate-300 font-semibold shrink-0">
+                              Host / Organizers:
+                            </span>
+                            <div className="flex items-center gap-2.5 flex-wrap">
+                              {logos.map((logo, li) => (
+                                <div
+                                  key={li}
+                                  className="h-14 sm:h-16 min-w-[7.5rem] sm:min-w-[9rem] max-w-[12rem] px-2.5 py-1.5 rounded-xl bg-white border border-slate-200 dark:border-slate-700 shadow-xs flex items-center justify-center overflow-hidden shrink-0 hover:shadow-md hover:border-slate-400 dark:hover:border-slate-500 transition-all duration-200"
+                                  title={`Organizing Institution: ${pub.abbreviation}`}
+                                >
+                                  <img
+                                    src={logo}
+                                    alt={pub.abbreviation}
+                                    className="max-h-full max-w-full object-contain"
+                                    loading="lazy"
+                                  />
+                                </div>
+                              ))}
+                            </div>
                           </div>
+                        )}
+                      </div>
+
+                      {/* Expand toggle */}
+                      <div className="shrink-0 mt-1">
+                        <div
+                          className={`w-6 h-6 flex items-center justify-center rounded-full text-slate-400 dark:text-slate-400 transition-transform duration-200 ${
+                            isOpen ? "rotate-180" : ""
+                          }`}
+                        >
+                          <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                            <path d="M2 4l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                          </svg>
                         </div>
                       </div>
-                    )}
+                    </div>
 
-                    <div
-                      className={`overflow-hidden transition-all duration-400 ease-in-out ${
-                        isExpanded ? "max-h-[800px] opacity-100" : "max-h-0 opacity-0"
-                      }`}
-                      style={{ transition: 'max-height 0.38s cubic-bezier(0.4,0,0.2,1), opacity 0.28s ease' }}
-                      onClick={(e) => e.stopPropagation()}
-                    >
-                      <div className="px-5 pb-6 pt-3 border-t border-slate-100 dark:border-slate-800 space-y-4 bg-slate-50/50 dark:bg-slate-950/40 cursor-default">
-                        <div className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 font-medium space-y-1">
-                          <p className="text-cyan-700 dark:text-cyan-400 font-semibold">{pub.conference}</p>
-                          <p className="text-slate-500 dark:text-slate-400 text-xs">
-                            <strong className="text-slate-700 dark:text-slate-300">Track:</strong> {pub.track}
+                    {/* ── Expanded Abstract & Actions ── */}
+                    <div className={`abstract-grid sm:pl-[calc(2.5rem+1rem)] ${isOpen ? "open" : ""}`}>
+                      <div className="abstract-inner">
+                        <div className="pt-5 space-y-4">
+                          {/* Conference full name */}
+                          <p className="pub-mono text-[11px] text-slate-600 dark:text-slate-300 leading-relaxed">
+                            {pub.conference}
                           </p>
-                        </div>
 
-                        <div className="text-xs font-mono text-slate-700 dark:text-slate-300 bg-white dark:bg-slate-950 p-3.5 rounded-xl border border-slate-200 dark:border-slate-800 space-y-1 shadow-sm">
-                          <div><span className="font-bold text-slate-900 dark:text-white">Authors:</span> {pub.authors.join(", ")}</div>
-                          <div><span className="text-slate-500 dark:text-slate-400">Affiliation:</span> {pub.affiliation}</div>
-                        </div>
+                          {/* Abstract */}
+                          <div className="space-y-1.5">
+                            <div className="pub-mono text-[10px] uppercase tracking-widest text-slate-500 dark:text-slate-400 font-semibold">
+                              Abstract
+                            </div>
+                            <p className="text-sm text-slate-700 dark:text-slate-200 leading-relaxed max-w-prose">
+                              {pub.abstract}
+                            </p>
+                          </div>
 
-                        <div className="space-y-1">
-                          <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">Abstract Overview</span>
-                          <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed bg-white dark:bg-slate-950 p-4 rounded-xl border border-slate-200 dark:border-slate-800/80 shadow-sm">
-                            {pub.abstract}
-                          </p>
-                        </div>
-
-                        <div className="flex flex-wrap items-center justify-between gap-4 pt-3 border-t border-slate-200 dark:border-slate-800">
+                          {/* Tags */}
                           <div className="flex flex-wrap gap-1.5">
-                            {pub.tags.map((tag, idx) => (
-                              <span key={idx} className="px-2.5 py-0.5 text-[11px] font-mono rounded bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300">#{tag}</span>
+                            {pub.tags.map((tag) => (
+                              <span
+                                key={tag}
+                                className="pub-mono text-[10px] px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800/80 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700"
+                              >
+                                #{tag}
+                              </span>
                             ))}
                           </div>
-                          <div className="flex flex-wrap items-center gap-2">
+
+                          {/* Action buttons */}
+                          <div className="flex flex-wrap items-center gap-2 pt-1">
                             {pub.officialUrl && (
-                              <a href={pub.officialUrl} target="_blank" rel="noreferrer"
-                                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold transition-all shadow-sm">
-                                <ExternalLink className="w-3.5 h-3.5" /> Official Conf Site
+                              <a
+                                href={pub.officialUrl}
+                                target="_blank"
+                                rel="noreferrer"
+                                onClick={(e) => e.stopPropagation()}
+                                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-medium bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 hover:bg-slate-700 dark:hover:bg-slate-300 transition-colors shadow-xs"
+                              >
+                                <Globe className="w-3 h-3" />
+                                Conference Site
                               </a>
                             )}
-
-                            {pub.status === "Under Review" ? (
-                              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20 text-xs font-semibold" title="Peer-review draft is protected against unauthorized distribution. Reviewers & professors can request private copy.">
-                                🔒 Protected Draft (Available Upon Request)
-                              </span>
-                            ) : (
-                              <>
-                                {pub.githubUrl && (
-                                  <a href={pub.githubUrl} target="_blank" rel="noreferrer"
-                                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 text-xs font-bold transition-all border border-slate-300 dark:border-slate-700">
-                                    <Github className="w-3.5 h-3.5 text-cyan-600 dark:text-cyan-400" /> Artifact
-                                  </a>
-                                )}
-                                <button
-                                  onClick={(e) => handleCopyBibtex(pub, e)}
-                                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 text-xs font-medium transition-all border border-slate-300 dark:border-slate-700">
-                                  {copiedId === pub.id ? <Check className="w-3.5 h-3.5 text-emerald-500" /> : <ExternalLink className="w-3.5 h-3.5" />}
-                                  {copiedId === pub.id ? "Copied" : "BibTeX"}
-                                </button>
-                              </>
+                            {pub.githubUrl && pub.status !== "Under Review" && (
+                              <a
+                                href={pub.githubUrl}
+                                target="_blank"
+                                rel="noreferrer"
+                                onClick={(e) => e.stopPropagation()}
+                                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-medium bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 hover:border-slate-400 dark:hover:border-slate-500 transition-colors shadow-2xs"
+                              >
+                                <Github className="w-3 h-3" />
+                                Artifact
+                              </a>
                             )}
+                            {pub.status === "Under Review" && (
+                              <span
+                                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-medium text-amber-600 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-700/60"
+                                title="Draft protected during peer review"
+                              >
+                                🔒 Draft Available on Request
+                              </span>
+                            )}
+                            <button
+                              onClick={(e) => handleCopyBibtex(pub, e)}
+                              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-medium bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 hover:border-slate-400 dark:hover:border-slate-500 transition-colors shadow-2xs"
+                            >
+                              {copiedId === pub.id ? (
+                                <>
+                                  <Check className="w-3 h-3 text-emerald-500" />
+                                  Copied
+                                </>
+                              ) : (
+                                <>
+                                  <Copy className="w-3 h-3" />
+                                  BibTeX
+                                </>
+                              )}
+                            </button>
                           </div>
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </article>
                 );
               })}
             </div>
-          )}
-        </main>
+          </main>
+        </div>
       </div>
     </div>
   );
