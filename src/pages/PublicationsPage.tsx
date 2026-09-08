@@ -190,14 +190,17 @@ export const PublicationsPage: React.FC = () => {
             
             {/* Avatar & Basic Info */}
             <div className="flex flex-col items-center sm:items-start text-center sm:text-left space-y-4">
-              <img
-                src="/images/academic_portrait.jpg"
-                alt="Trịnh Hoàng Tú"
-                onError={(e) => {
-                  (e.target as HTMLImageElement).src = "/images/avatar.png";
-                }}
-                className="w-40 h-40 sm:w-48 sm:h-48 aspect-square rounded-2xl object-cover object-top border border-slate-200 dark:border-slate-800 shadow-md select-none"
-              />
+              <picture className="w-40 h-40 sm:w-48 sm:h-48 shrink-0">
+                <source srcSet="/images/academic_portrait.webp" type="image/webp" />
+                <img
+                  src="/images/academic_portrait.jpg"
+                  alt="Trịnh Hoàng Tú"
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).src = "/images/avatar.png";
+                  }}
+                  className="w-full h-full aspect-square rounded-2xl object-cover object-top border border-slate-200 dark:border-slate-800 shadow-md select-none"
+                />
+              </picture>
 
               <div>
                 <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">

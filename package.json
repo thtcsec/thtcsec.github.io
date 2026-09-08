@@ -7,6 +7,7 @@
     "dev": "vite",
     "build": "vite build && node prerender.js",
     "build:dev": "vite build --mode development && node prerender.js",
+    "process-portrait": "node scripts/process_portrait.cjs",
     "lint": "eslint .",
     "preview": "vite preview"
   },

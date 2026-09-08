@@ -134,3 +134,8 @@ logs/
 # local image optimization backups
 public/images/project_image/_bak_pre_webp_*/
 
+# Raw camera dump images in root
+IMG_*.jpg
+IMG_*.jpeg
+IMG_*.png
+
