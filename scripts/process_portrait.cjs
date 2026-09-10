@@ -2,7 +2,7 @@ const sharp = require('sharp');
 const path = require('path');
 const fs = require('fs');
 
-const inputPath = path.join(__dirname, '..', 'IMG_20260728_113729.jpg');
+const inputPath = path.join(__dirname, 'raw', 'IMG_20260728_113729.jpg');
 const outputDir = path.join(__dirname, '..', 'public', 'images');
 
 async function main() {

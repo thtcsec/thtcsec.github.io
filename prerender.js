@@ -62,8 +62,8 @@ if (!fs.existsSync(distDir)) {
 
 import sharp from 'sharp';
 
-// Automatic optimization for academic portrait if IMG_20260728_113729.jpg exists
-const rawImgPath = path.resolve('IMG_20260728_113729.jpg');
+// Automatic optimization for academic portrait if raw source exists
+const rawImgPath = path.resolve('scripts/raw/IMG_20260728_113729.jpg');
 if (fs.existsSync(rawImgPath)) {
   try {
     const meta = await sharp(rawImgPath).metadata();
