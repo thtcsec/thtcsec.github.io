@@ -19,9 +19,9 @@ I build robust, secure, and highly scalable AI, cloud-native, and microservices 
 ### Bachelor of Cybersecurity
 **HUFLIT University (Ho Chi Minh City, Vietnam)**
 *Timeline: 2023 - 2027 (Expected)*
-- **GPA:** 3.50/4.00
-- **Progress:** 8th Semester (131/135 credits completed)
-- **Core Coursework:** Network Security, Cryptography, System Administration, Penetration Testing, Software Architecture.
+- **GPA:** 3.52/4.00
+- **Progress:** 9th Semester (138 credits completed)
+- **Core Coursework:** Network Security, Cryptography, System Administration, Penetration Testing, Cloud Computing, Reverse Engineering, Graduation Thesis.
 
 ### AI & Innovation Digital Economy Program
 **Tsinghua University (Beijing, China / Remote)**

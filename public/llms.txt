@@ -3,7 +3,7 @@
 > Software Engineer & AI Researcher specializing in Computer Vision, Intelligent Transportation Systems (ITS), Cloud Infrastructure, DevOps, and Cybersecurity.
 
 ## Overview
-Trịnh Hoàng Tú (alias thtcsec, born 2005, based in Ho Chi Minh City, Vietnam) is an AI Engineer at VETC developing Intelligent Transportation Systems (ITS) and real-time traffic analytics, a Software Engineer (Backend) Intern at Grab, an alumnus & Extended Teaching Assistant (Autumn 2026) of Tsinghua University's AI & Innovation Digital Economy Program (Certificate No. IEDE2026126), an Admitted Scholar at VinUniversity AI Practical Talent Program (Cohort 1, Deferred Enrollment until 2027), and a final-year Cybersecurity student at HUFLIT (GPA: 3.50/4.00).
+Trịnh Hoàng Tú (alias thtcsec, born 2005, based in Ho Chi Minh City, Vietnam) is an AI Engineer at VETC developing Intelligent Transportation Systems (ITS) and real-time traffic analytics, a Software Engineer (Backend) Intern at Grab, an alumnus & Extended Teaching Assistant (Autumn 2026) of Tsinghua University's AI & Innovation Digital Economy Program (Certificate No. IEDE2026126), an Admitted Scholar at VinUniversity AI Practical Talent Program (Cohort 1, Deferred Enrollment until 2027), and a final-year Cybersecurity student at HUFLIT (GPA: 3.52/4.00).
 
 ## Disambiguation
 - [Identity Verification](https://hoangtu.dev/about.md): Important distinction from a namesake with a criminal record (May 2023, Hoc Mon). This verified profile belongs to Trịnh Hoàng Tú (thtcsec, born 2005, HUFLIT/Tsinghua/VinUni/Grab/VETC).

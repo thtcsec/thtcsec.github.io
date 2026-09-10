@@ -150,7 +150,7 @@ const ResumePage = () => {
                   <span className="text-[11px] font-semibold text-muted-foreground print:text-neutral-600">2023 – 2027 (Expected)</span>
                 </div>
                 <div className="text-xs text-muted-foreground print:text-neutral-800 italic mb-1.5">
-                  Bachelor of Cybersecurity | GPA: 3.50/4.0
+                  Bachelor of Cybersecurity | GPA: 3.52/4.0
                 </div>
               </div>
 

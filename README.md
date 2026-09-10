@@ -19,7 +19,7 @@ A modern, high-performance portfolio and technical engineering platform showcasi
 - 🟢 **AI Infra & Cloud Solutions Engineer** @ **Next Step Technology** *(Cloudflare Workers AI, Vectorize, RAG Workflows)*
 - 🎓 **Extended Teaching Assistant (Autumn 2026)** @ **Tsinghua University** *(AI & Innovation Digital Economy Program)*
 - 🎓 **Admitted Scholar** @ **VinUniversity** *(AI Practical Talent Program - Cohort 1, Deferred Enrollment until 2027)*
-- 🎓 **Final-Year Cybersecurity Student** @ **HUFLIT** *(GPA: 3.50 / 4.00)*
+- 🎓 **Final-Year Cybersecurity Student** @ **HUFLIT** *(GPA: 3.52 / 4.00)*
 
 ---
 
