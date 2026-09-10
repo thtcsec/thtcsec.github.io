@@ -184,10 +184,13 @@ const ProjectCard = ({ project, imageLoaded, onImageLoad }: ProjectCardProps) =>
                 <img
                   src={project.image}
                   alt={`${project.title} Cover`}
+                  width={720}
+                  height={1280}
                   className={`w-full h-full object-cover transition-all duration-500 group-hover:scale-105 ${
                     imageLoaded ? "opacity-100" : "opacity-0"
                   }`}
                   loading="lazy"
+                  decoding="async"
                   onLoad={onImageLoad}
                 />
               </div>
@@ -196,10 +199,13 @@ const ProjectCard = ({ project, imageLoaded, onImageLoad }: ProjectCardProps) =>
             <img
               src={project.image}
               alt={`${project.title} Cover`}
+              width={1280}
+              height={720}
               className={`w-full h-full object-cover transition-all duration-500 group-hover:scale-105 ${
                 imageLoaded ? "opacity-100" : "opacity-0"
               }`}
               loading="lazy"
+              decoding="async"
               onLoad={onImageLoad}
             />
           )}

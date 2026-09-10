@@ -42,7 +42,7 @@ export const projects: Project[] = [
         title: "VETC AI Traffic Density — Real-time GIS Corridor Monitoring & Toll Optimization",
         description: "Enterprise AI Computer Vision system developed for VETC (Vietnam Electronic Toll Collection) — measuring real-time traffic density across 40+ cameras on Võ Văn Kiệt and key BOT toll corridors, painting live Green/Yellow/Red status on a GIS Leaflet map. Replaces expensive inductive loop sensors (~50M VND/lane) with YOLOv11 + SAHI vision on existing cameras.",
         category: "ai-cv",
-        technologies: ["Python", "FastAPI", "YOLOv11", "SAHI", "ByteTrack", "Redis Streams", "OSRM GIS", "Leaflet", "Docker", "MediaMTX", "WebSocket"],
+        technologies: ["Python", "FastAPI", "YOLOv11", "SAHI", "BoT-SORT", "Redis Streams", "OSRM GIS", "Leaflet", "Docker", "MediaMTX", "WebSocket"],
         github: "",
         demo: "",
         image: "/images/project_image/vetc-density/map-density.webp",

@@ -80,9 +80,12 @@ const ProjectCard = ({ project, imageLoaded, onImageLoad }: ProjectCardProps) =>
           <img
             src={project.image}
             alt={`${project.title} Cover`}
+            width={1280}
+            height={720}
             className={`w-full h-full transition-all duration-500 group-hover:scale-105 ${imageLoaded ? "opacity-100" : "opacity-0"
               } ${project.category === 'mobile' ? 'object-contain bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-800 dark:to-slate-900' : 'object-cover'}`}
             loading="lazy"
+            decoding="async"
             onLoad={onImageLoad}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent opacity-70 transition-opacity group-hover:opacity-80" />

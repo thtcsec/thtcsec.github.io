@@ -144,7 +144,10 @@ const ProjectDetailPage = () => {
                         <img
                             src={project.image}
                             alt={project.title}
+                            width={1280}
+                            height={720}
                             className="w-full h-full object-cover"
+                            decoding="async"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent" />
 
