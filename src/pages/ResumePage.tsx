@@ -369,6 +369,42 @@ const ResumePage = () => {
             </div>
 
             <div className="space-y-5 print:space-y-4">
+              {/* VETC AI Traffic Density */}
+              <div className="space-y-1">
+                <div className="flex justify-between items-baseline gap-3">
+                  <h3 className="font-bold text-sm md:text-base text-foreground print:text-black">
+                    VETC AI Traffic Density — GIS Corridor Monitoring
+                  </h3>
+                  <span className="text-xs text-muted-foreground print:text-neutral-600 shrink-0">AI / CV Engineer</span>
+                </div>
+                <div className="text-[11px] text-primary print:text-neutral-900 font-medium">
+                  Python, FastAPI, YOLOv11, SAHI, BoT-SORT, Redis Streams, OSRM, Leaflet, Docker, MediaMTX
+                </div>
+                <ul className="list-disc pl-4 space-y-1 text-xs text-muted-foreground print:text-neutral-800 leading-relaxed print:text-[12px] print:space-y-0.5">
+                  <li>Built real-time traffic density CV for 40+ HCMC cameras, painting live Green/Yellow/Red status on a GIS map for VETC toll optimization.</li>
+                  <li>Replaced inductive-loop sensors (~50M VND/lane) with YOLOv11 + SAHI + BoT-SORT on existing cameras — zero new hardware.</li>
+                  <li>Event-driven pipeline: RTSP/Snapshot → Detector → Redis Streams → Density Analyzer → FastAPI WebSocket → React/Leaflet dashboard; 1,499+ OSRM-snapped waypoints.</li>
+                </ul>
+              </div>
+
+              {/* SecureCoating-Vision */}
+              <div className="space-y-1">
+                <div className="flex justify-between items-baseline gap-3">
+                  <h3 className="font-bold text-sm md:text-base text-foreground print:text-black">
+                    SecureCoating-Vision — Evidence-Gated Electrode Inspection
+                  </h3>
+                  <span className="text-xs text-muted-foreground print:text-neutral-600 shrink-0">AI / CV · Tsinghua Track 4</span>
+                </div>
+                <div className="text-[11px] text-primary print:text-neutral-900 font-medium">
+                  Python, FastAPI, PyTorch, ONNX Runtime, Streamlit, OpenCV, Docker
+                </div>
+                <ul className="list-disc pl-4 space-y-1 text-xs text-muted-foreground print:text-neutral-800 leading-relaxed print:text-[12px] print:space-y-0.5">
+                  <li>Fail-closed coating inspection: RGB YOLO-seg localization plus an evidence gate that only PASS/REJECT when sensors, calibration, and PLC ACK agree — else HOLD.</li>
+                  <li>Held-out CoatingVision test-split: mAP50 0.63; live mean pipeline latency ~312 ms CPU; industrial decision metrics (HOLD/Escape/Selective Risk) over raw detector FPR claims.</li>
+                  <li>Competition entry for 2026 Global AI + Materials (Tsinghua MSE), Track 4 — advisor Prof. Kris Singh.</li>
+                </ul>
+              </div>
+
               {/* CTSmartCam */}
               <div className="space-y-1">
                 <div className="flex justify-between items-baseline">

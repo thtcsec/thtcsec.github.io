@@ -71,6 +71,15 @@ Cybersecurity Student & Software Engineer specializing in Backend (ASP.NET Core,
 - **Cloud / DevOps:** Docker, Nginx, AWS, GCP, Terraform, Cloudflare Developer Platform
 - **Databases:** MSSQL, PostgreSQL, MongoDB, Firebase, Supabase
 - **Security:** Suricata IDS, Wazuh, SOC/SOAR workflows, JWT, WAF, Zero Trust
+- **AI / CV:** Python, YOLOv11, SAHI, BoT-SORT, FastAPI, Redis Streams, PyTorch, ONNX Runtime
+
+---
+
+## 📁 Selected Projects
+- **VETC AI Traffic Density:** Real-time GIS corridor monitoring for VETC (40+ cameras). YOLOv11 + SAHI + BoT-SORT density pipeline over Redis Streams; live G/Y/R Leaflet map; OSRM road snapping (1,499+ waypoints). Replaces inductive-loop sensors with existing camera CV.
+- **SecureCoating-Vision:** Evidence-gated electrode coating inspection (Tsinghua MSE Track 4). Fail-closed PASS/REJECT/HOLD gate on top of YOLO-seg; CoatingVision held-out mAP50 0.63; ~312 ms CPU pipeline.
+- **CTSmartCam:** AI camera surveillance with event-driven microservices, Redis Streams, Docker/Nginx, Suricata & Wazuh.
+- **Multi-Cloud Serverless SOAR:** AWS/GCP automated containment with Terraform, Step Functions, and Cloud Workflows.
 
 ---
 
