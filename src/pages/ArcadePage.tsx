@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Gamepad2, Eye, Info } from "lucide-react";
+import { Gamepad2, Eye } from "lucide-react";
 import ProjectHeader from "@/components/portfolio/ProjectHeader";
 import ImageModal from "@/components/ImageModal";
 import Footer from "@/components/portfolio/Footer";
@@ -8,7 +8,7 @@ interface GameItem {
   id: string;
   title: string;
   subtitle: string;
-  category: "HoYoverse" | "MOBA" | "All";
+  category: "HoYoverse" | "Strategy" | "All";
   image: string;
   status: "Active" | "Casual" | "Archived";
   statusColor: string;
@@ -18,7 +18,7 @@ const gamesList: GameItem[] = [
   {
     id: "hsr",
     title: "Honkai: Star Rail",
-    subtitle: "HoYoverse · Space Fantasy RPG",
+    subtitle: "Space Fantasy RPG",
     category: "HoYoverse",
     image: "/images/games/hsr.png",
     status: "Active",
@@ -27,7 +27,7 @@ const gamesList: GameItem[] = [
   {
     id: "gi",
     title: "Genshin Impact",
-    subtitle: "HoYoverse · Open World RPG",
+    subtitle: "Open World RPG",
     category: "HoYoverse",
     image: "/images/games/gi.png",
     status: "Active",
@@ -37,7 +37,7 @@ const gamesList: GameItem[] = [
     id: "aov",
     title: "Arena of Valor",
     subtitle: "Garena · 5v5 Tactical MOBA",
-    category: "MOBA",
+    category: "Strategy",
     image: "/images/games/aov.jpg",
     status: "Active",
     statusColor: "bg-emerald-500"
@@ -46,7 +46,7 @@ const gamesList: GameItem[] = [
     id: "mlbb",
     title: "Mobile Legends: Bang Bang",
     subtitle: "Moonton · 5v5 Mobile MOBA",
-    category: "MOBA",
+    category: "Strategy",
     image: "/images/games/mlbb.jpg",
     status: "Active",
     statusColor: "bg-emerald-500"
@@ -90,7 +90,7 @@ const ArcadePage = () => {
               className="group relative flex flex-col lg:flex-row items-stretch rounded-3xl border border-border/70 bg-card/40 hover:bg-card/75 hover:border-primary/40 transition-all duration-300 overflow-hidden shadow-xl"
             >
               {/* LEFT SIDE: Narrow Info Column */}
-              <div className="w-full lg:w-72 xl:w-80 shrink-0 p-6 md:p-8 flex flex-col justify-center space-y-4 border-b lg:border-b-0 lg:border-r border-border/60 bg-card/20">
+              <div className="w-full lg:w-52 xl:w-56 shrink-0 p-5 md:p-6 flex flex-col justify-center space-y-3 border-b lg:border-b-0 lg:border-r border-border/60 bg-card/20">
                 {/* Category Badge */}
                 <div>
                   <span className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary border border-primary/20 text-[11px] font-semibold uppercase tracking-wider">
@@ -100,7 +100,7 @@ const ArcadePage = () => {
 
                 {/* Game Title & Subtitle */}
                 <div>
-                  <h3 className="text-xl md:text-2xl font-extrabold text-foreground tracking-tight group-hover:text-primary transition-colors">
+                  <h3 className="text-lg md:text-xl font-extrabold text-foreground tracking-tight group-hover:text-primary transition-colors leading-snug">
                     {game.title}
                   </h3>
                   <p className="text-xs font-medium text-muted-foreground mt-1 leading-snug">
