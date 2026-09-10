@@ -38,6 +38,33 @@ export const projectCategoryOrder: (ProjectCategory | 'all')[] = [
 
 export const projects: Project[] = [
     {
+        id: "vetc-traffic-density",
+        title: "VETC AI Traffic Density — Real-time GIS Corridor Monitoring & Toll Optimization",
+        description: "Enterprise AI Computer Vision system developed for VETC (Vietnam Electronic Toll Collection) — measuring real-time traffic density across 40+ cameras on Võ Văn Kiệt and key BOT toll corridors, painting live Green/Yellow/Red status on a GIS Leaflet map. Replaces expensive inductive loop sensors (~50M VND/lane) with YOLOv11 + SAHI vision on existing cameras.",
+        category: "ai-cv",
+        technologies: ["Python", "FastAPI", "YOLOv11", "SAHI", "ByteTrack", "Redis Streams", "OSRM GIS", "Leaflet", "Docker", "MediaMTX", "WebSocket"],
+        github: "",
+        demo: "",
+        image: "/images/project_image/vetc-density/map-density.webp",
+        images: [
+            "/images/project_image/vetc-density/map-density.webp",
+            "/images/project_image/vetc-density/detection.webp",
+            "/images/project_image/vetc-density/dashboard.webp",
+            "/images/project_image/vetc-density/architecture.webp"
+        ],
+        featured: true,
+        highlights: [
+            "Core AI project at VETC (Vietnam Electronic Toll Collection) for intelligent toll plaza optimization and live traffic GIS mapping",
+            "Cost-reduction proposition: Replaces ~50M VND/lane physical inductive loop sensors with AI Computer Vision on existing cameras — Zero new hardware",
+            "YOLOv11m + SAHI (Slicing Aided Hyper Inference) + BoT-SORT tracking — specifically tuned for dense Vietnamese motorcycle traffic across 41 cameras",
+            "Real-time G/Y/R corridor status via occupancy %, displacement flow, PCU vehicle weighting, and hysteresis smoothing to eliminate state flickering",
+            "OSRM GIS Road Snapping: 1,499+ precise waypoints snapped to actual OSM street geometry along Đại lộ Võ Văn Kiệt with IDW spatial interpolation for unmonitored segments",
+            "Event-driven microservices: Redis Streams pipeline — Camera RTSP/Snapshot → YOLOv11 Detector → Density Analyzer → FastAPI WebSocket → React GIS Dashboard"
+        ],
+        isPrivate: true,
+        awardBadge: "VETC Enterprise Project"
+    },
+    {
         id: "baoan-auto-zalo-mini-app",
         title: "Bảo An Auto — Zalo Mini App Garage Management & Multi-Branch SaaS",
         description: "Enterprise Zalo Mini App SaaS for automotive garage chain operation. Features 5-tier RBAC (Super Admin, Owner, Manager, Technician, Customer), dynamic invoice & quote PDF printing engine, Supabase PostgreSQL sync with local in-memory mock DB fallback, and Vercel serverless deployment.",
@@ -471,7 +498,7 @@ export const projects: Project[] = [
 ];
 
 // Explicitly select and order the top featured projects for the homepage
-const featuredOrder = ["baoan-auto-zalo-mini-app", "quasar-quantum-routing", "sdn-its-resilience-ai", "securecoating-vision", "orangecloud-insights"];
+const featuredOrder = ["vetc-traffic-density", "baoan-auto-zalo-mini-app", "quasar-quantum-routing", "sdn-its-resilience-ai", "securecoating-vision"];
 export const featuredProjects = featuredOrder
     .map(id => projects.find(p => p.id === id))
     .filter((p): p is Project => p !== undefined);

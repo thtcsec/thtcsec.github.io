@@ -18,6 +18,7 @@ const routes = [
   'game',
 
   // Project detail routes
+  'projects/vetc-traffic-density',
   'projects/sdn-its-resilience-ai',
   'projects/securecoating-vision',
   'projects/foundry-platform',

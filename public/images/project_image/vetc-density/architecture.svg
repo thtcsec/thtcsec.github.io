@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-label="VETC Traffic Density Architecture">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0b1220"/>
+      <stop offset="55%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#111827"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a2740"/>
+      <stop offset="100%" stop-color="#132033"/>
+    </linearGradient>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000" flood-opacity="0.35"/>
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <circle cx="180" cy="120" r="220" fill="#3b82f6" opacity="0.08"/>
+  <circle cx="1420" cy="760" r="260" fill="#06b6d4" opacity="0.07"/>
+
+  <text x="80" y="78" fill="#f8fafc" font-family="Segoe UI, Inter, Arial, sans-serif" font-size="34" font-weight="700">VETC AI Traffic Density</text>
+  <text x="80" y="114" fill="#94a3b8" font-family="Segoe UI, Inter, Arial, sans-serif" font-size="18">Event-driven CV pipeline - camera to detection to density to live GIS</text>
+  <rect x="80" y="132" width="72" height="4" rx="2" fill="url(#accent)"/>
+
+  <g filter="url(#soft)">
+    <rect x="80" y="168" width="1440" height="72" rx="14" fill="#152238" stroke="#334155"/>
+  </g>
+  <text x="110" y="212" fill="#64748b" font-family="Segoe UI, Inter, Arial, sans-serif" font-size="15" font-weight="600">VALUE</text>
+  <text x="180" y="212" fill="#e2e8f0" font-family="Segoe UI, Inter, Arial, sans-serif" font-size="17">Replace inductive loops (~50M VND/lane) with YOLOv11 + SAHI on existing cameras - zero new hardware</text>
+
+  <g font-family="Segoe UI, Inter, Arial, sans-serif">
+    <g filter="url(#soft)">
+      <rect x="80" y="300" width="220" height="160" rx="16" fill="url(#card)" stroke="#334155"/>
+    </g>
+    <rect x="80" y="300" width="220" height="8" rx="4" fill="#3b82f6"/>
+    <text x="100" y="350" fill="#60a5fa" font-size="13" font-weight="700">01  INGEST</text>
+    <text x="100" y="385" fill="#f1f5f9" font-size="20" font-weight="700">Cameras</text>
+    <text x="100" y="415" fill="#94a3b8" font-size="14">40+ HCMC feeds</text>
+    <text x="100" y="438" fill="#94a3b8" font-size="14">RTSP / Snapshot</text>
+
+    <g filter="url(#soft)">
+      <rect x="360" y="300" width="220" height="160" rx="16" fill="url(#card)" stroke="#334155"/>
+    </g>
+    <rect x="360" y="300" width="220" height="8" rx="4" fill="#8b5cf6"/>
+    <text x="380" y="350" fill="#a78bfa" font-size="13" font-weight="700">02  RELAY</text>
+    <text x="380" y="385" fill="#f1f5f9" font-size="20" font-weight="700">MediaMTX</text>
+    <text x="380" y="415" fill="#94a3b8" font-size="14">RTSP to HLS / WebRTC</text>
+    <text x="380" y="438" fill="#94a3b8" font-size="14">Live stream relay</text>
+
+    <g filter="url(#soft)">
+      <rect x="640" y="300" width="220" height="160" rx="16" fill="url(#card)" stroke="#334155"/>
+    </g>
+    <rect x="640" y="300" width="220" height="8" rx="4" fill="#06b6d4"/>
+    <text x="660" y="350" fill="#22d3ee" font-size="13" font-weight="700">03  DETECT</text>
+    <text x="660" y="385" fill="#f1f5f9" font-size="20" font-weight="700">YOLOv11 + SAHI</text>
+    <text x="660" y="415" fill="#94a3b8" font-size="14">ByteTrack / BoT-SORT</text>
+    <text x="660" y="438" fill="#94a3b8" font-size="14">GPU inference</text>
+
+    <g filter="url(#soft)">
+      <rect x="920" y="300" width="220" height="160" rx="16" fill="url(#card)" stroke="#334155"/>
+    </g>
+    <rect x="920" y="300" width="220" height="8" rx="4" fill="#f59e0b"/>
+    <text x="940" y="350" fill="#fbbf24" font-size="13" font-weight="700">04  BUS</text>
+    <text x="940" y="385" fill="#f1f5f9" font-size="20" font-weight="700">Redis Streams</text>
+    <text x="940" y="415" fill="#94a3b8" font-size="14">td:detections</text>
+    <text x="940" y="438" fill="#94a3b8" font-size="14">td:density</text>
+
+    <g filter="url(#soft)">
+      <rect x="1200" y="300" width="320" height="160" rx="16" fill="url(#card)" stroke="#334155"/>
+    </g>
+    <rect x="1200" y="300" width="320" height="8" rx="4" fill="#10b981"/>
+    <text x="1220" y="350" fill="#34d399" font-size="13" font-weight="700">05  ANALYZE + SERVE</text>
+    <text x="1220" y="385" fill="#f1f5f9" font-size="20" font-weight="700">Density to FastAPI</text>
+    <text x="1220" y="415" fill="#94a3b8" font-size="14">Occupancy, Flow, PCU, G/Y/R</text>
+    <text x="1220" y="438" fill="#94a3b8" font-size="14">REST + WebSocket gateway</text>
+  </g>
+
+  <g stroke="#64748b" stroke-width="2.5" fill="none" marker-end="url(#arrow)">
+    <path d="M300 380 H350"/>
+    <path d="M580 380 H630"/>
+    <path d="M860 380 H910"/>
+    <path d="M1140 380 H1190"/>
+  </g>
+
+  <g font-family="Segoe UI, Inter, Arial, sans-serif">
+    <g filter="url(#soft)">
+      <rect x="80" y="560" width="460" height="220" rx="16" fill="url(#card)" stroke="#334155"/>
+    </g>
+    <text x="110" y="610" fill="#60a5fa" font-size="13" font-weight="700">GIS ROAD SNAPPING</text>
+    <text x="110" y="650" fill="#f1f5f9" font-size="22" font-weight="700">OSRM + Leaflet Map</text>
+    <text x="110" y="690" fill="#94a3b8" font-size="15">1,499+ waypoints snapped to OSM geometry</text>
+    <text x="110" y="720" fill="#94a3b8" font-size="15">Vo Van Kiet corridor + IDW interpolation</text>
+    <text x="110" y="750" fill="#94a3b8" font-size="15">Live Green / Yellow / Red segment status</text>
+
+    <g filter="url(#soft)">
+      <rect x="580" y="560" width="460" height="220" rx="16" fill="url(#card)" stroke="#334155"/>
+    </g>
+    <text x="610" y="610" fill="#22d3ee" font-size="13" font-weight="700">DENSITY MODEL</text>
+    <text x="610" y="650" fill="#f1f5f9" font-size="22" font-weight="700">Occupancy + Displacement</text>
+    <text x="610" y="690" fill="#94a3b8" font-size="15">PCU-weighted vehicle classes</text>
+    <text x="610" y="720" fill="#94a3b8" font-size="15">Hysteresis smoothing (no flicker)</text>
+    <text x="610" y="750" fill="#94a3b8" font-size="15">Tunable G/Y/R thresholds</text>
+
+    <g filter="url(#soft)">
+      <rect x="1080" y="560" width="440" height="220" rx="16" fill="url(#card)" stroke="#334155"/>
+    </g>
+    <text x="1110" y="610" fill="#34d399" font-size="13" font-weight="700">OUTPUTS</text>
+    <text x="1110" y="650" fill="#f1f5f9" font-size="22" font-weight="700">Ops Dashboard</text>
+    <text x="1110" y="690" fill="#94a3b8" font-size="15">React GIS live map + camera wall</text>
+    <text x="1110" y="720" fill="#94a3b8" font-size="15">Toll plaza lane optimization signal</text>
+    <text x="1110" y="750" fill="#94a3b8" font-size="15">Partner map / Super App feed-ready</text>
+  </g>
+
+  <path d="M1360 460 V520 H770 V560" stroke="#475569" stroke-width="2" fill="none" stroke-dasharray="6 6"/>
+  <path d="M770 520 H310" stroke="#475569" stroke-width="2" fill="none" stroke-dasharray="6 6"/>
+  <path d="M770 520 H1300" stroke="#475569" stroke-width="2" fill="none" stroke-dasharray="6 6"/>
+
+  <text x="80" y="860" fill="#64748b" font-family="Segoe UI, Inter, Arial, sans-serif" font-size="13">Stack: Python, FastAPI, YOLOv11, Redis Streams, MediaMTX, OSRM, Docker, Leaflet</text>
+</svg>
