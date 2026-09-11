@@ -8,7 +8,8 @@ export const siteConfig = {
     location: "Ho Chi Minh City, Vietnam",
     university: "HUFLIT",
     major: "Cybersecurity",
-    bio: "IT Specialist focused on Cybersecurity and Software Development. Currently pursuing Information Technology at HUFLIT.",
+    headline: "AI Engineer @ VETC · Software Engineer Intern @ Grab",
+    bio: "Cybersecurity student at HUFLIT. Tsinghua University IEDE alumnus & Extended TA. VinUniversity AI Practical Talent Admitted Scholar (deferred to 2027).",
 
     social: {
         linkedin: "https://www.linkedin.com/in/thtcsec",

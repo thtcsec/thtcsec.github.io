@@ -107,11 +107,21 @@ const Hero = () => {
               {siteConfig.authorEn}
             </h1>
             <p className="mt-1 text-base sm:text-lg md:text-xl text-foreground/70 font-medium">
-              Software Engineer, Fullstack, DevOps.
+              {siteConfig.headline}
             </p>
             <p className="mt-3 text-sm text-muted-foreground leading-relaxed max-w-xl">
               {siteConfig.bio}
             </p>
+            <div className="mt-3 flex flex-wrap justify-center sm:justify-start gap-2">
+              {["HUFLIT", "Tsinghua", "VinUni", "Grab", "VETC"].map((tag) => (
+                <span
+                  key={tag}
+                  className="inline-flex items-center rounded-full border border-border/70 bg-muted/40 px-2.5 py-0.5 text-[11px] font-semibold tracking-wide text-foreground/80"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
             <div className="mt-5 flex">
               <Link to="/about" className="group inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 px-4 py-1.5 text-sm font-medium text-primary transition-all duration-300 hover:bg-primary/15 hover:border-primary/50 hover:shadow-[0_0_15px_-3px_hsl(var(--primary)/0.2)]">
                 Read my full journey
