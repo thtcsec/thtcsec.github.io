@@ -6,7 +6,17 @@ A collection of featured engineering projects in web architectures, serverless s
 
 ## 🚀 Featured Projects
 
-### 1. AI-Assisted Resilience for SDN-Enabled ITS (`sdn-its-resilience-ai`)
+### 1. VETC AI Traffic Density — Real-time GIS Corridor Monitoring
+*   **Domain:** Computer Vision · Intelligent Transportation Systems (ITS)
+*   **Technologies:** Python, FastAPI, YOLOv11, SAHI, BoT-SORT, Redis Streams, OSRM, Leaflet, Docker, MediaMTX, WebSocket
+*   **Access:** Private enterprise project (VETC)
+*   **Highlights:**
+    *   Real-time traffic density across 40+ HCMC cameras (Võ Văn Kiệt & BOT corridors) with live Green/Yellow/Red GIS status.
+    *   Replaces inductive-loop sensors (~50M VND/lane) with YOLOv11 + SAHI vision on existing cameras — zero new hardware.
+    *   Event-driven pipeline: Camera RTSP/Snapshot → Detector → Redis Streams → Density Analyzer → FastAPI WebSocket → React/Leaflet dashboard.
+    *   OSRM road snapping: 1,499+ waypoints on OSM geometry with IDW interpolation for unmonitored segments.
+
+### 2. AI-Assisted Resilience for SDN-Enabled ITS (`sdn-its-resilience-ai`)
 *   **Domain:** Artificial Intelligence & Software-Defined Networking (SDN)
 *   **Technologies:** PyTorch, Python, Ryu, ONOS, Mininet-WiFi, SUMO, Scapy, Flask, Docker
 *   **Access:** Private Research Repository
@@ -16,7 +26,7 @@ A collection of featured engineering projects in web architectures, serverless s
     *   Model INT8 quantization reducing model size by 82% (0.174 MB) with 9.9ms response time.
     *   Automated Detect → Contain → Rollback safety-aware mitigation pipeline with cooldown policy.
 
-### 2. OrangeCloud Insights — AI-Powered Tech Intelligence Platform
+### 3. OrangeCloud Insights — AI-Powered Tech Intelligence Platform
 *   **Domain:** Web & AI / Serverless Integration
 *   **Technologies:** Next.js 15, Cloudflare Workflows, Cloudflare D1, Cloudflare R2, Cloudflare Vectorize, Workers AI, OpenAI API, Drizzle ORM, TypeScript
 *   **Live Demo:** [blog.orangecloud.vn](https://blog.orangecloud.vn)

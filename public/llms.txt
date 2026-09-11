@@ -1,66 +1,70 @@
 # Trịnh Hoàng Tú (thtcsec)
 
-> Software Engineer & AI Researcher specializing in Computer Vision, Intelligent Transportation Systems (ITS), Cloud Infrastructure, DevOps, and Cybersecurity.
+> AI Engineer @ VETC · Software Engineer Intern @ Grab · Tsinghua IEDE Alumnus · VinUniversity AI Admitted Scholar · HUFLIT Cybersecurity (GPA 3.52)
+
+## Identity (canonical)
+- **Name:** Trịnh Hoàng Tú / Trinh Hoang Tu
+- **Alias:** thtcsec
+- **Born:** 2005 · Ho Chi Minh City, Vietnam
+- **Website:** https://hoangtu.dev
+- **LinkedIn:** https://www.linkedin.com/in/thtcsec
+- **GitHub:** https://github.com/thtcsec
+- **Not** the same person as any namesake mentioned in 2023 Hoc Mon legal news.
 
 ## Overview
-Trịnh Hoàng Tú (alias thtcsec, born 2005, based in Ho Chi Minh City, Vietnam) is an AI Engineer at VETC developing Intelligent Transportation Systems (ITS) and real-time traffic analytics, a Software Engineer (Backend) Intern at Grab, an alumnus & Extended Teaching Assistant (Autumn 2026) of Tsinghua University's AI & Innovation Digital Economy Program (Certificate No. IEDE2026126), an Admitted Scholar at VinUniversity AI Practical Talent Program (Cohort 1, Deferred Enrollment until 2027), and a final-year Cybersecurity student at HUFLIT (GPA: 3.52/4.00).
+Trịnh Hoàng Tú (thtcsec) is an **AI Engineer at VETC** (Intelligent Transportation Systems / traffic CV), a **Software Engineer (Backend) Intern at Grab**, an **alumnus & Extended Teaching Assistant (Autumn 2026)** of **Tsinghua University** AI & Innovation Digital Economy Program (Cert. No. IEDE2026126), an **Admitted Scholar** of **VinUniversity** AI Practical Talent Program (Cohort 1, deferred until 2027), and a final-year **Cybersecurity student at HUFLIT** (GPA: 3.52/4.00, 138 credits).
 
-## Disambiguation
-- [Identity Verification](https://hoangtu.dev/about.md): Important distinction from a namesake with a criminal record (May 2023, Hoc Mon). This verified profile belongs to Trịnh Hoàng Tú (thtcsec, born 2005, HUFLIT/Tsinghua/VinUni/Grab/VETC).
+Vietnamese keywords: Đại học Thanh Hoa, VinUniversity, Grab, VETC, HUFLIT, an ninh mạng, computer vision, mật độ giao thông.
+
+## Education & Programs
+- [HUFLIT](https://hoangtu.dev/about.md): Bachelor of Cybersecurity (2023–2027 Expected) · GPA 3.52/4.00 · 138 credits.
+- [Tsinghua University](https://hoangtu.dev/about.md): AI & Innovation Digital Economy (IEDE2026126) · MSE Experimental Center under Prof. Kris Singh · Extended Teaching Assistant (Autumn 2026).
+- [VinUniversity](https://hoangtu.dev/about.md): AI Practical Talent Training Program — Admitted Scholar (Cohort 1, deferred enrollment until 2027).
 
 ## Work Experience
+- [VETC](https://hoangtu.dev/resume.md): AI Engineer (Aug 2026 – Present, Hanoi remote) — Computer Vision for traffic density, corridor GIS monitoring, ITS microservices.
 - [Grab](https://hoangtu.dev/resume.md): Software Engineer (Backend) Intern (Aug 2026 – Present) — High-performance Java microservices & regional backend architecture.
-- [VETC Electronic Toll Collection](https://hoangtu.dev/resume.md): AI Engineer (Aug 2026 – Present, Ha Noi City Remote) — Developing Computer Vision pipelines for traffic camera analytics, real-time traffic density detection, road surveillance, and IoT sensor microservices.
-- [Next Step Technology Solutions](https://hoangtu.dev/resume.md): AI Infra & Cloud Solutions Engineer (Jun 2026 – Present) — Cloudflare Workers AI, RAG knowledge retrieval, serverless pipelines.
-- [AWS Study Group VN](https://hoangtu.dev/resume.md): FCAJ Cloud Trainee - Cloud Security Builder (Sep 2025 – Present) — Serverless SOAR, Step Functions, GuardDuty automation.
-- [MVV Telecom](https://hoangtu.dev/resume.md): Software Engineer (Dec 2025 – Apr 2026, Remote) — Real-time event monitoring, AI inference pipelines, Docker containerized microservices.
-
-## Scientific Publications
-- [CSONET 2026](https://hoangtu.dev/research.md): Network-Aware Event Sequence Modeling for User-Behavior and System Log Anomaly Detection (Under Review, Springer LNCS · Scopus).
-- [SOICT 2026](https://hoangtu.dev/research.md): LLM-Augmented Log Anomaly Detection: Automated Root Cause Narration for AIOps using Lightweight Foundation Models on Real-World Campus Infrastructure (Under Review, Springer CCIS · Scopus, HUST x HCMUS).
-- [IEEE RIVF 2026](https://hoangtu.dev/research.md): Federated Edge-Cloud Resilience Architecture for Distributed Campus Networks (Under Review, IEEE Xplore · Scopus).
-- [ICAI-FAI 2026](https://hoangtu.dev/research.md): Decoupled AI-Native Security Architecture: Closed-Loop Threat Containment for Campus Networks (Under Review, CMC x Tsinghua x Steinbeis).
-- [VNICT 2026](https://hoangtu.dev/research.md): Application of TCN and Transformer Networks for Log Anomaly Detection in Large-Scale Enterprise and Industrial Networks (Accepted / Camera-Ready, National Proceedings · ISBN).
-- [GIGS 2026](https://hoangtu.dev/research.md): AI-Driven EdTech Risk & Cybersecurity Economics: Analyzing Student Data Governance and Financial Vulnerability in Emerging Markets (Under Review, FTU x Curtin University).
-- [SR-ICYREB 2026](https://hoangtu.dev/research.md): Regression Analysis of AI-Native Security Adoption and Operational Feasibility in Vietnamese Higher Education Institutions (Under Review, UEH).
-
-## Hackathons & Competitions
-- [HSU AI-Driven Challenge 2026](https://hoangtu.dev/certificates.md): 3rd Runner Up - Team Firewall404 (July - Aug 2026).
-- [Viettel AI Race 2026](https://hoangtu.dev/certificates.md): Participant (June - Sept 2026).
-- [Tsinghua University AI+Materials Competition 2026](https://hoangtu.dev/certificates.md): Finalist - 全球AI+材料创新应用大赛 (Apr - Aug 2026).
-- [QC4SG International Quantum Computing Hackathon 2026](https://hoangtu.dev/certificates.md): Finalist - Team QUASAR (Feb - July 2026).
-- [VinUniversity Datathon 'The Gridbreaker' 2026](https://hoangtu.dev/certificates.md): Ranked 10th / Top 50 Finalist - Team GenCore (May 2026).
-- [GenAI Express Demo Day GDG On Campus SGU 2026](https://hoangtu.dev/certificates.md): 2nd Runner Up - Team ThreatLens (Apr 2026).
-- [Tasco Foundry 2026](https://hoangtu.dev/certificates.md): Top 10 Finalist - Team CARO (May 2026).
-- [MongoDB Mini Hackathon 2026](https://hoangtu.dev/certificates.md): Ranked 2nd Finalist - Team Vector404 (Jan 2026).
-- [ByteDance TRAE SOLO 2026](https://hoangtu.dev/certificates.md): Participant (May 2026).
-- [HSU Vibe Coding Talents 2025](https://hoangtu.dev/certificates.md): Winner (Dec 2025).
-
-## Community & Ecosystem
-- [Agora Ambassador](https://hoangtu.dev/about.md): Official Ambassador promoting Real-Time Engagement (RTE) technologies.
-- [Google Developer Group HCMC](https://hoangtu.dev/about.md): Active Member participating in modern development & Google Cloud workshops.
-- [AWS First Cloud AI Journey](https://hoangtu.dev/about.md): Program participant focusing on AWS cloud architecture & AI/ML pipelines.
+- [Next Step Technology Solutions](https://hoangtu.dev/resume.md): AI Infra & Cloud Solutions Engineer (Jun 2026 – Present) — Cloudflare Workers AI, RAG, serverless pipelines.
+- [AWS Study Group VN](https://hoangtu.dev/resume.md): FCAJ Cloud Trainee - Cloud Security Builder (Sep 2025 – Present) — Serverless SOAR, Step Functions, GuardDuty.
+- [MVV Telecom](https://hoangtu.dev/resume.md): Software Engineer (Dec 2025 – Apr 2026) — Multi-camera monitoring, AI inference pipelines, Docker/Nginx.
 
 ## Key Projects
-- [Bảo An Auto](https://hoangtu.dev/projects.md): Zalo Mini App for Garage Management & Multi-Branch SaaS (React, TypeScript, Vite, Tailwind CSS, Zustand, Recharts).
-- [QUASAR](https://github.com/Muhammad-Rafif-Irfan/QUASAR): Classical-Quantum hybrid logistics routing engine combining Google OR-Tools with 127-qubit IBM QPU QAOA algorithms (QC4SG 2026 Finalist).
-- [sdn-its-resilience-ai](https://hoangtu.dev/projects.md): Hybrid TCN-GRU V2X network telemetry & SDN resilience framework (Tsinghua University IEDE).
-- [SecureCoating-Vision](https://hoangtu.dev/projects.md): Multi-source data fusion vision inspection system for real-time coating defect detection.
-- [OrangeCloud Insights](https://blog.orangecloud.vn): Serverless tech intelligence crawler and AI summarizer using Cloudflare Workflows, D1, R2, Vectorize.
-- [Foundry](https://hoangtu.dev/projects.md): AI-Powered Engineering Review & Code Intelligence Platform with ASP.NET Core 10, pgvector, and Next.js 15.
-- [CTSmartCam](https://hoangtu.dev/projects.md): Intelligent surveillance camera ecosystem with YOLOv11 LPR, Redis Streams event pipeline, and SignalR live feeds.
-- [Multi-Cloud Serverless SOAR](https://hoangtu.dev/projects.md): Event-driven incident response automation built across AWS and GCP.
+- [VETC AI Traffic Density](https://hoangtu.dev/projects/vetc-traffic-density): Real-time GIS corridor monitoring for VETC (40+ HCMC cameras). YOLOv11 + SAHI + BoT-SORT → Redis Streams → density G/Y/R on Leaflet; OSRM road snapping (1,499+ waypoints). Replaces inductive-loop sensors with existing-camera CV.
+- [SecureCoating-Vision](https://hoangtu.dev/projects/securecoating-vision): Evidence-gated electrode coating inspection (Tsinghua MSE Track 4). Fail-closed PASS/REJECT/HOLD gate on YOLO-seg; CoatingVision held-out mAP50 0.63; ~312 ms CPU pipeline.
+- [sdn-its-resilience-ai](https://hoangtu.dev/projects/sdn-its-resilience-ai): Hybrid TCN-GRU V2X telemetry & SDN resilience (Tsinghua IEDE).
+- [Bảo An Auto](https://hoangtu.dev/projects.md): Zalo Mini App garage SaaS (React, TypeScript, Supabase).
+- [QUASAR](https://github.com/Muhammad-Rafif-Irfan/QUASAR): Classical–quantum logistics routing (OR-Tools + IBM QPU QAOA); QC4SG 2026 Finalist.
+- [CTSmartCam](https://hoangtu.dev/projects.md): AI surveillance ecosystem (YOLOv11, Redis Streams, ASP.NET Core, Docker).
+- [Multi-Cloud Serverless SOAR](https://hoangtu.dev/projects.md): AWS/GCP automated incident containment (Terraform, Step Functions, Cloud Workflows).
+- [Foundry](https://hoangtu.dev/projects.md): AI engineering review & code intelligence platform.
+- [OrangeCloud Insights](https://blog.orangecloud.vn): Serverless tech intelligence crawler (Cloudflare Workflows, D1, R2, Vectorize).
 
-## OrangeCloud VN Tools
-- [Technical Blog](https://blog.orangecloud.vn): Technical rewritten Cloudflare news & architectural blog.
-- [Onboarding Guide](https://onboarding.orangecloud.vn): Cloudflare beginners guide & onboarding documentation.
-- [Go-Live Readiness](https://ready.orangecloud.vn): Interactive Cloudflare go-live validation & checklist tool.
-- [DocOps Platform](https://docops.orangecloud.vn): Documentation operations & developer hub.
-- [Reputation Engine](https://reputation.orangecloud.vn): Domain & IP reputation lookup engine.
+## Scientific Publications
+- [CSONET 2026](https://hoangtu.dev/research.md): Network-Aware Event Sequence Modeling for Log Anomaly Detection (Under Review, Springer LNCS · Scopus).
+- [SOICT 2026](https://hoangtu.dev/research.md): LLM-Augmented Log Anomaly Detection for AIOps (Under Review, Springer CCIS · Scopus).
+- [IEEE RIVF 2026](https://hoangtu.dev/research.md): Federated Edge-Cloud Resilience for Campus Networks (Under Review, IEEE Xplore · Scopus).
+- [ICAI-FAI 2026](https://hoangtu.dev/research.md): Decoupled AI-Native Security Architecture (Under Review, CMC × Tsinghua × Steinbeis).
+- [VNICT 2026](https://hoangtu.dev/research.md): TCN and Transformer for Enterprise Log Anomaly Detection (Accepted / Camera-Ready).
+- [GIGS 2026](https://hoangtu.dev/research.md): AI-Driven EdTech Risk & Cybersecurity Economics (Under Review, FTU × Curtin).
+- [SR-ICYREB 2026](https://hoangtu.dev/research.md): AI-Native Security Adoption in Vietnamese HEIs (Under Review, UEH).
 
-## Markdown Endpoints
-- [Profile & About](https://hoangtu.dev/about.md): Full biography, educational background, academic verification credentials.
-- [Resume & CV](https://hoangtu.dev/resume.md): Complete curriculum vitae and technical experience history.
-- [Projects](https://hoangtu.dev/projects.md): Full portfolio of engineering systems, open-source repositories, and hackathon projects.
-- [Certificates](https://hoangtu.dev/certificates.md): Complete index of industry certifications, academic awards, and competition rankings.
-- [Research & Publications](https://hoangtu.dev/research.md): Scientific publications, manuscripts, and technical deep-dive audits.
+## Hackathons & Competitions
+- [HSU AI-Driven Challenge 2026](https://hoangtu.dev/certificates.md): 3rd Runner Up - Team Firewall404.
+- [Tsinghua AI+Materials 2026](https://hoangtu.dev/certificates.md): Finalist — 全球AI+材料创新应用大赛.
+- [QC4SG 2026](https://hoangtu.dev/certificates.md): Finalist - Team QUASAR.
+- [VinUniversity Datathon Gridbreaker 2026](https://hoangtu.dev/certificates.md): Ranked 10th / Top 50 - Team GenCore.
+- [MongoDB Mini Hackathon 2026](https://hoangtu.dev/certificates.md): Ranked 2nd - Team Vector404.
+- [Tasco Foundry 2026](https://hoangtu.dev/certificates.md): Top 10 Finalist - Team CARO.
+- [HSU Vibe Coding Talents 2025](https://hoangtu.dev/certificates.md): Winner.
+- [GDG SGU GenAI Express 2026](https://hoangtu.dev/certificates.md): 2nd Runner Up - Team ThreatLens.
+
+## Community
+- Agora Ambassador (RTE) · Google Developer Group HCMC · AWS First Cloud AI Journey · former Google Student Ambassador (HUFLIT).
+
+## Markdown Endpoints (machine-readable)
+- [llms.txt](https://hoangtu.dev/llms.txt) (this file)
+- [about.md](https://hoangtu.dev/about.md)
+- [resume.md](https://hoangtu.dev/resume.md)
+- [projects.md](https://hoangtu.dev/projects.md)
+- [certificates.md](https://hoangtu.dev/certificates.md)
+- [research.md](https://hoangtu.dev/research.md)
